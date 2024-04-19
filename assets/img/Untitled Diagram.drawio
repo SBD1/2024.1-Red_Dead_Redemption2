@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-19T12:43:37.811Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="JDVix5ESrXYNfFJdSQIt" version="24.2.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-19T12:44:33.057Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="S5KOrBb6CMCSiWi5xfp9" version="24.2.5" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="285" dy="152" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="795" dy="425" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -118,23 +118,17 @@
         <mxCell id="MHSS6djbWjyrjED063CA-6" value="Cavalo" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="680" y="430" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="yV0FYIFKv9BxsQTMN04u-21" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="540" y="230" width="40" height="20" as="geometry" />
-        </mxCell>
         <mxCell id="MHSS6djbWjyrjED063CA-7" value="Moeda" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="585" y="310" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="yV0FYIFKv9BxsQTMN04u-22" value="&lt;font style=&quot;font-size: 7px;&quot;&gt;NPC&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="547.5" y="236.25" width="25" height="7.5" as="geometry" />
-        </mxCell>
         <mxCell id="MHSS6djbWjyrjED063CA-8" value="Gangue" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="460" y="160" width="70" height="20" as="geometry" />
+          <mxGeometry x="290" y="220" width="70" height="20" as="geometry" />
         </mxCell>
         <mxCell id="yV0FYIFKv9BxsQTMN04u-23" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="400" y="230" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="MHSS6djbWjyrjED063CA-9" value="Consumível" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="440" y="210" width="70" height="20" as="geometry" />
+          <mxGeometry x="290" y="183.75" width="70" height="20" as="geometry" />
         </mxCell>
         <mxCell id="yV0FYIFKv9BxsQTMN04u-24" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;Carteira&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="407.5" y="236.25" width="25" height="7.5" as="geometry" />
@@ -149,7 +143,7 @@
           <mxGeometry x="400" y="340" width="50" height="20" as="geometry" />
         </mxCell>
         <mxCell id="MHSS6djbWjyrjED063CA-13" value="Café" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="475" y="250" width="40" height="20" as="geometry" />
+          <mxGeometry x="460" y="270" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="MHSS6djbWjyrjED063CA-14" value="Animal" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="650" y="300" width="40" height="20" as="geometry" />
