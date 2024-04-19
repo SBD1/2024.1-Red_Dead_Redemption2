@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-19T13:58:00.599Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="LGlBZO_1VJwEkW-JKAmR" version="24.2.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-19T13:59:54.660Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="YbggxX02mbhujJgL5jmQ" version="24.2.5" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="726" dy="1437" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="878" dy="1508" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -30,9 +30,6 @@
         </mxCell>
         <mxCell id="MHSS6djbWjyrjED063CA-3" value="Coelho" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="280" y="490" width="40" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="MHSS6djbWjyrjED063CA-4" value="NPC" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="470" y="250" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="MHSS6djbWjyrjED063CA-5" value="Carroça" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="575" y="420" width="40" height="20" as="geometry" />
@@ -70,9 +67,6 @@
         <mxCell id="NFgqACAjN6bbBUPU2ulZ-2" value="Desafio" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="222.5" y="-120" width="50" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="NFgqACAjN6bbBUPU2ulZ-3" value="Jogador" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="435" y="180" width="45" height="20" as="geometry" />
-        </mxCell>
         <mxCell id="NFgqACAjN6bbBUPU2ulZ-4" value="Roupa" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="350" y="-60" width="40" height="20" as="geometry" />
         </mxCell>
@@ -87,9 +81,6 @@
         </mxCell>
         <mxCell id="NFgqACAjN6bbBUPU2ulZ-10" value="Fazenda" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="230" y="430" width="45" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="edTjm4dISCqz6r1TiSTo-12" value="Relationship" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="547" y="290" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="edTjm4dISCqz6r1TiSTo-13" value="Inventário" style="shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="1000" y="160" width="120" height="40" as="geometry" />
@@ -237,6 +228,12 @@
         </mxCell>
         <mxCell id="edTjm4dISCqz6r1TiSTo-54" value="Revólver" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="760" y="640" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="edTjm4dISCqz6r1TiSTo-55" value="Jogador" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="420" y="240" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="edTjm4dISCqz6r1TiSTo-56" value="NPC" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="560" y="240" width="100" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
