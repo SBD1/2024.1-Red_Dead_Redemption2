@@ -1,14 +1,53 @@
-<mxfile host="app.diagrams.net" modified="2024-04-19T12:34:12.941Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="qK3Gp3d-PVmPyJDWyzMJ" version="24.2.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-19T12:38:07.047Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="r_KCiD4R9B1-m_5vBiQQ" version="24.2.5" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="193" dy="103" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="246" dy="201" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="qxBlPj7kd-Hy3L1U8TbH-3" value="" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="400" y="110" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="yV0FYIFKv9BxsQTMN04u-1" value="Mapa" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="yV0FYIFKv9BxsQTMN04u-1" value="Mapa" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="407.5" y="116.25" width="25" height="7.5" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-1" value="Personagem" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="110" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-2" value="Árvore" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="150" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-3" value="Cavalo" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="140" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-4" value="Arma" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="170" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-5" value="Revólver" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="220" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-6" value="Pistola" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="260" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-7" value="Shotgun" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="220" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-8" value="Rifle" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="625" y="260" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-10" value="Faca" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="220" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-11" value="Faca" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="230" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-12" value="Bandagem" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="230" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-13" value="Garrafa" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="190" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PZfGzbShFNdAoiEEgzWy-14" value="Dinamite" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="160" width="60" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
