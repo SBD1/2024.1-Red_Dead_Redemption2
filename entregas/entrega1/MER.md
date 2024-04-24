@@ -17,8 +17,8 @@ Exibimos agora o DER concebido para o projeto Red Dead Redemption. É possível 
 
 Versões anteriores:
 
-- [v1.0]()
-- [v2.0]()
+- [v1.0](DER_v1.png)
+- [v2.0](DER_v2.png)
 - [v3.0]()
 - [vx.y (final)]()
 
