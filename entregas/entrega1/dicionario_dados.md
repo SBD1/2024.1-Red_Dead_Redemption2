@@ -31,14 +31,23 @@
 |  |  |  |  |  |
 
 
-### Tabela: Arma
+### Tabela: ARMA_FOGO
 
-- Descrição: 
+- Descrição: Armazena os tipos de armas de fogo disponíveis no jogo.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_arma | Chave de identificação das armas | int |  |  |
+| nome | Nome da arma | char | 15 |  |
+| descricao | Descrição da arma (e.g história de fabricação, material de fabricação) | char | 100 |  |
+| categoria | Tipo de arma (e.g.) |  |  |  |
+| preco | Preço necessário para comprar a arma de um NPC | int |  |  |
+| peso | Peso da arma (em kg). Diminui a stamina | int |  |  |
+| durabilidade | Quantidade de tiros (em centenas) que uma arma pode atirar até exigir reparo | int |  |  |
+| dano | Dano causado por um único projétil disparado pela arma  | int |  |  |
+| vel_reload | Tempo necessário para recarregar a arma (em ms) | int |  |  |
+| vel_disparo | Intervalo de tempo mínimo entre dois disparos (em ms) | int |  |  |
 
 
 ### Tabela: Classe
