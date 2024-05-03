@@ -31,6 +31,16 @@
 |  |  |  |  |  |
 
 
+### Tabela: Arma
+
+- Descrição: 
+- Observações: 
+
+| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+
 ### Tabela: ARMA_FOGO
 
 - Descrição: Armazena os tipos de armas de fogo disponíveis no jogo.
@@ -48,6 +58,16 @@
 | dano | Dano causado por um único projétil disparado pela arma  | int |  |  |
 | vel_reload | Tempo necessário para recarregar a arma (em ms) | int |  |  |
 | vel_disparo | Intervalo de tempo mínimo entre dois disparos (em ms) | int |  |  |
+
+
+### Tabela: Arma Melee
+
+- Descrição: 
+- Observações: 
+
+| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
 
 
 ### Tabela: Classe
@@ -151,6 +171,26 @@
 
 
 ### Tabela: Instância de Arma
+
+- Descrição: 
+- Observações: 
+
+| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+
+### Tabela: Instância de Arma de Fogo
+
+- Descrição: 
+- Observações: 
+
+| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+
+### Tabela: Instância de Arma Melee
 
 - Descrição: 
 - Observações: 
