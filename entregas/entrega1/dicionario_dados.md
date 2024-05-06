@@ -90,14 +90,16 @@
 |  |  |  |  |  |
 
 
-### Tabela: Diálogo
+### Tabela: DIÁLOGO
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre os diálogos falados pelos NPCs.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_diálogo | Código identificador do diálogo | int |  | pk |
+| id_instância_npc | Código identificador da instância de NPC que fala um determinado diálogo | int |  | fk |
+| descrição | Contextualização do diálogo | char | 100 | not null |
 
 
 ### Tabela: Equipável
@@ -262,14 +264,16 @@
 |  |  |  |  |  |
 
 
-### Tabela: Linha de Fala
+### Tabela: LINHA_FALA
 
-- Descrição: 
+- Descrição: Armazenará as linhas de fala de um diálogo. 
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_diálogo | Código identificador único do diálogo | int |  | fk |
+| id_linha_fala | Código identificador (fraco) da linha de fala | int |  | pk, identity |
+| texto_de_fala | Texto propriamento dito falado pelo personagem  | char | 150 | not null |
 
 
 ### Tabela: Mapa
