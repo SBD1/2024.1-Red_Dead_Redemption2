@@ -140,14 +140,16 @@
 |  |  |  |  |  |
 
 
-### Tabela: História
+### Tabela: HISTÓRIA
 
-- Descrição: 
+- Descrição: Armazenará as informações das histórias.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_história | Código de identificação único da história. | int |  | pk, identity |
+| título | Nome da história | char | 500 | sk |
+| enredo | Texto do enredo da história | char | 1000 | not null |
 
 
 ### Tabela: Hostil
@@ -280,14 +282,29 @@
 |  |  |  |  |  |
 
 
-### Tabela: Missão
+### Tabela: MISSÃO
 
-- Descrição: 
+- Descrição: Armazenará as informações das missões.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_missão | Código identificador único da missão | int |  | pk, identity |
+| título | Título da missão | char | 50 | sk |
+| nível_dificuldade | Nível dificuldade da missão | int |  | not null, default = 1, min = 1, max = 10 |
+| id_história | Código identificador da história contada na missão | int |  | fk |
+| id_região | Código identificador de qual região se passa uma determinada missão | int |  | fk |
+| status | Código de status da missão | int |  | not null, valores possíveis = {0: iniciado, 1: em andamento , 2: concluído} |
+
+### Tabela: MISSÃO_REQUER_MISSÃO
+
+- Descrição: Armazena as dependências entre as missões.
+- Observações: 
+
+| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
+| --- | --- | --- | --- | --- |
+| id_missão | Código identificador da missão. | int |  | pk, fk |
+| id_missão_requisito | Código identificador da missão-requisito | int |  | pk, fk |
 
 
 ### Tabela: NPC
@@ -300,14 +317,18 @@
 |  |  |  |  |  |
 
 
-### Tabela: Objetivo
+### Tabela: OBJETIVO
 
-- Descrição: 
+- Descrição: Armazenará os objetivos de uma missão.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_objetivo | Código de identificação único do objetivo. | int |  | pk, identity |
+| título | Descrição do objetivo. | char | 100 | sk |
+| retorno_xp | Total de xp's que um jogador receberá ao completar um determinado objetivo. | int |  | not null, default = 0 |
+| retorno_dinheiro | Total em moedas que um jogador receberá ao completar um determinado objetivo. | int |  | not null, default = 0 |
+| id_missão | Código identificador da missão à qual o objetivo pertence. | int |  | fk |
 
 
 ### Tabela: Personagem
