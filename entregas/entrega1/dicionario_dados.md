@@ -21,14 +21,20 @@
 |  |  |  |  |  |
 
 
-### Tabela: Animal
+### Tabela: ANIMAL
 
-- Descrição: 
+- Descrição: Armazenará as informações das espécies de animais.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_animal | Código identificador único do animal | int |  | pk, identity |
+| espécie | Nome da espécie do animal | char | 30 | sk |
+| habitat | Habitat onde vive uma espécie de animal | char | 20 |  |
+| velocidade | Velocidade de deslocamento de um animal | int |  | not null, default = 1 |
+| vida_máx | Vida máxima de uma espécie de animal | int |  | not null, default = 30 (máx = 100) |
+| stamina_máx | Energia máxima que uma espécie possui para se movimentar  | int |  | not null, default = 100 |
+| textura | Textura da pele/escama da espécie | char | 10 |  |
 
 
 ### Tabela: Arma
@@ -164,14 +170,17 @@
 |  |  |  |  |  |
 
 
-### Tabela: Instância de Animal
+### Tabela: INSTÂNCIA_ANIMAL
 
-- Descrição: 
+- Descrição: Armazenará as informações das instâncias de animais vivas no jogo.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_instância_animal | Código identificador da instância do animal | int |  | pk, identity |
+| id_animal | Código identificador da espécie de animal | int |  | fk |
+| vida_atual | Vida atual de uma instância de animal | int |  | not null |
+| stamina_atual | Energia atual que a instância tem para se movimentar | int |  | not null |
 
 
 ### Tabela: Instância de Arma
@@ -276,14 +285,15 @@
 | texto_de_fala | Texto propriamento dito falado pelo personagem  | char | 150 | not null |
 
 
-### Tabela: Mapa
+### Tabela: MAPA
 
-- Descrição: 
+- Descrição: Armazenará as informações dos mapas do jogo.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_mapa | Código identificador único do mapa | int |  | pk, identity |
+| nome | Nome do mapa | char | 20 | not null |
 
 
 ### Tabela: MISSÃO
@@ -355,11 +365,25 @@
 |  |  |  |  |  |
 
 
-### Tabela: Região
+### Tabela: REGIÃO
 
-- Descrição: 
+- Descrição: Armazenará as informações das regiões do jogo.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_região | Código identificador único da região | int |  | pk, identity |
+| id_mapa | Código identificador do mapa ao qual a região pertence | int |  | fk |
+| nome | Nome da região | char | 15 | not null |
+| descrição | Descrição da região | char | 50 | not null |
+
+### Tabela: REGIÃO_FAZ_FRONTEIRA_COM_REGIÃO
+
+- Descrição: Armazenará as informações de como as regiões de um mapa se conectam.
+- Observações: 
+
+| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
+| --- | --- | --- | --- | --- |
+| id_mapa | Código identificador do mapa ao qual a região pertence | int |  | pk, fk |
+| id_região | Código identificador único da região | int |  | pk, fk |
+| id_região | Código identificador único da região fronteiriça | int |  | pk, fk |
