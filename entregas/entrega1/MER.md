@@ -11,15 +11,15 @@ Exibimos agora o DER concebido para o projeto Red Dead Redemption. É possível 
 ### Versão x.y
 
 <div align="center">
-    <img src="">
+    <img src="/entregas/entrega1/DER/anteriores/DER_v3.1.png">
     Imagem 1: DER
 </div>
 
 Versões anteriores:
 
-- [v1.0](DER_v1.png)
-- [v2.0](DER_v2.png)
-- [v3.0]()
+- [v1.0](/entregas/entrega1/DER/anteriores/DER_v1.png)
+- [v2.0](/entregas/entrega1/DER/anteriores/DER_v2.png)
+- [v3.0](/entregas/entrega1/DER/anteriores/DER_v3.png)
 - [vx.y (final)]()
 
 ## Bibliografia
