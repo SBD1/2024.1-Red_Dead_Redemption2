@@ -119,14 +119,16 @@
 |  |  |  |  |  |
 
 
-### Tabela: Estabelecimento
+### Tabela: ESTABELECIMENTO
 
-- Descrição: 
+- Descrição: Armazenará as informações dos tipos de estalecimentos que gerarão instâncias no jogo.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_estabelecimento | Código identificador do tipo de estabelecimento | int |  | pk, identity |
+| nome | Nome do estabelecimento | int |  | sk |
+| descrição | Descrição do estabelecimento | char | 50 | not null |
 
 
 ### Tabela: GANGUE
@@ -220,15 +222,16 @@
 |  |  |  |  |  |
 
 
-### Tabela: Instância de Estabelecimento
+### Tabela: INSTÂNCIA_ESTABELECIMENTO
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre as instâncias de estabelecimento que serão geradas no jogo.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
-
+| id_estab | Código identificador do tipo de estabelecimento | int |  | pk |
+| id_região | Código da região onde instância do estabelecimento se encontra | int |  | pk |
+| id_instância_npc_dono | Código da instância de NPC proprietária da instância do estabelecimento | int |  | pk |
 
 ### Tabela: Instância de Item
 
@@ -240,14 +243,18 @@
 |  |  |  |  |  |
 
 
-### Tabela: Instância de NPC
+### Tabela: INSTÂNCIA_NPC
 
-- Descrição: 
+- Descrição: Armazenará as informações relativas às instâncias de NPC.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_instância_npc | Código identificador da instância de NPC | int |  | pk, identity |
+| id_npc | Código do tipo de NPC à qual a instância pertence | int |  | fk |
+| vida_atual | Vida atual da instância | int |  | not null |
+| stamina_atual | Stamina atual da instância | int |  | not null |
+| id_missão | Código da missão que uma instância participa. Pode ser nulo (não participa de nenhuma missão) | int |  |  |
 
 
 ### Tabela: INVENTÁRIO
