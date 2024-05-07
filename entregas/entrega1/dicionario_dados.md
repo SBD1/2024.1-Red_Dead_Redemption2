@@ -76,14 +76,15 @@
 |  |  |  |  |  |
 
 
-### Tabela: Classe
+### Tabela: CLASSE
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre as classes de personagens.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_classe | Código identificador único da classe | int |  | pk, identity |
+| nome | Nome da classe | char | 12 | sk |
 
 
 ### Tabela: Consumível
@@ -128,24 +129,30 @@
 |  |  |  |  |  |
 
 
-### Tabela: Gangue
+### Tabela: GANGUE
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre as formações de gangues rivais no jogo.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_gangue | Código identificador único da gangue | int |  | pk, identity |
+| nome | Nome da gangue | char | 20 | sk |
+| descrição | Informações importantes para a caracterização da gangue | char | 60 |  |
+| id_personagem_líder | Id do personagem que lidera a gangue (jogador ou instância de NPC) | int |  | fk |
 
 
-### Tabela: Habilidade
+### Tabela: HABILIDADE
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre as habilidades de uma classe.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_habilidade | Código identificador único da habilidade | int |  | pk, identity |
+| nome | Nome da habilidade | char | 15 | sk |
+| porcentagem | Porcentagem da habilidade que será acrescida às capacidades existentes do personagem | float |  | not null, min = 0.0, max = 1.0 |
+| id_classe | Id da classe à qual pertence a habilidade | int |  | fk |
 
 
 ### Tabela: HISTÓRIA
@@ -243,14 +250,17 @@
 |  |  |  |  |  |
 
 
-### Tabela: Inventário
+### Tabela: INVENTÁRIO
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre o inventário dos personagens (jogadores e instâncias de NPC).
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_inventário | Código identificador do inventário | int |  | pk, identity |
+| id_personagem | Código identificador do dono do inventário | int |  | fk |
+| capacidade | Total de itens que um inventário pode suportar | int |  | not null, default = 30 |
+| total_itens | Total de itens presentes em um inventário | int |  | min = 0, max = capacidade |
 
 
 ### Tabela: Item
@@ -263,14 +273,20 @@
 |  |  |  |  |  |
 
 
-### Tabela: Jogador
+### Tabela: JOGADOR
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre os jogadores (pessoas reais).
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_personagem | Código identificador único do personagem | int |  | pk, identity |
+| nome | Nome do personagem | char | 12 | not null |
+| velocidade | Velocidade máxima com que um personagem consegue se deslocar | int |  | not null, min = 1, max = 10 |
+| id_inventário | Código identificador do inventário de um jogador | int |  | fk |
+| vida_máx | Vida que o jogador recebe ao ser gerado | int |  | not null, default = 100 |
+| id_classe | Código identificador da classe do personagem | int |  | fk |
+| id_gangue | Código identificador da gangue à qual pertence um jogador | int |  |  |
 
 
 ### Tabela: LINHA_FALA
@@ -343,16 +359,6 @@
 | retorno_xp | Total de xp's que um jogador receberá ao completar um determinado objetivo. | int |  | not null, default = 0 |
 | retorno_dinheiro | Total em moedas que um jogador receberá ao completar um determinado objetivo. | int |  | not null, default = 0 |
 | id_missão | Código identificador da missão à qual o objetivo pertence. | int |  | fk |
-
-
-### Tabela: Personagem
-
-- Descrição: 
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
 
 
 ### Tabela: Projétil
