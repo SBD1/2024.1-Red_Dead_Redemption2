@@ -42,8 +42,10 @@ Red Dead Redemption 2 é um jogo de ação e aventura em mundo aberto desenvolvi
 
 ## Entrega 1
     
-[Diagrama Entidade-Relacionamento]()
+[Diagrama Entidade-Relacionamento](entregas/entrega1/MER.md)
     
-[Modelo Relacional]()
+[Modelo Relacional](entregas/entrega1/MREL.md)
+
+[Dicionário de Dados](entregas/entrega1/dicionario_dados.md)
 
 [Apresentação]()
