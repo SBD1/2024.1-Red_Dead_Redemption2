@@ -251,10 +251,11 @@
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
 | id_instância_npc | Código identificador da instância de NPC | int |  | pk, identity |
-| id_npc | Código do tipo de NPC à qual a instância pertence | int |  | fk |
+| id_npc | Código do tipo de NPC ao qual a instância pertence | int |  | fk |
+| id_inventário | Código identificador do inventário de um jogador | int |  | fk |
+| id_gangue | Código identificador da gangue à qual pertence um jogador | int |  | fk |
 | vida_atual | Vida atual da instância | int |  | not null |
-| stamina_atual | Stamina atual da instância | int |  | not null |
-| id_missão | Código da missão que uma instância participa. Pode ser nulo (não participa de nenhuma missão) | int |  |  |
+| id_missão | Código da missão que uma instância participa. Pode ser nulo (não participa de nenhuma missão) | int |  | fk |
 
 
 ### Tabela: INVENTÁRIO
@@ -270,14 +271,29 @@
 | total_itens | Total de itens presentes em um inventário | int |  | min = 0, max = capacidade |
 
 
-### Tabela: Item
+### Tabela: ITEM_CONSUMÍVEL
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre os tipos de itens consumíveis do jogo.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_item | Código identificador único do item | int |  | pk, identity |
+| nome | Nome do item | char | 10 | not null |
+| reparação_vida | Quantidade de pontos de vida que o jogador receberá ao consumir o item | int |  | not null |
+| reparação_stamina | Quantidade de pontos de stamina que o jogador receberá ao consumir o item | int |  | not null |
+
+### Tabela: ITEM_EQUIPÁVEL
+
+- Descrição: Armazenará as informações sobre os tipos de itens equipáveis do jogo.
+- Observações: 
+
+| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
+| --- | --- | --- | --- | --- |
+| id_item | Código identificador único do item | int |  | pk, identity |
+| nome | Nome do item | char | 10 | not null |
+| parte_corpo | Parte do corpo que o item cobre | char | 10 | not null |
+
 
 
 ### Tabela: JOGADOR
@@ -294,6 +310,12 @@
 | vida_máx | Vida que o jogador recebe ao ser gerado | int |  | not null, default = 100 |
 | id_classe | Código identificador da classe do personagem | int |  | fk |
 | id_gangue | Código identificador da gangue à qual pertence um jogador | int |  |  |
+| xp | Quantidade de xp do jogador | int |  | default = 0 |
+| dinheiro | Quantidade de dinheiro em moedas do jogador | int |  | default = 0 |
+| vida_max | Vida máxima do jogador | int |  |  |
+| vida_atual | Vida atual do jogador | int |  | default = vida_max |
+| stamina_max | Quantidade de stamina máxima do jogador | int |  |  |
+| stamina_atual | Quantidade de stamina atual do jogador | int |  | default = 0 |
 
 
 ### Tabela: LINHA_FALA
@@ -346,13 +368,16 @@
 
 ### Tabela: NPC
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre os tipos de NPCS disponíveis no jogo.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
-
+| id_npc | Código identificador único do NPC | int |  | pk, identity |
+| nome | Nome do NPC | char | 12 | not null |
+| velocidade | Velocidade máxima com que um NPC consegue se deslocar | int |  | not null, min = 1, max = 10 |
+| vida_máx | Vida que o jogador recebe ao ser gerado | int |  | not null, default = 100 |
+| id_classe | Código identificador da classe do personagem | int |  | fk |
 
 ### Tabela: OBJETIVO
 
@@ -368,14 +393,20 @@
 | id_missão | Código identificador da missão à qual o objetivo pertence. | int |  | fk |
 
 
-### Tabela: Projétil
+### Tabela: PROJÉTIL
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre os projéteis disparados no mapa pelos personagens.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_projétil | Código identificador único do projétil disparado | int |  | pk, identity |
+| id_inst_arma_fogo | Código da instância da arma de fogo que disparou o projétil | int |  | fk |
+| posição_x | Posição x atual do projétil no mapa | int |  | not null |
+| posição_y | Posição y atual do projétil no mapa | int |  | not null |
+| posição_z | Posição z atual do projétil no mapa | int |  | not null |
+| colidiu | Registra se o projétil colidiu com algum objeto do mapa | bool |  | not null, default = false |
+| velocidade | Velocidade de deslocamento do projétil | int |  | not null, default = 500 |
 
 
 ### Tabela: REGIÃO
