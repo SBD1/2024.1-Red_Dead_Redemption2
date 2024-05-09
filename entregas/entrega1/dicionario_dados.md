@@ -11,7 +11,18 @@
 | --- | --- | --- | --- | --- |
 |  |  |  |  |  | -->
 
-### Tabela: Amigável
+
+### Tabela: ANIMAL_AMIGÁVEL
+
+- Descrição: 
+- Observações: 
+
+| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+
+### Tabela: ANIMAL_HOSTIL
 
 - Descrição: 
 - Observações: 
@@ -37,16 +48,6 @@
 | textura | Textura da pele/escama da espécie | char | 10 |  |
 
 
-### Tabela: Arma
-
-- Descrição: 
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
-
-
 ### Tabela: ARMA_FOGO
 
 - Descrição: Armazena os tipos de armas de fogo disponíveis no jogo.
@@ -54,7 +55,7 @@
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-| id_arma | Chave de identificação das armas | int |  |  |
+| id_arma_fogo | Chave de identificação das armas | int |  |  |
 | nome | Nome da arma | char | 15 |  |
 | descricao | Descrição da arma (e.g história de fabricação, material de fabricação) | char | 100 |  |
 | categoria | Tipo de arma (e.g.) |  |  |  |
@@ -66,14 +67,21 @@
 | vel_disparo | Intervalo de tempo mínimo entre dois disparos (em ms) | int |  |  |
 
 
-### Tabela: Arma Melee
+### Tabela: ARMA_MELEE
 
-- Descrição: 
+- Descrição: Armazena os tipos de armas de fogo disponíveis no jogo.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_arma_melee | Chave de identificação das armas | int |  |  |
+| nome | Nome da arma | char | 15 |  |
+| descricao | Descrição da arma (e.g história de fabricação, material de fabricação) | char | 100 |  |
+| categoria | Tipo de arma |  |  |  |
+| preco | Preço necessário para comprar a arma de um NPC | int |  |  |
+| peso | Peso da arma (em kg). Diminui a stamina | int |  |  |
+| durabilidade | Quantidade de ataques que uma arma pode atirar até exigir reparo | int |  |  |
+| dano | Dano causado por um ataque | int |  |  |
 
 
 ### Tabela: CLASSE
@@ -87,16 +95,6 @@
 | nome | Nome da classe | char | 12 | sk |
 
 
-### Tabela: Consumível
-
-- Descrição: 
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
-
-
 ### Tabela: DIÁLOGO
 
 - Descrição: Armazenará as informações sobre os diálogos falados pelos NPCs.
@@ -107,16 +105,6 @@
 | id_diálogo | Código identificador do diálogo | int |  | pk |
 | id_instância_npc | Código identificador da instância de NPC que fala um determinado diálogo | int |  | fk |
 | descrição | Contextualização do diálogo | char | 100 | not null |
-
-
-### Tabela: Equipável
-
-- Descrição: 
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
 
 
 ### Tabela: ESTABELECIMENTO
@@ -169,16 +157,6 @@
 | enredo | Texto do enredo da história | char | 1000 | not null |
 
 
-### Tabela: Hostil
-
-- Descrição: 
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
-
-
 ### Tabela: INSTÂNCIA_ANIMAL
 
 - Descrição: Armazenará as informações das instâncias de animais vivas no jogo.
@@ -192,34 +170,28 @@
 | stamina_atual | Energia atual que a instância tem para se movimentar | int |  | not null |
 
 
-### Tabela: Instância de Arma
+### Tabela: INSTÂNCIA_ARMA_FOGO
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre as instâncias de armas de fogo.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_inst_arma_fogo | Código identificador único da instância de arma de fogo | int |  | pk, identity |
+| id_arma_fogo | Código identificador do tipo de arma | int |  | fk |
+| id_inventário | Código do inventário do personagem que utiliza a instância da arma | int |  | fk |
 
 
-### Tabela: Instância de Arma de Fogo
+### Tabela: INSTÂNCIA_ARMA_MELEE
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre as instâncias de armas melee.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
-
-
-### Tabela: Instância de Arma Melee
-
-- Descrição: 
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_inst_arma_melee | Código identificador único da instância de arma melee | int |  | pk, identity |
+| id_arma_melee | Código identificador do tipo de arma | int |  | fk |
+| id_inventário | Código do inventário do personagem que utiliza a instância da arma | int |  | fk |
 
 
 ### Tabela: INSTÂNCIA_ESTABELECIMENTO
@@ -233,14 +205,17 @@
 | id_região | Código da região onde instância do estabelecimento se encontra | int |  | pk |
 | id_instância_npc_dono | Código da instância de NPC proprietária da instância do estabelecimento | int |  | pk |
 
-### Tabela: Instância de Item
+### Tabela: INSTÂNCIA_ITEM
 
-- Descrição: 
+- Descrição: Armazenará as informações sobre as instâncias de item. 
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| id_inst_item | Código identificador único da instância de item  | int |  | pk, identity |
+| id_item | Código do tipo de item | int |  | fk |
+| id_inventário | Código do inventário ao qual o a instância está depositada | int |  | fk |
+| tipo | Consumível ou Equipável | int |  | Consumível = 0, Equipável = 1 |
 
 
 ### Tabela: INSTÂNCIA_NPC
