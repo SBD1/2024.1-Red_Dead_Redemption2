@@ -12,26 +12,6 @@
 |  |  |  |  |  | -->
 
 
-### Tabela: ANIMAL_AMIGÁVEL
-
-- Descrição: 
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
-
-
-### Tabela: ANIMAL_HOSTIL
-
-- Descrição: 
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
-
-
 ### Tabela: ANIMAL
 
 - Descrição: Armazenará as informações das espécies de animais.
@@ -46,6 +26,17 @@
 | vida_máx | Vida máxima de uma espécie de animal | int |  | not null, default = 30 (máx = 100) |
 | stamina_máx | Energia máxima que uma espécie possui para se movimentar  | int |  | not null, default = 100 |
 | textura | Textura da pele/escama da espécie | char | 10 |  |
+
+
+### Tabela: ANIMAL_POSSUI_ATAQUE
+
+- Descrição: Armazenará os tipos de ataques que uma uma espécie de animal possui.
+- Observações: 
+
+| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
+| --- | --- | --- | --- | --- |
+| id_animal | Código identificador do animal | int |  | pk, fk |
+| id_ataque | Código identificador do ataque | int |  | pk, fk |
 
 
 ### Tabela: ARMA_FOGO
