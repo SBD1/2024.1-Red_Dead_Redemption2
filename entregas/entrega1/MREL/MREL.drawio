@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-22T00:44:16.570Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="c8DyxZEFhiEnBI6KARn8" version="24.6.1" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-22T00:49:25.093Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="KS5G5eTu64DkRgtRyysJ" version="24.6.1" type="github">
   <diagram name="Página-1" id="fXSYrHH0r40WF7RT9Ph7">
     <mxGraphModel dx="1834" dy="3180" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -143,8 +143,8 @@
         <mxCell id="YPDBUU_ndnuOFF8qk_qy-9" value="&lt;b&gt;ARMA&lt;/b&gt; {&lt;u&gt;&lt;b&gt;id_arma(PK),&lt;/b&gt;&lt;/u&gt; nome, descrição, categoria, preço, peso, durabilidade, dano}" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
           <mxGeometry x="-284" y="-760" width="453" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="YPDBUU_ndnuOFF8qk_qy-10" value="&lt;b&gt;INSTANCIA_ARMA&lt;/b&gt; {&lt;u&gt;&lt;b&gt;id_instacia_arma(PK),id_personagem(PK,FK),&amp;nbsp;id_arma(PK,FK)}&lt;/b&gt;&lt;/u&gt;" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-283" y="-720" width="481" height="30" as="geometry" />
+        <mxCell id="YPDBUU_ndnuOFF8qk_qy-10" value="&lt;b&gt;INSTANCIA_ARMA_FOGO{}&lt;/b&gt;" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-283" y="-601" width="164" height="30" as="geometry" />
         </mxCell>
         <mxCell id="YPDBUU_ndnuOFF8qk_qy-11" value="&lt;b&gt;HABILIDADES&lt;/b&gt;&amp;nbsp;{&lt;u&gt;&lt;b&gt;id_classe(PK),&lt;/b&gt;&lt;/u&gt; nome, porcentagem}" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
           <mxGeometry x="-284" y="-800" width="291" height="30" as="geometry" />
@@ -154,6 +154,15 @@
         </mxCell>
         <mxCell id="YPDBUU_ndnuOFF8qk_qy-14" value="&lt;b&gt;ARMA MELEE&lt;/b&gt;&amp;nbsp;{}" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
           <mxGeometry x="-285" y="-640" width="102" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YPDBUU_ndnuOFF8qk_qy-15" value="&lt;b&gt;INSTANCIA_ARMA&lt;/b&gt; {&lt;u&gt;&lt;b&gt;id_instacia_arma(PK),id_personagem(PK,FK),&amp;nbsp;id_arma(PK,FK)}&lt;/b&gt;&lt;/u&gt;" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-283" y="-720" width="481" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YPDBUU_ndnuOFF8qk_qy-16" value="&lt;b&gt;INSTANCIA_ARMA_MELEE&lt;/b&gt;&amp;nbsp;{&lt;u&gt;&lt;b&gt;}&lt;/b&gt;&lt;/u&gt;" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-284" y="-560" width="174" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YPDBUU_ndnuOFF8qk_qy-18" value="&lt;b&gt;PROJÉTIL&lt;/b&gt;&amp;nbsp;{&lt;b&gt;&lt;u&gt;id_projetil(PK), id_instacia_arma(PK,FK)&lt;/u&gt;&lt;/b&gt;, pos_x, pox_y, pos_z, colidiu&lt;u&gt;&lt;b&gt;}&lt;/b&gt;&lt;/u&gt;" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-284" y="-520" width="464" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
