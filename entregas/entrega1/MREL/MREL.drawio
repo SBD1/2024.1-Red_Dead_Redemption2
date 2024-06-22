@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-22T00:49:25.093Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="KS5G5eTu64DkRgtRyysJ" version="24.6.1" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-22T01:00:44.050Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="R6hoCQernNUeUEzwySiY" version="24.6.1" type="github">
   <diagram name="Página-1" id="fXSYrHH0r40WF7RT9Ph7">
     <mxGraphModel dx="1834" dy="3180" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -101,11 +101,11 @@
         <mxCell id="FPdHVrewZq1G3l7FEMrT-29" value="&lt;b&gt;INSTANCIA_NPC&lt;/b&gt; {&lt;u&gt;&lt;b&gt;id_inst_npc(PK), id_npc(NK, FK), id_personagem(PK, FK)&lt;/b&gt;&lt;/u&gt;, vida_atual, stamina_atual}" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" parent="1" vertex="1">
           <mxGeometry x="-284" y="-1360" width="585" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="FPdHVrewZq1G3l7FEMrT-30" value="&lt;b&gt;DIÁLOGO&lt;/b&gt;&amp;nbsp;{&lt;u&gt;&lt;b&gt;id_dialogo(PK),&lt;/b&gt;&lt;/u&gt; descrição, linhas_fala}" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-298" y="-1320" width="308" height="30" as="geometry" />
+        <mxCell id="FPdHVrewZq1G3l7FEMrT-30" value="&lt;b&gt;DIÁLOGO&lt;/b&gt;&amp;nbsp;{&lt;u&gt;&lt;b&gt;id_dialogo(PK),&lt;/b&gt;&lt;/u&gt; descrição,&lt;u style=&quot;&quot;&gt; linhas_fala(FK)&lt;/u&gt;}" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-285" y="-1320" width="308" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="FPdHVrewZq1G3l7FEMrT-32" value="&lt;b&gt;LINHAS_FALA&lt;/b&gt;&amp;nbsp;{&lt;u&gt;&lt;b&gt;id_dialogo(PK, FK), id_linha_de_fala(PK,FK)&lt;/b&gt;&lt;/u&gt;, texto_fala}" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-286" y="-1280" width="414" height="30" as="geometry" />
+        <mxCell id="FPdHVrewZq1G3l7FEMrT-32" value="&lt;b&gt;LINHAS_FALA&lt;/b&gt;&amp;nbsp;{&lt;u&gt;&lt;b&gt;id_dialogo(PK, FK), id_linha_de_fala(PK)&lt;/b&gt;&lt;/u&gt;&amp;nbsp;texto_fala}" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-297" y="-1280" width="414" height="30" as="geometry" />
         </mxCell>
         <mxCell id="FPdHVrewZq1G3l7FEMrT-33" value="&lt;b&gt;MISSÃO&lt;/b&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%26lt%3Bb%26gt%3BLINHAS_FALA%26lt%3B%2Fb%26gt%3B%26amp%3Bnbsp%3B%7Bid_dialogo(PK)%2C%20id_linha_de_fala(PK)%2C%20texto_fala%7D%22%20style%3D%22text%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3Bhtml%3D1%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22-282%22%20y%3D%22-1280%22%20width%3D%22352%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphMo&lt;/span&gt;&amp;nbsp;{&lt;u&gt;&lt;b&gt;id_missão(PK)&lt;/b&gt;&lt;/u&gt;, título, nível_dificuldade, &lt;u&gt;personagens (FK)&lt;/u&gt;, objetivos(FK), história, &lt;u&gt;região(FK)&lt;/u&gt;, missão_requisito}" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" parent="1" vertex="1">
           <mxGeometry x="-284" y="-1240" width="664" height="30" as="geometry" />
@@ -146,8 +146,8 @@
         <mxCell id="YPDBUU_ndnuOFF8qk_qy-10" value="&lt;b&gt;INSTANCIA_ARMA_FOGO{}&lt;/b&gt;" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
           <mxGeometry x="-283" y="-601" width="164" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="YPDBUU_ndnuOFF8qk_qy-11" value="&lt;b&gt;HABILIDADES&lt;/b&gt;&amp;nbsp;{&lt;u&gt;&lt;b&gt;id_classe(PK),&lt;/b&gt;&lt;/u&gt; nome, porcentagem}" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-284" y="-800" width="291" height="30" as="geometry" />
+        <mxCell id="YPDBUU_ndnuOFF8qk_qy-11" value="&lt;b&gt;HABILIDADE&lt;/b&gt;&amp;nbsp;{&lt;u&gt;&lt;b&gt;id_classe(PK),&lt;/b&gt;&lt;/u&gt; nome, porcentagem}" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-287" y="-800" width="291" height="30" as="geometry" />
         </mxCell>
         <mxCell id="YPDBUU_ndnuOFF8qk_qy-13" value="&lt;b&gt;ARMA_FOGO&lt;/b&gt;&amp;nbsp;{&lt;b style=&quot;text-decoration-line: underline;&quot;&gt;id_arma_fogo(PK),&lt;/b&gt;velocidade_disparo, velocidade_reload&lt;b style=&quot;text-decoration-line: underline;&quot;&gt;}&lt;/b&gt;" style="text;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;html=1;" vertex="1" parent="1">
           <mxGeometry x="-285" y="-680" width="414" height="30" as="geometry" />
