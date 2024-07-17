@@ -12,20 +12,20 @@
 |  |  |  |  |  | -->
 
 
-### Tabela: ANIMAL
+### Tabela: ANIMAL_HOSTIL
 
 - Descrição: Armazenará as informações das espécies de animais.
 - Observações: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_animal | Código identificador único do animal | int |  | pk, identity |
-| espécie | Nome da espécie do animal | char | 30 | sk |
-| habitat | Habitat onde vive uma espécie de animal | char | 20 |  |
-| velocidade | Velocidade de deslocamento de um animal | int |  | not null, default = 1 |
-| vida_máx | Vida máxima de uma espécie de animal | int |  | not null, default = 30 (máx = 100) |
-| stamina_máx | Energia máxima que uma espécie possui para se movimentar  | int |  | not null, default = 100 |
-| textura | Textura da pele/escama da espécie | char | 10 |  |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| id_animal | Código identificador único do animal | int | 1-5000 | pk |
+| habitat | Habitat onde vive uma espécie de animal | vachar[20] | a-z, A-Z |  |
+| espécie | Nome da espécie do animal | vachar[30] | a-z, A-Z |  |
+| velocidade | Velocidade de deslocamento de um animal | int | 1-50 | | not null, default = 1 |
+| vida_máx | Vida máxima de uma espécie de animal | int | 1-100 | | not null, default = 30 (máx = 100) |
+| stamina_máx | Energia máxima que uma espécie possui para se movimentar | int | 1-100 | | not null, default = 100 |
+| textura | Textura da pele/escama da espécie | vachar[20] | a-z, A-Z |  |
 
 
 ### Tabela: ANIMAL_POSSUI_ATAQUE
@@ -214,7 +214,7 @@
 - Descrição: Armazenará as informações relativas às instâncias de NPC.
 - Observações: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
+| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |              
 | --- | --- | --- | --- | --- |
 | id_instância_npc | Código identificador da instância de NPC | int |  | pk, identity |
 | id_npc | Código do tipo de NPC ao qual a instância pertence | int |  | fk |
