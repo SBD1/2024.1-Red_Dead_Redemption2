@@ -62,6 +62,15 @@
 | staminaAtual | Energia atual do animal | int | 1-100 |  | not null |
 | textura | Tipo de textura da pele do animal | vachar[30] | a-z, A-Z | | not null |
 
+### Tabela: JOGADOR_DOMA_ANIMAL_AMIGÁVEL
+
+- Descrição da Tabela: Esta tabela registra os casos em que um jogador conseguiu domesticar um animal amigável. Cada registro na tabela associa um jogador a uma instância específica de um animal amigável que ele domou.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idInstanciaAnimal | Código identificador único da instancia animal | int | 1-5000 | pk, fk1 | not null |
+| idPersonagem | Código identificador único de um personagem (Jogador) | int | 1-5000 | pk,fk2 | not null |
+
 ### Tabela: ANIMAL_HOSTIL_POSSUI_ATAQUE
 
 - Descrição da Tabela: Tabela que relaciona animais hostis com seus modos de ataque, indicando quais ataques cada animal pode realizar.
@@ -81,75 +90,75 @@
 | descricao | Descreve como o animal realiza o seu ataque | vachar[100] | a-z, A-Z | | not null |
 | dano | Valor do dano que o animal realiza ao atacar | int | 1-200 |  | not null |
 
-### Tabela: ARMA_FOGO
+### Tabela: ANIMAL_HOSTIL_ATACA_JOGADOR
 
-- Descrição: Armazena os tipos de armas de fogo disponíveis no jogo.
-- Observações: 
+- Descrição da Tabela: Esta tabela registra os eventos em que um animal hostil atacou um jogador. Cada registro na tabela associa um jogador a uma instância específica de um animal hostil que o atacou.
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_arma_fogo | Chave de identificação das armas | int |  |  |
-| nome | Nome da arma | char | 15 |  |
-| descricao | Descrição da arma (e.g história de fabricação, material de fabricação) | char | 100 |  |
-| categoria | Tipo de arma (e.g.) |  |  |  |
-| preco | Preço necessário para comprar a arma de um NPC | int |  |  |
-| peso | Peso da arma (em kg). Diminui a stamina | int |  |  |
-| durabilidade | Quantidade de tiros (em centenas) que uma arma pode atirar até exigir reparo | int |  |  |
-| dano | Dano causado por um único projétil disparado pela arma  | int |  |  |
-| vel_reload | Tempo necessário para recarregar a arma (em ms) | int |  |  |
-| vel_disparo | Intervalo de tempo mínimo entre dois disparos (em ms) | int |  |  |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idInstanciaAnimal | Código identificador único da instancia animal | int | 1-5000 | pk, fk1 | not null |
+| idPersonagem | Código identificador único de um personagem | int | 1-5000 | pk,fk2 | not null |
 
+### Tabela: PERSONAGEM_TIPO
 
-### Tabela: ARMA_MELEE
+- Descrição da Tabela: Tabela que identifica o tipo de cada animal no sistema.
 
-- Descrição: Armazena os tipos de armas de fogo disponíveis no jogo.
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_arma_melee | Chave de identificação das armas | int |  |  |
-| nome | Nome da arma | char | 15 |  |
-| descricao | Descrição da arma (e.g história de fabricação, material de fabricação) | char | 100 |  |
-| categoria | Tipo de arma |  |  |  |
-| preco | Preço necessário para comprar a arma de um NPC | int |  |  |
-| peso | Peso da arma (em kg). Diminui a stamina | int |  |  |
-| durabilidade | Quantidade de ataques que uma arma pode atirar até exigir reparo | int |  |  |
-| dano | Dano causado por um ataque | int |  |  |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idPersonagem | Código identificador único de um personagem | int | 1-5000 | pk | not null |
+| tipo | Identifica o tipo de personagem  | vachar[30] | a-z, A-Z |  | not null |
 
 
-### Tabela: CLASSE
+### Tabela: MISSÃO
 
 - Descrição: Armazenará as informações sobre as classes de personagens.
 - Observações: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_classe | Código identificador único da classe | int |  | pk, identity |
-| nome | Nome da classe | char | 12 | sk |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idMissão | Código identificador único de uma missão | int | 1-5000 | pk | not null |
+| título | Nome da missão | vachar[60] | a-z, A-Z | | not null |
+| nivelDificuldade | Nível do quão complicado é a missão | vachar[60] | a-z, A-Z | | not null |
+| idHistoria | Código identificador único de uma história | int | 1-5000 | fk1 | not null |
+| idRegiao | Código identificador da região onde será realizado a missão | int | 1-5000 | fk2 | not null |
+| status | Como está o andamento da missão | vachar[60] | a-z, A-Z |  |  |
+| idPersonagem | Código identificador único de um personagem | int | 1-5000 | fk3 | not null |
 
 
-### Tabela: DIÁLOGO
+### Tabela: MISSÃO_DEPENDE_DE_MISSAO
 
 - Descrição: Armazenará as informações sobre os diálogos falados pelos NPCs.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-| id_diálogo | Código identificador do diálogo | int |  | pk |
-| id_instância_npc | Código identificador da instância de NPC que fala um determinado diálogo | int |  | fk |
-| descrição | Contextualização do diálogo | char | 100 | not null |
+| idMissaoAtual | Código identificador da Missão que está sendo realizada | int | 1-5000 | pk,fk1 |
+| idMissaoAnterior | Código identificador da Missão da qual a MissaoAtual necessita para ser realizada | int | 1-5000 | pk,fk2 |
 
 
-### Tabela: ESTABELECIMENTO
+### Tabela: OBJETIVO
 
-- Descrição: Armazenará as informações dos tipos de estalecimentos que gerarão instâncias no jogo.
+- Descrição: Armazenará as informações sobre os diálogos falados pelos NPCs.
 - Observações: 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-| id_estabelecimento | Código identificador do tipo de estabelecimento | int |  | pk, identity |
-| nome | Nome do estabelecimento | int |  | sk |
-| descrição | Descrição do estabelecimento | char | 50 | not null |
+| idObjetivo | Código identificador do objetivo da missão | int | 1-5000 | pk |
+| título | Nome do objetivo | vachar[60] | a-z, A-Z | | not null |
+| retornoXp | Texto que descreve o propósito da missão | int | 1-10000 | | not null |
+| retornoDinheiro | Texto que descreve o propósito da missão | int | 1-10000 | | not null |
+| idMissão | Código identificador único de uma missão | int | 1-5000 | fk1 | not null |
+
+### Tabela: HISTORIA
+
+- Descrição: Armazenará as informações sobre os diálogos falados pelos NPCs.
+- Observações: 
+
+| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
+| --- | --- | --- | --- | --- |
+| idHistoria | Código identificador do objetivo da historia da missão | int | 1-5000 | pk | not null |
+| título | Nome da missão  | vachar[60] | a-z, A-Z | | not null |
+| enredo | Texto que a história por trás da missão | vachar[1000] | a-z, A-Z | | not null |
 
 
 ### Tabela: GANGUE
