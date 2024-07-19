@@ -11,33 +11,75 @@
 | --- | --- | --- | --- | --- |
 |  |  |  |  |  | -->
 
+### Tabela: INSTANCIA_ANIMAL
 
-### Tabela: ANIMAL_HOSTIL
-
-- Descrição: Armazenará as informações das espécies de animais.
-- Observações: 
+- Descrição da Tabela: Instância específica de um animal no sistema, contendo informações sobre sua vida atual, energia e localização.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| id_animal | Código identificador único do animal | int | 1-5000 | pk |
-| habitat | Habitat onde vive uma espécie de animal | vachar[20] | a-z, A-Z |  |
-| espécie | Nome da espécie do animal | vachar[30] | a-z, A-Z |  |
-| velocidade | Velocidade de deslocamento de um animal | int | 1-50 | | not null, default = 1 |
-| vida_máx | Vida máxima de uma espécie de animal | int | 1-100 | | not null, default = 30 (máx = 100) |
-| stamina_máx | Energia máxima que uma espécie possui para se movimentar | int | 1-100 | | not null, default = 100 |
-| textura | Textura da pele/escama da espécie | vachar[20] | a-z, A-Z |  |
+| idInstanciaAnimal | Código identificador único da instancia animal | int | 1-5000 | pk | not null |
+| idAnimal | Código identificador único do animal | int | 1-5000 | pk, fk2 | not null |
+| vidaAtual | Vida que o animal possui no momento | int | 1-100 | | not null, default = 1 |
+| staminaAtual | Energia atual do animal | int | 1-100 | | not null, default = 1 |
+| idSala | Código identificar da sala onde o animal está | int | 1-100 | fk3 | |
+| idPersonagemDono | Código que identifica o dono do animal | int | 1-100 | fk4 | |
+
+### Tabela: ANIMAL_TIPO
+
+- Descrição da Tabela: Tabela que identifica o tipo de cada animal no sistema.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idAnimal | Código identificador único do animal | int | 1-5000 | pk | not null |
+| tipo | Identifica o tipo de animal | vachar[30] | a-z, A-Z |  | not null |
 
 
-### Tabela: ANIMAL_POSSUI_ATAQUE
+### Tabela: ANIMAL_AMIGAVEL
 
-- Descrição: Armazenará os tipos de ataques que uma uma espécie de animal possui.
-- Observações: 
+- Descrição da Tabela: Tabela que armazena informações detalhadas sobre animais amigáveis, incluindo características físicas e habitat.
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_animal | Código identificador do animal | int |  | pk, fk |
-| id_ataque | Código identificador do ataque | int |  | pk, fk |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idAnimal | Código identificador único do animal | int | 1-5000 | pk | not null |
+| idRegiaoHabitatNatural | Código identificador da região (habitat) onde vive o animal | int | 1-5000 | fk1 | not null |
+| especie | Espécie do animal | vachar[30] | a-z, A-Z | | not null |
+| velocidade | Velocidade máxima que o animal pode atingir | int | 1-200 | | not null |
+| vidaMax | Expectativa de vida máxima do animal em anos| int | 1-30 |  | not null |
+| staminaAtual | Energia atual do animal | int | 1-100 |  | not null |
+| textura | Tipo de textura da pele do animal | vachar[30] | a-z, A-Z | | not null |
 
+### Tabela: ANIMAL_HOSTIL
+
+- Descrição da Tabela: Tabela que armazena informações detalhadas sobre animais hostis, incluindo características físicas e habitat.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idAnimal | Código identificador único do animal | int | 1-5000 | pk | not null |
+| idRegiaoHabitatNatural | Código identificador da região (habitat) onde vive o animal | int | 1-5000 | fk1 | not null |
+| especie | Espécie do animal | vachar[30] | a-z, A-Z | | not null |
+| velocidade | Velocidade máxima que o animal pode atingir | int | 1-200 | | not null |
+| vidaMax | Expectativa de vida máxima do animal em anos| int | 1-30 |  | not null |
+| staminaAtual | Energia atual do animal | int | 1-100 |  | not null |
+| textura | Tipo de textura da pele do animal | vachar[30] | a-z, A-Z | | not null |
+
+### Tabela: ANIMAL_HOSTIL_POSSUI_ATAQUE
+
+- Descrição da Tabela: Tabela que relaciona animais hostis com seus modos de ataque, indicando quais ataques cada animal pode realizar.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idAtaque | Código identificador único do modo de ataque do animal | int | 1-5000 | pk,fk1 | not null |
+| idAnimal | Código identificador único do animal | int | 1-5000 | pk,fk2 | not null |
+
+### Tabela: ATAQUE
+
+- Descrição da Tabela: Tabela que armazena informações sobre os diferentes tipos de ataques que um animal pode realizar.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idAtaque | Código identificador único do modo de ataque do animal | int | 1-5000 | pk,fk1 | not null |
+| descricao | Descreve como o animal realiza o seu ataque | vachar[100] | a-z, A-Z | | not null |
+| dano | Valor do dano que o animal realiza ao atacar | int | 1-200 |  | not null |
 
 ### Tabela: ARMA_FOGO
 
