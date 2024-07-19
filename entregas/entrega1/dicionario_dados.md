@@ -24,6 +24,7 @@
 | idSala | Código identificar da sala onde o animal está | int | 1-100 | fk3 | |
 | idPersonagemDono | Código que identifica o dono do animal | int | 1-100 | fk4 | |
 
+
 ### Tabela: ANIMAL_TIPO
 
 - Descrição da Tabela: Tabela que identifica o tipo de cada animal no sistema.
@@ -44,9 +45,10 @@
 | idRegiaoHabitatNatural | Código identificador da região (habitat) onde vive o animal | int | 1-5000 | fk1 | not null |
 | especie | Espécie do animal | vachar[30] | a-z, A-Z | | not null |
 | velocidade | Velocidade máxima que o animal pode atingir | int | 1-200 | | not null |
-| vidaMax | Expectativa de vida máxima do animal em anos| int | 1-30 |  | not null |
+| vidaMax | Expectativa de vida máxima do animal em anos | int | 1-30 |  | not null |
 | staminaAtual | Energia atual do animal | int | 1-100 |  | not null |
 | textura | Tipo de textura da pele do animal | vachar[30] | a-z, A-Z | | not null |
+
 
 ### Tabela: ANIMAL_HOSTIL
 
@@ -62,6 +64,7 @@
 | staminaAtual | Energia atual do animal | int | 1-100 |  | not null |
 | textura | Tipo de textura da pele do animal | vachar[30] | a-z, A-Z | | not null |
 
+
 ### Tabela: JOGADOR_DOMA_ANIMAL_AMIGÁVEL
 
 - Descrição da Tabela: Esta tabela registra os casos em que um jogador conseguiu domesticar um animal amigável. Cada registro na tabela associa um jogador a uma instância específica de um animal amigável que ele domou.
@@ -71,6 +74,7 @@
 | idInstanciaAnimal | Código identificador único da instancia animal | int | 1-5000 | pk, fk1 | not null |
 | idPersonagem | Código identificador único de um personagem (Jogador) | int | 1-5000 | pk,fk2 | not null |
 
+
 ### Tabela: ANIMAL_HOSTIL_POSSUI_ATAQUE
 
 - Descrição da Tabela: Tabela que relaciona animais hostis com seus modos de ataque, indicando quais ataques cada animal pode realizar.
@@ -79,6 +83,7 @@
 | --- | --- | --- | --- | --- | --- |
 | idAtaque | Código identificador único do modo de ataque do animal | int | 1-5000 | pk,fk1 | not null |
 | idAnimal | Código identificador único do animal | int | 1-5000 | pk,fk2 | not null |
+
 
 ### Tabela: ATAQUE
 
@@ -90,6 +95,7 @@
 | descricao | Descreve como o animal realiza o seu ataque | vachar[100] | a-z, A-Z | | not null |
 | dano | Valor do dano que o animal realiza ao atacar | int | 1-200 |  | not null |
 
+
 ### Tabela: ANIMAL_HOSTIL_ATACA_JOGADOR
 
 - Descrição da Tabela: Esta tabela registra os eventos em que um animal hostil atacou um jogador. Cada registro na tabela associa um jogador a uma instância específica de um animal hostil que o atacou.
@@ -98,6 +104,7 @@
 | --- | --- | --- | --- | --- | --- |
 | idInstanciaAnimal | Código identificador único da instancia animal | int | 1-5000 | pk, fk1 | not null |
 | idPersonagem | Código identificador único de um personagem | int | 1-5000 | pk,fk2 | not null |
+
 
 ### Tabela: PERSONAGEM_TIPO
 
@@ -111,8 +118,7 @@
 
 ### Tabela: MISSÃO
 
-- Descrição: Armazenará as informações sobre as classes de personagens.
-- Observações: 
+- Descrição: Armazena informações sobre as missões disponíveis no jogo
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
@@ -127,8 +133,7 @@
 
 ### Tabela: MISSÃO_DEPENDE_DE_MISSAO
 
-- Descrição: Armazenará as informações sobre os diálogos falados pelos NPCs.
-- Observações: 
+- Descrição: Define dependências entre missões, indicando quais missões precisam ser concluídas antes de iniciar outra. 
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
@@ -138,8 +143,7 @@
 
 ### Tabela: OBJETIVO
 
-- Descrição: Armazenará as informações sobre os diálogos falados pelos NPCs.
-- Observações: 
+- Descrição: Armazena objetivos específicos dentro das missões, incluindo recompensas em XP e dinheiro.
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
@@ -149,10 +153,10 @@
 | retornoDinheiro | Texto que descreve o propósito da missão | int | 1-10000 | | not null |
 | idMissão | Código identificador único de uma missão | int | 1-5000 | fk1 | not null |
 
+
 ### Tabela: HISTORIA
 
-- Descrição: Armazenará as informações sobre os diálogos falados pelos NPCs.
-- Observações: 
+- Descrição: Contém as histórias que embasam as missões do jogo, incluindo títulos e enredos.
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
@@ -161,17 +165,45 @@
 | enredo | Texto que a história por trás da missão | vachar[1000] | a-z, A-Z | | not null |
 
 
+### Tabela: NPC
+
+- Descrição da Tabela: Registra informações sobre os NPCs (Personagens Não Jogadores) no jogo
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idPersonagem | Código identificador único de um personagem | int | 1-5000 | pk | not null |
+| nome | Nome pelo qual o NPC é identificado  | vachar[30] | a-z, A-Z |  | not null |
+| velocidade | Velocidade que o NPC alcança | int | 1-40 |  | |
+| idInventario | Código identificador úncio de um inventário  | int | 1-5000 | fk1 | not null |
+| vidaMax | Expectativa de vida máxima do animal em anos  | int | 1-100 |  | not null |
+| idClasse | Código identificador único da classe que o NPC participa | int | 1-5000 | fk2 | not null |
+| idGuange | Código identificador único da guange que o NPC participa  | int | 1-5000 | fk3 | |
+
+
+### Tabela: INSTANCIA_NPC
+
+- Descrição da Tabela: Registra instâncias específicas de NPCs
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idInstanciaNPC | Código identificador único de um personagem | int | 1-5000 | pk | not null |
+| idPersonagem | Código identificador único de um personagem | int | 1-5000 | pk,fk | not null |
+| vidaAtual | Identifica a vida restante da Instancia NPC | int | 1-100 | | not null |
+| idMissão | Código identificador único de uma missão | int | 1-5000 | pk, fk1 | |
+| idGuange | Código identificador único da guange que o NPC participa  | int | 1-5000 | pk,fk2 | |
+
+
 ### Tabela: GANGUE
 
 - Descrição: Armazenará as informações sobre as formações de gangues rivais no jogo.
 - Observações: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_gangue | Código identificador único da gangue | int |  | pk, identity |
-| nome | Nome da gangue | char | 20 | sk |
-| descrição | Informações importantes para a caracterização da gangue | char | 60 |  |
-| id_personagem_líder | Id do personagem que lidera a gangue (jogador ou instância de NPC) | int |  | fk |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| id_gangue | Código identificador único da gangue | int |  | pk | not null |
+| nome | Nome da gangue | vachar[30] | a-z, A-Z | | not null |
+| descrição | Informações importantes para a caracterização da gangue | vachar[60] | a-z, A-Z | not null |
+| idInstanciaNPCLíder | Id do personagem que lidera a gangue (jogador ou instância de NPC) | int | 1-5000 | fk1 | not null |
 
 
 ### Tabela: HABILIDADE
