@@ -43,7 +43,7 @@ Versões anteriores:
 - Classe
 - Instância de arma
 - Instância de arma de fogo
-- Instância de arma meles
+- Instância de arma melee
 - Projétil
 - Arma
 - Arma de fogo
@@ -63,8 +63,8 @@ Versões anteriores:
 ## Atributos
 
 - **Animal**: Textura, Stamina Máx, Vida Máx, Velocidade, Habitat, Espécie, <ins>ID-Animal</ins>
-- **Hostil**
-- **Amigável**
+<!-- - **Hostil**
+- **Amigável** -->
 - **Instância de Animal**: Stamina Atual, Vida Atual, <ins>ID-Inst-Animal</ins>
 - **Sala**: Descrição, nome, <ins>ID-Região</ins>, <ins>ID-Sala</ins>
 - **Jogador (PC)**: <ins>ID-Missão</ins>, <ins>ID-Personagem</ins>, XP, Dinheiro, Vida Atual, Stamina Max, Stamina Atual, Habilidades
@@ -79,8 +79,8 @@ Versões anteriores:
 - **Habilidade**: <ins>ID-Habilidade</ins>, Nome, Porcentagem
 - **Classe**: <ins>ID-Classe</ins>, Nome, Habilidades
 - **Instância de arma**: <ins>ID-Inventário</ins>, <ins>ID-Arma</ins>, <ins>ID-Inst-Arma</ins>
-- **Instância de arma de fogo**
-- **Instância de arma meles**
+<!-- - **Instância de arma de fogo**
+- **Instância de arma meles** -->
 - **Projétil**: <ins>ID-Projétil</ins>, <ins>ID-Inst-Arma</ins>, Pos X, Pos Y, Pos Z, Colidiu, Velocidade
 - **Arma**: <ins>ID-Arma</ins>, Nome, Descrição, Categoria, Preço, Peso, Durabilidade, Dano
 - **Arma de fogo**: <ins>ID-Arma-Fogo</ins>, Velocidade Disparo, Velocidade Reload
