@@ -62,40 +62,40 @@ Versões anteriores:
 
 ## Atributos
 
-Aqui está a lista com tópicos em markdown:
+Claro! Aqui está a lista com as modificações solicitadas:
 
 - **Animal**: Textura, Stamina Máx, Vida Máx, Velocidade, Habitat, Espécie, <ins>ID-Animal</ins>
 - **Hostil**
 - **Amigável**
 - **Instância de Animal**: Stamina Atual, Vida Atual, <ins>ID-Inst-Animal</ins>
-- **Sala**: Descrição, nome, ID-Região, ID-Sala
-- **Jogador (PC)**: ID-Missão, ID-Personagem, XP, Dinheiro, Vida Atual, Stamina Max, Stamina Atual, Habilidades
-- **Ataque**: dano, descrição, ID-Ataque
+- **Sala**: Descrição, nome, <ins>ID-Região</ins>, <ins>ID-Sala</ins>
+- **Jogador (PC)**: <ins>ID-Missão</ins>, <ins>ID-Personagem</ins>, XP, Dinheiro, Vida Atual, Stamina Max, Stamina Atual, Habilidades
+- **Ataque**: dano, descrição, <ins>ID-Ataque</ins>
 - **Consumível**: Qtd Reparação Istamina, Qtd Reparação Vida
 - **Equipável**: Parte do Corpo
-- **Item**: ID-Item, Nome
-- **Instância de item**: ID-Inst-Item, ID-Item, ID-Inventário
-- **Inventário**: ID-Inventário, ID-Personagem, Total de itens, Capacidade
-- **Personagem**: ID-Personagem, Nome, Velocidade, Inventário, Vida Max, Classe, Gangue
-- **Gangue**: Líder, Descrição, Nome, ID-Gangue
-- **Habilidade**: ID-Habilidade, Nome, Porcentagem
-- **Classe**: ID-Classe, Nome, Habilidades
-- **Instância de arma**: ID-Inventário, ID-Arma, ID-Inst-Arma
+- **Item**: <ins>ID-Item</ins>, Nome
+- **Instância de item**: <ins>ID-Inst-Item</ins>, <ins>ID-Item</ins>, <ins>ID-Inventário</ins>
+- **Inventário**: <ins>ID-Inventário</ins>, <ins>ID-Personagem</ins>, Total de itens, Capacidade
+- **Personagem**: <ins>ID-Personagem</ins>, Nome, Velocidade, Inventário, Vida Max, Classe, Gangue
+- **Gangue**: Líder, Descrição, Nome, <ins>ID-Gangue</ins>
+- **Habilidade**: <ins>ID-Habilidade</ins>, Nome, Porcentagem
+- **Classe**: <ins>ID-Classe</ins>, Nome, Habilidades
+- **Instância de arma**: <ins>ID-Inventário</ins>, <ins>ID-Arma</ins>, <ins>ID-Inst-Arma</ins>
 - **Instância de arma de fogo**
 - **Instância de arma meles**
-- **Projétil**: ID-Projétil, ID-Inst-Arma, Pos X, Pos Y, Pos Z, Colidiu, Velocidade
-- **Arma**: ID-Arma, Nome, Descrição, Categoria, Preço, Peso, Durabilidade, Dano
-- **Arma de fogo**: ID-Arma-Fogo, Velocidade Disparo, Velocidade Reload
-- **Arma melee**: ID-Arma-Melee, Nível de afiação
-- **NPC**: ID-NPC
-- **Instância de NPC**: ID-Inst-NPC, ID-NPC, Vida Atual, ID-Missão
-- **Missão**: ID-Missão, Título, Nível de Dificuldade, Personagens, ID-História, ID-Região, Status
-- **História**: ID-História, Título, Enredo
-- **Objetivo**: ID-Objetivo, Título, Retorno em XP, Retorno em Dinheiro
-- **Diálogo**: Descrição, ID-Inst-NPC, ID-Diálogo
-- **Linha de fala**: Texto de fala, ID-Linha-De-Fala, ID-Diálogo
-- **Instância de estabelecimento**: ID-Inst-NPC-Dono, ID-Sala, ID-Região, ID-Estab
-- **Estabelecimento**: Descrição, Nome, ID-Estab
+- **Projétil**: <ins>ID-Projétil</ins>, <ins>ID-Inst-Arma</ins>, Pos X, Pos Y, Pos Z, Colidiu, Velocidade
+- **Arma**: <ins>ID-Arma</ins>, Nome, Descrição, Categoria, Preço, Peso, Durabilidade, Dano
+- **Arma de fogo**: <ins>ID-Arma-Fogo</ins>, Velocidade Disparo, Velocidade Reload
+- **Arma melee**: <ins>ID-Arma-Melee</ins>, Nível de afiação
+- **NPC**: <ins>ID-NPC</ins>
+- **Instância de NPC**: <ins>ID-Inst-NPC</ins>, <ins>ID-NPC</ins>, Vida Atual, <ins>ID-Missão</ins>
+- **Missão**: <ins>ID-Missão</ins>, Título, Nível de Dificuldade, Personagens, <ins>ID-História</ins>, <ins>ID-Região</ins>, Status
+- **História**: <ins>ID-História</ins>, Título, Enredo
+- **Objetivo**: <ins>ID-Objetivo</ins>, Título, Retorno em XP, Retorno em Dinheiro
+- **Diálogo**: Descrição, <ins>ID-Inst-NPC</ins>, <ins>ID-Diálogo</ins>
+- **Linha de fala**: Texto de fala, <ins>ID-Linha-De-Fala</ins>, <ins>ID-Diálogo</ins>
+- **Instância de estabelecimento**: <ins>ID-Inst-NPC-Dono</ins>, <ins>ID-Sala</ins>, <ins>ID-Região</ins>, <ins>ID-Estab</ins>
+- **Estabelecimento**: Descrição, Nome, <ins>ID-Estab</ins>
 - **Região**: Descrição, Nome, <ins>ID-Mapa</ins>, <ins>ID-Região</ins>
 - **Mapa**: Nome, <ins>ID-Mapa</ins>
 
