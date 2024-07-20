@@ -25,6 +25,43 @@ Versões anteriores:
 
 ## Entidades
 
+- Animal: Textura, StaminaMáx, Vida Máx, Velocidade, Habitat, Espécie, <ins>ID-Animal</ins>
+- Hostil
+- Amigável
+- Instância de Animal
+- Sala
+- Jogador (PC)
+- Ataque
+- Consumível
+- Equipável
+- Item
+- Instância de item
+- Inventário
+- Personagem
+- Gangue
+- Habilidade
+- Classe
+- Instância de arma
+- Instância de arma de fogo
+- Instância de arma meles
+- Projétil
+- Arma
+- Arma de fogo
+- Arma melee
+- NPC
+- Instância de NPC
+- Missão
+- História
+- Objetivo
+- Diálogo
+- Linha de fala
+- Instância de estabelecimento
+- Estabelecimento
+- Região
+- Mapa
+
+## Atributos
+
 - Animal
 - Hostil
 - Amigável
