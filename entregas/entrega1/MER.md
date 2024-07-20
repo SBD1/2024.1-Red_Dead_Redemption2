@@ -25,7 +25,7 @@ Versões anteriores:
 
 ## Entidades
 
-- Animal: Textura, StaminaMáx, Vida Máx, Velocidade, Habitat, Espécie, <ins>ID-Animal</ins>
+- Animal
 - Hostil
 - Amigável
 - Instância de Animal
