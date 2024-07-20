@@ -62,40 +62,42 @@ Versões anteriores:
 
 ## Atributos
 
-Animal: Textura, Stamina Máx, Vida Máx, Velocidade, Habitat, Espécie, <ins>ID-Animal</ins>
-Hostil
-Amigável
-Instância de Animal: Stamina Atual, Vida Atual, <ins>ID-Inst-Animal</ins>
-Sala: Descrição, nome, ID-Região, ID-Sala
-Jogador (PC): ID-Missão, ID-Personagem, XP, Dinheiro, Vida Atual, Stamina Max, Stamina Atual, Habilidades
-Ataque: dano, descrição, ID-Ataque.
-Consumível: Qtd Reparação Istamina, Qtd Reparação Vida
-Equipável: Parte do Corpo
-Item: ID-Item, Nome
-Instância de item: ID-Inst-Item, ID-Item, ID-Inventário 
-Inventário: ID-Inventário, ID-Personagem, Total de itens, Capacidade
-Personagem: ID-Personagem, Nome, Velocidade, Inventário, Vida Max, Classe, Gangue
-Gangue: Líder, Descrição, Nome, ID-Gangue
-Habilidade: ID-Habilidade, Nome, Porcentagem
-Classe: ID-Classe, Nome, Habilidades
-Instância de arma: ID-Inventário, ID-Arma, ID-Inst-Arma
-instância de arma de fogo
-instância de arma meles
-Projétil: ID-Projétil, ID-Inst-Arma, Pos X, Pos Y, Pos Z, Colidiu, Velocidade
-Arma: ID-Arma, Nome, Descrição, Categoria, Preço, Peso, Durabilidade, Dano
-Arma de fogo: ID-Arma-Fogo, Velocidade Disparo, Velocidade Reload
-Arma melee: ID-Arma-Melee, Nível de afiação
-NPC: ID-NPC
-Instância de NPC: ID-Inst-NPC, ID-NPC, Vida Atual, ID-Missão 
-Missão: ID-Missão, Título, Nível de Dificuldade, Personagens, ID-História, ID-Região, Status
-História: ID-História, Título, Enredo
-Objetivo: ID-Objetivo, Título, Retorno em XP, Retorno em Dinheiro
-Diálogo: Descrição, ID-Inst-NPC, ID-Diálogo 
-Linha de fala: Texto de fala, ID-Linha-De-Fala, ID-Diálogo 
-Instância de estabelecimento: ID-Inst-NPC-Dono, ID-Sala, ID-Região, ID-Estab
-Estabelecimento: Descrição, Nome, ID-Estab
-Região: Descrição, Nome, <ins>ID-Mapa</ins>, <ins>ID-Região</ins>
-Mapa: Nome, <ins>ID-Mapa</ins>
+Aqui está a lista com tópicos em markdown:
+
+- **Animal**: Textura, Stamina Máx, Vida Máx, Velocidade, Habitat, Espécie, <ins>ID-Animal</ins>
+- **Hostil**
+- **Amigável**
+- **Instância de Animal**: Stamina Atual, Vida Atual, <ins>ID-Inst-Animal</ins>
+- **Sala**: Descrição, nome, ID-Região, ID-Sala
+- **Jogador (PC)**: ID-Missão, ID-Personagem, XP, Dinheiro, Vida Atual, Stamina Max, Stamina Atual, Habilidades
+- **Ataque**: dano, descrição, ID-Ataque
+- **Consumível**: Qtd Reparação Istamina, Qtd Reparação Vida
+- **Equipável**: Parte do Corpo
+- **Item**: ID-Item, Nome
+- **Instância de item**: ID-Inst-Item, ID-Item, ID-Inventário
+- **Inventário**: ID-Inventário, ID-Personagem, Total de itens, Capacidade
+- **Personagem**: ID-Personagem, Nome, Velocidade, Inventário, Vida Max, Classe, Gangue
+- **Gangue**: Líder, Descrição, Nome, ID-Gangue
+- **Habilidade**: ID-Habilidade, Nome, Porcentagem
+- **Classe**: ID-Classe, Nome, Habilidades
+- **Instância de arma**: ID-Inventário, ID-Arma, ID-Inst-Arma
+- **Instância de arma de fogo**
+- **Instância de arma meles**
+- **Projétil**: ID-Projétil, ID-Inst-Arma, Pos X, Pos Y, Pos Z, Colidiu, Velocidade
+- **Arma**: ID-Arma, Nome, Descrição, Categoria, Preço, Peso, Durabilidade, Dano
+- **Arma de fogo**: ID-Arma-Fogo, Velocidade Disparo, Velocidade Reload
+- **Arma melee**: ID-Arma-Melee, Nível de afiação
+- **NPC**: ID-NPC
+- **Instância de NPC**: ID-Inst-NPC, ID-NPC, Vida Atual, ID-Missão
+- **Missão**: ID-Missão, Título, Nível de Dificuldade, Personagens, ID-História, ID-Região, Status
+- **História**: ID-História, Título, Enredo
+- **Objetivo**: ID-Objetivo, Título, Retorno em XP, Retorno em Dinheiro
+- **Diálogo**: Descrição, ID-Inst-NPC, ID-Diálogo
+- **Linha de fala**: Texto de fala, ID-Linha-De-Fala, ID-Diálogo
+- **Instância de estabelecimento**: ID-Inst-NPC-Dono, ID-Sala, ID-Região, ID-Estab
+- **Estabelecimento**: Descrição, Nome, ID-Estab
+- **Região**: Descrição, Nome, <ins>ID-Mapa</ins>, <ins>ID-Região</ins>
+- **Mapa**: Nome, <ins>ID-Mapa</ins>
 
 
 ## Bibliografia
