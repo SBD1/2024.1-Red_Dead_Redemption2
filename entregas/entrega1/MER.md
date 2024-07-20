@@ -23,6 +23,44 @@ Versões anteriores:
 - [v3.1](/entregas/entrega1/DER/anteriores/DER_v3.1.png)
 - [v3.2 (final)](/entregas/entrega1/DER/DER.png)
 
+## Entidades
+
+- Animal
+- Hostil
+- Amigável
+- Instância de Animal
+- Sala
+- Jogador (PC)
+- Ataque
+- Consumível
+- Equipável
+- Item
+- Instância de item
+- Inventário
+- Personagem
+- Gangue
+- Habilidade
+- Classe
+- Instância de arma
+- Instância de arma de fogo
+- Instância de arma meles
+- Projétil
+- Arma
+- Arma de fogo
+- Arma melee
+- NPC
+- Instância de NPC
+- Missão
+- História
+- Objetivo
+- Diálogo
+- Linha de fala
+- Instância de estabelecimento
+- Estabelecimento
+- Região
+- Mapa
+
+
 ## Bibliografia
 
 [1] ELMASRI, R.; NAVATHE, S. B. **Sistemas de banco de dados**. 6. ed. São Paulo: Pearson Addison Wesley, 2011.
