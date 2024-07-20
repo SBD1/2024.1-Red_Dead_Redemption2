@@ -174,7 +174,7 @@
 | idPersonagem | Código identificador único de um personagem | int | 1-5000 | pk | not null |
 | nome | Nome pelo qual o NPC é identificado  | vachar[30] | a-z, A-Z |  | not null |
 | velocidade | Velocidade que o NPC alcança | int | 1-40 |  | |
-| idInventario | Código identificador úncio de um inventário  | int | 1-5000 | fk1 | not null |
+| idInventario | Código identificador do inventário do NPC  | int | 1-5000 | fk1 | not null |
 | vidaMax | Expectativa de vida máxima do animal em anos  | int | 1-100 |  | not null |
 | idClasse | Código identificador único da classe que o NPC participa | int | 1-5000 | fk2 | not null |
 | idGuange | Código identificador único da guange que o NPC participa  | int | 1-5000 | fk3 | |
@@ -199,7 +199,7 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| id_gangue | Código identificador único da gangue | int |  | pk | not null |
+| idGangue | Código identificador único da gangue | int |  | pk | not null |
 | nome | Nome da gangue | vachar[30] | a-z, A-Z | | not null |
 | descrição | Informações importantes para a caracterização da gangue | vachar[60] | a-z, A-Z | not null |
 | idInstanciaNPCLíder | Id do personagem que lidera a gangue (jogador ou instância de NPC) | int | 1-5000 | fk1 | not null |
@@ -237,10 +237,10 @@
 | idDialogo | Código identificador único de um diálogo | int | 1-5000 | pk,fk | not null |
 | texto | Descrição da fala do qual o dialogo é composto | vachar[100] | a-z, A-Z | not null |
 
-
+----------------------------------------------------------------------------------------------------------
 ### Tabela: CLASSE
 
-- Descrição: Esta tabela contém as linhas de fala que compõem os diálogos registrados no sistema.
+- Descrição: Armazena as informações sobre as classes disponíveis no jogo.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
@@ -250,7 +250,7 @@
 
 ### Tabela: CLASSE_POSSUI_HABILIDADE
 
-- Descrição: Esta tabela contém as linhas de fala que compõem os diálogos registrados no sistema.
+- Descrição: Armazena as habilidades associadas a cada classe no jogo.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
@@ -260,7 +260,7 @@
 
 ### Tabela: HABILIDADE
 
-- Descrição: Esta tabela contém as linhas de fala que compõem os diálogos registrados no sistema.
+- Descrição: Armazena as habilidades que podem ser possuídas pelas classes.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
@@ -271,7 +271,7 @@
 
 ### Tabela: PERSONAGEM_TIPO
 
-- Descrição: Esta tabela contém as linhas de fala que compõem os diálogos registrados no sistema.
+- Descrição: Esta tabela classifica os personagens em diferentes tipos, permitindo a categorização e filtragem no jogo.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
@@ -281,7 +281,7 @@
 
 ### Tabela: PERSONAGEM
 
-- Descrição: Esta tabela contém as linhas de fala que compõem os diálogos registrados no sistema.
+- Descrição: Armazena informações detalhadas sobre cada personagem no jogo
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
@@ -291,267 +291,225 @@
 
 ### Tabela: JOGADOR
 
+- Descrição: Contém informações sobre os jogadores, incluindo desempenho, progresso e modos de autenticação
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idPersonagem | Código identificador único de um personagem (Jogador) | int | 1-5000 | pk | not null |
+| nome | Nome de um jogador específico | vachar[30] | a-z, A-Z | | not null |
+| velocidade | Velocidade que o jogador alcança | int | 1-40 |  |  |
+| idInventario | Código identificador úncio de um inventário | int | 1-5000 | fk1 | not null |
+| vidaMax | Expectativa de vida máxima do jogador em anos | int | 1-120 |  | not null |
+| idClasse | Código para identificar a classe a qual o jogador pertence | int | 1-5000 | fk2 | not null |
+| idGangue | Código para identificar a gangue a qual o jogador pertence | int | 1-5000 | fk3 | |
+| xp | Pontuação para medir o progresso e a evolução de um jogador | int | 1-10000 |  | default = 0 |
+| dinheiro | Valor total de dinheiro que o jogador possui | int | 1-10000 |  | default = 0 |
+| vidaAtual | Vida que o animal possui no momento | int | 1-100 |  | not null |
+| staminaMax | Energia Máxima que o jogador pode obter | int | 1-5000 |  | not null |
+| staminaAtual | Energia atual do jogador | int | 1-5000 |  | default = 0 |
+| idSala | Código identificador da sala em que o jogador está presente | int | 1-5000 | fk4 | not null |
+| login | Processo de autenticação que permite a um jogador acessar sua conta do jogador | vachar[30] | a-z, A-Z, @, #, $, %, . | | not null |
+| senha | Combinação secreta de caracteres que um jogador utiliza para acessar a sua conta| vachar[30] | a-z, A-Z, @, #, $, %, . | | not null |
+
+
+### Tabela: JOGADOR_CUMPRE_MISSÃO
+
+- Descrição: Registra a participação dos jogadores em missões, incluindo o progresso e recompensas obtidas.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idPersonagem | Código identificador único de um personagem (Jogador) | int | 1-5000 | pk,fk1 | not null |
+| idMissão | Código identificador da missão que o jogador está participando | int | 1-5000 | pk,fk2 | not null |
+| data | Data em que a missão está sendo realizada | vachar[30] | 1-31, / | | not null |
+| retornoTotalXP | Quantidade de XP obtido após o cumprimento da missão | int | 1-10000 | | not null |
+| retornoTotalDinheiro | Quantidade de dinheiro obtido após o cumprimento da missão | int | 1-10000 | | not null |
+
+
+### Tabela: INVENTARIO
+
+- Descrição: Armazena informações sobre o inventário de um jogador, incluindo itens e capacidade.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idInventario | Código identificador úncio de um inventário  | int | 1-5000 | pk | not null |
+| idPersonagem | Código identificador do personagem (Jogador) dono do inventário | int | 1-5000 | pk,fk1 | not null |
+| totalItens | Quantidade de itens (objetos) que o jogador possui | int | 1-5000 | | default = 0 |
+| capacidade | Capacidade máxima de Itens que o inventario consegue armazenar | int | 1-5000 | | not null, default = 1 |
+
+
+### Tabela: ARMA_MELEE
+
 - Descrição: 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| idPersonagem | Código de identificação único da história. | int |  | pk, identity |
-| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
-| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
-| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
-| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
-| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
-| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
-| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
-| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
------------------------------------------------------------------------------------------------------
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idItem | Código identificador do item (Arma)  | int | 1-5000 | pk | not null |
+| nome | Nome de uma arma específica | vachar[30] | a-z, A-Z |  | not null |
+| descricao | Apresenta as características da Arma | vachar[30] | a-z, A-Z  | | |
+| peso | Quantidade de massa corresponde a arma | int | 1-8 | | not null, default = 1 |
+| preco | Custo total da arma | int | 1-200 | | not null, default = 1 |
+| durabilidadeMaxima | Tempo de durabilidade máxima da arma | int | 1-30 | | not null, default = 1 |
+| danoPorAtaque | Quantidade de vida que pode ser afeta ao sofrer um dano por ataque | int | 1-5000 | | not null, default = 1 |
+| nivelAfiação | Medida que indica o quão cortante ou perfurante é uma arma_melee | vachar[30] | a-z, A-Z | | not null |
 
 
-### Tabela: INSTÂNCIA_ANIMAL
+### Tabela: ARMA_FOGO
 
-- Descrição: Armazenará as informações das instâncias de animais vivas no jogo.
-- Observações: 
+- Descrição: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_instância_animal | Código identificador da instância do animal | int |  | pk, identity |
-| id_animal | Código identificador da espécie de animal | int |  | fk |
-| vida_atual | Vida atual de uma instância de animal | int |  | not null |
-| stamina_atual | Energia atual que a instância tem para se movimentar | int |  | not null |
-
-
-### Tabela: INSTÂNCIA_ARMA_FOGO
-
-- Descrição: Armazenará as informações sobre as instâncias de armas de fogo.
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_inst_arma_fogo | Código identificador único da instância de arma de fogo | int |  | pk, identity |
-| id_arma_fogo | Código identificador do tipo de arma | int |  | fk |
-| id_inventário | Código do inventário do personagem que utiliza a instância da arma | int |  | fk |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idItem | Código identificador do item (Arma) | int | 1-5000 | pk | not null |
+| nome | Nome de uma arma específica | vachar[30] | a-z, A-Z |  | not null |
+| descricao | Apresenta as características da Arma | vachar[30] | a-z, A-Z  | | |
+| peso | Quantidade de massa corresponde a arma | int | 1-8 | | not null, default = 1 |
+| preco | Custo total da arma | int | 1-200 | | not null, default = 1 |
+| durabilidadeMaxima | Tempo de durabilidade máxima da arma | int | 1-30 | | not null, default = 1 |
+| danoPorAtaque | Quantidade de vida que pode ser afeta ao sofrer um dano por ataque | int | 1-5000 | | not null, default = 1 |
+| velocidadeDisparo | Velocidade com a qual a arma dispara projéteis ou balas | int | 1-150 | | not null, default = 1 |
+| velocidadeReload | Tempo necessário para recarregar a arma, descrito em formato textual (ex: "rápido", "lento") | vachar[30] | a-z, A-Z | | not null |
 
 
-### Tabela: INSTÂNCIA_ARMA_MELEE
+### Tabela: ITEM_TIPO
 
-- Descrição: Armazenará as informações sobre as instâncias de armas melee.
-- Observações: 
+- Descrição: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_inst_arma_melee | Código identificador único da instância de arma melee | int |  | pk, identity |
-| id_arma_melee | Código identificador do tipo de arma | int |  | fk |
-| id_inventário | Código do inventário do personagem que utiliza a instância da arma | int |  | fk |
-
-
-### Tabela: INSTÂNCIA_ESTABELECIMENTO
-
-- Descrição: Armazenará as informações sobre as instâncias de estabelecimento que serão geradas no jogo.
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_estab | Código identificador do tipo de estabelecimento | int |  | pk |
-| id_região | Código da região onde instância do estabelecimento se encontra | int |  | pk |
-| id_instância_npc_dono | Código da instância de NPC proprietária da instância do estabelecimento | int |  | pk |
-
-### Tabela: INSTÂNCIA_ITEM
-
-- Descrição: Armazenará as informações sobre as instâncias de item. 
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_inst_item | Código identificador único da instância de item  | int |  | pk, identity |
-| id_item | Código do tipo de item | int |  | fk |
-| id_inventário | Código do inventário ao qual o a instância está depositada | int |  | fk |
-| tipo | Consumível ou Equipável | int |  | Consumível = 0, Equipável = 1 |
-
-
-### Tabela: INSTÂNCIA_NPC
-
-- Descrição: Armazenará as informações relativas às instâncias de NPC.
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |              
-| --- | --- | --- | --- | --- |
-| id_instância_npc | Código identificador da instância de NPC | int |  | pk, identity |
-| id_npc | Código do tipo de NPC ao qual a instância pertence | int |  | fk |
-| id_inventário | Código identificador do inventário de um jogador | int |  | fk |
-| id_gangue | Código identificador da gangue à qual pertence um jogador | int |  | fk |
-| vida_atual | Vida atual da instância | int |  | not null |
-| id_missão | Código da missão que uma instância participa. Pode ser nulo (não participa de nenhuma missão) | int |  | fk |
-
-
-### Tabela: INVENTÁRIO
-
-- Descrição: Armazenará as informações sobre o inventário dos personagens (jogadores e instâncias de NPC).
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_inventário | Código identificador do inventário | int |  | pk, identity |
-| id_personagem | Código identificador do dono do inventário | int |  | fk |
-| capacidade | Total de itens que um inventário pode suportar | int |  | not null, default = 30 |
-| total_itens | Total de itens presentes em um inventário | int |  | min = 0, max = capacidade |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idItem | Código identificador do item | int | 1-5000 | pk | not null |
+| tipo | Identifica o tipo de item | vachar[30] | a-z, A-Z |  | not null |
 
 
 ### Tabela: ITEM_CONSUMÍVEL
 
-- Descrição: Armazenará as informações sobre os tipos de itens consumíveis do jogo.
-- Observações: 
+- Descrição: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_item | Código identificador único do item | int |  | pk, identity |
-| nome | Nome do item | char | 10 | not null |
-| reparação_vida | Quantidade de pontos de vida que o jogador receberá ao consumir o item | int |  | not null |
-| reparação_stamina | Quantidade de pontos de stamina que o jogador receberá ao consumir o item | int |  | not null |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idItem | Código identificador do item consumível  | int | 1-5000 | pk | not null |
+| nome | Nome de uma arma específica | vachar[30] | a-z, A-Z |  | not null |
+| descricao | Apresenta as características do item consumível  | vachar[30] | a-z, A-Z  | | |
+| peso | Quantidade de massa corresponde ao item consumível  | int | 1-8 | | not null, default = 1 |
+| preco | Custo total do item consumível  | int | 1-200 | | not null, default = 1 |
+| durabilidadeMaxima | Tempo de durabilidade máxima do item consumível | int | 1-30 | | not null, default = 1 |
+| qtdReparacaoStamina | Quantidade de stamina restaurada ao reparar o item consumível  | int | 1-100 |  | not null, default = 1 |
+| qtdReparacaoVida | Quantidade de vida restaurada ao reparar o item consumível  | int | 1-100 | | not null, default = 1 |
+
 
 ### Tabela: ITEM_EQUIPÁVEL
 
-- Descrição: Armazenará as informações sobre os tipos de itens equipáveis do jogo.
-- Observações: 
+- Descrição: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_item | Código identificador único do item | int |  | pk, identity |
-| nome | Nome do item | char | 10 | not null |
-| parte_corpo | Parte do corpo que o item cobre | char | 10 | not null |
-
-
-
-### Tabela: JOGADOR
-
-- Descrição: Armazenará as informações sobre os jogadores (pessoas reais).
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_personagem | Código identificador único do personagem | int |  | pk, identity |
-| nome | Nome do personagem | char | 12 | not null |
-| velocidade | Velocidade máxima com que um personagem consegue se deslocar | int |  | not null, min = 1, max = 10 |
-| id_inventário | Código identificador do inventário de um jogador | int |  | fk |
-| vida_máx | Vida que o jogador recebe ao ser gerado | int |  | not null, default = 100 |
-| id_classe | Código identificador da classe do personagem | int |  | fk |
-| id_gangue | Código identificador da gangue à qual pertence um jogador | int |  |  |
-| xp | Quantidade de xp do jogador | int |  | default = 0 |
-| dinheiro | Quantidade de dinheiro em moedas do jogador | int |  | default = 0 |
-| vida_max | Vida máxima do jogador | int |  |  |
-| vida_atual | Vida atual do jogador | int |  | default = vida_max |
-| stamina_max | Quantidade de stamina máxima do jogador | int |  |  |
-| stamina_atual | Quantidade de stamina atual do jogador | int |  | default = 0 |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idItem | Código identificador do item | int | 1-5000 | pk | not null |
+| nome | Nome de um item específica | vachar[30] | a-z, A-Z |  | not null |
+| descricao | Apresenta as características do item | vachar[30] | a-z, A-Z | | |
+| peso | Quantidade de massa corresponde ao item | int | 1-8 | | not null, default = 1 |
+| preco | Custo total do item | int | 1-200 | | not null, default = 1 |
+| durabilidadeMaxima | Tempo de durabilidade máxima do item | int | 1-30 | | not null, default = 1 |
+| parteDoCorpo | Parte do corpo onde o item é equipado | vachar[30] | a-z, A-Z |  | not null, default = 'Desconhecido'|
 
 
-### Tabela: LINHA_FALA
+### Tabela: INSTANCIA_ITEM
 
-- Descrição: Armazenará as linhas de fala de um diálogo. 
-- Observações: 
+- Descrição: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_diálogo | Código identificador único do diálogo | int |  | fk |
-| id_linha_fala | Código identificador (fraco) da linha de fala | int |  | pk, identity |
-| texto_de_fala | Texto propriamento dito falado pelo personagem  | char | 150 | not null |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idInstanciaItem | Código identificador da instancia do item | int | 1-5000 | pk | not null |
+| idItem | Código identificador do item | int | 1-5000 | pk, fk1 | not null |
+| idInventario | Código identificador úncio de um inventário  | int | 1-5000 | pk, fk2 | not null |
+| idPersonagem | Código identificador único de um personagem (Jogador) | int | 1-5000 | pk,fk3 | not null |
+
+
+### Tabela: PROJETIL
+
+- Descrição: 
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idProjetil | Código identificador de um projetil | int | 1-5000 | pk | not null |
+| idInstanciaItem | Código identificador da instancia do item | int | 1-5000 | pk, fk1 | not null |
+| posX | Coordenada X da posição do projetil no espaço | int | -10000 a 10000 | | |
+| posY | Coordenada Y da posição do projetil no espaço  | int | -10000 a 10000 | | |
+| posZ | Coordenada Z da posição do projetil no espaço  | int | -10000 a 10000 | | |
+| colidiu | Indica se o projetil colidiu com um objeto ou não | boolean | true, false | | not null, default = false |
+| velocidade | Velocidade do projetil em movimento | int | 1-1000 | | not null |
+
+
+### Tabela: ID_SALA
+
+- Descrição: 
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idSala | Código identificador de uma sala | int | 1-5000 | pk | not null |
+| idRegiao | Código identificador da região onde está a sala | int | 1-5000 | fk1 | not null |
+| nome | Nome de uma sala específica | vachar[30] | a-z, A-Z |  | not null |
+| descricao | Apresenta as características da sala | vachar[60] | a-z, A-Z | | not null |
+
+
+### Tabela: REGIAO
+
+- Descrição: 
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idRegiao | Código identificador de uma regiao | int | 1-5000 | pk | not null |
+| idMapa | Código identificador do mapa onde está a região | int | 1-5000 | fk1 | not null |
+| nome | Nome de uma região específica | vachar[30] | a-z, A-Z |  | not null |
+| descricao | Apresenta as características da região | vachar[60] | a-z, A-Z | | not null |
+
+
+### Tabela: REGIAO_FAZ_FRONTEIRA_COM_REGIAO
+
+- Descrição: 
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idRegiaoOrigem | Código identificador da região de origem | int | 1-5000 | pk, fk1 | not null |
+| idRegiaoDestino | Código identificador da região de chegada | int | 1-5000 | pk, fk2 | not null |
 
 
 ### Tabela: MAPA
 
-- Descrição: Armazenará as informações dos mapas do jogo.
-- Observações: 
+- Descrição: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_mapa | Código identificador único do mapa | int |  | pk, identity |
-| nome | Nome do mapa | char | 20 | not null |
-
-
-### Tabela: MISSÃO
-
-- Descrição: Armazenará as informações das missões.
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_missão | Código identificador único da missão | int |  | pk, identity |
-| título | Título da missão | char | 50 | sk |
-| nível_dificuldade | Nível dificuldade da missão | int |  | not null, default = 1, min = 1, max = 10 |
-| id_história | Código identificador da história contada na missão | int |  | fk |
-| id_região | Código identificador de qual região se passa uma determinada missão | int |  | fk |
-| status | Código de status da missão | int |  | not null, valores possíveis = {0: iniciado, 1: em andamento , 2: concluído} |
-
-### Tabela: MISSÃO_REQUER_MISSÃO
-
-- Descrição: Armazena as dependências entre as missões.
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_missão | Código identificador da missão. | int |  | pk, fk |
-| id_missão_requisito | Código identificador da missão-requisito | int |  | pk, fk |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idMapa | Código identificador de um mapa | int | 1-5000 | pk | not null |
+| nome | Nome de um mapa específico | vachar[30] | a-z, A-Z |  | not null |
 
 
-### Tabela: NPC
+### Tabela: ESTABELECIMENTO
 
-- Descrição: Armazenará as informações sobre os tipos de NPCS disponíveis no jogo.
-- Observações: 
+- Descrição: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_npc | Código identificador único do NPC | int |  | pk, identity |
-| nome | Nome do NPC | char | 12 | not null |
-| velocidade | Velocidade máxima com que um NPC consegue se deslocar | int |  | not null, min = 1, max = 10 |
-| vida_máx | Vida que o jogador recebe ao ser gerado | int |  | not null, default = 100 |
-| id_classe | Código identificador da classe do personagem | int |  | fk |
-
-### Tabela: OBJETIVO
-
-- Descrição: Armazenará os objetivos de uma missão.
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_objetivo | Código de identificação único do objetivo. | int |  | pk, identity |
-| título | Descrição do objetivo. | char | 100 | sk |
-| retorno_xp | Total de xp's que um jogador receberá ao completar um determinado objetivo. | int |  | not null, default = 0 |
-| retorno_dinheiro | Total em moedas que um jogador receberá ao completar um determinado objetivo. | int |  | not null, default = 0 |
-| id_missão | Código identificador da missão à qual o objetivo pertence. | int |  | fk |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idEstabelecimento | Código identificador de um mapa | int | 1-5000 | pk | not null |
+| nome | Nome de um estabelecimento específico | vachar[30] | a-z, A-Z |  | not null |
+| descricao | Apresenta as características do estabelecimento | vachar[60] | a-z, A-Z | | not null |
 
 
-### Tabela: PROJÉTIL
+### Tabela: INSTANCIA_ESTABELECIMENTO
 
-- Descrição: Armazenará as informações sobre os projéteis disparados no mapa pelos personagens.
-- Observações: 
+- Descrição: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_projétil | Código identificador único do projétil disparado | int |  | pk, identity |
-| id_inst_arma_fogo | Código da instância da arma de fogo que disparou o projétil | int |  | fk |
-| posição_x | Posição x atual do projétil no mapa | int |  | not null |
-| posição_y | Posição y atual do projétil no mapa | int |  | not null |
-| posição_z | Posição z atual do projétil no mapa | int |  | not null |
-| colidiu | Registra se o projétil colidiu com algum objeto do mapa | bool |  | not null, default = false |
-| velocidade | Velocidade de deslocamento do projétil | int |  | not null, default = 500 |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idInstanciaEstabelecimento | Código identificador de uma instancia de um estabelecimento | int | 1-5000 | pk | not null |
+| idEstabelecimento | Código identificador do estabelecimento | int | 1-5000 | pk, fk1 | not null |
+| idInstanciaNPCDona | Código identificador do NPC dono do estabelecimento | int | 1-5000 | fk2 | not null |
+| idSala | Código identificar da sala onde está presente o estabelecimento | int | 1-5000 | fk3 | not null |
 
 
-### Tabela: REGIÃO
+### Tabela: SALA_CONECTA_COM_SALA
 
-- Descrição: Armazenará as informações das regiões do jogo.
-- Observações: 
+- Descrição: 
 
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_região | Código identificador único da região | int |  | pk, identity |
-| id_mapa | Código identificador do mapa ao qual a região pertence | int |  | fk |
-| nome | Nome da região | char | 15 | not null |
-| descrição | Descrição da região | char | 50 | not null |
-
-### Tabela: REGIÃO_FAZ_FRONTEIRA_COM_REGIÃO
-
-- Descrição: Armazenará as informações de como as regiões de um mapa se conectam.
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_mapa | Código identificador do mapa ao qual a região pertence | int |  | pk, fk |
-| id_região | Código identificador único da região | int |  | pk, fk |
-| id_região | Código identificador único da região fronteiriça | int |  | pk, fk |
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idSalaOrigem | Código identificador da sala de origem | int | 1-5000 | pk, fk1 | not null |
+| idSalaDestino | Código identificador da sala de chegada | int | 1-5000 | pk, fk2 | not null |
