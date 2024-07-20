@@ -8,8 +8,6 @@ Após a conclusão do estágio inicial de concepção de um sistema de banco de 
 
 Exibimos agora o MREL concebido para o projeto Red Dead Redemption. É possível conferir a evolução do diagrama através de suas versões anteriores, disponíveis nos links logo abaixo.
 
-### Versão x.y
-
 <div align="center">
     <img src="/entregas/entrega1/MREL/anteriores/MREL_v1.png">
     Imagem 1: DER
