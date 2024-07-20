@@ -196,7 +196,6 @@
 ### Tabela: GANGUE
 
 - Descrição: Armazenará as informações sobre as formações de gangues rivais no jogo.
-- Observações: 
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
@@ -206,29 +205,105 @@
 | idInstanciaNPCLíder | Id do personagem que lidera a gangue (jogador ou instância de NPC) | int | 1-5000 | fk1 | not null |
 
 
+### Tabela: GANGUE_CONFRONTA_GANGUE
+
+- Descrição: Armazenará as informações sobre as formações de gangues rivais no jogo.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idGangueVencedora | Código identificador único da gangue | int | 1-5000 | pk,fk1 | not null |
+| idGanguePerdedora | Código identificador único da gangue que está sendo desafiada | int | 1-5000 | pk, fk2 | not null |
+| dataConfronto | Informações importantes para a caracterização da gangue | vachar[60] | 1-31, / | not null |
+
+
+### Tabela: DIALOGO
+
+- Descrição: Esta tabela armazena informações sobre diálogos no contexto de um sistema de jogo ou simulação.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idDialogo | Código identificador único de um diálogo | int | 1-5000 | pk | not null |
+| idInstanciaNPCFalante | Id do NPC que está realizando o dialogo (jogador ou instância de NPC) | int | 1-5000 | fk1 | not null |
+| descricao | Descrição da fala do qual o dialogo é composto | vachar[100] | a-z, A-Z | not null |
+
+
+### Tabela: LINHA_DE_FALA
+
+- Descrição: Esta tabela contém as linhas de fala que compõem os diálogos registrados no sistema.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idLinhaDeFala | Código identificar das linhas de fala dos diálogos | int | 1-5000 | pk | not null |
+| idDialogo | Código identificador único de um diálogo | int | 1-5000 | pk,fk | not null |
+| texto | Descrição da fala do qual o dialogo é composto | vachar[100] | a-z, A-Z | not null |
+
+
+### Tabela: CLASSE
+
+- Descrição: Esta tabela contém as linhas de fala que compõem os diálogos registrados no sistema.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idClasse | Código para identificar a classe disponíveis no jogo | int | 1-5000 | pk | not null |
+| nome | Nome de uma classe específica | int | 1-5000 | | not null |
+
+
+### Tabela: CLASSE_POSSUI_HABILIDADE
+
+- Descrição: Esta tabela contém as linhas de fala que compõem os diálogos registrados no sistema.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idClasse | Código para identificar a classe disponíveis no jogo | int | 1-5000 | pk,fk1 | not null |
+| idHabilidade | Código identificador único da habilidade específica de uma classe | int | 1-5000 | pk,fk2 | not null |
+
+
 ### Tabela: HABILIDADE
 
-- Descrição: Armazenará as informações sobre as habilidades de uma classe.
-- Observações: 
+- Descrição: Esta tabela contém as linhas de fala que compõem os diálogos registrados no sistema.
 
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idHabilidade | Código identificador único da habilidade específica de uma classe | int | 1-5000 | pk | not null |
+| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
+| porcentagem | Porcentagem restante de uma habilidade | int | 1-100 | | not null |
+
+
+### Tabela: PERSONAGEM_TIPO
+
+- Descrição: Esta tabela contém as linhas de fala que compõem os diálogos registrados no sistema.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idPersonagem | Código identificador único de um jogador | int | 1-5000 | pk | not null |
+| tipo | Identifica o tipo de personagem | vachar[30] | a-z, A-Z | | not null |
+
+
+### Tabela: PERSONAGEM
+
+- Descrição: Esta tabela contém as linhas de fala que compõem os diálogos registrados no sistema.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idPersonagem | Código identificador único de um jogador | int | 1-5000 | pk | not null |
+| tipo | Identifica o tipo de personagem | vachar[30] | a-z, A-Z | | not null |
+
+
+### Tabela: JOGADOR
+
+- Descrição: 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-| id_habilidade | Código identificador único da habilidade | int |  | pk, identity |
-| nome | Nome da habilidade | char | 15 | sk |
-| porcentagem | Porcentagem da habilidade que será acrescida às capacidades existentes do personagem | float |  | not null, min = 0.0, max = 1.0 |
-| id_classe | Id da classe à qual pertence a habilidade | int |  | fk |
-
-
-### Tabela: HISTÓRIA
-
-- Descrição: Armazenará as informações das histórias.
-- Observações: 
-
-| Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
-| --- | --- | --- | --- | --- |
-| id_história | Código de identificação único da história. | int |  | pk, identity |
-| título | Nome da história | char | 500 | sk |
-| enredo | Texto do enredo da história | char | 1000 | not null |
+| idPersonagem | Código de identificação único da história. | int |  | pk, identity |
+| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
+| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
+| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
+| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
+| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
+| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
+| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
+| nome | Nome de uma classe específica | vachar[30] | a-z, A-Z | | not null |
+-----------------------------------------------------------------------------------------------------
 
 
 ### Tabela: INSTÂNCIA_ANIMAL
