@@ -62,8 +62,6 @@ Versões anteriores:
 
 ## Atributos
 
-Claro! Aqui está a lista com as modificações solicitadas:
-
 - **Animal**: Textura, Stamina Máx, Vida Máx, Velocidade, Habitat, Espécie, <ins>ID-Animal</ins>
 - **Hostil**
 - **Amigável**
@@ -98,7 +96,6 @@ Claro! Aqui está a lista com as modificações solicitadas:
 - **Estabelecimento**: Descrição, Nome, <ins>ID-Estab</ins>
 - **Região**: Descrição, Nome, <ins>ID-Mapa</ins>, <ins>ID-Região</ins>
 - **Mapa**: Nome, <ins>ID-Mapa</ins>
-
 
 ## Bibliografia
 
