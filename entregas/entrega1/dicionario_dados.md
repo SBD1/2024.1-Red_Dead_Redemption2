@@ -11,6 +11,13 @@
 | --- | --- | --- | --- | --- |
 |  |  |  |  |  | -->
 
+## Histórico de versões
+
+| Versão |    Data    | Descrição               |     
+| :----: | :--------: | ----------------------- |
+| `1.0`  | 08/05/2024 | Primeira versão completa do dicionário de dados |
+| `2.0`  | 20/07/2024 | Segunda versão completa do dicionário de dados  |
+
 ### Tabela: INSTANCIA_ANIMAL
 
 - Descrição da Tabela: Instância específica de um animal no sistema, contendo informações sobre sua vida atual, energia e localização.
