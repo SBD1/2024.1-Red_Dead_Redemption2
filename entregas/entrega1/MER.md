@@ -96,7 +96,8 @@ Versões anteriores:
 ## Relacionamentos
 
 - Personagem pertence a Classe
-    - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    - Um Personagem pertence a uma Classe
+    - Uma Classe possui vários Personagens
 - Classe possui habilidade
     - Uma Classe possui até N habilidades
     - Uma habilidade é possuida por até N Classes
@@ -167,7 +168,8 @@ Versões anteriores:
     - Uma Região contém até N Salas
     - Cada Sala está contida em uma Região
 - Sala conecta Sala
-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxcxxxxxxxxcxxx
+    - Uma Sala de Origem conecta uma Sala de Destino
+    - Uma Sala de Destino conecta uma Sala de Origem
 - Região faz fronteira Região
     - Uma Região faz fronteira com de 0 a N Regiões de Origem
     - Uma Região faz fronteira com de 0 a N Regiões de Destino
@@ -196,7 +198,8 @@ Versões anteriores:
     - Uma Missão conta uma História
     - Uma História é contada por uma Missão
 - Missão pré requisito para Missão
-  - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  - Uma Missão anterior é pré-requisito para até 3 Missões atuais
+  - Uma Missão atual possui até 3 Missões anteriores de pré-requisito
 
 
 ## Bibliografia
