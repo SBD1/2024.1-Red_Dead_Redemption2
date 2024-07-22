@@ -113,8 +113,10 @@ Versões anteriores:
 - Instância de NPC usa Instância de Item
 - Inventário contém Instância de Item
 - Item contém Instância de Item
-- Instância de Item dispara Projétil
     - 
+- Instância de Item dispara Projétil
+    - Uma Instância de Item dispara de 0 a N Projéteis
+    - Cada Projétil é disparado por uma Instância de Item
 - Hostil possui Ataque
     - Um Hostil possui até N Ataques
     - Um Ataque é possuido por até N Hostis
