@@ -121,17 +121,33 @@ Versões anteriores:
 - Região contém Sala
 - Sala conecta Sala
 - Região faz fronteira Região
+- 
 - Mapa contém Região
+    - Um Mapa contém até N Regiões
+    - Uma Região está contida em um Mapa
 - Sala abriga Instância de Estabelecimento
+    - Uma Sala abriga de 0 a N Instâncias de Estabelecimento
+    - Uma Instância de Estabelecimento está abrigada em uma Sala
 - Instância de Estabelecimento possui Estabelecimento
+    - Um Estabelecimento tem de 0 a N Instância de Estabelecimento
+    - Uma Instância de Estabelecimento faz parte de um Estabelecimento
 - Instância de NPC fala Diálogo
+    - Uma Instância de NPC fala N Diálogos
+    - Uma Linha de Fala é falada por um NPC
 - Diálogo é composto por Linha de Fala
+    - Um Diálogo é composto por N Linhas de Falas
+    - Uma Linha de Fala compõem um Diálogo
 - Instância de NPC participa de Missão
+    - Uma instância de NPC faz parte de uma Missão
+    - Uma Missão contém de 0 até N NPC
 - Missão possui Objetivo
+    - Uma Missão possui N objetivos
+    - Um objetivo é possuido por uma Missão
 - Missão conta História
     - Uma Missão conta uma História
     - Uma História é contada por uma Missão
 - Missão pré requisito para Missão
+  -
 
 
 ## Bibliografia
