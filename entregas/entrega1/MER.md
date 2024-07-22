@@ -95,25 +95,59 @@ Versões anteriores:
 
 ## Relacionamentos
 
-- Personagem pertence a Classe 
+- Personagem pertence a Classe
+    - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 - Classe possui habilidade
+    - Uma Classe possui até N habilidades
+    - Uma habilidade é possuida por até N Classes
 - Jogador (PC) participa Gangue
+    - Cada Jogador (PC) participa de uma Gangue
+    - Cada Gangue tem de 2 a N Jogadores (PC)
 - Gangue confronta Gangue
+    - Uma Gangue confronta até N Gangues Perdedoras
+    - Uma Gangue confronta até N Gangues Vencedoras
 - Jogador (PC) coleta Instância de Item
+    - Uma Instância de item é coletada por um Jogador (PC)
+    - Um Jogador (PC) coleta de 0 a N Instâncias de Item
 - Jogador (PC) usa Instância de Item
+    - Um Jogador (PC) usa uma Instância de item
+    - Uma Instância de item é usada por um Jogador (PC)
 - Jogador (PC) doma Instância de Animal
+    - Uma Instância de animal é domada por um Jogador (PC)
+    - Um Jogador (PC) doma de 0 a N Instâncias de animal
 - Jogador (PC) ataca Hostil
+    - Um Jogador (PC) ataca até N Hostis
+    - Um Hostil é atacado por de 0 a N Jogadores (PC)
 - Jogador (PC) acessa Sala
+    - Um Jogador (PC) acessa uma Sala
+    - Uma Sala é acessada por um Jogador (PC)
 - Jogador (PC) abriga Sala
+    - Um Jogador (PC) é abrigado por uma Sala
+    - Uma Sala abriga até N Jogadores (PC)
 - Jogador (PC) cumpre Missão
+    - Um Jogador (PC) cumpre de 0 a N Missões
+    - Uma Missão é cumprida por até 1 Jogadores (PC)
 - Jogador (PC) possui Inventário
+    - Um Jogador (PC) possui um Inventário
+    - Um Inventário é possuido por um Jogador (PC)
 - Instância de NPC possui NPC
+    - Um NPC possui de 0 a N Instâncias de NPC
+    - Uma Instância de NPC é possuida por um NPC
 - Instância de NPC possui Inventário
+    - Uma Instância de NPC possui um Inventário
+    - Um Inventário é possuido por uma Instância de NPC
 - Instância de NPC coleta Instância de Item
+    - Uma Instância de NPC coleta de 0 a N Instâncias de Item
+    - Uma Instância de Item é coletada por uma Instância de NPC
 - Instância de NPC usa Instância de Item
+    - Uma Instância de NPC usa uma Instância de Item
+    - Uma Instância de Item é usada por uma Instância de NPC
 - Inventário contém Instância de Item
+    - Um Inventário contém de 0 a N Instâncias de Item
+    - Uma Instância de item está contida em um Inventário
 - Item contém Instância de Item
-    - 
+    - Um Item contém de 0 a N Instâncias de Item
+    - Uma Instância de Item é contida por um Item
 - Instância de Item dispara Projétil
     - Uma Instância de Item dispara de 0 a N Projéteis
     - Cada Projétil é disparado por uma Instância de Item
@@ -162,7 +196,7 @@ Versões anteriores:
     - Uma Missão conta uma História
     - Uma História é contada por uma Missão
 - Missão pré requisito para Missão
-  -
+  - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
 ## Bibliografia
