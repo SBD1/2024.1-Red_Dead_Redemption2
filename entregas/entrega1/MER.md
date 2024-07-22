@@ -93,6 +93,45 @@ Versões anteriores:
 - **Região**: Descrição, Nome, <ins>ID-Mapa</ins>, <ins>ID-Região</ins>
 - **Mapa**: Nome, <ins>ID-Mapa</ins>
 
+## Relacionamentos
+
+- Personagem pertence a Classe 
+- Classe possui habilidade
+- Jogador (PC) participa Gangue
+- Gangue confronta Gangue
+- Jogador (PC) coleta Instância de Item
+- Jogador (PC) usa Instância de Item
+- Jogador (PC) doma Instância de Animal
+- Jogador (PC) ataca Hostil
+- Jogador (PC) acessa Sala
+- Jogador (PC) abriga Sala
+- Jogador (PC) cumpre Missão
+- Jogador (PC) possui Inventário
+- Instância de NPC possui NPC
+- Instância de NPC possui Inventário
+- Instância de NPC coleta Instância de Item
+- Instância de NPC usa Instância de Item
+- Inventário contém Instância de Item
+- Item contém Instância de Item
+- Instância de Item dispara Projétil
+- Hostil possui Ataque
+- Animal possui Instância de Animal
+- Sala abriga Instância de NPC
+- Sala abriga Instância de Animal
+- Região contém Sala
+- Sala conecta Sala
+- Região faz fronteira Região
+- Mapa contém Região
+- Sala abriga Instância de Estabelecimento
+- Instância de Estabelecimento possui Estabelecimento
+- Instância de NPC fala Diálogo
+- Diálogo é composto por Linha de Fala
+- Instância de NPC participa de Missão
+- Missão possui Objetivo
+- Missão conta História
+- Missão pré requisito para Missão
+- 
+
 ## Bibliografia
 
 [1] ELMASRI, R.; NAVATHE, S. B. **Sistemas de banco de dados**. 6. ed. São Paulo: Pearson Addison Wesley, 2011.
