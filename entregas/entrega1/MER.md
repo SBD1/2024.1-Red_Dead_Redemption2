@@ -114,14 +114,27 @@ Versões anteriores:
 - Inventário contém Instância de Item
 - Item contém Instância de Item
 - Instância de Item dispara Projétil
+    - 
 - Hostil possui Ataque
+    - Um Hostil possui até N Ataques
+    - Um Ataque é possuido por até N Hostis
 - Animal possui Instância de Animal
+    - Um Animal possui de 0 a N Instâncias de Animal
+    - Uma Instância de Animal faz parte de um Animal
 - Sala abriga Instância de NPC
+    - Uma Sala abriga de 0 a N Instâncias de NPC
+    - Uma Instância de NPC está abrigada em uma Sala
 - Sala abriga Instância de Animal
+    - Uma Sala abriga de 0 a N Instância de Animal
+    - Uma Instância de Animal está abrigada em uma Sala
 - Região contém Sala
+    - Uma Região contém até N Salas
+    - Cada Sala está contida em uma Região
 - Sala conecta Sala
+- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxcxxxxxxxxcxxx
 - Região faz fronteira Região
-- 
+    - Uma Região faz fronteira com de 0 a N Regiões de Origem
+    - Uma Região faz fronteira com de 0 a N Regiões de Destino
 - Mapa contém Região
     - Um Mapa contém até N Regiões
     - Uma Região está contida em um Mapa
