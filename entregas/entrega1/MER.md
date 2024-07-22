@@ -129,8 +129,10 @@ Versões anteriores:
 - Instância de NPC participa de Missão
 - Missão possui Objetivo
 - Missão conta História
+    - Uma Missão conta uma História
+    - Uma História é contada por uma Missão
 - Missão pré requisito para Missão
-- 
+
 
 ## Bibliografia
 
