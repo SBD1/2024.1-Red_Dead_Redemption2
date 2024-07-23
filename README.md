@@ -48,4 +48,4 @@ Red Dead Redemption 2 é um jogo de ação e aventura em mundo aberto desenvolvi
 
 [Dicionário de Dados](entregas/entrega1/dicionario_dados.md)
 
-[Apresentação]()
+[Apresentação](https://youtu.be/TF5FpWGe7o4)
