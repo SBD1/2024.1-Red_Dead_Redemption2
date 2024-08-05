@@ -158,3 +158,66 @@ create table missao (
 	constraint fk_historia foreign key idHistoria references historia(idHistoria) on delete cascade on update cascade,
 	constraint fk_regiao foreign key idRegiao references regiao(idRegiao) on delete cascade on update cascade
 );
+
+create table missao_depende_de_missao (
+    idMissaoAtual int not null,
+    idMissaoAnterior int not null,
+    constraint pk primary key(idMissaoAtual, idMissaoAnterior),
+    constraint fks foreign key (idMissaoAtual, idMissaoAnterior) references missao(idMissao, idMissao) on delete cascade on update cascade,    
+);
+
+create table classe (
+    idClasse serial,
+    nome varchar(20) not null,    
+    constraint pk primary key(idClasse),
+);
+
+create table habilidade (
+    idHabilidade serial,
+    nome varchar(30) not null,
+    porcentagem decimal(3,2) not null default 0.00 check(porcentagem between 0.00 and 1.00),
+    constraint pk primary key(idHabilidade),
+);
+
+create table classe_possui_habilidade (
+    idClasse int not null,
+    idHabilidade int not null,
+    constraint pk primary key(idClasse, idHabilidade),
+    constraint fk_classe foreign key idClasse references classe(idClasse) on delete cascade on update cascade,
+    constraint fk_habilidade foreign key idHabilidade references habilidade(idHabilidade) on delete cascade on update cascade,
+);
+
+create table gangue (
+    idGangue serial,
+    nome varchar(30) not null,
+    descricao varchar(60) not null,
+    idInstanciaNPCLider int not null,
+    constraint pk primary key(idGangue),
+    constraint fk_instancia_npc foreign key idInstanciaNPCLider references instancia_npc(idInstanciaNPC) on delete cascade on update cascade,
+);
+
+create table gangue_confronta_gangue (
+    idGangueVencedora int not null,
+    idGanguePerdedora int not null,
+    dataConfronto date not null default current_date,
+    constraint pk primary key(idGangueVencedora, idGanguePerdedora),
+    constraint fk_vencedora foreign key idGangueVencedora references gangue(idGangue) on delete cascade on update cascade,
+);
+
+create table dialogo (
+    idDialogo serial,
+    idInstanciaNPCFalante int not null,
+    descricao varchar(100) not null,
+    constraint pk primary key(idDialogo),
+    constraint fk_instancia_npc foreign key idInstanciaNPCFalante references instancia_npc(idInstanciaNPC) on delete cascade on update cascade,
+);
+
+create table linha_de_fala (
+    idLinhaDeFala serial,
+    idDialogo int not null,
+    texto varchar(100) not null,
+    constraint pk primary key(idLinhaDeFala),
+    constraint fk_dialogo foreign key idDialogo references dialogo(idDialogo) on delete cascade on update cascade,
+);
+
+--continuar com jogador, npc, instancia npc, personagem_tipo, jogador_cumpre_missao, inventario

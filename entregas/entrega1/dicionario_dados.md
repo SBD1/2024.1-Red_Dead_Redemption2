@@ -206,8 +206,8 @@
 | --- | --- | --- | --- | --- | --- |
 | idGangue | Código identificador único da gangue | int |  | pk | not null |
 | nome | Nome da gangue | varchar[30] | a-z, A-Z | | not null |
-| descrição | Informações importantes para a caracterização da gangue | varchar[60] | a-z, A-Z | not null |
-| idInstanciaNPCLíder | Id do personagem que lidera a gangue (jogador ou instância de NPC) | int | 1-5000 | fk1 | not null |
+| descricao | Informações importantes para a caracterização da gangue | varchar[60] | a-z, A-Z | not null |
+| idInstanciaNPCLider | Chave estrangeira para a instância de NPC que lidera a gangue. | int |  | fk1 | not null |
 
 
 ### Tabela: GANGUE_CONFRONTA_GANGUE
@@ -216,9 +216,9 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idGangueVencedora | Código identificador único da gangue | int | 1-5000 | pk,fk1 | not null |
-| idGanguePerdedora | Código identificador único da gangue que está sendo desafiada | int | 1-5000 | pk, fk2 | not null |
-| dataConfronto | Informações importantes para a caracterização da gangue | varchar[60] | 1-31, / | not null |
+| idGangueVencedora | Chave estrangeira para o código da gangue que venceu o combate. | int |  | pk,fk1 | not null |
+| idGanguePerdedora | Chave estrangeira para o código da gangue que perdeu o combate. | int |  | pk, fk2 | not null |
+| dataConfronto | Data de quando ocorreu o confronto. | date |  | not null |
 
 
 ### Tabela: DIALOGO
@@ -227,9 +227,9 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idDialogo | Código identificador único de um diálogo | int | 1-5000 | pk | not null |
-| idInstanciaNPCFalante | Id do NPC que está realizando o dialogo (jogador ou instância de NPC) | int | 1-5000 | fk1 | not null |
-| descricao | Descrição da fala do qual o dialogo é composto | varchar[100] | a-z, A-Z | not null |
+| idDialogo | Código identificador único de um diálogo | int |  | pk | not null |
+| idInstanciaNPCFalante | Chave para a instância de NPC que fala o referido diálogo. | int |  | fk1 | not null |
+| descricao | Descrição do diálogo | varchar[100] | a-z, A-Z | not null |
 
 
 ### Tabela: LINHA_DE_FALA
@@ -238,11 +238,11 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idLinhaDeFala | Código identificar das linhas de fala dos diálogos | int | 1-5000 | pk | not null |
-| idDialogo | Código identificador único de um diálogo | int | 1-5000 | pk,fk | not null |
-| texto | Descrição da fala do qual o dialogo é composto | varchar[100] | a-z, A-Z | not null |
+| idLinhaDeFala | Código identificador da linha de fala de um diálogo | int |  | pk | not null |
+| idDialogo | Código identificador único de um diálogo | int |  | pk,fk | not null |
+| texto | Texto da linha de fala. | varchar[100] | a-z, A-Z | not null |
 
-----------------------------------------------------------------------------------------------------------
+
 ### Tabela: CLASSE
 
 - Descrição: Armazena as informações sobre as classes disponíveis no jogo.
@@ -250,7 +250,7 @@
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
 | idClasse | Código para identificar a classe disponíveis no jogo | int |  | pk | not null |
-| nome | Nome da classe | int |  |  | not null |
+| nome | Nome da classe | varchar[20] | a-z, A-Z |  | not null |
 
 
 ### Tabela: CLASSE_POSSUI_HABILIDADE
@@ -441,18 +441,6 @@
 | posZ | Coordenada Z da posição do projetil no espaço  | int | -10000 a 10000 | | |
 | colidiu | Indica se o projetil colidiu com um objeto ou não | boolean | true, false | | not null, default = false |
 | velocidade | Velocidade do projetil em movimento | int | 1-1000 | | not null |
-
-
-### Tabela: ID_SALA
-
-- Descrição: 
-
-| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
-| --- | --- | --- | --- | --- | --- |
-| idSala | Código identificador de uma sala | int | 1-5000 | pk | not null |
-| idRegiao | Código identificador da região onde está a sala | int | 1-5000 | fk1 | not null |
-| nome | Nome de uma sala específica | varchar[30] | a-z, A-Z |  | not null |
-| descricao | Apresenta as características da sala | varchar[60] | a-z, A-Z | | not null |
 
 
 ### Tabela: REGIAO
