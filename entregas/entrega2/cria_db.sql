@@ -291,3 +291,83 @@ create table inventario (
 	capacidade int not null,
 	constraint pk_inventario primary key(idInventario),
 );
+
+create table item_tipo (
+	idItem serial,
+	tipo int not null,
+	constraint pk_item primary key(idItem),
+);
+
+create table item_consumivel (
+	idItem int not null,
+	nome varchar(30) not null,
+	descricao varchar(60) not null,
+	peso int not null check(peso between 1 and 8),
+	preco decimal(3, 2) not null,
+	durabilidadeMaxima int not null,
+	qtdReparacaoStamina int not null,
+	qtdRepacaovida int not null,
+	constraint pk_item_consumivel primary key(idItem),
+	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete cascade on update cascade,
+);
+
+create table item_equipavel (
+	idItem int not null,
+	nome varchar(30) not null,
+	descricao varchar(60) not null,
+	peso int not null check(peso between 1 and 8),
+	preco decimal(3, 2) not null,
+	durabilidadeMaxima int not null,
+	parteDoCorpo varchar(30) not null,
+	constraint pk_item_consumivel primary key(idItem),
+	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete cascade on update cascade,
+);
+
+create table arma_fogo (
+	idItem int not null,
+	nome varchar(30) not null,
+	descricao varchar(60) not null,
+	peso int not null check(peso between 1 and 8),
+	preco decimal(3, 2) not null,
+	durabilidadeMaxima int not null,
+	danoPorAtaque int not null,
+	velocidadeDisparo int not null,
+	velocidadeReload time not null,
+	constraint pk_item_consumivel primary key(idItem),
+	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete cascade on update cascade,
+);
+
+create table arma_melee (
+	idItem int not null,
+	nome varchar(30) not null,
+	descricao varchar(60) not null,
+	peso int not null check(peso between 1 and 8),
+	preco decimal(3, 2) not null,
+	durabilidadeMaxima int not null,
+	danoPorAtaque int not null,
+	nivelAdiacao int not null,
+	constraint pk_item_consumivel primary key(idItem),
+	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete cascade on update cascade,
+);
+
+create table instancia_item (
+	idInstanciaItem serial,
+	idItem int not null,
+	idInventario int not null,
+	durabilidadeAtual int not null,
+	constraint pk_instancia_item primary key(idInstanciaItem),
+	constraint fk_item foreign key(idItem) references item_tipo(idItem) on delete cascade on update cascade,
+	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete cascade on update cascade,
+);
+
+create table projetil (
+	idProjetil serial,
+	idInstanciaItem int not null,
+	posX int not null,
+	posY int not null,
+	posZ int not null,
+	colidiu boolean not null,
+	velocidade int not null check(velocidade between 1 and 1000), 
+	constraint pk_projetil primary key(idProjetil),
+	constraint fk_instancia_item foreign key(idInstanciaItem) references instancia_item(idInstanciaItem) on delete cascade on update cascade,
+);

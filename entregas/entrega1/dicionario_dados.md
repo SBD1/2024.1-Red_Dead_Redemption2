@@ -11,14 +11,6 @@
 | --- | --- | --- | --- | --- |
 |  |  |  |  |  | -->
 
-## Histórico de versões
-
-| Versão |    Data    | Descrição               |     
-| :----: | :--------: | ----------------------- |
-| `1.0`  | 08/05/2024 | Primeira versão completa do dicionário de dados |
-| `2.0`  | 20/07/2024 | Segunda versão completa do dicionário de dados  |
-
-
 ### Tabela: INSTANCIA_ANIMAL
 
 - Descrição da Tabela: Instância específica de um animal no sistema, contendo informações sobre sua vida atual, energia e localização.
@@ -337,14 +329,14 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idItem | Código identificador do item (Arma)  | int | 1-5000 | pk | not null |
+| idItem | Código identificador da arma melee, sendo uma chave estrangeira para a tabela de tipos. | int |  | pk | not null |
 | nome | Nome de uma arma específica | varchar[30] | a-z, A-Z |  | not null |
 | descricao | Apresenta as características da Arma | varchar[30] | a-z, A-Z  | | |
 | peso | Quantidade de massa corresponde a arma | int | 1-8 | | not null, default = 1 |
-| preco | Custo total da arma | int | 1-200 | | not null, default = 1 |
-| durabilidadeMaxima | Tempo de durabilidade máxima da arma | int | 1-30 | | not null, default = 1 |
-| danoPorAtaque | Quantidade de vida que pode ser afeta ao sofrer um dano por ataque | int | 1-5000 | | not null, default = 1 |
-| nivelAfiação | Medida que indica o quão cortante ou perfurante é uma arma_melee | varchar[30] | a-z, A-Z | | not null |
+| preco | Custo total da arma | int |  |  | not null, default = 1 |
+| durabilidadeMaxima | Quantidade máxima de vezes que uma arma pode ser utilizada. | int |  |  | not null |
+| danoPorAtaque | Quantidade de vida que pode ser afeta ao sofrer um dano por ataque | int |  |  | not null |
+| nivelAfiacao | Nível de afiação da arma. O nível de afiação aumenta o danoPorAtaque | int |  |  | not null |
 
 
 ### Tabela: ARMA_FOGO
@@ -353,15 +345,15 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idItem | Código identificador do item (Arma) | int | 1-5000 | pk | not null |
+| idItem | Código identificador da arma de fogo, sendo uma chave estrangeira para a tabela de tipos. | int |  | pk | not null |
 | nome | Nome de uma arma específica | varchar[30] | a-z, A-Z |  | not null |
 | descricao | Apresenta as características da Arma | varchar[30] | a-z, A-Z  | | |
 | peso | Quantidade de massa corresponde a arma | int | 1-8 | | not null, default = 1 |
-| preco | Custo total da arma | int | 1-200 | | not null, default = 1 |
-| durabilidadeMaxima | Tempo de durabilidade máxima da arma | int | 1-30 | | not null, default = 1 |
-| danoPorAtaque | Quantidade de vida que pode ser afeta ao sofrer um dano por ataque | int | 1-5000 | | not null, default = 1 |
-| velocidadeDisparo | Velocidade com a qual a arma dispara projéteis ou balas | int | 1-150 | | not null, default = 1 |
-| velocidadeReload | Tempo necessário para recarregar a arma, descrito em formato textual (ex: "rápido", "lento") | varchar[30] | a-z, A-Z | | not null |
+| preco | Custo total da arma | int |  |  | not null, default = 1 |
+| durabilidadeMaxima | Quantidade máxima de vezes que uma arma pode ser utilizada. | int |  |  | not null |
+| danoPorAtaque | Quantidade de vida que pode ser afeta ao sofrer um dano por ataque | int |  |  | not null |
+| velocidadeDisparo | Velocidade com a qual a arma dispara projéteis | int |  |  | not null |
+| velocidadeReload | Tempo necessário para recarregar a arma | time |  |  | not null |
 
 
 ### Tabela: ITEM_TIPO
@@ -370,39 +362,39 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idItem | Código identificador do item | int | 1-5000 | pk | not null |
-| tipo | Identifica o tipo de item | varchar[30] | a-z, A-Z |  | not null |
+| idItem | Código identificador do item | int |  | pk | not null |
+| tipo | Identifica o tipo de item | int |  |  | not null |
 
 
-### Tabela: ITEM_CONSUMÍVEL
-
-- Descrição: 
-
-| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
-| --- | --- | --- | --- | --- | --- |
-| idItem | Código identificador do item consumível  | int | 1-5000 | pk | not null |
-| nome | Nome de uma arma específica | varchar[30] | a-z, A-Z |  | not null |
-| descricao | Apresenta as características do item consumível  | varchar[30] | a-z, A-Z  | | |
-| peso | Quantidade de massa corresponde ao item consumível  | int | 1-8 | | not null, default = 1 |
-| preco | Custo total do item consumível  | int | 1-200 | | not null, default = 1 |
-| durabilidadeMaxima | Tempo de durabilidade máxima do item consumível | int | 1-30 | | not null, default = 1 |
-| qtdReparacaoStamina | Quantidade de stamina restaurada ao reparar o item consumível  | int | 1-100 |  | not null, default = 1 |
-| qtdReparacaoVida | Quantidade de vida restaurada ao reparar o item consumível  | int | 1-100 | | not null, default = 1 |
-
-
-### Tabela: ITEM_EQUIPÁVEL
+### Tabela: ITEM_CONSUMIVEL
 
 - Descrição: 
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idItem | Código identificador do item | int | 1-5000 | pk | not null |
-| nome | Nome de um item específica | varchar[30] | a-z, A-Z |  | not null |
-| descricao | Apresenta as características do item | varchar[30] | a-z, A-Z | | |
-| peso | Quantidade de massa corresponde ao item | int | 1-8 | | not null, default = 1 |
-| preco | Custo total do item | int | 1-200 | | not null, default = 1 |
-| durabilidadeMaxima | Tempo de durabilidade máxima do item | int | 1-30 | | not null, default = 1 |
-| parteDoCorpo | Parte do corpo onde o item é equipado | varchar[30] | a-z, A-Z |  | not null, default = 'Desconhecido'|
+| idItem | Código identificador do item consumível, sendo uma chave estrangeira para a tabela de tipos. | int |  | pk | not null |
+| nome | Nome do item consumível | varchar[30] | a-z, A-Z |  | not null |
+| descricao | Apresenta as características do item | varchar[60] | a-z, A-Z  | | |
+| peso | Quantidade de massa corresponde ao item | int | 1-8 | | not null |
+| preco | Custo total da arma | decimal(3,2) |  |  | not null |
+| durabilidadeMaxima | Quantidade máxima de vezes que um item pode ser utilizado. | int |  |  | not null |
+| qtdReparacaoStamina | Quantidade de stamina restaurada ao utilizar o item consumível  | int | 1-1000 |  | not null |
+| qtdReparacaoVida | Quantidade de vida restaurada ao utilizar o item consumível  | int | 1-100 | | not null |
+
+
+### Tabela: ITEM_EQUIPAVEL
+
+- Descrição: 
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idItem | Código identificador do item equipável, sendo uma chave estrangeira para a tabela de tipos. | int |  | pk | not null |
+| nome | Nome do item equipável | varchar[30] | a-z, A-Z |  | not null |
+| descricao | Apresenta as características do item | varchar[30] | a-z, A-Z  | | |
+| peso | Quantidade de massa corresponde ao item | int | 1-8 | | not null |
+| preco | Custo total da arma | int |  |  | not null |
+| durabilidadeMaxima | Quantidade máxima de vezes que um item pode ser utilizado. | int |  |  | not null |
+| parteDoCorpo | Parte do corpo onde o item é equipado | varchar[30] | a-z, A-Z |  | not null |
 
 
 ### Tabela: INSTANCIA_ITEM
@@ -411,10 +403,10 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idInstanciaItem | Código identificador da instancia do item | int | 1-5000 | pk | not null |
-| idItem | Código identificador do item | int | 1-5000 | pk, fk1 | not null |
-| idInventario | Código identificador úncio de um inventário  | int | 1-5000 | pk, fk2 | not null |
-| idPersonagem | Código identificador único de um personagem (Jogador) | int | 1-5000 | pk,fk3 | not null |
+| idInstanciaItem | Código identificador da instancia do item | int |  | pk | not null |
+| idItem | Chave estrangeira para o tipo do qual deriva a instância | int |  | pk, fk1 | not null |
+| idInventario | Chave estrangeira para o inventário que contém o item. Um item pode estar fora de um inventário. | int |  | fk2 |  |
+| durabilidadeAtual | Durabilidade atual do objeto. A durabilidade atual é diminuída a cada uso do objeto. | int |  |  | not null |
 
 
 ### Tabela: PROJETIL
@@ -423,13 +415,13 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idProjetil | Código identificador de um projetil | int | 1-5000 | pk | not null |
-| idInstanciaItem | Código identificador da instancia do item | int | 1-5000 | pk, fk1 | not null |
-| posX | Coordenada X da posição do projetil no espaço | int | -10000 a 10000 | | |
-| posY | Coordenada Y da posição do projetil no espaço  | int | -10000 a 10000 | | |
-| posZ | Coordenada Z da posição do projetil no espaço  | int | -10000 a 10000 | | |
-| colidiu | Indica se o projetil colidiu com um objeto ou não | boolean | true, false | | not null, default = false |
-| velocidade | Velocidade do projetil em movimento | int | 1-1000 | | not null |
+| idProjetil | Código identificador de um projetil | int |  | pk | not null |
+| idInstanciaItem | Chave estrangeira para o código da instância de arma de fogo que disparou o projétil | int |  | pk, fk1 | not null |
+| posX | Coordenada X da posição do projetil no espaço | int | | | |
+| posY | Coordenada Y da posição do projetil no espaço  | int |  |  |  |
+| posZ | Coordenada Z da posição do projetil no espaço  | int |  |  |  |
+| colidiu | Indica se o projetil colidiu com um objeto ou não | boolean |  |  | not null, default = false |
+| velocidade | Velocidade do projétil em movimento | int | 1-1000 |  | not null |
 
 
 ### Tabela: REGIAO
@@ -506,3 +498,12 @@
 | --- | --- | --- | --- | --- | --- |
 | idSalaOrigem | Código identificador da sala de origem | int |  | pk, fk1 | not null |
 | idSalaDestino | Código identificador da sala de chegada | int |  | pk, fk2 | not null |
+
+
+## Histórico de versões
+
+| Versão |    Data    | Descrição               |     
+| :----: | :--------: | ----------------------- |
+| `1.0`  | 08/05/2024 | Primeira versão completa do dicionário de dados |
+| `2.0`  | 20/07/2024 | Segunda versão completa do dicionário de dados  |
+| `2.1`  | 07/08/2024 | Correções pontuais pós-release.  |
