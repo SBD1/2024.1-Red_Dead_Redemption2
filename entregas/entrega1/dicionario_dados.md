@@ -119,7 +119,7 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idPersonagem | Código identificador único de um personagem | int | 1-5000 | pk | not null |
+| idPersonagem | Código identificador único de um personagem | int |  | pk | not null |
 | tipo | Identifica o tipo de personagem  | varchar[30] | a-z, A-Z |  | not null |
 
 
@@ -176,13 +176,11 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idPersonagem | Código identificador único de um personagem | int | 1-5000 | pk | not null |
+| idPersonagem | Código identificador único de um personagem | int |  | pk, fk1 | not null |
 | nome | Nome pelo qual o NPC é identificado  | varchar[30] | a-z, A-Z |  | not null |
-| velocidade | Velocidade que o NPC alcança | int | 1-40 |  | |
-| idInventario | Código identificador do inventário do NPC  | int | 1-5000 | fk1 | not null |
-| vidaMax | Expectativa de vida máxima do animal em anos  | int | 1-100 |  | not null |
-| idClasse | Código identificador único da classe que o NPC participa | int | 1-5000 | fk2 | not null |
-| idGuange | Código identificador único da guange que o NPC participa  | int | 1-5000 | fk3 | |
+| velocidade | Velocidade que o NPC alcança | int | 1-10 |  |  |
+| vidaMax | Quantidade de vida que o NPC recebe ao nascer.  | int | 1-100 |  | not null |
+| staminaMax | Quantidade de stamina que um NPC recebe ao nascer. | int | 1-1000 |  | not null |
 
 
 ### Tabela: INSTANCIA_NPC
@@ -191,11 +189,13 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idInstanciaNPC | Código identificador único de um personagem | int | 1-5000 | pk | not null |
-| idPersonagem | Código identificador único de um personagem | int | 1-5000 | pk,fk | not null |
-| vidaAtual | Identifica a vida restante da Instancia NPC | int | 1-100 | | not null |
-| idMissão | Código identificador único de uma missão | int | 1-5000 | pk, fk1 | |
-| idGuange | Código identificador único da guange que o NPC participa  | int | 1-5000 | pk,fk2 | |
+| idInstanciaNPC | Código identificador único de uma instância de NPC | int |  | pk | not null |
+| idPersonagem | Chave estrangeira para o NPC que a instância se refere | int |  | pk,fk1 | not null |
+| vidaAtual | Identifica a vida restante da instância de NPC | int | 1-100 | | not null, default = 100 |
+| idGangue | Chave estrangeira para a gangue da qual a instância de NPC faz parte  | int |  | pk,fk2 | |
+| idInventario | Chave estrangeira para a o inventário da instância de NPC. | int |  | pk,fk3 | |
+| idMissao | Chave estrangeira para a missão da qual a instância de NPC faz parte | int |  | pk, fk4 | |
+| idSala | Código identificador da sala em que a instância está presente | int |  | fk5 | not null |
 
 
 ### Tabela: GANGUE
@@ -280,18 +280,8 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idPersonagem | Código identificador único de um jogador | int | 1-5000 | pk | not null |
-| tipo | Identifica o tipo de personagem | varchar[30] | a-z, A-Z | | not null |
-
-
-### Tabela: PERSONAGEM
-
-- Descrição: Armazena informações detalhadas sobre cada personagem no jogo
-
-| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
-| --- | --- | --- | --- | --- | --- |
-| idPersonagem | Código identificador único de um jogador | int | 1-5000 | pk | not null |
-| tipo | Identifica o tipo de personagem | varchar[30] | a-z, A-Z | | not null |
+| idPersonagem | Código identificador único de um personagem | int |  | pk | not null |
+| tipo | Identifica o tipo de personagem | varchar[30] | a-z, A-Z |  | not null |
 
 
 ### Tabela: JOGADOR
@@ -300,21 +290,21 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idPersonagem | Código identificador único de um personagem (Jogador) | int | 1-5000 | pk | not null |
+| idPersonagem | Código identificador único de um jogador. É chave estrangeira para a tabela de tipos (personagem_tipo) | int |  | pk, fk1 | not null |
+| idInventario | Código identificador úncio de um inventário | int |  | fk2 | not null |
+| idSala | Código identificador da sala em que o jogador está presente | int |  | fk3 | not null |
+| idClasse | Código para identificar a classe a qual o jogador pertence | int |  | fk4 | not null |
+| idGangue | Código para identificar a gangue a qual o jogador pertence | int |  | fk5 | |
 | nome | Nome de um jogador específico | varchar[30] | a-z, A-Z | | not null |
-| velocidade | Velocidade que o jogador alcança | int | 1-40 |  |  |
-| idInventario | Código identificador úncio de um inventário | int | 1-5000 | fk1 | not null |
-| vidaMax | Expectativa de vida máxima do jogador em anos | int | 1-120 |  | not null |
-| idClasse | Código para identificar a classe a qual o jogador pertence | int | 1-5000 | fk2 | not null |
-| idGangue | Código para identificar a gangue a qual o jogador pertence | int | 1-5000 | fk3 | |
-| xp | Pontuação para medir o progresso e a evolução de um jogador | int | 1-10000 |  | default = 0 |
-| dinheiro | Valor total de dinheiro que o jogador possui | int | 1-10000 |  | default = 0 |
-| vidaAtual | Vida que o animal possui no momento | int | 1-100 |  | not null |
-| staminaMax | Energia Máxima que o jogador pode obter | int | 1-5000 |  | not null |
-| staminaAtual | Energia atual do jogador | int | 1-5000 |  | default = 0 |
-| idSala | Código identificador da sala em que o jogador está presente | int | 1-5000 | fk4 | not null |
+| xp | Pontuação para medir o progresso e a evolução de um jogador | int |  |  | default = 0 |
+| dinheiro | Valor total de dinheiro que o jogador possui | int |  |  | default = 0 |
+| velocidade | Velocidade que o jogador alcança | int | 1-10 |  |  |
+| vidaMax | Quantidade de vida máxima que um jogador pode ter. Corresponde àquela que ele recebe ao nascer. | int | 1-100 |  | default=100, not null |
+| vidaAtual | Vida que o jogador possui no momento | int | 1-100 |  | not null |
+| staminaMax | Energia Máxima que o jogador pode obter | int | 1-1000 |  | not null, default = 1000 |
+| staminaAtual | Energia atual do jogador | int | 1-1000 |  | default = 0 |
 | login | Processo de autenticação que permite a um jogador acessar sua conta do jogador | varchar[30] | a-z, A-Z, @, #, $, %, . | | not null |
-| senha | Combinação secreta de caracteres que um jogador utiliza para acessar a sua conta| varchar[30] | a-z, A-Z, @, #, $, %, . | | not null |
+| senha_hash | Hash da senha do jogador, após processo de criptografia | varchar[255] | a-z, A-Z, @, #, $, %, . |  | not null |
 
 
 ### Tabela: JOGADOR_CUMPRE_MISSÃO
@@ -323,11 +313,11 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idPersonagem | Código identificador único de um personagem (Jogador) | int | 1-5000 | pk,fk1 | not null |
-| idMissão | Código identificador da missão que o jogador está participando | int | 1-5000 | pk,fk2 | not null |
-| data | Data em que a missão está sendo realizada | varchar[30] | 1-31, / | | not null |
-| retornoTotalXP | Quantidade de XP obtido após o cumprimento da missão | int | 1-10000 | | not null |
-| retornoTotalDinheiro | Quantidade de dinheiro obtido após o cumprimento da missão | int | 1-10000 | | not null |
+| idJogador | Chave estrangeira para o id do jogador que cumpriu a missão. | int |  | pk,fk1 | not null |
+| idMissao | Chave estrangeira para a missão que o jogador completou. | int |  | pk,fk2 | not null |
+| data | Data em que a missão foi realizada | date |  |  | not null |
+| retornoTotalXP | Quantidade de XP obtido após o cumprimento da missão | int |  |  | not null |
+| retornoTotalDinheiro | Quantidade de dinheiro obtido após o cumprimento da missão | int |  |  | not null |
 
 
 ### Tabela: INVENTARIO
@@ -336,10 +326,9 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idInventario | Código identificador úncio de um inventário  | int | 1-5000 | pk | not null |
-| idPersonagem | Código identificador do personagem (Jogador) dono do inventário | int | 1-5000 | pk,fk1 | not null |
-| totalItens | Quantidade de itens (objetos) que o jogador possui | int | 1-5000 | | default = 0 |
-| capacidade | Capacidade máxima de Itens que o inventario consegue armazenar | int | 1-5000 | | not null, default = 1 |
+| idInventario | Código identificador único de um inventário  | int |  | pk | not null |
+| totalItens | Quantidade de itens (objetos) que o jogador possui | int |  | | default = 0 |
+| capacidade | Capacidade máxima de Itens que o inventário consegue armazenar | int |  |  | not null |
 
 
 ### Tabela: ARMA_MELEE
