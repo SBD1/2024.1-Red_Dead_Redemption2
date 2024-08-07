@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" version="24.7.6">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="3166" dy="1586" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="4583" dy="2323" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -794,10 +794,10 @@
           <mxGeometry x="157" y="1188" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="tiVlSbfcnG_4zIivBW_u-23" value="Vida Máx" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="159.5" y="1349.5" width="100" height="40" as="geometry" />
+          <mxGeometry x="159" y="1309.5" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="tiVlSbfcnG_4zIivBW_u-24" value="Inventário" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="157" y="1309.5" width="100" height="40" as="geometry" />
+          <mxGeometry x="326.5" y="706.88" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="tiVlSbfcnG_4zIivBW_u-25" value="Velocidade" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="157" y="1269.5" width="100" height="40" as="geometry" />
@@ -831,7 +831,7 @@
           <mxGeometry x="-153.75" y="810.7" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="tiVlSbfcnG_4zIivBW_u-37" value="Stamina Máx" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="163.5" y="1431.5" width="100" height="40" as="geometry" />
+          <mxGeometry x="163.5" y="1390" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="tiVlSbfcnG_4zIivBW_u-38" value="Stamina Atual" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="-53.88" y="729.2" width="100" height="40" as="geometry" />
@@ -858,7 +858,7 @@
           <mxGeometry x="-1115" y="839" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="tiVlSbfcnG_4zIivBW_u-48" value="Gangue" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="163.5" y="1471.5" width="100" height="40" as="geometry" />
+          <mxGeometry x="163.5" y="1430" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="tiVlSbfcnG_4zIivBW_u-49" value="" style="endArrow=none;html=1;rounded=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.553;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="edTjm4dISCqz6r1TiSTo-25" target="tiVlSbfcnG_4zIivBW_u-43" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -870,10 +870,10 @@
           <mxGeometry x="521" y="923.5" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="aM7kKrautKZpTLY5Rr8k-5" value="Classe" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="160.5" y="1391.5" width="100" height="40" as="geometry" />
+          <mxGeometry x="162" y="1349.5" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="aM7kKrautKZpTLY5Rr8k-12" value="Vida atual" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="324" y="590" width="100" height="40" as="geometry" />
+          <mxGeometry x="325" y="585.13" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="aM7kKrautKZpTLY5Rr8k-13" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="y91Bqe_7xXxEDmseq83t-105" target="ANBRhXb5nSFzY9_dUsO1-9" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -1017,7 +1017,7 @@
           <mxGeometry x="-824" y="340.11" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="ANBRhXb5nSFzY9_dUsO1-9" value="&lt;span style=&quot;border-bottom: 1px dotted&quot;&gt;ID-Inst-NPC&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="321" y="550" width="100" height="40" as="geometry" />
+          <mxGeometry x="324" y="545" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="VM11jIHiv6p8rIlFp_Qz-3" value="Parte do corpo" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="-1290" y="235.88" width="100" height="40" as="geometry" />
@@ -1266,7 +1266,7 @@
           <mxGeometry x="-53.75000000000001" y="810.08" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="BWMztGNEZ59WZQLGVLkd-9" value="Missão" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="324" y="670.01" width="100" height="40" as="geometry" />
+          <mxGeometry x="326.5" y="666.88" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="8d8oYZHIAon7UINlBn4N-1" value="História" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="519" y="1003.5" width="100" height="40" as="geometry" />
@@ -1604,8 +1604,11 @@
         <mxCell id="GcbjipwZdxQqbnMk5Tjc-22" value="(1, 1)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-153" y="602.24" width="29" height="22.89" as="geometry" />
         </mxCell>
-        <mxCell id="oZ4pVmY7HIAb_6Qr0Pc7-1" value="Stamina Atual" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="324" y="630.01" width="100" height="40" as="geometry" />
+        <mxCell id="oZ4pVmY7HIAb_6Qr0Pc7-1" value="Stamina Atual" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="325" y="626" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ieitUNpVZlKIT9IjLoKE-1" value="Inventário" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-57" y="686" width="100" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
