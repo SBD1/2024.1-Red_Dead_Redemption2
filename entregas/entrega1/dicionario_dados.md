@@ -179,8 +179,8 @@
 | idPersonagem | Código identificador único de um personagem | int |  | pk, fk1 | not null |
 | nome | Nome pelo qual o NPC é identificado  | varchar[30] | a-z, A-Z |  | not null |
 | velocidade | Velocidade que o NPC alcança | int | 1-10 |  |  |
-| vidaMax | Quantidade de vida que o NPC recebe ao nascer.  | int | 1-100 |  | not null |
-| staminaMax | Quantidade de stamina que um NPC recebe ao nascer. | int | 1-1000 |  | not null |
+| vidaMax | Quantidade de vida que o NPC recebe ao nascer.  | int | 1-100 |  | not null, default = 100 |
+| staminaMax | Quantidade de stamina que um NPC recebe ao nascer. | int | 1-1000 |  | not null, default = 1000 |
 
 
 ### Tabela: INSTANCIA_NPC
@@ -191,11 +191,11 @@
 | --- | --- | --- | --- | --- | --- |
 | idInstanciaNPC | Código identificador único de uma instância de NPC | int |  | pk | not null |
 | idPersonagem | Chave estrangeira para o NPC que a instância se refere | int |  | pk,fk1 | not null |
-| vidaAtual | Identifica a vida restante da instância de NPC | int | 1-100 | | not null, default = 100 |
 | idGangue | Chave estrangeira para a gangue da qual a instância de NPC faz parte  | int |  | pk,fk2 | |
 | idInventario | Chave estrangeira para a o inventário da instância de NPC. | int |  | pk,fk3 | |
 | idMissao | Chave estrangeira para a missão da qual a instância de NPC faz parte | int |  | pk, fk4 | |
 | idSala | Código identificador da sala em que a instância está presente | int |  | fk5 | not null |
+| vidaAtual | Identifica a vida restante da instância de NPC | int | 1-100 | | not null, default = 100 |
 
 
 ### Tabela: GANGUE
@@ -281,7 +281,7 @@
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
 | idPersonagem | Código identificador único de um personagem | int |  | pk | not null |
-| tipo | Identifica o tipo de personagem | varchar[30] | a-z, A-Z |  | not null |
+| tipo | Identifica o tipo de personagem | int | a-z, A-Z |  | not null |
 
 
 ### Tabela: JOGADOR
@@ -298,12 +298,12 @@
 | nome | Nome de um jogador específico | varchar[30] | a-z, A-Z | | not null |
 | xp | Pontuação para medir o progresso e a evolução de um jogador | int |  |  | default = 0 |
 | dinheiro | Valor total de dinheiro que o jogador possui | int |  |  | default = 0 |
-| velocidade | Velocidade que o jogador alcança | int | 1-10 |  |  |
-| vidaMax | Quantidade de vida máxima que um jogador pode ter. Corresponde àquela que ele recebe ao nascer. | int | 1-100 |  | default=100, not null |
-| vidaAtual | Vida que o jogador possui no momento | int | 1-100 |  | not null |
+| velocidade | Velocidade que o jogador alcança | int | 1-10 |  | default = 7 |
+| vidaMax | Quantidade de vida máxima que um jogador pode ter. Corresponde àquela que ele recebe ao nascer. | int | 1-100 |  | default = 100, not null |
+| vidaAtual | Vida que o jogador possui no momento | int | 1-100 |  | not null, default = 100 |
 | staminaMax | Energia Máxima que o jogador pode obter | int | 1-1000 |  | not null, default = 1000 |
-| staminaAtual | Energia atual do jogador | int | 1-1000 |  | default = 0 |
-| login | Processo de autenticação que permite a um jogador acessar sua conta do jogador | varchar[30] | a-z, A-Z, @, #, $, %, . | | not null |
+| staminaAtual | Energia atual do jogador | int | 1-1000 |  | default = 1000 |
+| username | Processo de autenticação que permite a um jogador acessar sua conta do jogador | varchar[30] | a-z, A-Z, @, #, $, %, . | | not null |
 | senha_hash | Hash da senha do jogador, após processo de criptografia | varchar[255] | a-z, A-Z, @, #, $, %, . |  | not null |
 
 
@@ -315,7 +315,7 @@
 | --- | --- | --- | --- | --- | --- |
 | idJogador | Chave estrangeira para o id do jogador que cumpriu a missão. | int |  | pk,fk1 | not null |
 | idMissao | Chave estrangeira para a missão que o jogador completou. | int |  | pk,fk2 | not null |
-| data | Data em que a missão foi realizada | date |  |  | not null |
+| dataMissao | Data em que a missão foi realizada | date |  |  | not null |
 | retornoTotalXP | Quantidade de XP obtido após o cumprimento da missão | int |  |  | not null |
 | retornoTotalDinheiro | Quantidade de dinheiro obtido após o cumprimento da missão | int |  |  | not null |
 

@@ -220,4 +220,74 @@ create table linha_de_fala (
     constraint fk_dialogo foreign key idDialogo references dialogo(idDialogo) on delete cascade on update cascade,
 );
 
---continuar com jogador, npc, instancia npc, personagem_tipo, jogador_cumpre_missao, inventario
+create table jogador (
+	idPersonagem int not null,
+	idInventario int not null,
+	idSala int not null,
+	idClasse int not null,
+	idGangue int not null,
+	nome varchar(30) not null,
+	xp int not null default 0,
+	dinheiro not null default 0,
+	velocidade int not null default 7 check(velocidade between 1 and 10),
+	vidaMax int not null default 100 check(vidaMax between 1 and 100),
+	vidaAtual int not null default 100 check(vidaAtual between 1 and 100),
+	staminaMax int not null default 1000 check(staminaMax between 1 and 1000),
+	staminaAtual int not null default 1000 check(staminaAtual between 1 and 1000),
+	username varchar(30) not null,
+	senha_hash varchar(255) not null,
+	constraint pk_jogador primary key(idPersonagem),
+	constraint fk_jogador foreign key idPersonagem references personagem_tipo(idPersonagem) on delete cascade on update cascade,
+	constraint fk_inventario foreign key idInventario references inventario(idInventario) on delete cascade on update cascade,
+	constraint fk_sala foreign key idSala references sala(idSala) on delete cascade on update cascade,
+	constraint fk_classe foreign key idClasse references classe(idClasse) on delete cascade on update cascade,
+	constraint fk_gangue foreign key idGangue references gangue(idGangue) on delete cascade on update cascade,
+);
+
+create table npc (
+	idPersonagem int not null,
+	nome varchar(30) not null,
+	velocidade int not null default 7 check(velocidade between 1 and 10),
+	vidaMax int not null default 100 check(vidaMax between 1 and 100),
+	staminaMax int not null default 1000 check(staminaMax between 1 and 1000),
+	constraint pk_npc primary key(idPersonagem),
+	constraint fk_npc foreign key idPersonagem references personagem_tipo(idPersonagem) on delete cascade on update cascade,
+);
+
+create table instancia_npc (
+	idInstanciaNPC serial,
+	idPersonagem int not null,
+	idGangue int not null
+	idInventario int not null,
+	idMissao int not null,
+	idSala int not null,
+	constraint pk_instancia_npc primary key(idInstanciaNPC),
+	constraint fk_personagem foreign key idPersonagem references npc(idPersonagem) on delete cascade on update cascade,
+	constraint fk_gangue foreign key idGangue references gangue(idGangue) on delete cascade on update cascade,
+	constraint fk_inventario foreign key idInventario references inventario(idInventario) on delete cascade on update cascade,
+	constraint fk_missao foreign key idMissao references missao(idMissao) on delete cascade on update cascade,
+	constraint fk_sala foreign key idSala references sala(idSala) on delete cascade on update cascade,
+);
+
+create table personagem_tipo (
+	idPersonagem serial,
+	tipo int not null,
+	constraint pk_personagem primary key(idPersonagem)
+);
+
+create table jogador_cumpre_missao (
+	idJogador int not null,
+	idMissao int not null,
+	dataMissao date not null,
+	retornoTotalXP int not null,
+	retornoTotalDinheiro int not null,
+	constraint pk_jogador_missao primary key(idJogador, idMissao),
+	constraint fk_jogador foreign key idJogador references jogador(idPersonagem) on delete cascade on update cascade,
+);
+
+create table inventario (
+	idInventario serial,
+	totalItens int not null default 0,
+	capacidade int not null,
+	constraint pk_inventario primary key(idInventario),
+);
