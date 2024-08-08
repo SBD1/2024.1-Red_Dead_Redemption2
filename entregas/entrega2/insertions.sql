@@ -45,3 +45,19 @@ INSERT INTO ataque (id_ataque, tipo, id_entidade_atacante, id_entidade_alvo, dan
 (2, 'Facada', 3, 4, 20), 
 (3, 'Explosão', 1, 2, 50), 
 (4, 'Soco', 4, 1, 10);
+
+INSERT INTO animal_hostil_possui_ataque (idAtaque, idAnimal) VALUES
+(1, 1), 
+(2, 2), 
+(3, 3); 
+
+INSERT INTO animal_amigavel (idAnimal, idRegiaoHabitatNatural, especie, velocidade, vidaMax, staminaMax, textura) VALUES
+(1, 1, 'Cavalo', 75, 60, 70, 'Pelagem Marrom'), 
+(2, 2, 'Cachorro', 60, 40, 50, 'Pelagem Preto e Branco'), 
+(3, 3, 'Gato', 50, 30, 40, 'Pelagem Cinza');
+
+INSERT INTO animal_hostil (idAnimal, idRegiaoHabitatNatural, especie, velocidade, vidaMax, staminaMax, textura) VALUES
+(1, 4, 'Lobo', 65, 80, 70, 'Pelagem Cinza'), 
+(2, 5, 'Urso Pardo', 50, 100, 60, 'Pelagem Marrom Escuro'), 
+(3, 6, 'Jaguatirica', 80, 70, 80, 'Pelagem Manchada'); 
+
