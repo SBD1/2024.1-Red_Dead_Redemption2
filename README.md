@@ -1,6 +1,6 @@
 # [2024.1] Red Dead Redemption II
 <div align="center">
-    <img src="assets/img/game_logo.jpg"/>
+    <img src="docs/assets/game_logo.jpg"/>
     <p> Figura 1: Logo de Red Dead Redemption II.</p> 
 </div>
 
@@ -42,10 +42,10 @@ Red Dead Redemption 2 é um jogo de ação e aventura em mundo aberto desenvolvi
 
 ## Entrega 1
     
-[Diagrama Entidade-Relacionamento](entregas/entrega1/MER.md)
+[Diagrama Entidade-Relacionamento](docs/MER.md)
     
-[Modelo Relacional](entregas/entrega1/MREL.md)
+[Modelo Relacional](docs/MREL.md)
 
-[Dicionário de Dados](entregas/entrega1/dicionario_dados.md)
+[Dicionário de Dados](docs/dicionario_dados.md)
 
 [Apresentação](https://youtu.be/TF5FpWGe7o4)
