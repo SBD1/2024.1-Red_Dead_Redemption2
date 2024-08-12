@@ -12,7 +12,7 @@ services:
       - data:/var/lib/postgresql/data
 
   pg-admin:
-    image: dpage/pgadmin4:6
+    image: dpage/pgadmin4:8.10
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@email.com
       - PGADMIN_DEFAULT_PASSWORD=admin
