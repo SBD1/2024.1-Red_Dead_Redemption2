@@ -1,0 +1,940 @@
+Alligator
+American Alligator
+Reptile
+Alligatoridae
+Alligator
+American Alligator (small)
+Reptile
+Alligatoridae
+Alligator
+Legendary Bull Gator
+Reptile
+Alligatoridae
+Armadillo
+Nine-banded Armadillo
+Mammal
+Dasypodidae
+Badger
+American Badger
+Mammal
+Mustelidae
+Bat
+Little Brown Bat
+Mammal
+Vespertilionidae
+Bear
+American Black Bear
+Mammal
+Ursidae
+Bear
+Grizzly Bear (North American Brown Bear)
+Mammal
+Ursidae
+Bear
+Legendary Bharati Grizzly Bear
+Mammal
+Ursidae
+Beaver
+North American Beaver
+Mammal
+Aplodontidae
+Beaver
+Legendary Beaver
+Mammal
+Aplodontidae
+Bison / Buffalo
+American Bison
+Mammal
+Bovidae
+Bison / Buffalo
+Legendary White Bison
+Mammal
+Bovidae
+Bison / Buffalo
+Legendary Tatanka Bison
+Mammal
+Bovidae
+Blue Jay
+Blue Jay
+Bird
+Corvidae
+Bluegill
+Bluegill
+Fish
+Centrarchidae
+Bluegill
+Legendary Bluegill
+Fish
+Centrarchidae
+Boar
+Wild Boar
+Mammal
+Suidae
+Boar
+Legendary Boar
+Mammal
+Suidae
+Boar
+Giant Boar
+Mammal
+Suidae
+Booby
+Red-footed Booby
+Bird
+Sulidae
+Buck, Deer
+Whitetail Buck
+Mammal
+Cervidae
+Buck, Deer
+Legendary Buck
+Mammal
+Cervidae
+Bull, Cattle
+Angus Bull
+Mammal
+Bovidae
+Bull, Cattle
+Devon Bull
+Mammal
+Bovidae
+Bull, Cattle
+Hereford Bull
+Mammal
+Bovidae
+Bullhead Catfish
+Bullhead Catfish
+Fish
+Ictaluridae
+Bullhead Catfish
+Legendary Bullhead Catfish
+Fish
+Ictaluridae
+Cardinal
+Northern Cardinal
+Bird
+Cardinalidae
+Cat
+American Domestic Cat
+Mammal
+Felidae
+Cattle, Cow
+Florida Cracker Cow
+Mammal
+Bovidae
+Cattle, Oxen
+Angus Ox
+Mammal
+Bovidae
+Cattle, Oxen
+Devon Ox
+Mammal
+Bovidae
+Chain Pickerel
+Chain Pickerel
+Fish
+Esocidae
+Chain Pickerel
+Legendary Chain Pickerel
+Fish
+Esocidae
+Channel Catfish
+Channel Catfish
+Fish
+Ictaluridae
+Channel Catfish
+Legendary Channel Catfish
+Fish
+Ictaluridae
+Chicken
+Dominique Chicken
+Bird
+Phasianidae
+Chicken
+Java Chicken
+Bird
+Phasianidae
+Chicken
+Leghorn Chicken
+Bird
+Phasianidae
+Chicken
+Greater Prairie Chicken
+Bird
+Phasianidae
+Chicken, Rooster
+Dominique Rooster
+Bird
+Phasianidae
+Chicken, Rooster
+Java Rooster
+Bird
+Phasianidae
+Chicken, Rooster
+Leghorn Rooster
+Bird
+Phasianidae
+Chipmunk
+Western Chipmunk
+Mammal
+Sciuridae
+Condor
+Californian Condor
+Bird
+Cathartidae
+Cormorant
+Double-crested Cormorant
+Bird
+Phalacrocoracidae
+Cormorant
+Neotropic Cormorant
+Bird
+Phalacrocoracidae
+Cougar / Mountain Lion
+Cougar
+Mammal
+Felidae
+Cougar / Mountain Lion
+Legendary Cougar
+Mammal
+Felidae
+Cougar / Mountain Lion
+White Cougar
+Mammal
+Felidae
+Coyote
+California Valley Coyote
+Mammal
+Canidae
+Coyote
+Legendary Coyote
+Mammal
+Canidae
+Crab
+Cuban Land Crab
+Arthropod
+Gecarcinidae
+Crane
+Whooping Crane
+Bird
+Gruidae
+Crane
+Sandhill Crane
+Bird
+Gruidae
+Crayfish
+Red Swamp Crayfish
+Arthropod
+Cambaridae
+Crow
+American Crow
+Bird
+Corvidae
+Deer
+Whitetail Deer
+Mammal
+Cervidae
+Dog
+American Fox Hound
+Mammal
+Canidae
+Dog
+Australian Shepherd
+Mammal
+Canidae
+Dog
+Bloodhound
+Mammal
+Canidae
+Dog
+Bluetick Coonhound
+Mammal
+Canidae
+Dog
+Border Collie
+Mammal
+Canidae
+Dog
+Catahoula Cur
+Mammal
+Canidae
+Dog
+Chesapeake Bay Retriever
+Mammal
+Canidae
+Dog
+Siberian Husky
+Mammal
+Canidae
+Dog
+Labrador Retriever
+Mammal
+Canidae
+Dog
+Poodle
+Mammal
+Canidae
+Dog
+Mutt
+Mammal
+Canidae
+Dog
+Rufus
+Mammal
+Canidae
+Donkey
+Standard Donkey
+Mammal
+Equidae
+Duck
+Mallard Duck
+Bird
+Anatidae
+Duck
+Pekin Duck
+Bird
+Anatidae
+Eagle
+Bald Eagle
+Bird
+Accipitridae
+Eagle
+Golden Eagle
+Bird
+Accipitridae
+Egret
+Reddish Egret
+Bird
+Ardeidae
+Egret
+Little Egret
+Bird
+Ardeidae
+Egret
+Snowy Egret
+Bird
+Ardeidae
+Elk
+Rocky Mountain Bull Elk
+Mammal
+Cervidae
+Elk
+Rocky Mountain Cow Elk
+Mammal
+Cervidae
+Elk
+Legendary Elk
+Mammal
+Cervidae
+Fox
+American Red Fox
+Mammal
+Canidae
+Fox
+American Gray Fox
+Mammal
+Canidae
+Fox
+Silver Fox
+Mammal
+Canidae
+Fox
+Legendary Fox
+Mammal
+Canidae
+Frog
+American Bullfrog
+Amphibian
+Ranidae
+Gila Monster
+Banded Gila Monster
+Reptile
+Helodermatidae
+Goat
+Alpine Goat
+Mammal
+Bovidae
+Goose
+Canada Goose
+Bird
+Anatidae
+Hawk
+Ferruginous Hawk
+Bird
+Accipitridae
+Hawk
+Red-tailed Hawk
+Bird
+Accipitridae
+Hawk
+Rough-legged Hawk
+Bird
+Accipitridae
+Heron
+Great Blue Heron
+Bird
+Ardeidae
+Heron
+Tricolored Heron
+Bird
+Ardeidae
+Horse
+Appaloosa
+Mammal
+Equidae
+Horse
+Arabian Horse
+Mammal
+Equidae
+Horse
+Hungarian Halfbred
+Mammal
+Equidae
+Horse
+Morgan Horse
+Mammal
+Equidae
+Horse
+Mustang
+Mammal
+Equidae
+Horse
+Shire Horse
+Mammal
+Equidae
+Horse
+Tennessee Walker
+Mammal
+Equidae
+Horse
+American Paint Horse
+Mammal
+Equidae
+Horse
+Belgian Draft Horse
+Mammal
+Equidae
+Horse
+American Standardbred
+Mammal
+Equidae
+Horse
+Andalusian Horse
+Mammal
+Equidae
+Horse
+Ardennes
+Mammal
+Equidae
+Horse
+Dutch Warmblood
+Mammal
+Equidae
+Horse
+Kentucky Saddler
+Mammal
+Equidae
+Horse
+Missouri Fox Trotter
+Mammal
+Equidae
+Horse
+Nokota Horse
+Mammal
+Equidae
+Horse
+Suffolk Punch Horse
+Mammal
+Equidae
+Horse
+Thoroughbred
+Mammal
+Equidae
+Horse
+Turkoman Horse
+Mammal
+Equidae
+Horse
+Breton Horse
+Mammal
+Equidae
+Horse
+Criollo Horse
+Mammal
+Equidae
+Horse
+Kladruber
+Mammal
+Equidae
+Horse
+Norfolk Roadster
+Mammal
+Equidae
+Horse
+Gypsy Cob Horse
+Mammal
+Equidae
+Iguana
+Desert Iguana
+Reptile
+Iguanidae
+Iguana
+Green Iguana
+Reptile
+Iguanidae
+Lake Sturgeon
+Lake Sturgeon
+Fish
+Acipenseridae
+Lake Sturgeon
+Legendary Lake Sturgeon
+Fish
+Acipenseridae
+Largemouth Bass
+Largemouth Bass
+Fish
+Centrarchidae
+Largemouth Bass
+Legendary Largemouth Bass
+Fish
+Centrarchidae
+Lion
+Lion
+Mammal
+Felidae
+Longnose Gar
+Legendary Longnose Gar
+Fish
+Lepisosteidae
+Longnose Gar
+Longnose Gar
+Fish
+Lepisosteidae
+Loon
+Common Loon
+Bird
+Gaviidae
+Loon
+Pacific Loon
+Bird
+Gaviidae
+Loon
+Yellow-billed Loon
+Bird
+Gaviidae
+Moose
+Western Bull Moose
+Mammal
+Cervidae
+Moose
+Western Moose
+Mammal
+Cervidae
+Moose
+Legendary Moose
+Mammal
+Cervidae
+Mule
+Mule
+Mammal
+Equidae
+Muskie
+Legendary Muskie
+Fish
+Esocidae
+Muskie
+Muskie
+Fish
+Esocidae
+Muskrat
+American Muskrat
+Mammal
+Cricetidae
+Northern Pike
+Legendary Northern Pike
+Fish
+Esocidae
+Northern Pike
+Northern Pike
+Fish
+Esocidae
+Opossum
+Virginia Opossum
+Mammal
+Didelphidae
+Oriole
+Baltimore Oriole
+Bird
+Icteridae
+Oriole
+Hooded Oriole
+Bird
+Icteridae
+Owl
+Californian Horned Owl
+Bird
+Strigidae
+Owl
+Coastal Horned Owl
+Bird
+Strigidae
+Owl
+Great Horned Owl
+Bird
+Strigidae
+Panther
+Panther
+Mammal
+Felidae
+Panther
+Florida Panther
+Mammal
+Felidae
+Panther
+Legendary Giaguaro Panther
+Mammal
+Felidae
+Parakeet
+Carolina Parakeet
+Bird
+Psittacidae
+Parrot
+Blue and Yellow Macaw
+Bird
+Psittacidae
+Parrot
+Great green Macaw
+Bird
+Psittacidae
+Parrot
+Scarlet Macaw
+Bird
+Psittacidae
+Peccary
+Collared Peccary
+Mammal
+Tayassuidae
+Pelican
+American White Pelican
+Bird
+Pelecanidae
+Pelican
+Brown Pelican
+Bird
+Pelecanidae
+Perch
+Legendary Perch
+Fish
+Percidae
+Perch
+Perch
+Fish
+Percidae
+Pheasant
+Ring-necked Pheasant
+Bird
+Phasianidae
+Pheasant
+Chinese Ring-necked Pheasant
+Bird
+Phasianidae
+Pig
+Berkshire Pig
+Mammal
+Suidae
+Pig
+Big China Pig
+Mammal
+Suidae
+Pig
+Old Spot Pig
+Mammal
+Suidae
+Pigeon
+Band-tailed Pigeon
+Bird
+Columbidae
+Pigeon
+Rock Pigeon
+Bird
+Columbidae
+Pronghorn
+American Pronghorn Buck
+Mammal
+Antilocapridae
+Pronghorn
+American Pronghorn Doe
+Mammal
+Antilocapridae
+Pronghorn
+Sonoran Pronghorn Buck
+Mammal
+Antilocapridae
+Pronghorn
+Sonoran Pronghorn Doe
+Mammal
+Antilocapridae
+Pronghorn
+Baja California Pronghorn Buck
+Mammal
+Antilocapridae
+Pronghorn
+Baja California Pronghorn Doe
+Mammal
+Antilocapridae
+Pronghorn
+Legendary Pronghorn
+Mammal
+Antilocapridae
+Quail
+California Quail
+Bird
+Odontophoridae
+Rabbit
+Black-tailed Jackrabbit
+Mammal
+Leporidae
+Raccoon
+North American Raccoon
+Mammal
+Procyonidae
+Ram, Sheep
+Sierra Nevada Bighorn Ram
+Mammal
+Bovidae
+Ram, Sheep
+Desert Bighorn Ram
+Mammal
+Bovidae
+Ram, Sheep
+Rocky Mountain Bighorn Ram
+Mammal
+Bovidae
+Ram, Sheep
+Legendary Bighorn Ram
+Mammal
+Bovidae
+Rat
+Black Rat
+Mammal
+Muridae
+Rat
+Brown Rat
+Mammal
+Muridae
+Raven
+Western Raven
+Bird
+Corvidae
+Redfin Pickerel
+Legendary Redfin Pickerel
+Fish
+Esocidae
+Redfin Pickerel
+Redfin Pickerel
+Fish
+Esocidae
+Robin
+American Robin
+Bird
+Turdidae
+Rock Bass
+Legendary Rock Bass
+Fish
+Centrarchidae
+Rock Bass
+Rock Bass
+Fish
+Centrarchidae
+Seagull
+Herring Gull
+Bird
+Laridae
+Seagull
+Laughing Gull
+Bird
+Laridae
+Seagull
+Ring-billed Gull
+Bird
+Laridae
+Sheep
+Sierra Nevada Bighorn Sheep
+Mammal
+Bovidae
+Sheep
+Desert Bighorn Sheep
+Mammal
+Bovidae
+Sheep
+Rocky Mountain Bighorn Sheep
+Mammal
+Bovidae
+Sheep
+Merino Sheep
+Mammal
+Bovidae
+Skunk
+Striped Skunk
+Mammal
+Mephitidae
+Smallmouth Bass
+Legendary Smallmouth Bass
+Fish
+Centrarchidae
+Smallmouth Bass
+Smallmouth Bass
+Fish
+Centrarchidae
+Snake
+Red Boa Snake
+Reptile
+Boidae
+Snake
+Rainbow Boa Snake
+Reptile
+Boidae
+Snake
+Sunglow Boa Snake
+Reptile
+Boidae
+Snake
+Diamondback Rattlesnake
+Reptile
+Viperidae
+Snake
+Fer-de-Lance Snake
+Reptile
+Viperidae
+Snake
+Black-tailed Rattlesnake
+Reptile
+Viperidae
+Snake
+Timber Rattlesnake
+Reptile
+Viperidae
+Snake
+Northern Copperhead Snake
+Reptile
+Viperidae
+Snake
+Southern Copperhead Snake
+Reptile
+Viperidae
+Snake
+Midland Water Snake
+Reptile
+Colubridae
+Snake
+Cottonmouth Snake
+Reptile
+Viperidae
+Snake
+Northern Water Snake
+Reptile
+Colubridae
+Sockeye Salmon
+Sockeye Salmon
+Fish
+Salmonidae
+Sockeye Salmon
+Legendary Sockeye Salmon
+Fish
+Salmonidae
+Songbird
+Scarlet Tanager Songbird
+Bird
+Cardinalidae
+Songbird
+Western Tanager Songbird
+Bird
+Cardinalidae
+Sparrow
+Eurasian Tree Sparrow
+Bird
+Passerellidae
+Sparrow
+American Tree Sparrow
+Bird
+Passerellidae
+Sparrow
+Golden Crowned Sparrow
+Bird
+Passerellidae
+Spoonbill
+Roseate Spoonbill
+Bird
+Threskiornithidae
+Squirrel
+American Red Squirrel
+Mammal
+Sciuridae
+Squirrel
+Western Gray Squirrel
+Mammal
+Sciuridae
+Squirrel
+Black Squirrel
+Mammal
+Sciuridae
+Steelhead Trout
+Legendary Steelhead Trout
+Fish
+Salmonidae
+Steelhead Trout
+Steelhead Trout
+Fish
+Salmonidae
+Toad
+Western Toad
+Amphibian
+Bufonidae
+Toad
+Sonoran Desert Toad
+Amphibian
+Bufonidae
+Turkey
+Eastern Wild Turkey
+Bird
+Phasianidae
+Turkey
+Rio Grande Wild Turkey
+Bird
+Phasianidae
+Turtle
+Alligator Snapping Turtle
+Reptile
+Chelydridae
+Vulture
+Eastern Turkey Vulture
+Bird
+Cathartidae
+Vulture
+Western Turkey Vulture
+Bird
+Cathartidae
+Waxwing
+Cedar Waxwing
+Bird
+Bombycillidae
+Wolf
+Gray Wolf
+Mammal
+Canidae
+Wolf
+Timber Wolf
+Mammal
+Canidae
+Wolf
+Legendary Wolf
+Mammal
+Canidae
+Woodpecker
+Pileated Woodpecker
+Bird
+Picidae
+Woodpecker
+Red-bellied Woodpecker
+Bird
+Picidae

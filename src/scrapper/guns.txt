@@ -1,0 +1,328 @@
+Algernon's Revolver
+Revolvers
+58
+Ancient Tomahawk
+Thrown Weapons
+37
+$5.50
+Antler Knife
+Melee Weapons
+30
+1.11 FRONTIER PURSUITS
+Águila Machete
+Melee Weapons
+Collector Role
+33
+$150.00
+1.11 FRONTIER PURSUITS
+Bolas
+Thrown Weapons
+Bounty Hunter Role
+23
+$30.00
+7
+Bolt-Action Rifle
+Rifles
+64
+$216.00
+10
+Bow and Arrows
+Thrown Weapons
+50
+$124.00
+Broken Pirate Sword
+Melee Weapons
+33
+1.26 BOUNTY HUNTERS
+Brookstone Bolas
+Thrown Weapons
+Bounty Hunter Role
+23
+$100.00
+Calloway's Revolver
+Revolvers
+61
+1
+Carbine Repeater
+Repeaters
+65
+$90.00
+50
+Carcano Rifle
+Sniper Rifles
+70
+$456.00
+1
+Cattleman Revolver
+Revolvers
+60
+$50.00
+Civil War Knife
+Melee Weapons
+30
+15
+Cleaver
+Thrown Weapons, Melee Weapons
+37
+$8.00
+Double Bit Hatchet
+Thrown Weapons, Melee Weapons
+37
+17
+Double-Action Revolver
+Revolvers
+58
+$127.00
+30
+Double-Barreled Shotgun
+Shotguns
+47
+$185.00
+16
+Dynamite
+Thrown Weapons
+47
+$1.00
+Dynamite (Volatile)
+Thrown Weapons
+50
+1.20 THE NATURALIST
+Elephant Rifle
+Rifles
+49
+$580.00
+1.06 FEBRUARY 2019
+1
+Evans Repeater
+Repeaters
+63
+$300.00
+24
+Fire Bottle
+Thrown Weapons
+40
+$0.75
+Fire Bottle (Volatile)
+Thrown Weapons
+44
+Flaco's Revolver
+Revolvers
+60
+1.15 MOONSHINERS
+Flammable Moonshine
+Melee Weapons, Thrown Weapons
+Moonshiner Role
+15
+$20.00
+Granger's Revolver
+Revolvers
+60
+1.26 BOUNTY HUNTERS
+Gravesend Bolas
+Thrown Weapons
+Bounty Hunter Role
+23
+$75.00
+1.11 FRONTIER PURSUITS
+Hammer
+Melee Weapons
+Trader Role
+25
+$75.00
+28
+Hatchet
+Thrown Weapons, Melee Weapons
+37
+$4.25
+1.26 BOUNTY HUNTERS
+Hawkmoth Bolas
+Thrown Weapons
+Bounty Hunter Role
+23
+$120.00
+Hewing Hatchet
+Melee Weapons, Thrown Weapons
+37
+1
+High Roller Double-Action Revolver
+Revolvers
+58
+$190.00
+Hunter Hatchet
+Thrown Weapons, Melee Weapons
+37
+$5.00
+1
+Hunting Knife
+Melee Weapons
+30
+1.20 THE NATURALIST
+Improved Bow & Arrows
+Thrown Weapons
+50
+$275.00
+Jawbone Knife
+Melee Weapons
+30
+$105.00
+John's Cattleman Revolver
+Revolvers
+60
+John's Knife
+Melee Weapons
+30
+12
+Lancaster Repeater
+Repeaters
+65
+$243.00
+1.11 FRONTIER PURSUITS
+Lance Knife
+Melee Weapons
+Trader Role
+$125.00
+1
+Lasso
+Thrown Weapons
+19
+1.09 MAY 2019
+1
+LeMat Revolver
+Revolvers
+57
+$317.00
+18
+Litchfield Repeater
+Repeaters
+63
+$348.00
+1.15 MOONSHINERS
+1
+Lowry's Revolver
+Revolvers
+62
+1.14 PC RELEASE
+M1899 Pistol
+Pistols
+63
+32
+Machete
+Melee Weapons
+33
+$40.00
+34
+Mauser Pistol
+Pistols
+61
+$600.00
+Maxim Gun / Gatling Gun
+Mounted Weapons
+Micah's Revolver
+Revolvers
+60
+Midnight's Pistol
+Pistols
+62
+1.15 MOONSHINERS
+1
+Navy Revolver
+Revolvers
+59
+$275.00
+Ornate Dagger
+Melee Weapons
+30
+Otis Miller's Revolver
+Revolvers
+61
+5
+Pump Action Shotgun
+Shotguns
+48
+$266.40
+Rare Rolling Block Rifle
+Sniper Rifles
+63
+1
+Rare Shotgun
+Shotguns
+47
+$258.00
+1.11 FRONTIER PURSUITS
+Reinforced Lasso
+Thrown Weapons
+Bounty Hunter Role
+22
+$350.00
+11
+Repeating Shotgun
+Shotguns
+49
+$434.40
+13
+Rolling Block Rifle
+Sniper Rifles
+63
+$411.00
+Rusted Double Bit Hatchet
+Thrown Weapons, Melee Weapons
+37
+Rusted Hunter Hatchet
+Thrown Weapons, Melee Weapons
+37
+19
+Sawed-Off Shotgun
+Shotguns
+46
+$111.00
+9
+Schofield Revolver
+Revolvers
+60
+$192.00
+22
+Semi Automatic Pistol
+Pistols
+63
+$537.00
+42
+Semi-Auto Shotgun
+Shotguns
+49
+$540.00
+38
+Springfield Rifle
+Rifles
+61
+$156.00
+Stone Hatchet
+Melee Weapons, Thrown Weapons
+37
+8
+Throwing Knife
+Thrown Weapons
+38
+$2.50
+Throwing Knife (Improved)
+Thrown Weapons
+45
+Throwing Knife (Poison)
+Thrown Weapons
+45
+36
+Tomahawk
+Thrown Weapons
+37
+$4.00
+Tomahawk (Homing)
+Thrown Weapons
+46
+Tomahawk (Improved)
+Thrown Weapons
+42
+1.15 MOONSHINERS
+Toxic Moonshine Bottle
+Thrown Weapons
+Moonshiner Role
+37
+$5.00
