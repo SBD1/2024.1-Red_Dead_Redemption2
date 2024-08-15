@@ -1,231 +1,89 @@
--- Database: postgres
-
--- DROP DATABASE IF EXISTS postgres;
-
-create table ataque (
-	idAtaque serial,
-	descricao varchar(100) not null,
-	dano int default 50 check (dano between 1 and 100),
-	constraint pk_ataque primary key(idAtaque)
+create table if not exists mapa (
+	idMapa serial primary key,
+	nome varchar(30) not null
 );
 
-CREATE TABLE animal_hostil_possui_ataque (
-    idAtaque INT NOT NULL,
-    idAnimal INT NOT NULL,
-    CONSTRAINT pk PRIMARY KEY(idAtaque, idAnimal),
-    CONSTRAINT fk_ataque FOREIGN KEY(idAtaque) REFERENCES ataque(idAtaque) ON DELETE CASCADE,
-    CONSTRAINT fk_animal FOREIGN KEY(idAnimal) REFERENCES animal_hostil(idAnimal) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-create table animal_amigavel (
-	idAnimal int not null,
-	idRegiaoHabitatNatural int not null,
-	especie varchar(30) not null,
-	velocidade int default 50 check(velocidade between 1 and 10),
-	vidaMax int default 50 check(vidaMax between 1 and 100),
-	staminaMax int default 50 check(staminaMax between 1 and 100),
-	textura varchar(30) not null,
-	constraint pk_animal_amigavel primary key(idAnimal),
-	constraint fk_animal_amigavel foreign key(idAnimal) references animal_tipo(idAnimal) on delete cascade on update cascade,
-	constraint fk_regiao foreign key(idRegiaoHabitatNatural) references regiao(idRegiao) on delete cascade on update cascade
-);
-
-create table animal_hostil (
-	idAnimal int not null,
-	idRegiaoHabitatNatural int not null,
-	especie varchar(30) not null,
-	velocidade int default 50 check(velocidade between 1 and 10),
-	vidaMax int default 50 check(vidaMax between 1 and 100),
-	staminaMax int default 50 check(staminaMax) between 1 and 100),
-	textura varchar(30) not null,
-	constraint pk_animal_hostil primary key(idAnimal),
-	constraint fk_animal_amigavel foreign key(idAnimal) references animal_tipo(idAnimal) on delete cascade on update cascade,
-	constraint fk_regiao foreign key(idRegiaoHabitatNatural) references regiao(idRegiao) on delete cascade on update cascade
-);
-
-create table instancia_animal (
-	idInstanciaAnimal serial,
-	idAnimal int not null,
-	vidaAtual int default 100,
-	staminaAtual int default 100,
-	idSala int not null,
-	constraint pk_instancia_animal primary key(idInstanciaAnimal, idAnimal),
-	constraint fk_animal foreign key(idAnimal) references animal_tipo(idAnimal) on delete cascade on update cascade,
-	constraint fk_sala foreign key(idSala) references sala(idSala) on delete cascade on update cascade
-);
-
-create table animal_tipo (
-	idAnimal serial,
-	tipo int not null,
-	constraint pk_animal_tipo primary key(idAnimal)
-);
-
-create table jogador_domou_animal_amigavel (
-	idInstanciaAnimal int not null,
-	idJogador int not null,
-	constraint pks primary key (idInstanciaAnimal, idJogador),
-	constraint fk_instancia foreign key(idInstanciaAnimal) references instancia_animal(idInstanciaAnimal) on delete cascade on update cascade,
-	constraint fk_jogador foreign key(idJogador) references jogador(idPersonagem) on delete cascade on update cascade
-);
-
-create table animal_hostil_ataca_jogador (
-	idInstanciaAnimal int not null,
-	idJogador int not null,
-	constraint pks primary key (idInstanciaAnimal, idJogador),
-	constraint fk_instancia foreign key(idInstanciaAnimal) references instancia_animal(idInstanciaAnimal) on delete cascade on update cascade,
-	constraint fk_jogador foreign key(idJogador) references jogador(idPersonagem) on delete cascade on update cascade
-);
-
-create table mapa (
-	idMapa serial,
-	nome varchar(30) not null,
-	constraint pk primary key(idMapa)
-);
-
-create table regiao (
-	idRegiao serial,
+create table if not exists regiao (
+	idRegiao serial primary key,
 	idMapa int not null,
 	nome varchar(30) not null,
 	descricao varchar(60) not null,
-	constraint pk primary key(idRegiao),
-	constraint fk_mapa foreign key(idMapa) references mapa(idMapa) on delete cascade on update cascade
+	constraint fk_mapa foreign key(idMapa) references mapa(idMapa) on delete restrict on update cascade
 );
 
-create table regiao_faz_fronteira_com_regiao (
-	idRegiaoOrigem int not null,
-	idRegiaoDestino int not null,
-	constraint pks primary key(idRegiaoOrigem, idRegiaoDestino),
-	constraint fk_origem_destino foreign key (idRegiaoOrigem, idRegiaoDestino) references regiao(idRegiao, idRegiao) on delete cascade on update cascade
+create table if not exists regiao_faz_fronteira_com_regiao (
+	idRegiaoOrigem int,
+	idRegiaoDestino int,
+	primary key(idRegiaoOrigem, idRegiaoDestino),
+	constraint fk_origem foreign key (idRegiaoOrigem) references regiao(idRegiao) on delete restrict on update cascade,
+	constraint fk_destino foreign key (idRegiaoDestino) references regiao(idRegiao) on delete restrict on update cascade
 );
 
-create table sala (
-	idSala serial,
+create table if not exists sala (
+	idSala serial primary key,
 	idRegiao int not null,
 	nome varchar(30) not null,
 	descricao varchar(60) not null,
-	constraint pk primary key(idSala),
-	constraint fk_regiao foreign key(idRegiao) references regiao(idRegiao) on delete cascade on update cascade
+	constraint fk_regiao foreign key(idRegiao) references regiao(idRegiao) on delete restrict on update cascade
 );
 
-create table sala_conecta_com_sala (
-	idSalaOrigem int not null,
-	idSalaDestino int not null,
-	constraint pks primary key(idSalaOrigem, idSalaDestino),
-	constraint fks foreign key(idSalaOrigem, idSalaDestino) references sala(idSala, idSala) on delete cascade on update cascade
+create table if not exists sala_conecta_com_sala (
+	idSalaOrigem int,
+	idSalaDestino int,
+	primary key(idSalaOrigem, idSalaDestino),
+	constraint fk_origem foreign key(idSalaOrigem) references sala(idSala) on delete restrict on update cascade,
+	constraint fk_destino foreign key(idSalaDestino) references sala(idSala) on delete restrict on update cascade
 );
 
-create table estabelecimento (
-	idEstab serial,
+create table if not exists estabelecimento (
+	idEstab serial primary key,
 	nome varchar(30) not null,
-	descricao varchar(60) not null,
-	constraint pk primary key(idEstabelecimento)
+	descricao varchar(60) not null
 );
 
--- Consertar isto depois
--- create table instancia_estabelecimento (
--- 	idInstEstab serial,
--- 	idEstab int not null,
--- 	idSala int not null,
--- 	idDono int not null,
--- 	constraint pk(idInstEstab, idEstab),
--- 	constraint fk_estab foreign key(idEstab) references estabelecimento (idEstab) on delete cascade on update cascade,
--- 	constraint fk_sala foreign key(idSala) references sala(idSala) on delete cascade on update cascade,
--- 	constraint fk_dono foreign key 
--- );
+create table if not exists personagem_tipo (
+	idPersonagem serial primary key,
+	tipo int not null
+);
 
-create table objetivo (
-	idObjetivo serial,
+create table if not exists inventario (
+	idInventario serial primary key,
+	totalItens int not null default 0,
+	capacidade int not null
+);
+
+create table if not exists classe (
+    idClasse serial primary key,
+    nome varchar(20) not null    
+);
+
+create table if not exists historia (
+	idHistoria serial primary key,
 	titulo varchar(60) not null,
-	retornoXP int not null check(retornoXP between 1 and 1000),
-	retornoDinheiro int not null check(retornoDinheiro between 1 and 1000),
-	idMissao int not null,
-	constraint pk primary key(idObjetivo),
-	constraint fk foreign key(idMissao) references missao(idMissao) on delete cascade on update cascade
+	enredo varchar(1000) not null
 );
 
-create table historia (
-	idHistoria serial,
-	titulo varchar(60) not null,
-	enredo varchar(1000) not null,
-	constraint pk primary key(idHistoria)
-	
-);
-
-create table missao (
-	idMissao serial,
+create table if not exists missao (
+	idMissao serial primary key,
 	titulo varchar(60) not null,
 	nivelDificuldade int not null check(nivelDificuldade between 1 and 10),
 	idHistoria int not null,
 	idRegiao int not null,
 	status decimal(3,2) not null default 0.00,
-	constraint pk primary key(idMissao),
-	constraint fk_historia foreign key(idHistoria) references historia(idHistoria) on delete cascade on update cascade,
-	constraint fk_regiao foreign key(idRegiao) references regiao(idRegiao) on delete cascade on update cascade
+	constraint fk_historia foreign key(idHistoria) references historia(idHistoria) on delete restrict on update cascade,
+	constraint fk_regiao foreign key(idRegiao) references regiao(idRegiao) on delete restrict on update cascade
 );
 
-create table missao_depende_de_missao (
-    idMissaoAtual int not null,
-    idMissaoAnterior int not null,
-    constraint pk primary key(idMissaoAtual, idMissaoAnterior),
-    constraint fks foreign key (idMissaoAtual, idMissaoAnterior) references missao(idMissao, idMissao) on delete cascade on update cascade   
+create table if not exists missao_depende_de_missao (
+    idMissaoAtual int,
+    idMissaoAnterior int,
+	primary key(idMissaoAtual, idMissaoAnterior),
+    constraint fk_atual foreign key(idMissaoAtual) references missao(idMissao) on delete restrict on update cascade,
+	constraint fk_anterior foreign key(idMissaoAnterior) references missao(idMissao) on delete restrict on update cascade   
 );
 
-create table classe (
-    idClasse serial,
-    nome varchar(20) not null,    
-    constraint pk primary key(idClasse)
-);
-
-create table habilidade (
-    idHabilidade serial,
-    nome varchar(30) not null,
-    porcentagem decimal(3,2) not null default 0.00 check(porcentagem between 0.00 and 1.00),
-    constraint pk primary key(idHabilidade)
-);
-
-create table classe_possui_habilidade (
-    idClasse int not null,
-    idHabilidade int not null,
-    constraint pk primary key(idClasse, idHabilidade),
-    constraint fk_classe foreign key(idClasse) references classe(idClasse) on delete cascade on update cascade,
-    constraint fk_habilidade foreign key(idHabilidade) references habilidade(idHabilidade) on delete cascade on update cascade
-);
-
-create table gangue (
-    idGangue serial,
-    nome varchar(30) not null,
-    descricao varchar(60) not null,
-    idInstanciaNPCLider int not null,
-    constraint pk primary key(idGangue),
-    constraint fk_instancia_npc foreign key(idInstanciaNPCLider) references instancia_npc(idInstanciaNPC) on delete cascade on update cascade
-);
-
-create table gangue_confronta_gangue (
-    idGangueVencedora int not null,
-    idGanguePerdedora int not null,
-    dataConfronto date not null default current_date,
-    constraint pk primary key(idGangueVencedora, idGanguePerdedora),
-    constraint fk_vencedora foreign key(idGangueVencedora) references gangue(idGangue) on delete cascade on update cascade
-);
-
-create table dialogo (
-    idDialogo serial,
-    idInstanciaNPCFalante int not null,
-    descricao varchar(100) not null,
-    constraint pk primary key(idDialogo),
-    constraint fk_instancia_npc foreign key(idInstanciaNPCFalante) references instancia_npc(idInstanciaNPC) on delete cascade on update cascade
-);
-
-create table linha_de_fala (
-    idLinhaDeFala serial,
-    idDialogo int not null,
-    texto varchar(100) not null,
-    constraint pk primary key(idLinhaDeFala),
-    constraint fk_dialogo foreign key(idDialogo) references dialogo(idDialogo) on delete cascade on update cascade
-);
-
-create table jogador (
-	idPersonagem int not null,
+create table if not exists jogador (
+	idPersonagem int primary key,
 	idInventario int not null,
 	idSala int not null,
 	idClasse int not null,
@@ -240,70 +98,183 @@ create table jogador (
 	staminaAtual int not null default 1000 check(staminaAtual between 1 and 1000),
 	username varchar(30) not null,
 	senha_hash varchar(255) not null,
-	constraint pk_jogador primary key(idPersonagem),
-	constraint fk_jogador foreign key(idPersonagem) references personagem_tipo(idPersonagem) on delete cascade on update cascade,
-	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete cascade on update cascade,
-	constraint fk_sala foreign key(idSala) references sala(idSala) on delete cascade on update cascade,
-	constraint fk_classe foreign key(idClasse) references classe(idClasse) on delete cascade on update cascade,
-	constraint fk_gangue foreign key(idGangue) references gangue(idGangue) on delete cascade on update cascade
+	constraint fk_jogador foreign key(idPersonagem) references personagem_tipo(idPersonagem) on delete restrict on update cascade,
+	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete restrict on update cascade,
+	constraint fk_sala foreign key(idSala) references sala(idSala) on delete restrict on update cascade,
+	constraint fk_classe foreign key(idClasse) references classe(idClasse) on delete restrict on update cascade
+	-- constraint fk_gangue foreign key(idGangue) references gangue(idGangue) on delete restrict on update cascade
 );
 
-create table npc (
-	idPersonagem int not null,
+create table if not exists npc (
+	idPersonagem int primary key,
 	nome varchar(30) not null,
 	velocidade int not null default 7 check(velocidade between 1 and 10),
 	vidaMax int not null default 100 check(vidaMax between 1 and 100),
 	staminaMax int not null default 1000 check(staminaMax between 1 and 1000),
-	constraint pk_npc primary key(idPersonagem),
-	constraint fk_npc foreign key(idPersonagem) references personagem_tipo(idPersonagem) on delete cascade on update cascade
+	constraint fk_npc foreign key(idPersonagem) references personagem_tipo(idPersonagem) on delete restrict on update cascade
 );
 
-create table instancia_npc (
-	idInstanciaNPC serial,
+create table if not exists instancia_npc (
+	idInstanciaNPC serial primary key,
 	idPersonagem int not null,
 	idGangue int not null,
 	idInventario int not null,
 	idMissao int not null,
 	idSala int not null,
-	constraint pk_instancia_npc primary key(idInstanciaNPC),
-	constraint fk_personagem foreign key(idPersonagem) references npc(idPersonagem) on delete cascade on update cascade,
-	constraint fk_gangue foreign key(idGangue) references gangue(idGangue) on delete cascade on update cascade,
-	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete cascade on update cascade,
-	constraint fk_missao foreign key(idMissao) references missao(idMissao) on delete cascade on update cascade,
-	constraint fk_sala foreign key(idSala) references sala(idSala) on delete cascade on update cascade
+	constraint fk_personagem foreign key(idPersonagem) references npc(idPersonagem) on delete restrict on update cascade,
+	-- constraint fk_gangue foreign key(idGangue) references gangue(idGangue) on delete restrict on update cascade,
+	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete restrict on update cascade,
+	constraint fk_missao foreign key(idMissao) references missao(idMissao) on delete restrict on update cascade,
+	constraint fk_sala foreign key(idSala) references sala(idSala) on delete restrict on update cascade
 );
 
-create table personagem_tipo (
-	idPersonagem serial,
-	tipo int not null,
-	constraint pk_personagem primary key(idPersonagem)
+create table if not exists instancia_estabelecimento (
+	idInstEstab serial,
+	idEstab int,
+	idSala int not null,
+	idDono int not null,
+	primary key(idInstEstab, idEstab),
+	constraint fk_sala foreign key(idSala) references sala(idSala) on delete restrict on update cascade,
+	constraint fk_dono foreign key(idDono) references instancia_npc(idInstanciaNPC) on delete restrict on update cascade 
 );
 
-create table jogador_cumpre_missao (
+create table if not exists ataque (
+	idAtaque serial primary key,
+	descricao varchar(100) not null,
+	dano int default 50 check (dano between 1 and 100)
+);
+
+create table if not exists animal_tipo (
+	idAnimal serial primary key,
+	tipo int not null
+);
+
+create table if not exists animal_hostil (
+	idAnimal int primary key,
+	habitatNatural varchar(100) not null,
+	especie varchar(30) not null,
+	velocidade int default 50 check(velocidade between 1 and 10),
+	vidaMax int default 50 check(vidaMax between 1 and 100),
+	staminaMax int default 50 check(staminaMax between 1 and 100),
+	textura varchar(30) not null,
+	constraint fk_animal_amigavel foreign key(idAnimal) references animal_tipo(idAnimal) on delete restrict on update cascade
+);
+
+create table if not exists animal_amigavel (
+	idAnimal int primary key,
+	habitatNatural varchar(100) not null,
+	especie varchar(30) not null,
+	velocidade int default 50 check(velocidade between 1 and 10),
+	vidaMax int default 50 check(vidaMax between 1 and 100),
+	staminaMax int default 50 check(staminaMax between 1 and 100),
+	textura varchar(30) not null,
+	constraint fk_animal_amigavel foreign key(idAnimal) references animal_tipo(idAnimal) on delete restrict on update cascade
+);
+
+CREATE table if not exists animal_hostil_possui_ataque (
+    idAtaque int,
+    idAnimal int,
+	primary key(idAtaque, idAnimal),
+    constraint fk_ataque foreign key(idAtaque) references ataque(idAtaque) on delete restrict,
+    constraint fk_animal foreign key(idAnimal) references animal_hostil(idAnimal) on delete restrict on update cascade
+);
+
+create table if not exists instancia_animal (
+	idInstanciaAnimal serial primary key,
+	idAnimal int not null,
+	vidaAtual int default 100,
+	staminaAtual int default 100,
+	idSala int not null,
+	constraint fk_animal foreign key(idAnimal) references animal_tipo(idAnimal) on delete restrict on update cascade,
+	constraint fk_sala foreign key(idSala) references sala(idSala) on delete restrict on update cascade
+);
+
+create table if not exists jogador_domou_animal_amigavel (
+	idInstanciaAnimal int not null,
 	idJogador int not null,
+	constraint pks primary key (idInstanciaAnimal, idJogador),
+	constraint fk_instancia foreign key(idInstanciaAnimal) references instancia_animal(idInstanciaAnimal) on delete restrict on update cascade,
+	constraint fk_jogador foreign key(idJogador) references jogador(idPersonagem) on delete restrict on update cascade
+);
+
+create table if not exists animal_hostil_ataca_jogador (
+	idInstanciaAnimal int not null,
+	idJogador int not null,
+	primary key (idInstanciaAnimal, idJogador),
+	constraint fk_instancia foreign key(idInstanciaAnimal) references instancia_animal(idInstanciaAnimal) on delete restrict on update cascade,
+	constraint fk_jogador foreign key(idJogador) references jogador(idPersonagem) on delete restrict on update cascade
+);
+
+create table if not exists objetivo (
+	idObjetivo serial primary key,
+	titulo varchar(60) not null,
+	retornoXP int not null check(retornoXP between 1 and 1000),
+	retornoDinheiro int not null check(retornoDinheiro between 1 and 1000),
 	idMissao int not null,
+	constraint fk_missao foreign key(idMissao) references missao(idMissao) on delete restrict on update cascade
+);
+
+create table if not exists habilidade (
+    idHabilidade serial primary key,
+    nome varchar(30) not null,
+    porcentagem decimal(3,2) not null default 0.00 check(porcentagem between 0.00 and 1.00)
+);
+
+create table if not exists classe_possui_habilidade (
+    idClasse int,
+    idHabilidade int,
+	primary key(idClasse, idHabilidade),
+    constraint fk_classe foreign key(idClasse) references classe(idClasse) on delete restrict on update cascade,
+    constraint fk_habilidade foreign key(idHabilidade) references habilidade(idHabilidade) on delete restrict on update cascade
+);
+
+create table if not exists gangue (
+    idGangue serial primary key,
+    nome varchar(30) not null,
+    descricao varchar(60) not null,
+    idInstanciaNPCLider int not null,
+    constraint fk_instancia_npc foreign key(idInstanciaNPCLider) references instancia_npc(idInstanciaNPC) on delete restrict on update cascade
+);
+
+create table if not exists gangue_confronta_gangue (
+    idGangueVencedora int,
+    idGanguePerdedora int,
+	primary key(idGangueVencedora, idGanguePerdedora),
+    dataConfronto date not null default current_date,
+    constraint fk_vencedora foreign key(idGangueVencedora) references gangue(idGangue) on delete restrict on update cascade
+);
+
+create table if not exists dialogo (
+    idDialogo serial primary key,
+    idInstanciaNPCFalante int not null,
+    descricao varchar(100) not null,
+    constraint fk_instancia_npc foreign key(idInstanciaNPCFalante) references instancia_npc(idInstanciaNPC) on delete restrict on update cascade
+);
+
+create table if not exists linha_de_fala (
+    idLinhaDeFala serial primary key,
+    idDialogo int not null,
+    texto varchar(100) not null,
+    constraint fk_dialogo foreign key(idDialogo) references dialogo(idDialogo) on delete restrict on update cascade
+);
+
+create table if not exists jogador_cumpre_missao (
+	idJogador int,
+	idMissao int,
 	dataMissao date not null,
 	retornoTotalXP int not null,
 	retornoTotalDinheiro int not null,
-	constraint pk_jogador_missao primary key(idJogador, idMissao),
-	constraint fk_jogador foreign key(idJogador) references jogador(idPersonagem) on delete cascade on update cascade
+	primary key(idJogador, idMissao),
+	constraint fk_jogador foreign key(idJogador) references jogador(idPersonagem) on delete restrict on update cascade
 );
 
-create table inventario (
-	idInventario serial,
-	totalItens int not null default 0,
-	capacidade int not null,
-	constraint pk_inventario primary key(idInventario)
+create table if not exists item_tipo (
+	idItem serial primary key,
+	tipo int not null
 );
 
-create table item_tipo (
-	idItem serial,
-	tipo int not null,
-	constraint pk_item primary key(idItem)
-);
-
-create table item_consumivel (
-	idItem int not null,
+create table if not exists item_consumivel (
+	idItem int primary key,
 	nome varchar(30) not null,
 	descricao varchar(60) not null,
 	peso int not null check(peso between 1 and 8),
@@ -311,24 +282,22 @@ create table item_consumivel (
 	durabilidadeMaxima int not null,
 	qtdReparacaoStamina int not null,
 	qtdRepacaovida int not null,
-	constraint pk_item_consumivel primary key(idItem),
-	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete cascade on update cascade
+	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
 );
 
-create table item_equipavel (
-	idItem int not null,
+create table if not exists item_equipavel (
+	idItem int primary key,
 	nome varchar(30) not null,
 	descricao varchar(60) not null,
 	peso int not null check(peso between 1 and 8),
 	preco decimal(3, 2) not null,
 	durabilidadeMaxima int not null,
 	parteDoCorpo varchar(30) not null,
-	constraint pk_item_consumivel primary key(idItem),
-	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete cascade on update cascade
+	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
 );
 
-create table arma_fogo (
-	idItem int not null,
+create table if not exists arma_fogo (
+	idItem int primary key,
 	nome varchar(30) not null,
 	descricao varchar(60) not null,
 	peso int not null check(peso between 1 and 8),
@@ -337,12 +306,11 @@ create table arma_fogo (
 	danoPorAtaque int not null,
 	velocidadeDisparo int not null,
 	velocidadeReload time not null,
-	constraint pk_item_consumivel primary key(idItem),
-	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete cascade on update cascade
+	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
 );
 
-create table arma_melee (
-	idItem int not null,
+create table if not exists arma_melee (
+	idItem int primary key,
 	nome varchar(30) not null,
 	descricao varchar(60) not null,
 	peso int not null check(peso between 1 and 8),
@@ -350,29 +318,22 @@ create table arma_melee (
 	durabilidadeMaxima int not null,
 	danoPorAtaque int not null,
 	nivelAdiacao int not null,
-	constraint pk_item_consumivel primary key(idItem),
-	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete cascade on update cascade
+	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
 );
 
-create table instancia_item (
-	idInstanciaItem serial,
+create table if not exists instancia_item (
+	idInstanciaItem serial primary key,
 	idItem int not null,
 	idInventario int not null,
 	durabilidadeAtual int not null,
-	constraint pk_instancia_item primary key(idInstanciaItem),
-	constraint fk_item foreign key(idItem) references item_tipo(idItem) on delete cascade on update cascade,
-	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete cascade on update cascade
+	constraint fk_item foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade,
+	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete restrict on update cascade
 );
 
-create table projetil (
-	idProjetil serial,
+create table if not exists projetil (
+	idProjetil serial primary key,
 	idInstanciaItem int not null,
-	posX int not null,
-	posY int not null,
-	posZ int not null,
 	colidiu boolean not null,
 	velocidade int not null check(velocidade between 1 and 1000), 
-	constraint pk_projetil primary key(idProjetil),
-	constraint fk_instancia_item foreign key(idInstanciaItem) references instancia_item(idInstanciaItem) on delete cascade on update cascade
+	constraint fk_instancia_item foreign key(idInstanciaItem) references instancia_item(idInstanciaItem) on delete restrict on update cascade
 );
-
