@@ -4,9 +4,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from random import randint
+from googletrans import Translator
 
 def filter(string):
-    return string.replace("'", "''")
+    translator = Translator()
+    translation = translator.translate(string, dest='pt')
+    return translation.text.replace("'","''")
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver1 = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -30,7 +33,7 @@ for gun in guns:
         velocidadeReload = temp[temp.index("RELOAD") + 1]
         acuracia = temp[temp.index("ACCURACY") + 1]
         
-        with open("guns_new.txt", "a") as f:
+        with open("output/armas_fogo.txt", "a") as f:
             f.write(f"('{filter(nome)}','{filter(descricao)}', {peso}, {preco}, {durabilidadeMaxima}, {danoPorAtaque}, {velocidadeDisparo}, {velocidadeReload}, {acuracia})\n")
         print(f"{nome} done.")
     except: print("Error")

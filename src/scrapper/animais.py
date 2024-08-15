@@ -4,9 +4,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from random import randint
+from googletrans import Translator
 
 def filter(string):
-    return string.replace("'", "''")
+    translator = Translator()
+    translation = translator.translate(string, dest='pt')
+    return translation.text.replace("'","''")
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver1 = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -31,7 +34,7 @@ for i in range(1, 5):
             velocidade = randint(1, 10)
             vidaMax = randint(1, 100)
             staminaMax = randint(1, 100)
-            with open("animals_new.txt", "a") as f:
+            with open("output/animais.txt", "a") as f:
                 f.write(f"('{filter(nome)}','{filter(descricao)}','{tamanho}','{filter(habitatNatural)}','{filter(especie)}', {velocidade}, {vidaMax}, {staminaMax})\n")
             print(f"{nome} done.")
         except: print("Error")
