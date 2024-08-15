@@ -102,7 +102,6 @@ create table if not exists jogador (
 	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete restrict on update cascade,
 	constraint fk_sala foreign key(idSala) references sala(idSala) on delete restrict on update cascade,
 	constraint fk_classe foreign key(idClasse) references classe(idClasse) on delete restrict on update cascade
-	-- constraint fk_gangue foreign key(idGangue) references gangue(idGangue) on delete restrict on update cascade
 );
 
 create table if not exists npc (
@@ -122,7 +121,6 @@ create table if not exists instancia_npc (
 	idMissao int not null,
 	idSala int not null,
 	constraint fk_personagem foreign key(idPersonagem) references npc(idPersonagem) on delete restrict on update cascade,
-	-- constraint fk_gangue foreign key(idGangue) references gangue(idGangue) on delete restrict on update cascade,
 	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete restrict on update cascade,
 	constraint fk_missao foreign key(idMissao) references missao(idMissao) on delete restrict on update cascade,
 	constraint fk_sala foreign key(idSala) references sala(idSala) on delete restrict on update cascade
@@ -337,3 +335,7 @@ create table if not exists projetil (
 	velocidade int not null check(velocidade between 1 and 1000), 
 	constraint fk_instancia_item foreign key(idInstanciaItem) references instancia_item(idInstanciaItem) on delete restrict on update cascade
 );
+
+alter table jogador add constraint fk_gangue foreign key(idGangue) references gangue(idGangue) on delete restrict on update cascade;
+
+alter table instancia_npc add constraint fk_gangue foreign key(idGangue) references gangue(idGangue) on delete restrict on update cascade;
