@@ -13,7 +13,7 @@ def filter(string):
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver1 = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-
+i = 1
 for i in range(1, 5):
     driver.get(f"https://www.gtabase.com/red-dead-redemption-2/animals/#sort=attr.ct77.frontend_value&sortdir=asc&page={i}")
     driver.refresh()
@@ -34,9 +34,9 @@ for i in range(1, 5):
             velocidade = randint(1, 10)
             vidaMax = randint(1, 100)
             staminaMax = randint(1, 100)
-            i = 1
+
             with open("output/animais.txt", "a") as f:
-                f.write(f"({i}, '{filter(nome)}','{filter(descricao)}','{tamanho}','{filter(habitatNatural)}','{filter(especie)}', {velocidade}, {vidaMax}, {staminaMax})\n")
+                f.write(f"({i}, '{filter(nome)}','{filter(descricao)}','{tamanho}','{filter(habitatNatural)}','{filter(especie)}', {velocidade}, {vidaMax}, {staminaMax}),\n")
             print(f"{nome} done.")
             i += 1
         except: print("Error")

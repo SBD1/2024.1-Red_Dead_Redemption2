@@ -48,7 +48,7 @@ create table if not exists estabelecimento (
 );
 
 create table if not exists personagem_tipo (
-	idPersonagem serial primary key,
+	idPersonagem int primary key,
 	tipo tipo_personagem not null unique,
 );
 
@@ -321,7 +321,7 @@ create table if not exists arma_melee (
 	preco decimal(3, 2) not null,
 	durabilidadeMaxima int not null,
 	danoPorAtaque int not null,
-	nivelAfiacao int not null,
+	nivelAfiacaoMaxima int not null default 1 check(nivelAfiacaoMaxima between 1 and 10),
 	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
 );
 
