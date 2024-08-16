@@ -1,27 +1,27 @@
-('Salão', 'Local para beber, jogar e, às vezes, iniciar uma briga.')
-('Loja de Variedades', 'Vendendo uma ampla gama de mercadorias, incluindo alimentos, munição e roupas.')
-('Loja de Armas', 'Vendendo armas, munição e serviços de personalização de armas.')
-('Barbeiro', 'Oferece cortes de cabelo e serviços de barbear.')
-('Médico', 'Vendendo suprimentos médicos e tônicos.')
-('Hotel', 'Fornece hospedagem e um lugar para trocar de roupa ou tomar um banho.')
-('Estação de Trem', 'Serve como ponto de viagem rápida e local para enviar/receber correspondências ou pacotes.')
-('Agência dos Correios', 'Onde os jogadores podem coletar ou enviar correspondências e pagar recompensas.')
-('Banco', 'Local seguro para armazenar valores ou roubar.')
-('Açougue', 'Onde os jogadores podem vender carcaças de animais e carne.')
-('Alfaiate', 'Vendendo roupas e trajes.')
-('Estábulo', 'Local para comprar, vender ou cuidar de cavalos.')
-('Mercador de Contrabando', 'Compra e vende mercadorias roubadas, itens raros e armas especiais.')
-('Loja de Iscas', 'Vendendo iscas, anzóis e suprimentos de pesca.')
-('Acampamento', 'Local onde você pode descansar, fabricar e interagir com sua gangue.')
-('Igreja', 'Edifício religioso encontrado em algumas cidades.')
-('Cabana e Casa', 'Diversas casas e cabanas espalhadas pelo mundo, muitas vezes ligadas a missões secundárias ou segredos escondidos.')
-('Fábrica', 'Local industrial, frequentemente envolvido em missões da história.')
-('Pátio de Trem', 'Local associado ao transporte ferroviário e logística.')
-('Cidade e Vilarejo', 'Área geral com vários estabelecimentos e residentes.')
-('Delegacia do Xerife', 'Centro de aplicação da lei onde as recompensas são coletadas.')
-('Ferreiro', 'Encontrado em algumas cidades, tipicamente como parte da ambientação ou eventos da história.')
-('Plantação', 'Grande propriedade frequentemente ligada à narrativa do jogo.')
-('Acampamento de Fora da Lei', 'Acampamento de gangues rivais que pode ser atacado.')
-('Cemitério', 'Local de importância histórica ou narrativa.')
-('Cabine e Sítio', 'Residência remota, muitas vezes ligada a encontros aleatórios ou histórias secundárias.')
-('Corretor', 'Vendendo imóveis, como casas ou propriedades (relacionado ao modo história).')
+('Salão', 'Local para beber, jogar e, às vezes, iniciar uma briga.'),
+('Loja de Variedades', 'Vendendo uma ampla gama de mercadorias, incluindo alimentos, munição e roupas.'),
+('Loja de Armas', 'Vendendo armas, munição e serviços de personalização de armas.'),
+('Barbeiro', 'Oferece cortes de cabelo e serviços de barbear.'),
+('Médico', 'Vendendo suprimentos médicos e tônicos.'),
+('Hotel', 'Fornece hospedagem e um lugar para trocar de roupa ou tomar um banho.'),
+('Estação de Trem', 'Serve como ponto de viagem rápida e local para enviar/receber correspondências ou pacotes.'),
+('Agência dos Correios', 'Onde os jogadores podem coletar ou enviar correspondências e pagar recompensas.'),
+('Banco', 'Local seguro para armazenar valores ou roubar.'),
+('Açougue', 'Onde os jogadores podem vender carcaças de animais e carne.'),
+('Alfaiate', 'Vendendo roupas e trajes.'),
+('Estábulo', 'Local para comprar, vender ou cuidar de cavalos.'),
+('Mercador de Contrabando', 'Compra e vende mercadorias roubadas, itens raros e armas especiais.'),
+('Loja de Iscas', 'Vendendo iscas, anzóis e suprimentos de pesca.'),
+('Acampamento', 'Local onde você pode descansar, fabricar e interagir com sua gangue.'),
+('Igreja', 'Edifício religioso encontrado em algumas cidades.'),
+('Cabana e Casa', 'Diversas casas e cabanas espalhadas pelo mundo, muitas vezes ligadas a missões secundárias ou segredos escondidos.'),
+('Fábrica', 'Local industrial, frequentemente envolvido em missões da história.'),
+('Pátio de Trem', 'Local associado ao transporte ferroviário e logística.'),
+('Cidade e Vilarejo', 'Área geral com vários estabelecimentos e residentes.'),
+('Delegacia do Xerife', 'Centro de aplicação da lei onde as recompensas são coletadas.'),
+('Ferreiro', 'Encontrado em algumas cidades, tipicamente como parte da ambientação ou eventos da história.'),
+('Plantação', 'Grande propriedade frequentemente ligada à narrativa do jogo.'),
+('Acampamento de Fora da Lei', 'Acampamento de gangues rivais que pode ser atacado.'),
+('Cemitério', 'Local de importância histórica ou narrativa.'),
+('Cabine e Sítio', 'Residência remota, muitas vezes ligada a encontros aleatórios ou histórias secundárias.'),
+('Corretor', 'Vendendo imóveis, como casas ou propriedades (relacionado ao modo história).'),

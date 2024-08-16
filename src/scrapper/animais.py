@@ -34,9 +34,11 @@ for i in range(1, 5):
             velocidade = randint(1, 10)
             vidaMax = randint(1, 100)
             staminaMax = randint(1, 100)
+            i = 1
             with open("output/animais.txt", "a") as f:
-                f.write(f"('{filter(nome)}','{filter(descricao)}','{tamanho}','{filter(habitatNatural)}','{filter(especie)}', {velocidade}, {vidaMax}, {staminaMax})\n")
+                f.write(f"({i}, '{filter(nome)}','{filter(descricao)}','{tamanho}','{filter(habitatNatural)}','{filter(especie)}', {velocidade}, {vidaMax}, {staminaMax})\n")
             print(f"{nome} done.")
+            i += 1
         except: print("Error")
 driver1.quit()
 driver.quit()

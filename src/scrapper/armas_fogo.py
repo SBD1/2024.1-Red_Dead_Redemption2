@@ -17,6 +17,7 @@ driver1 = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.get("https://www.gtabase.com/red-dead-redemption-2/weapons/#sort=name&sortdir=asc&attr.ct55.value=pistols%2Crevolvers%2Cshotguns%2Csniper-rifles%2Crifles%2Crepeaters&page=1")
 sleep(3)
 guns = driver.find_elements(By.CLASS_NAME, "product-item-link")
+i = 24
 for gun in guns:
     try:
         driver1.get(gun.get_attribute("href"))
@@ -32,10 +33,10 @@ for gun in guns:
         velocidadeDisparo = temp[temp.index("FIRE RATE") + 1]
         velocidadeReload = temp[temp.index("RELOAD") + 1]
         acuracia = temp[temp.index("ACCURACY") + 1]
-        
         with open("output/armas_fogo.txt", "a") as f:
-            f.write(f"('{filter(nome)}','{filter(descricao)}', {peso}, {preco}, {durabilidadeMaxima}, {danoPorAtaque}, {velocidadeDisparo}, {velocidadeReload}, {acuracia})\n")
+            f.write(f"({i}, '{filter(nome)}','{filter(descricao)}', {peso}, {preco}, {durabilidadeMaxima}, {danoPorAtaque}, {velocidadeDisparo}, {velocidadeReload}, {acuracia}),\n")
         print(f"{nome} done.")
+        i += 1
     except: print("Error")
 driver1.quit()
 driver.quit()
