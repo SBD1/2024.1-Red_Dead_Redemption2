@@ -14,6 +14,26 @@ Red Dead Redemption 2 é um jogo de ação e aventura em mundo aberto desenvolvi
 
 </div>
 
+## Como rodar o jogo
+
+Faça um clone do repositório
+```
+git clone 
+````
+
+Após isso, acesse a parte src via terminal
+````
+cd src
+`````
+
+Para rodar o jogo, primeiramente verifique se a porta localhost (5432) está disponível.
+
+Após isso, para subir o banco tendo em vista que já possua o docker instalado, basta executar o comando:
+
+```
+docker-compose up
+```
+
 ## Autores
 
 <div align="center">
