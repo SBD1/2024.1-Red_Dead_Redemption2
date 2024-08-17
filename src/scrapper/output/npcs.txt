@@ -1,193 +1,193 @@
-('Abigail Roberts (Marston)', 7, 100, 1000)
-('Arthur Morgan', 7, 100, 1000)
-('Bill Williamson', 7, 100, 1000)
-('Charles Smith', 7, 100, 1000)
-('Dutch Van Der Linde', 7, 100, 1000)
-('Hosea Matthews', 7, 100, 1000)
-('Jack Marston', 7, 100, 1000)
-('Javier Escuella', 7, 100, 1000)
-('John Marston', 7, 100, 1000)
-('Josiah Trelawny', 7, 100, 1000)
-('Karen Jones', 7, 100, 1000)
-('Kieran Duffy', 7, 100, 1000)
-('Lenny Summers', 7, 100, 1000)
-('Leopold Strauss', 7, 100, 1000)
-('Mary-Beth Gaskill', 7, 100, 1000)
-('Micah Bell', 7, 100, 1000)
-('Molly O''Shea', 7, 100, 1000)
-('Mr. Pearson', 7, 100, 1000)
-('Reverend Swanson', 7, 100, 1000)
-('Sadie Adler', 7, 100, 1000)
-('Sean Macguire', 7, 100, 1000)
-('Susan Grimshaw', 7, 100, 1000)
-('Tilly Jackson', 7, 100, 1000)
-('Uncle', 7, 100, 1000)
-('Alberto Fussar', 7, 100, 1000)
-('Andrew Milton', 7, 100, 1000)
-('Angelo Bronte', 7, 100, 1000)
-('Catherine Braithwaite', 7, 100, 1000)
-('Colm O''Driscoll', 7, 100, 1000)
-('Colonel Henry Favours', 7, 100, 1000)
-('Edgar Ross', 7, 100, 1000)
-('Guido Martelli', 7, 100, 1000)
-('Leigh Gray', 7, 100, 1000)
-('Levi Simon', 7, 100, 1000)
-('Leviticus Cornwall', 7, 100, 1000)
-('Angus Geddes', 7, 100, 1000)
-('Archibald Macgregor', 7, 100, 1000)
-('Beau Gray', 7, 100, 1000)
-('Brother Dorkins', 7, 100, 1000)
-('Captain Lyndon Monroe', 7, 100, 1000)
-('Cleet', 7, 100, 1000)
-('David Geddes', 7, 100, 1000)
-('Duncan Geddes', 7, 100, 1000)
-('Eagle Flies', 7, 100, 1000)
-('Hercule Fontaine', 7, 100, 1000)
-('Jamie Gillis', 7, 100, 1000)
-('Joe', 7, 100, 1000)
-('Mary Linton', 7, 100, 1000)
-('Mr. Gillis', 7, 100, 1000)
-('Mrs. Geddes', 7, 100, 1000)
-('Paytah', 7, 100, 1000)
-('Penelope Braithwaite', 7, 100, 1000)
-('Rains Fall', 7, 100, 1000)
-('Sister Calderón', 7, 100, 1000)
-('Tavish Gray', 7, 100, 1000)
-('Tom Dickens', 7, 100, 1000)
-('Algie Davison', 7, 100, 1000)
-('Archie Downes', 7, 100, 1000)
-('Chick Matthews', 7, 100, 1000)
-('Cooper', 7, 100, 1000)
-('Edith Downes', 7, 100, 1000)
-('Gwyn Hughes', 7, 100, 1000)
-('J. John Weathers', 7, 100, 1000)
-('Lilly Millet', 7, 100, 1000)
-('Mrs. Londonderry', 7, 100, 1000)
-('Thomas Downes', 7, 100, 1000)
-('Winton Holmes', 7, 100, 1000)
-('Wrobel', 7, 100, 1000)
-('Acrisius', 7, 100, 1000)
-('Albert Mason', 7, 100, 1000)
-('Algernon Wasp', 7, 100, 1000)
-('Anders Helgerson', 7, 100, 1000)
-('Andrew Bell Iii', 7, 100, 1000)
-('Bertram', 7, 100, 1000)
-('Bray Aberdeen', 7, 100, 1000)
-('Charles Châtenay', 7, 100, 1000)
-('Charlotte Balfour', 7, 100, 1000)
-('Chelonian Master', 7, 100, 1000)
-('Deborah Macguiness', 7, 100, 1000)
-('Dr. Alphonse Renaud', 7, 100, 1000)
-('Edmund Lowry Jr.', 7, 100, 1000)
-('Evelyn Miller', 7, 100, 1000)
-('Francis Sinclair', 7, 100, 1000)
-('Hamish Sinclair', 7, 100, 1000)
-('Helen', 7, 100, 1000)
-('Hermit', 7, 100, 1000)
-('Hermit Woman', 7, 100, 1000)
-('James Langton', 7, 100, 1000)
-('Jeremiah Compson', 7, 100, 1000)
-('Jeremy Gill', 7, 100, 1000)
-('Jimmy Brooks', 7, 100, 1000)
-('Magnifico', 7, 100, 1000)
-('Margaret', 7, 100, 1000)
-('Marko Dragic', 7, 100, 1000)
-('Máximo Cristóbal Valdespino', 7, 100, 1000)
-('Miss Marjorie', 7, 100, 1000)
-('Mrs. L. Hobbs', 7, 100, 1000)
-('Nigel (Gavin''S Friend)', 7, 100, 1000)
-('Obediah Hinton', 7, 100, 1000)
-('Phineas T. Ramsbottom', 7, 100, 1000)
-('Proetus', 7, 100, 1000)
-('Professor Shiftacre', 7, 100, 1000)
-('Sally Nash', 7, 100, 1000)
-('Sampson Black', 7, 100, 1000)
-('Tammy Aberdeen', 7, 100, 1000)
-('Theodore Levin', 7, 100, 1000)
-('Tommy', 7, 100, 1000)
-('Vampire', 7, 100, 1000)
-('Wendell White', 7, 100, 1000)
-('Billy Midnight', 7, 100, 1000)
-('Black Belle', 7, 100, 1000)
-('Emmet Granger', 7, 100, 1000)
-('Flaco Hernandez', 7, 100, 1000)
-('Jim "Boy" Calloway', 7, 100, 1000)
-('Slim Grant', 7, 100, 1000)
-('Albert Cakes', 7, 100, 1000)
-('Alden Carruthers', 7, 100, 1000)
-('Aldridge T. Abbington', 7, 100, 1000)
-('Ansel Atherton', 7, 100, 1000)
-('Arturo Bullard', 7, 100, 1000)
-('Benjamin Lambert', 7, 100, 1000)
-('Clay Davies', 7, 100, 1000)
-('Clive Davies', 7, 100, 1000)
-('Curtis Malloy', 7, 100, 1000)
-('Devon', 7, 100, 1000)
-('Hanley', 7, 100, 1000)
-('Harmon Thomas', 7, 100, 1000)
-('Hector Barlow', 7, 100, 1000)
-('Henri Lemieux', 7, 100, 1000)
-('Herbert Moon', 7, 100, 1000)
-('Oswald Dunbar', 7, 100, 1000)
-('Palmer', 7, 100, 1000)
-('Sam Freeman', 7, 100, 1000)
-('Seamus', 7, 100, 1000)
-('Thomas "Skiff Captain"', 7, 100, 1000)
-('Trapper', 7, 100, 1000)
-('Vernon Farley', 7, 100, 1000)
-('Willard Wayne', 7, 100, 1000)
-('Anthony Foreman', 7, 100, 1000)
-('Benedict Allbright', 7, 100, 1000)
-('Elias Green', 7, 100, 1000)
-('Ellie Anne Swan', 7, 100, 1000)
-('Esteban Cortez', 7, 100, 1000)
-('Joaquin Arroyo', 7, 100, 1000)
-('Joshua Brown', 7, 100, 1000)
-('Lindsey Wofford', 7, 100, 1000)
-('Mark Johnson', 7, 100, 1000)
-('Marshall Thurwell', 7, 100, 1000)
-('Nathan Kirk', 7, 100, 1000)
-('Otis Skinner', 7, 100, 1000)
-('Ramón Cortez', 7, 100, 1000)
-('Robbie Laidlaw', 7, 100, 1000)
-('Shane Finley', 7, 100, 1000)
-('Wilson J. Mcdaniels', 7, 100, 1000)
-('Alden Carruthers', 7, 100, 1000)
-('Alfredo Montez', 7, 100, 1000)
-('Amos Lancing', 7, 100, 1000)
-('Anthony Foreman', 7, 100, 1000)
-('Black Belle', 7, 100, 1000)
-('Bonnie Macfarlane', 7, 100, 1000)
-('Bray Aberdeen', 7, 100, 1000)
-('Clay Davies', 7, 100, 1000)
-('Clive Davies', 7, 100, 1000)
-('Curtis Malloy', 7, 100, 1000)
-('Flaco Hernandez', 7, 100, 1000)
-('Guido Martelli', 7, 100, 1000)
-('Gus Macmillan', 7, 100, 1000)
-('Hamish Sinclair', 7, 100, 1000)
-('Harriet Davenport', 7, 100, 1000)
-('Hector Barlow', 7, 100, 1000)
-('Jake Adler', 7, 100, 1000)
-('James Langton', 7, 100, 1000)
-('Jb Cripps', 7, 100, 1000)
-('Jeremiah Shaw', 7, 100, 1000)
-('Jessica Leclerk', 7, 100, 1000)
-('Joe', 7, 100, 1000)
-('Jorge Montez', 7, 100, 1000)
-('Josiah Trelawny', 7, 100, 1000)
-('Madam Nazar', 7, 100, 1000)
-('Maggie Fike', 7, 100, 1000)
-('Marshal Tom Davies', 7, 100, 1000)
-('Mr. Horley', 7, 100, 1000)
-('Old Man Jones', 7, 100, 1000)
-('Sadie Adler', 7, 100, 1000)
-('Sam Freeman', 7, 100, 1000)
-('Samson Finch', 7, 100, 1000)
-('Seamus', 7, 100, 1000)
-('Sean Macguire', 7, 100, 1000)
-('Shaky', 7, 100, 1000)
-('Tammy Aberdeen', 7, 100, 1000)
-('Teddy Brown', 7, 100, 1000)
-('The Woman With No Name', 7, 100, 1000)
-('Thomas "Skiff Captain"', 7, 100, 1000)
+(1, 'Abigail Roberts (Marston)', 7, 100, 1000),
+(2, 'Arthur Morgan', 7, 100, 1000),
+(3, 'Bill Williamson', 7, 100, 1000),
+(4, 'Charles Smith', 7, 100, 1000),
+(5, 'Dutch Van Der Linde', 7, 100, 1000),
+(6, 'Hosea Matthews', 7, 100, 1000),
+(7, 'Jack Marston', 7, 100, 1000),
+(8, 'Javier Escuella', 7, 100, 1000),
+(9, 'John Marston', 7, 100, 1000),
+(10, 'Josiah Trelawny', 7, 100, 1000),
+(11, 'Karen Jones', 7, 100, 1000),
+(12, 'Kieran Duffy', 7, 100, 1000),
+(13, 'Lenny Summers', 7, 100, 1000),
+(14, 'Leopold Strauss', 7, 100, 1000),
+(15, 'Mary-Beth Gaskill', 7, 100, 1000),
+(16, 'Micah Bell', 7, 100, 1000),
+(17, 'Molly O''Shea', 7, 100, 1000),
+(18, 'Mr. Pearson', 7, 100, 1000),
+(19, 'Reverend Swanson', 7, 100, 1000),
+(20, 'Sadie Adler', 7, 100, 1000),
+(21, 'Sean Macguire', 7, 100, 1000),
+(22, 'Susan Grimshaw', 7, 100, 1000),
+(23, 'Tilly Jackson', 7, 100, 1000),
+(24, 'Uncle', 7, 100, 1000),
+(25, 'Alberto Fussar', 7, 100, 1000),
+(26, 'Andrew Milton', 7, 100, 1000),
+(27, 'Angelo Bronte', 7, 100, 1000),
+(28, 'Catherine Braithwaite', 7, 100, 1000),
+(29, 'Colm O''Driscoll', 7, 100, 1000),
+(30, 'Colonel Henry Favours', 7, 100, 1000),
+(31, 'Edgar Ross', 7, 100, 1000),
+(32, 'Guido Martelli', 7, 100, 1000),
+(33, 'Leigh Gray', 7, 100, 1000),
+(34, 'Levi Simon', 7, 100, 1000),
+(35, 'Leviticus Cornwall', 7, 100, 1000),
+(36, 'Angus Geddes', 7, 100, 1000),
+(37, 'Archibald Macgregor', 7, 100, 1000),
+(38, 'Beau Gray', 7, 100, 1000),
+(39, 'Brother Dorkins', 7, 100, 1000),
+(40, 'Captain Lyndon Monroe', 7, 100, 1000),
+(41, 'Cleet', 7, 100, 1000),
+(42, 'David Geddes', 7, 100, 1000),
+(43, 'Duncan Geddes', 7, 100, 1000),
+(44, 'Eagle Flies', 7, 100, 1000),
+(45, 'Hercule Fontaine', 7, 100, 1000),
+(46, 'Jamie Gillis', 7, 100, 1000),
+(47, 'Joe', 7, 100, 1000),
+(48, 'Mary Linton', 7, 100, 1000),
+(49, 'Mr. Gillis', 7, 100, 1000),
+(50, 'Mrs. Geddes', 7, 100, 1000),
+(51, 'Paytah', 7, 100, 1000),
+(52, 'Penelope Braithwaite', 7, 100, 1000),
+(53, 'Rains Fall', 7, 100, 1000),
+(54, 'Sister Calderón', 7, 100, 1000),
+(55, 'Tavish Gray', 7, 100, 1000),
+(56, 'Tom Dickens', 7, 100, 1000),
+(57, 'Algie Davison', 7, 100, 1000),
+(58, 'Archie Downes', 7, 100, 1000),
+(59, 'Chick Matthews', 7, 100, 1000),
+(60, 'Cooper', 7, 100, 1000),
+(61, 'Edith Downes', 7, 100, 1000),
+(62, 'Gwyn Hughes', 7, 100, 1000),
+(63, 'J. John Weathers', 7, 100, 1000),
+(64, 'Lilly Millet', 7, 100, 1000),
+(65, 'Mrs. Londonderry', 7, 100, 1000),
+(66, 'Thomas Downes', 7, 100, 1000),
+(67, 'Winton Holmes', 7, 100, 1000),
+(68, 'Wrobel', 7, 100, 1000),
+(69, 'Acrisius', 7, 100, 1000),
+(70, 'Albert Mason', 7, 100, 1000),
+(71, 'Algernon Wasp', 7, 100, 1000),
+(72, 'Anders Helgerson', 7, 100, 1000),
+(73, 'Andrew Bell Iii', 7, 100, 1000),
+(74, 'Bertram', 7, 100, 1000),
+(75, 'Bray Aberdeen', 7, 100, 1000),
+(76, 'Charles Châtenay', 7, 100, 1000),
+(77, 'Charlotte Balfour', 7, 100, 1000),
+(78, 'Chelonian Master', 7, 100, 1000),
+(79, 'Deborah Macguiness', 7, 100, 1000),
+(80, 'Dr. Alphonse Renaud', 7, 100, 1000),
+(81, 'Edmund Lowry Jr.', 7, 100, 1000),
+(82, 'Evelyn Miller', 7, 100, 1000),
+(83, 'Francis Sinclair', 7, 100, 1000),
+(84, 'Hamish Sinclair', 7, 100, 1000),
+(85, 'Helen', 7, 100, 1000),
+(86, 'Hermit', 7, 100, 1000),
+(87, 'Hermit Woman', 7, 100, 1000),
+(88, 'James Langton', 7, 100, 1000),
+(89, 'Jeremiah Compson', 7, 100, 1000),
+(90, 'Jeremy Gill', 7, 100, 1000),
+(91, 'Jimmy Brooks', 7, 100, 1000),
+(92, 'Magnifico', 7, 100, 1000),
+(93, 'Margaret', 7, 100, 1000),
+(94, 'Marko Dragic', 7, 100, 1000),
+(95, 'Máximo Cristóbal Valdespino', 7, 100, 1000),
+(96, 'Miss Marjorie', 7, 100, 1000),
+(97, 'Mrs. L. Hobbs', 7, 100, 1000),
+(98, 'Nigel (Gavin''S Friend)', 7, 100, 1000),
+(99, 'Obediah Hinton', 7, 100, 1000),
+(100, 'Phineas T. Ramsbottom', 7, 100, 1000),
+(101, 'Proetus', 7, 100, 1000),
+(102, 'Professor Shiftacre', 7, 100, 1000),
+(103, 'Sally Nash', 7, 100, 1000),
+(104, 'Sampson Black', 7, 100, 1000),
+(105, 'Tammy Aberdeen', 7, 100, 1000),
+(106, 'Theodore Levin', 7, 100, 1000),
+(107, 'Tommy', 7, 100, 1000),
+(108, 'Vampire', 7, 100, 1000),
+(109, 'Wendell White', 7, 100, 1000),
+(110, 'Billy Midnight', 7, 100, 1000),
+(111, 'Black Belle', 7, 100, 1000),
+(112, 'Emmet Granger', 7, 100, 1000),
+(113, 'Flaco Hernandez', 7, 100, 1000),
+(114, 'Jim "Boy" Calloway', 7, 100, 1000),
+(115, 'Slim Grant', 7, 100, 1000),
+(116, 'Albert Cakes', 7, 100, 1000),
+(117, 'Alden Carruthers', 7, 100, 1000),
+(118, 'Aldridge T. Abbington', 7, 100, 1000),
+(119, 'Ansel Atherton', 7, 100, 1000),
+(120, 'Arturo Bullard', 7, 100, 1000),
+(121, 'Benjamin Lambert', 7, 100, 1000),
+(122, 'Clay Davies', 7, 100, 1000),
+(123, 'Clive Davies', 7, 100, 1000),
+(124, 'Curtis Malloy', 7, 100, 1000),
+(125, 'Devon', 7, 100, 1000),
+(126, 'Hanley', 7, 100, 1000),
+(127, 'Harmon Thomas', 7, 100, 1000),
+(128, 'Hector Barlow', 7, 100, 1000),
+(129, 'Henri Lemieux', 7, 100, 1000),
+(130, 'Herbert Moon', 7, 100, 1000),
+(131, 'Oswald Dunbar', 7, 100, 1000),
+(132, 'Palmer', 7, 100, 1000),
+(133, 'Sam Freeman', 7, 100, 1000),
+(134, 'Seamus', 7, 100, 1000),
+(135, 'Thomas "Skiff Captain"', 7, 100, 1000),
+(136, 'Trapper', 7, 100, 1000),
+(137, 'Vernon Farley', 7, 100, 1000),
+(138, 'Willard Wayne', 7, 100, 1000),
+(139, 'Anthony Foreman', 7, 100, 1000),
+(140, 'Benedict Allbright', 7, 100, 1000),
+(141, 'Elias Green', 7, 100, 1000),
+(142, 'Ellie Anne Swan', 7, 100, 1000),
+(143, 'Esteban Cortez', 7, 100, 1000),
+(144, 'Joaquin Arroyo', 7, 100, 1000),
+(145, 'Joshua Brown', 7, 100, 1000),
+(146, 'Lindsey Wofford', 7, 100, 1000),
+(147, 'Mark Johnson', 7, 100, 1000),
+(148, 'Marshall Thurwell', 7, 100, 1000),
+(149, 'Nathan Kirk', 7, 100, 1000),
+(150, 'Otis Skinner', 7, 100, 1000),
+(151, 'Ramón Cortez', 7, 100, 1000),
+(152, 'Robbie Laidlaw', 7, 100, 1000),
+(153, 'Shane Finley', 7, 100, 1000),
+(154, 'Wilson J. Mcdaniels', 7, 100, 1000),
+(155, 'Alden Carruthers', 7, 100, 1000),
+(156, 'Alfredo Montez', 7, 100, 1000),
+(157, 'Amos Lancing', 7, 100, 1000),
+(158, 'Anthony Foreman', 7, 100, 1000),
+(159, 'Black Belle', 7, 100, 1000),
+(160, 'Bonnie Macfarlane', 7, 100, 1000),
+(161, 'Bray Aberdeen', 7, 100, 1000),
+(162, 'Clay Davies', 7, 100, 1000),
+(163, 'Clive Davies', 7, 100, 1000),
+(164, 'Curtis Malloy', 7, 100, 1000),
+(165, 'Flaco Hernandez', 7, 100, 1000),
+(166, 'Guido Martelli', 7, 100, 1000),
+(167, 'Gus Macmillan', 7, 100, 1000),
+(168, 'Hamish Sinclair', 7, 100, 1000),
+(169, 'Harriet Davenport', 7, 100, 1000),
+(170, 'Hector Barlow', 7, 100, 1000),
+(171, 'Jake Adler', 7, 100, 1000),
+(172, 'James Langton', 7, 100, 1000),
+(173, 'Jb Cripps', 7, 100, 1000),
+(174, 'Jeremiah Shaw', 7, 100, 1000),
+(175, 'Jessica Leclerk', 7, 100, 1000),
+(176, 'Joe', 7, 100, 1000),
+(177, 'Jorge Montez', 7, 100, 1000),
+(178, 'Josiah Trelawny', 7, 100, 1000),
+(179, 'Madam Nazar', 7, 100, 1000),
+(180, 'Maggie Fike', 7, 100, 1000),
+(181, 'Marshal Tom Davies', 7, 100, 1000),
+(182, 'Mr. Horley', 7, 100, 1000),
+(183, 'Old Man Jones', 7, 100, 1000),
+(184, 'Sadie Adler', 7, 100, 1000),
+(185, 'Sam Freeman', 7, 100, 1000),
+(186, 'Samson Finch', 7, 100, 1000),
+(187, 'Seamus', 7, 100, 1000),
+(188, 'Sean Macguire', 7, 100, 1000),
+(189, 'Shaky', 7, 100, 1000),
+(190, 'Tammy Aberdeen', 7, 100, 1000),
+(191, 'Teddy Brown', 7, 100, 1000),
+(192, 'The Woman With No Name', 7, 100, 1000),
+(193, 'Thomas "Skiff Captain"', 7, 100, 1000),

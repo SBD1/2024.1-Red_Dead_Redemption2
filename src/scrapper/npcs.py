@@ -12,6 +12,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.get("https://www.gtabase.com/red-dead-redemption-2/characters/")
 sleep(3)
 npcs = driver.find_elements(By.CLASS_NAME, "roster_name")
+i = 1
 for npc in npcs:
     try:
         nome = npc.text
@@ -19,7 +20,8 @@ for npc in npcs:
         vidaMax = 100
         staminaMax = 1000
         with open("output/npcs.txt", "a") as f:
-            f.write(f"('{filter(nome.title())}', {velocidade}, {vidaMax}, {staminaMax})\n")
+            f.write(f"({i}, '{filter(nome.title())}', {velocidade}, {vidaMax}, {staminaMax}),\n")
+            i += 1
         print(f"{nome} done.")
     except: print("Error")
 driver.quit()
