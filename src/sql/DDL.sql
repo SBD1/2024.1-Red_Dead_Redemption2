@@ -13,7 +13,7 @@ create table if not exists estado (
 	idMapa int not null,
 	nome varchar(30) not null,
 	sigla char(2) not null unique,
-	descricao varchar(60) not null,
+	descricao varchar(1000) not null,
 	constraint fk_mapa foreign key(idMapa) references mapa(idMapa) on delete restrict on update cascade
 );
 
@@ -29,7 +29,7 @@ create table if not exists cidade (
 	idCidade serial primary key,
 	nome varchar(30) not null unique,
 	siglaEstado char(2) not null,
-	descricao varchar(60) not null,
+	descricao varchar(1000) not null,
 	constraint fk_estado foreign key(siglaEstado) references estado(sigla) on delete restrict on update cascade
 );
 
@@ -44,12 +44,12 @@ create table if not exists cidade_conecta_com_cidade (
 create table if not exists estabelecimento (
 	idEstab serial primary key,
 	nome varchar(30) not null,
-	descricao varchar(60) not null
+	descricao varchar(1000) not null
 );
 
 create table if not exists personagem_tipo (
 	idPersonagem int primary key,
-	tipo tipo_personagem not null unique,
+	tipo tipo_personagem not null
 );
 
 create table if not exists inventario (
@@ -144,7 +144,7 @@ create table if not exists instancia_estabelecimento (
 
 create table if not exists ataque (
 	idAtaque serial primary key,
-	descricao varchar(100) not null,
+	descricao varchar(1000) not null,
 	dano int default 50 check (dano between 1 and 100)
 );
 
@@ -234,9 +234,9 @@ create table if not exists classe_possui_habilidade (
 
 create table if not exists gangue (
     idGangue serial primary key,
-    nome varchar(30) not null,
-    descricao varchar(60) not null,
+    nome varchar(50) not null,
     idInstanciaNPCLider int not null,
+    descricao varchar(2000) not null,
     constraint fk_instancia_npc foreign key(idInstanciaNPCLider) references instancia_npc(idInstanciaNPC) on delete restrict on update cascade
 );
 
@@ -251,7 +251,7 @@ create table if not exists gangue_confronta_gangue (
 create table if not exists dialogo (
     idDialogo serial primary key,
     idInstanciaNPCFalante int not null,
-    descricao varchar(100) not null,
+    descricao varchar(1000) not null,
     constraint fk_instancia_npc foreign key(idInstanciaNPCFalante) references instancia_npc(idInstanciaNPC) on delete restrict on update cascade
 );
 
@@ -280,21 +280,21 @@ create table if not exists item_tipo (
 create table if not exists item_consumivel (
 	idItem int primary key,
 	nome varchar(30) not null unique,
-	descricao varchar(60) not null,
+	descricao varchar(1000) not null,
 	peso int not null check(peso between 1 and 8),
 	preco decimal(3, 2) not null,
 	durabilidadeMaxima int,
 	qtdReparacaoStamina int not null,
-	qtdRepacaovida int not null,
+	qtdReparacaovida int not null,
 	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
 );
 
 create table if not exists item_equipavel (
 	idItem int primary key,
 	nome varchar(30) not null unique,
-	descricao varchar(60) not null,
+	descricao varchar(1000) not null,
 	peso int not null check(peso between 1 and 8),
-	preco decimal(3, 2) not null,
+	preco decimal(4, 2) not null,
 	durabilidadeMaxima int not null,
 	parteDoCorpo varchar(30) not null,
 	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
@@ -302,25 +302,25 @@ create table if not exists item_equipavel (
 
 create table if not exists arma_fogo (
 	idItem int primary key,
-	nome varchar(30) not null,
-	descricao varchar(60) not null,
+	nome varchar(100) not null,
+	descricao varchar(2000) not null,
 	peso int not null check(peso between 1 and 8),
-	preco decimal(3, 2) not null,
+	preco decimal(5, 3) not null,
 	durabilidadeMaxima int not null,
-	danoPorAtaque int not null,
-	velocidadeDisparo int not null,
-	velocidadeReload time not null,
+	danoPorAtaque decimal(4, 2) not null,
+	velocidadeDisparo decimal(4, 2) not null,
+	velocidadeReload decimal(4, 2) not null,
 	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
 );
 
 create table if not exists arma_melee (
 	idItem int primary key,
-	nome varchar(30) not null,
-	descricao varchar(60) not null,
+	nome varchar(100) not null,
+	descricao varchar(2000) not null,
 	peso int not null check(peso between 1 and 8),
-	preco decimal(3, 2) not null,
+	preco decimal(5, 3) not null,
 	durabilidadeMaxima int not null,
-	danoPorAtaque int not null,
+	danoPorAtaque decimal(4, 2) not null,
 	nivelAfiacaoMaxima int not null default 1 check(nivelAfiacaoMaxima between 1 and 10),
 	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
 );
