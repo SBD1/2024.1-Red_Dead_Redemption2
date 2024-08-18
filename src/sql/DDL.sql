@@ -65,8 +65,8 @@ create table if not exists classe (
 
 create table if not exists historia (
 	idHistoria serial primary key,
-	titulo varchar(100) not null,
-	enredo varchar(2000) not null
+	titulo varchar(200) not null,
+	enredo varchar(3000) not null
 );
 
 create table if not exists missao (
@@ -210,7 +210,7 @@ create table if not exists animal_hostil_ataca_jogador (
 
 create table if not exists objetivo (
 	idObjetivo serial primary key,
-	titulo varchar(100) not null,
+	titulo varchar(500) not null,
 	retornoXP int not null check(retornoXP between 1 and 1000),
 	retornoDinheiro int not null check(retornoDinheiro between 1 and 1000),
 	idMissao int not null,
