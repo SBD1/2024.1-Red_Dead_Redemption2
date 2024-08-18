@@ -305,4 +305,4 @@
 ('Ajude Sadie a pegar Cleet dentro de 35 segundos', 142, 829, 110),
 ('Tiro na cabeça do atirador que atira em Charles', 367, 41, 110),
 ('Completo com pelo menos 85% de precisão', 78, 656, 110),
-('Conclua a missão sem tomar itens de saúde', 918, 804, 110),
+('Conclua a missão sem tomar itens de saúde', 918, 804, 110);

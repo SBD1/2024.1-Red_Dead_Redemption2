@@ -65,7 +65,7 @@ create table if not exists classe (
 
 create table if not exists historia (
 	idHistoria serial primary key,
-	titulo varchar(60) not null,
+	titulo varchar(100) not null,
 	enredo varchar(2000) not null
 );
 
