@@ -17,20 +17,20 @@ Red Dead Redemption 2 é um jogo de ação e aventura em mundo aberto desenvolvi
 ## Como rodar o jogo
 
 Faça um clone do repositório
+```bash
+git clone git@github.com:SBD1/2024.1-Red_Dead_Redemption2.git
 ```
-git clone 
-````
 
 Após isso, acesse a parte src via terminal
-````
+```bash
 cd src
-`````
+```
 
 Para rodar o jogo, primeiramente verifique se a porta localhost (5432) está disponível.
 
 Após isso, para subir o banco tendo em vista que já possua o docker instalado, basta executar o comando:
 
-```
+```bash
 docker-compose up
 ```
 
@@ -60,7 +60,7 @@ docker-compose up
     </table>
 </div>
 
-## Entrega 1
+## Entrega 1 (22/07/2024)
     
 [Diagrama Entidade-Relacionamento](docs/MER.md)
     
@@ -69,3 +69,17 @@ docker-compose up
 [Dicionário de Dados](docs/dicionario_dados.md)
 
 [Apresentação](https://youtu.be/TF5FpWGe7o4)
+
+## Entrega 2 (19/08/2024)
+
+[DDL](src/sql/DDL.sql)
+
+[DML](src/sql/DML.sql)
+
+[DQL](src/sql/DQL.sql)
+
+[Script inicial - Andar entre cidades](docs/instrucoes.md)
+
+[Apresentação]()
+
+**Obs.:** A versão atualizada da documentação do projeto (DER, MREL, e Dicionário de Dados) pode ser acessada nos mesmos links da entrega anterior. Lá, também publicadas as versões anteriores desses documentos, a fim de comparação, caso seja necessário.

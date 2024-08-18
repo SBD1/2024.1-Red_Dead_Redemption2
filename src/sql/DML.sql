@@ -282,12 +282,24 @@ values
 (190, 'NPC'),
 (191, 'NPC'),
 (192, 'NPC'),
-(193, 'NPC');
+(193, 'NPC'),
+(194, 'JOG')
+(195, 'JOG');
 
--- insert into inventario
--- (totalItens, capacidade)
--- values
--- ();
+insert into inventario
+(totalItens, capacidade)
+values
+(0, 100),
+(0, 100),
+(0, 100),
+(0, 100),
+(0, 100),
+(0, 100),
+(0, 100),
+(0, 100),
+(0, 100),
+(0, 100),
+(0, 100);
 
 -- insert into classe
 -- (nome),
