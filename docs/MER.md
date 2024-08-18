@@ -23,7 +23,8 @@ Versões anteriores:
 - [v3.1](/docs/DER/anteriores/DER_v3.1.png)
 - [v3.2](/docs/DER/anteriores/DER_v3.2.png)
 - [v3.3](/docs/DER/anteriores/DER_v3.3.png)
-- [v3.4 (final)](/docs/DER/DER.png)
+- [v3.4](/docs/DER/anteriores/DER_v3.4.png)
+- [v3.5 (pós-realease)](/docs/DER/DER.png)
 
 ## Entidades
 
