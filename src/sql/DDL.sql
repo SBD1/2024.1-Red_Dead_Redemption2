@@ -66,7 +66,7 @@ create table if not exists classe (
 create table if not exists historia (
 	idHistoria serial primary key,
 	titulo varchar(60) not null,
-	enredo varchar(1000) not null
+	enredo varchar(2000) not null
 );
 
 create table if not exists missao (
@@ -74,8 +74,7 @@ create table if not exists missao (
 	titulo varchar(60) not null,
 	nivelDificuldade int not null check(nivelDificuldade between 1 and 10),
 	idHistoria int not null,
-	idEstado int not null,
-	status decimal(3,2) not null default 0.00,
+	idEstado int,
 	constraint fk_historia foreign key(idHistoria) references historia(idHistoria) on delete restrict on update cascade,
 	constraint fk_estado foreign key(idEstado) references estado(idEstado) on delete restrict on update cascade
 );
@@ -211,7 +210,7 @@ create table if not exists animal_hostil_ataca_jogador (
 
 create table if not exists objetivo (
 	idObjetivo serial primary key,
-	titulo varchar(60) not null,
+	titulo varchar(100) not null,
 	retornoXP int not null check(retornoXP between 1 and 1000),
 	retornoDinheiro int not null check(retornoDinheiro between 1 and 1000),
 	idMissao int not null,
