@@ -17,4 +17,5 @@ Versões anteriores:
 
 - [v1.0](/docs/MREL/anteriores/MREL_v1.png)
 - [v2.0](/docs/MREL/anteriores/MREL_v2.png)
-- [v2.1 (final)](/docs/MREL/MREL.png)
+- [v2.1](/docs/MREL/anteriores/MREL_v2.1.png)
+- [v2.2 (pós-release)](/docs/MREL/MREL.png)
