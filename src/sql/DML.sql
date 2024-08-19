@@ -283,7 +283,7 @@ values
 (191, 'NPC'),
 (192, 'NPC'),
 (193, 'NPC'),
-(194, 'JOG')
+(194, 'JOG'),
 (195, 'JOG');
 
 insert into inventario
