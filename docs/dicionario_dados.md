@@ -21,7 +21,7 @@
 | idAnimal | Código identificador único do animal | int |  | pk, fk1 | not null |
 | vidaAtual | Vida que o animal possui no momento | int | 1-100 | | not null, default = 100 |
 | staminaAtual | Energia atual do animal | int | 1-100 | | not null, default = 100 |
-| idSala | Código identificar da sala onde o animal está | int |  | fk3 | |
+| idCidade | Código identificar da cidade onde o animal está | int |  | fk3 | |
 
 
 ### Tabela: ANIMAL_TIPO
@@ -41,7 +41,7 @@
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
 | idAnimal | Código identificador único do animal | int |  | pk, fk1 | not null |
-| idRegiaoHabitatNatural | Código identificador da região (habitat) onde vive o animal | int |  | fk2 | not null |
+| idEstadoHabitatNatural | Código identificador do estado (habitat) onde vive o animal | int |  | fk2 | not null |
 | especie | Espécie do animal | varchar[30] | a-z, A-Z | | not null |
 | velocidade | Velocidade máxima que o animal pode atingir | int | 1-100 | | not null |
 | vidaMax | Expectativa de vida máxima do animal em anos | int | 1-100 |  | not null |
@@ -56,7 +56,7 @@
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
 | idAnimal | Código identificador único do animal | int |  | pk, fk1 | not null |
-| idRegiaoHabitatNatural | Código identificador da região (habitat) onde vive o animal | int |  | fk2 | not null |
+| idEstadoHabitatNatural | Código identificador do estado (habitat) onde vive o animal | int |  | fk2 | not null |
 | especie | Espécie do animal | varchar[30] | a-z, A-Z | | not null |
 | velocidade | Velocidade máxima que o animal pode atingir | int | 1-100 | | not null |
 | vidaMax | Expectativa de vida máxima do animal em anos| int | 1-100 |  | not null |
@@ -125,7 +125,7 @@
 | titulo | Nome da missão | varchar[60] | a-z, A-Z | | not null |
 | nivelDificuldade | Nível do quão complicado é a missão | int | 1-10 | | not null |
 | idHistoria | Chave estrangeira da história que representa a história contada na missão. | int |  | fk1 | not null |
-| idRegiao | Chave estrangeira da região onde se passa a missão. | int |  | fk2 | not null |
+| idEstado | Chave estrangeira do estado onde se passa a missão. | int |  | fk2 | not null |
 | status | Porcentagem de andamento da missão. Corresponde ao número de objetivos completados associados à missão. | decimal(3,2) | 0.00 - 1.00 |  |  |
 
 ### Tabela: MISSÃO_DEPENDE_DE_MISSAO
@@ -186,7 +186,7 @@
 | idGangue | Chave estrangeira para a gangue da qual a instância de NPC faz parte  | int |  | pk,fk2 | |
 | idInventario | Chave estrangeira para a o inventário da instância de NPC. | int |  | pk,fk3 | |
 | idMissao | Chave estrangeira para a missão da qual a instância de NPC faz parte | int |  | pk, fk4 | |
-| idSala | Código identificador da sala em que a instância está presente | int |  | fk5 | not null |
+| idCidade | Código identificador da cidade em que a instância está presente | int |  | fk5 | not null |
 | vidaAtual | Identifica a vida restante da instância de NPC | int | 1-100 | | not null, default = 100 |
 
 
@@ -284,7 +284,7 @@
 | --- | --- | --- | --- | --- | --- |
 | idPersonagem | Código identificador único de um jogador. É chave estrangeira para a tabela de tipos (personagem_tipo) | int |  | pk, fk1 | not null |
 | idInventario | Código identificador úncio de um inventário | int |  | fk2 | not null |
-| idSala | Código identificador da sala em que o jogador está presente | int |  | fk3 | not null |
+| idCidade | Código identificador da cidade em que o jogador está presente | int |  | fk3 | not null |
 | idClasse | Código para identificar a classe a qual o jogador pertence | int |  | fk4 | not null |
 | idGangue | Código para identificar a gangue a qual o jogador pertence | int |  | fk5 | |
 | nome | Nome de um jogador específico | varchar[30] | a-z, A-Z | | not null |
@@ -424,31 +424,32 @@
 | velocidade | Velocidade do projétil em movimento | int | 1-1000 |  | not null |
 
 
-### Tabela: REGIAO
+### Tabela: ESTADO
 
-- Descrição: 
-
-| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
-| --- | --- | --- | --- | --- | --- |
-| idRegiao | Código identificador de uma região | int |  | pk | not null |
-| idMapa | Código identificador do mapa onde está a região | int |  | fk1 | not null |
-| nome | Nome de uma região específica | varchar[30] | a-z, A-Z |  | not null |
-| descricao | Apresenta as características da região | varchar[60] | a-z, A-Z |  | not null |
-
-
-### Tabela: REGIAO_FAZ_FRONTEIRA_COM_REGIAO
-
-- Descrição: 
+- Descrição: Armazena as informações sobre os estados presentes nos mapas.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idRegiaoOrigem | Código identificador da região de origem | int |  | pk, fk1 | not null |
-| idRegiaoDestino | Código identificador da região de chegada | int |  | pk, fk2 | not null |
+| idEstado | Código identificador de um estado | int |  | pk | not null |
+| idMapa | Chave estrangeira para o mapa de onde está localizado o estado. | int |  | fk1 | not null |
+| nome | Nome de um estado específico | varchar[30] | a-z, A-Z |  | not null |
+| sigla | Sigla que representa o estado | char[2] | A-Z |  | not null |
+| descricao | Apresenta as características do estado | varchar[1000] | a-z, A-Z |  |  |
+
+
+### Tabela: ESTADO_FAZ_FRONTEIRA_COM_ESTADO
+
+- Descrição: Armazena as informações sobre estados vizinhos dentro de um mesmo mapa.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idEstadoOrigem | Código identificador do estado de origem | int |  | pk, fk1 | not null |
+| idEstadoDestino | Código identificador do estado de chegada | int |  | pk, fk2 | not null |
 
 
 ### Tabela: MAPA
 
-- Descrição: 
+- Descrição: Armazena informações sobre os mapas presentes no jogo.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
@@ -458,13 +459,13 @@
 
 ### Tabela: ESTABELECIMENTO
 
-- Descrição: 
+- Descrição: Armazena informações sobre os estabelecimentos existentes no jogo.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
 | idEstab | Código identificador de um mapa | int |  | pk | not null |
 | nome | Nome de um estabelecimento específico | varchar[30] | a-z, A-Z |  | not null |
-| descricao | Apresenta as características do estabelecimento | varchar[60] | a-z, A-Z | | not null |
+| descricao | Apresenta as características do estabelecimento | varchar[1000] | a-z, A-Z |  |  |
 
 
 ### Tabela: INSTANCIA_ESTABELECIMENTO
@@ -473,31 +474,32 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idInstEstab | Código identificador de uma instancia de um estabelecimento | int |  | pk | not null |
+| idInstEstab | Código identificador de uma instância de estabelecimento | int |  | pk | not null |
 | idEstab | Código identificador do estabelecimento | int |  | pk, fk1 | not null |
-| idSala | Código identificar da sala onde está presente o estabelecimento | int |  | fk2 | not null |
-| idDono | Código identificador do dono da instância do estabelecimento. Pode ser um jogador ou uma instância de NPC. | int |  | fk3 | not null |
+| idCidade | Chave estrangeira para a cidade onde está localizada a instância de estabelecimento. | int |  | fk2 | not null |
+| idInstNPCDona | Chave estrangeira para a instância de NPC que é dona da instância de estabelecimento | int |  | fk3 | not null |
 
-### Tabela: SALA
+### Tabela: CIDADE
 
-- Descrição: 
-
-| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
-| --- | --- | --- | --- | --- | --- |
-| idSala | Código identificador de uma sala | int |  | pk | not null |
-| idRegiao | Código identificador da região onde está a sala | int |  | fk1 | not null |
-| nome | Nome de uma sala específica | varchar[30] | a-z, A-Z |  | not null |
-| descricao | Apresenta as características da sala | varchar[60] | a-z, A-Z |  | not null |
-
-
-### Tabela: SALA_CONECTA_COM_SALA
-
-- Descrição: 
+- Descrição: Armazena informações sobre as cidades presentes nos estados.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idSalaOrigem | Código identificador da sala de origem | int |  | pk, fk1 | not null |
-| idSalaDestino | Código identificador da sala de chegada | int |  | pk, fk2 | not null |
+| idCidade | Código identificador de uma cidade | int |  | pk | not null |
+| nome | Nome de uma cidade específica | varchar[30] | a-z, A-Z |  | not null |
+| siglaEstado | Sigla identificadora do estado onde a cidade se encontra dentro de um mapa. | char[2] |  | fk1 | not null |
+| descricao | Apresenta as características da cidade | varchar[1000] | a-z, A-Z |  |  |
+| qtdHabitantes | Total de instâncias de NPC e jogadores presentes no corrente momento em uma cidade. | int |  |  | not null |
+
+
+### Tabela: CIDADE_CONECTA_COM_CIDADE
+
+- Descrição: Armazena informações sobre as conexões entre cidades, indicando quais cidades são vizinhas.
+
+| Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
+| --- | --- | --- | --- | --- | --- |
+| idCidadeOrigem | Código identificador da cidade de origem | int |  | pk, fk1 | not null |
+| idCidadeDestino | Código identificador da cidade de chegada | int |  | pk, fk2 | not null |
 
 
 ## Histórico de versões
@@ -507,3 +509,4 @@
 | `1.0`  | 08/05/2024 | Primeira versão completa do dicionário de dados |
 | `2.0`  | 20/07/2024 | Segunda versão completa do dicionário de dados  |
 | `2.1`  | 07/08/2024 | Correções pontuais pós-release.  |
+| `2.2`  | 19/08/2024 | Atualizando detalhes sobre as tabelas.  |

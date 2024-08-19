@@ -13,7 +13,7 @@ create table if not exists estado (
 	idMapa int not null,
 	nome varchar(30) not null,
 	sigla char(2) not null unique,
-	descricao varchar(1000) not null,
+	descricao varchar(1000),
 	constraint fk_mapa foreign key(idMapa) references mapa(idMapa) on delete restrict on update cascade
 );
 
@@ -29,7 +29,8 @@ create table if not exists cidade (
 	idCidade serial primary key,
 	nome varchar(30) not null unique,
 	siglaEstado char(2) not null,
-	descricao varchar(1000) not null,
+	descricao varchar(1000),
+	qtdHabitantes int not null default 0,
 	constraint fk_estado foreign key(siglaEstado) references estado(sigla) on delete restrict on update cascade
 );
 
@@ -44,7 +45,7 @@ create table if not exists cidade_conecta_com_cidade (
 create table if not exists estabelecimento (
 	idEstab serial primary key,
 	nome varchar(30) not null,
-	descricao varchar(1000) not null
+	descricao varchar(1000)
 );
 
 create table if not exists personagem_tipo (
@@ -133,12 +134,12 @@ create table if not exists instancia_npc (
 
 create table if not exists instancia_estabelecimento (
 	idInstEstab serial,
-	idEstab int,
+	idEstab int not null,
 	idCidade int not null,
-	idDono int not null,
+	idInstNPCDona int not null,
 	primary key(idInstEstab, idEstab),
 	constraint fk_cidade foreign key(idCidade) references cidade(idCidade) on delete restrict on update cascade,
-	constraint fk_dono foreign key(idDono) references instancia_npc(idInstanciaNPC) on delete restrict on update cascade 
+	constraint fk_dono foreign key(idInstNPCDona) references instancia_npc(idInstanciaNPC) on delete restrict on update cascade 
 );
 
 create table if not exists ataque (
