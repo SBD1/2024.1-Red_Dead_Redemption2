@@ -71,3 +71,7 @@ class Game:
     def quit_game(self):
         self.connection.close()
         print("Saindo do jogo.")
+
+if __name__ == '__main__':
+    game = Game()
+    game.start()

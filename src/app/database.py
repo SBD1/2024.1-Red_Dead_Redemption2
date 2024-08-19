@@ -5,7 +5,7 @@ from classes import *
 
 class DataBase():
 
-    def create_connection():
+    def create_connection(self):
         connect = psycopg2.connect(
             host="localhost",
             database="postgres",
