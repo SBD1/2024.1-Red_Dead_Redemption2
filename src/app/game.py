@@ -1,5 +1,4 @@
 from database import DataBase
-from classes import *
 
 class Game:
     def __init__(self):
@@ -23,9 +22,11 @@ class Game:
         print("Bem-vindo ao jogo Red Dead Redemption MUD!")
         while True:
             self.show_current_location()
-            command = input("Escolha uma ação (ir_para, sair, sair_jogo): ").strip().lower()
+            command = input("Escolha uma ação (ir_para, buscar_estado, sair, sair_jogo): ").strip().lower()
             if command == "ir_para":
                 self.move()
+            elif command == "buscar_estado":
+                self.search_state()
             elif command == "sair":
                 self.quit_game()
             elif command == "sair_jogo":
@@ -33,6 +34,14 @@ class Game:
                 break
             else:
                 print("Comando desconhecido. Tente novamente.")
+
+    def search_state(self):
+        results = self.db.get_all_states(self.connection)  # Chamar a função para obter todos os estados
+        if results:
+            for result in results:
+                print(f"ID: {result[0]}, Nome: {result[1]}, Sigla: {result[2]}, Descrição: {result[3]}")
+        else:
+            print("Nenhum estado encontrado.")
 
     def show_current_location(self):
         if self.current_sala:
