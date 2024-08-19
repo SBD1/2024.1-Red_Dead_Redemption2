@@ -31,7 +31,7 @@
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
 | idAnimal | Código identificador único do animal | int |  | pk | not null |
-| tipo | Identifica o tipo de animal | int |  |  | not null |
+| tipo | Identifica o tipo de animal | enum | ('AMG', 'HST') |  | not null |
 
 
 ### Tabela: ANIMAL_AMIGAVEL
@@ -41,12 +41,12 @@
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
 | idAnimal | Código identificador único do animal | int |  | pk, fk1 | not null |
-| idEstadoHabitatNatural | Código identificador do estado (habitat) onde vive o animal | int |  | fk2 | not null |
-| especie | Espécie do animal | varchar[30] | a-z, A-Z | | not null |
-| velocidade | Velocidade máxima que o animal pode atingir | int | 1-100 | | not null |
+| habitatNatural | Ambiente no qual vive o animal | int | varchar[100] |  |  |
+| especie | Espécie do animal | varchar[30] | a-z, A-Z | |  |
+| velocidade | Velocidade máxima que o animal pode atingir | int | 1-00 | | not null |
 | vidaMax | Expectativa de vida máxima do animal em anos | int | 1-100 |  | not null |
 | staminaMAx | Energia máxima do animal | int | 1-100 |  | not null |
-| textura | Tipo de textura da pele do animal | varchar[30] | a-z, A-Z | | not null |
+| textura | Tipo de textura da pele do animal | varchar[30] | a-z, A-Z | |  |
 
 
 ### Tabela: ANIMAL_HOSTIL
@@ -56,12 +56,12 @@
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
 | idAnimal | Código identificador único do animal | int |  | pk, fk1 | not null |
-| idEstadoHabitatNatural | Código identificador do estado (habitat) onde vive o animal | int |  | fk2 | not null |
-| especie | Espécie do animal | varchar[30] | a-z, A-Z | | not null |
-| velocidade | Velocidade máxima que o animal pode atingir | int | 1-100 | | not null |
-| vidaMax | Expectativa de vida máxima do animal em anos| int | 1-100 |  | not null |
-| staminaMax | Energia máxima do animal | int | 1-100 |  | not null |
-| textura | Tipo de textura da pele do animal | varchar[30] | a-z, A-Z | | not null |
+| habitatNatural | Ambiente no qual vive o animal | int | varchar[100] |  |  |
+| especie | Espécie do animal | varchar[30] | a-z, A-Z | |  |
+| velocidade | Velocidade máxima que o animal pode atingir | int | 1-00 | | not null |
+| vidaMax | Expectativa de vida máxima do animal em anos | int | 1-100 |  | not null |
+| staminaMAx | Energia máxima do animal | int | 1-100 |  | not null |
+| textura | Tipo de textura da pele do animal | varchar[30] | a-z, A-Z | |  |
 
 
 ### Tabela: JOGADOR_DOMOU_ANIMAL_AMIGAVEL
@@ -86,13 +86,13 @@
 
 ### Tabela: ATAQUE
 
-- Descrição da Tabela: Tabela que armazena informações sobre os diferentes tipos de ataques que um animal pode realizar.
+- Descrição da Tabela: Tabela que armazena informações sobre os diferentes tipos de ataques presentes no jogo.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idAtaque | Código identificador único do modo de ataque do animal | int |  | pk,fk1 | not null |
-| descricao | Descreve como o animal realiza o seu ataque | varchar[100] | a-z, A-Z | | not null |
-| dano | Valor do dano que o animal realiza ao atacar | int | 1-100 |  | not null |
+| idAtaque | Código identificador único do modo de ataque | int |  | pk,fk1 | not null |
+| descricao | Descreve como é realizado o ataque | varchar[100] | a-z, A-Z | |  |
+| dano | Dano causado à quantidade total de vida | int | 1-100 |  | not null, default = 50 |
 
 
 ### Tabela: ANIMAL_HOSTIL_ATACA_JOGADOR
@@ -112,7 +112,7 @@
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
 | idPersonagem | Código identificador único de um personagem | int |  | pk | not null |
-| tipo | Identifica o tipo de personagem  | varchar[30] | a-z, A-Z |  | not null |
+| tipo | Identifica o tipo de personagem  | enum | ('JOG', 'NPC') |  | not null |
 
 
 ### Tabela: MISSÃO
@@ -126,7 +126,7 @@
 | nivelDificuldade | Nível do quão complicado é a missão | int | 1-10 | | not null |
 | idHistoria | Chave estrangeira da história que representa a história contada na missão. | int |  | fk1 | not null |
 | idEstado | Chave estrangeira do estado onde se passa a missão. | int |  | fk2 | not null |
-| status | Porcentagem de andamento da missão. Corresponde ao número de objetivos completados associados à missão. | decimal(3,2) | 0.00 - 1.00 |  |  |
+
 
 ### Tabela: MISSÃO_DEPENDE_DE_MISSAO
 
@@ -134,8 +134,8 @@
 
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
-| idMissaoAtual | Código identificador da Missão que está sendo realizada | int |  | pk,fk1 |
-| idMissaoAnterior | Código identificador da Missão da qual a MissaoAtual necessita para ser realizada | int |  | pk,fk2 |
+| idMissaoAtual | Chave estrangeira para a missão atual | int |  | pk,fk1 |
+| idMissaoAnterior | Chave estrangeira para a missão necessária para desbloquear a atual | int |  | pk,fk2 |
 
 
 ### Tabela: OBJETIVO
@@ -145,7 +145,7 @@
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
 | idObjetivo | Código identificador do objetivo da missão | int |  | pk |
-| titulo | Nome do objetivo | varchar[60] | a-z, A-Z | | not null |
+| titulo | Nome do objetivo | varchar[500] | a-z, A-Z | | not null |
 | retornoXP | Retorno em xp que um jogador receberá ao completar a missão com êxito. | int | 1-1000 | | not null |
 | retornoDinheiro | Retorno em dinheiro que um jogador receberá ao completar a missão com êxito. | int | 1-1000 | | not null |
 | idMissão | Chave estrangeira para a missão à qual o objetivo está associado. | int |  | fk1 | not null |
@@ -158,8 +158,8 @@
 | Nome | Descrição | Tipo de Dado | Tamanho | Restrições de domínio |
 | --- | --- | --- | --- | --- |
 | idHistoria | Código identificador do objetivo da historia da missão | int |  | pk | not null |
-| titulo | Nome da missão  | varchar[60] | a-z, A-Z | | not null |
-| enredo | Texto que a história por trás da missão | varchar[1000] | a-z, A-Z | | not null |
+| titulo | Nome da missão  | varchar[200] | a-z, A-Z | | not null |
+| enredo | Texto que a história por trás da missão | varchar[3000] | a-z, A-Z | | not null |
 
 
 ### Tabela: NPC
@@ -208,9 +208,9 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idGangueVencedora | Chave estrangeira para o código da gangue que venceu o combate. | int |  | pk,fk1 | not null |
+| idGangueVencedora | Chave estrangeira para o código da gangue que venceu o combate. | int |  | pk, fk1 | not null |
 | idGanguePerdedora | Chave estrangeira para o código da gangue que perdeu o combate. | int |  | pk, fk2 | not null |
-| dataConfronto | Data de quando ocorreu o confronto. | date |  | not null |
+| dataConfronto | Data de quando ocorreu o confronto | date |  | pk | not null |
 
 
 ### Tabela: DIALOGO
@@ -221,7 +221,7 @@
 | --- | --- | --- | --- | --- | --- |
 | idDialogo | Código identificador único de um diálogo | int |  | pk | not null |
 | idInstanciaNPCFalante | Chave para a instância de NPC que fala o referido diálogo. | int |  | fk1 | not null |
-| descricao | Descrição do diálogo | varchar[100] | a-z, A-Z | not null |
+| descricao | Descrição do diálogo | varchar[1000] | a-z, A-Z | not null |
 
 
 ### Tabela: LINHA_DE_FALA
@@ -251,8 +251,8 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idClasse | Código para identificar a classe disponíveis no jogo | int |  | pk,fk1 | not null |
-| idHabilidade | Código identificador único da habilidade específica de uma classe | int |  | pk,fk2 | not null |
+| idClasse | Código para identificar a classe disponíveis no jogo | int |  | pk, fk1 | not null |
+| idHabilidade | Código identificador único da habilidade específica de uma classe | int |  | pk, fk2 | not null |
 
 
 ### Tabela: HABILIDADE
@@ -305,11 +305,12 @@
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
-| idJogador | Chave estrangeira para o id do jogador que cumpriu a missão. | int |  | pk,fk1 | not null |
+| idJogador | Chave estrangeira para o id do jogador relacionado à missão. | int |  | pk, fk1 | not null |
 | idMissao | Chave estrangeira para a missão que o jogador completou. | int |  | pk,fk2 | not null |
 | dataMissao | Data em que a missão foi realizada | date |  |  | not null |
 | retornoTotalXP | Quantidade de XP obtido após o cumprimento da missão | int |  |  | not null |
 | retornoTotalDinheiro | Quantidade de dinheiro obtido após o cumprimento da missão | int |  |  | not null |
+| status | Porcentagem de andamento da missão. Corresponde ao número de objetivos completados associados à missão. | decimal(3,2) | 0.00 - 1.00 |  |  |
 
 
 ### Tabela: INVENTARIO
@@ -358,26 +359,26 @@
 
 ### Tabela: ITEM_TIPO
 
-- Descrição: 
+- Descrição: Armazena informações sobre os tipos de itens presentes no jogo, incluindo consumíveis, equipáveis, armas de fogo e armas de melee.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
 | idItem | Código identificador do item | int |  | pk | not null |
-| tipo | Identifica o tipo de item | int |  |  | not null |
+| tipo | Identifica o tipo de item | enum | ('CON', 'EQP', 'AFG', 'AML') |  | not null |
 
 
 ### Tabela: ITEM_CONSUMIVEL
 
-- Descrição: 
+- Descrição: Armazena informações sobre os itens consumíveis presentes no jogo, incluindo características e efeitos.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |
 | idItem | Código identificador do item consumível, sendo uma chave estrangeira para a tabela de tipos. | int |  | pk | not null |
 | nome | Nome do item consumível | varchar[30] | a-z, A-Z |  | not null |
-| descricao | Apresenta as características do item | varchar[60] | a-z, A-Z  | | |
+| descricao | Apresenta as características do item | varchar[2000] | a-z, A-Z  |  |  |
 | peso | Quantidade de massa corresponde ao item | int | 1-8 | | not null |
-| preco | Custo total da arma | decimal(3,2) |  |  | not null |
-| durabilidadeMaxima | Quantidade máxima de vezes que um item pode ser utilizado. | int |  |  | not null |
+| preco | Custo total da arma | decimal(5,2) |  |  | not null |
+| durabilidadeMaxima | Quantidade máxima de vezes que um item pode ser utilizado. | int |  |  |  |
 | qtdReparacaoStamina | Quantidade de stamina restaurada ao utilizar o item consumível  | int | 1-1000 |  | not null |
 | qtdReparacaoVida | Quantidade de vida restaurada ao utilizar o item consumível  | int | 1-100 | | not null |
 
@@ -390,7 +391,7 @@
 | --- | --- | --- | --- | --- | --- |
 | idItem | Código identificador do item equipável, sendo uma chave estrangeira para a tabela de tipos. | int |  | pk | not null |
 | nome | Nome do item equipável | varchar[30] | a-z, A-Z |  | not null |
-| descricao | Apresenta as características do item | varchar[30] | a-z, A-Z  | | |
+| descricao | Apresenta as características do item | varchar[2000] | a-z, A-Z  |  |  |
 | peso | Quantidade de massa corresponde ao item | int | 1-8 | | not null |
 | preco | Custo total da arma | int |  |  | not null |
 | durabilidadeMaxima | Quantidade máxima de vezes que um item pode ser utilizado. | int |  |  | not null |
@@ -470,7 +471,7 @@
 
 ### Tabela: INSTANCIA_ESTABELECIMENTO
 
-- Descrição: 
+- Descrição: Armazena informações sobre as instâncias de estabelecimentos presentes no jogo.
 
 | Nome | Descrição | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio |
 | --- | --- | --- | --- | --- | --- |

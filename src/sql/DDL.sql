@@ -70,6 +70,7 @@ create table if not exists historia (
 	enredo varchar(3000) not null
 );
 
+-- Depois que o scrapper estiver completo, mudar idEstado para idCidade not null
 create table if not exists missao (
 	idMissao serial primary key,
 	titulo varchar(60) not null,
@@ -144,38 +145,38 @@ create table if not exists instancia_estabelecimento (
 
 create table if not exists ataque (
 	idAtaque serial primary key,
-	descricao varchar(1000) not null,
+	descricao varchar(1000),
 	dano int default 50 check (dano between 1 and 100)
 );
 
 create table if not exists animal_tipo (
-	idAnimal serial primary key,
-	tipo int not null
+	idAnimal int primary key,
+	tipo tipo_animal not null
 );
 
 create table if not exists animal_hostil (
 	idAnimal int primary key,
-	habitatNatural varchar(100) not null,
-	especie varchar(30) not null,
+	habitatNatural varchar(100),
+	especie varchar(30),
 	velocidade int default 50 check(velocidade between 1 and 10),
 	vidaMax int default 50 check(vidaMax between 1 and 100),
 	staminaMax int default 50 check(staminaMax between 1 and 100),
-	textura varchar(30) not null,
+	textura varchar(30),
 	constraint fk_animal_amigavel foreign key(idAnimal) references animal_tipo(idAnimal) on delete restrict on update cascade
 );
 
 create table if not exists animal_amigavel (
 	idAnimal int primary key,
-	habitatNatural varchar(100) not null,
-	especie varchar(30) not null,
+	habitatNatural varchar(100),
+	especie varchar(30),
 	velocidade int default 50 check(velocidade between 1 and 10),
 	vidaMax int default 50 check(vidaMax between 1 and 100),
 	staminaMax int default 50 check(staminaMax between 1 and 100),
-	textura varchar(30) not null,
+	textura varchar(30),
 	constraint fk_animal_amigavel foreign key(idAnimal) references animal_tipo(idAnimal) on delete restrict on update cascade
 );
 
-CREATE table if not exists animal_hostil_possui_ataque (
+create table if not exists animal_hostil_possui_ataque (
     idAtaque int,
     idAnimal int,
 	primary key(idAtaque, idAnimal),
@@ -221,7 +222,7 @@ create table if not exists objetivo (
 create table if not exists habilidade (
     idHabilidade serial primary key,
     nome varchar(30) not null,
-    porcentagem decimal(3,2) not null default 0.00 check(porcentagem between 0.00 and 1.00)
+    porcentagem decimal(3,2) not null check(porcentagem between 0.00 and 1.00)
 );
 
 create table if not exists classe_possui_habilidade (
@@ -243,8 +244,8 @@ create table if not exists gangue (
 create table if not exists gangue_confronta_gangue (
     idGangueVencedora int,
     idGanguePerdedora int,
-	primary key(idGangueVencedora, idGanguePerdedora),
     dataConfronto date not null default current_date,
+	primary key(idGangueVencedora, idGanguePerdedora, dataConfronto),
     constraint fk_vencedora foreign key(idGangueVencedora) references gangue(idGangue) on delete restrict on update cascade
 );
 
@@ -268,6 +269,7 @@ create table if not exists jogador_cumpre_missao (
 	dataMissao date not null,
 	retornoTotalXP int not null,
 	retornoTotalDinheiro int not null,
+	status decimal(3, 2) not null default 0.00 check(status between 0.00 and 1.00),
 	primary key(idJogador, idMissao),
 	constraint fk_jogador foreign key(idJogador) references jogador(idPersonagem) on delete restrict on update cascade
 );
@@ -280,19 +282,19 @@ create table if not exists item_tipo (
 create table if not exists item_consumivel (
 	idItem int primary key,
 	nome varchar(30) not null unique,
-	descricao varchar(1000) not null,
+	descricao varchar(1000),
 	peso int not null check(peso between 1 and 8),
-	preco decimal(3, 2) not null,
+	preco decimal(5, 2) not null,
 	durabilidadeMaxima int,
-	qtdReparacaoStamina int not null,
-	qtdReparacaovida int not null,
+	qtdReparacaoStamina int not null check(qtdReparacaoStamina between 0 and 1000),
+	qtdReparacaovida int not null check(qtdReparacaovida between 0 and 150),
 	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
 );
 
 create table if not exists item_equipavel (
 	idItem int primary key,
 	nome varchar(30) not null unique,
-	descricao varchar(1000) not null,
+	descricao varchar(2000),
 	peso int not null check(peso between 1 and 8),
 	preco decimal(4, 2) not null,
 	durabilidadeMaxima int not null,
@@ -303,7 +305,7 @@ create table if not exists item_equipavel (
 create table if not exists arma_fogo (
 	idItem int primary key,
 	nome varchar(100) not null,
-	descricao varchar(2000) not null,
+	descricao varchar(2000),
 	peso int not null check(peso between 1 and 8),
 	preco decimal(5, 3) not null,
 	durabilidadeMaxima int not null,
