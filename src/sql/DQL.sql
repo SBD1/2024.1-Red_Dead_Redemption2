@@ -6,6 +6,14 @@ FROM jogador j
 JOIN cidade c ON j.idCidade = c.idCidade
 JOIN inventario i ON j.idInventario = i.idInventario;
 
+-- Listar todas as cidades e seus estados
+SELECT c.nome AS cidade,
+       e.nome AS estado,
+       e.sigla AS sigla_estado
+FROM cidade c
+JOIN estado e ON c.siglaEstado = e.sigla
+ORDER BY estado, cidade;
+
 -- Listar missoes de um historia especifica
 SELECT m.titulo AS missao,
        m.nivelDificuldade AS dificuldade,
@@ -35,4 +43,16 @@ SELECT ic.nome AS item_consumivel,
        ic.preco AS preco
 FROM item_consumivel ic;
 
--- Listar
+-- Listar Missões Cumpridas por Jogadores
+SELECT j.nome AS jogador,
+       m.titulo AS missao,
+       jc.retornoTotalXP AS experiencia_ganha,
+       jc.retornoTotalDinheiro AS dinheiro_ganho
+FROM jogador_cumpre_missao jc
+JOIN jogador j ON jc.idJogador = j.idPersonagem
+JOIN missao m ON jc.idMissao = m.idMissao;
+
+-- Consultar uma historia em específico
+SELECT *
+FROM historia
+WHERE idHistoria = 1;
