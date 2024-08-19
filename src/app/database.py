@@ -5,13 +5,22 @@ from classes import *
 
 class DataBase():
 
-    def create_connection():
+    def create_connection(self):
         connect = psycopg2.connect(
             host="localhost",
             database="postgres",
             user="postgres",
-            password="postgres")
+            password="postgres"
+        )
         return connect
+
+    def get_all_states(self, connection):
+        cursor = connection.cursor()
+        query = "SELECT * FROM estado"
+        cursor.execute(query)
+        results = cursor.fetchall()
+        cursor.close()
+        return results
 
     def create_new_map(connection, nome):
         cursor = connection.cursor()
@@ -43,16 +52,14 @@ class DataBase():
 
         return result
 
-    def get_state(connection, sigla):
+    def get_state(self, connection, sigla):
         cursor = connection.cursor()
-
-        query = "SELECT * FROM estado WHERE sigla = '%s'" % (sigla)
-        
-        cursor.execute(query)
+        query = "SELECT * FROM estado WHERE sigla = %s"
+        cursor.execute(query, (sigla,))
         result = cursor.fetchone()
         cursor.close()
-
         return result
+
 
     def create_new_player(connection, idPersonagem, idInventario, idCidade, idClasse, idGangue, nome, username, senha_hash):
         cursor = connection.cursor()
