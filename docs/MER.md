@@ -8,11 +8,11 @@ O Modelo Entidade-Relacionamento (ER) é uma técnica fundamental na modelagem e
 
 Exibimos agora o DER concebido para o projeto Red Dead Redemption. É possível conferir a evolução do diagrama através de suas versões anteriores, disponíveis nos links logo abaixo.
 
-### Versão 3.3
+### Versão 3.5
 
 <div align="center">
     <img src="/docs/DER/DER.png">
-    Imagem 1: DER v3.4
+    Imagem 1: DER v3.5
 </div>
 
 Versões anteriores:

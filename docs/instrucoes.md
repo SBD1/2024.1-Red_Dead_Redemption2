@@ -1,5 +1,15 @@
 # Script básico
 
-Este documento se destina a explicar como rodar o script básico de andar entre cidades.
+Segue os comandos para rodar o script Python do jogo.
 
-<!-- Colocar instruções abaixo de como rodar o python-->
+OBS: os volumes docker precisam estar rodando.
+
+Acessar a pasta onde está localizado os scripts em Python
+```bash
+cd src/app
+```
+
+Após isso, rodar esse comando no terminal
+```bash
+python3 game.py
+```

@@ -10,7 +10,7 @@ Exibimos agora o MREL concebido para o projeto Red Dead Redemption. É possível
 
 <div align="center">
     <img src="/docs/MREL/MREL.png">
-    Imagem 1: MREL v2.1
+    Imagem 1: MREL v2.2
 </div>
 
 Versões anteriores:
