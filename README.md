@@ -80,6 +80,6 @@ docker-compose up
 
 [Script inicial - Andar entre cidades](docs/instrucoes.md)
 
-[Apresentação]()
+[Apresentação](https://youtu.be/ORvEm5pqcHw)
 
 **Obs.:** A versão atualizada da documentação do projeto (DER, MREL, e Dicionário de Dados) pode ser acessada nos mesmos links da entrega anterior. Lá, também publicadas as versões anteriores desses documentos, a fim de comparação, caso seja necessário.
