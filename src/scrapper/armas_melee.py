@@ -1,0 +1,40 @@
+from selenium import webdriver
+from time import sleep
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from random import randint
+from googletrans import Translator
+
+def filter(string):
+    translator = Translator()
+    translation = translator.translate(string, dest='pt')
+    return translation.text.replace("'","''")
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+driver1 = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+driver.get("https://www.gtabase.com/red-dead-redemption-2/weapons/#sort=name&sortdir=asc&attr.ct55.value=melee&page=1")
+sleep(3)
+guns = driver.find_elements(By.CLASS_NAME, "product-item-link")
+i = 60
+for gun in guns:
+    try:
+        driver1.get(gun.get_attribute("href"))
+        sleep(3)
+        temp = driver1.find_element(By.CLASS_NAME, "rdr2-stats").text.split("\n")
+        nome = driver1.find_element(By.CLASS_NAME, "page-header").text
+        descricao_div = driver1.find_element(By.XPATH, "//*[contains(@class, 'article-content') and contains(@class, 'com-content-article__body')]")
+        descricao = " ".join([p.text for p in descricao_div.find_elements(By.TAG_NAME, "p")])
+        peso = randint(1, 8)
+        preco = randint(100, 1000)/1000
+        durabilidadeMaxima = randint(50, 100)
+        danoPorAtaque = temp[temp.index("DAMAGE") + 1]
+        nivelAfiacaoMaxima = randint(1, 10)
+        with open("output/armas_melee.txt", "a") as f:
+            f.write(f"({i}, '{filter(nome)}','{filter(descricao)}', {peso}, {preco}, {durabilidadeMaxima}, {danoPorAtaque}, {nivelAfiacaoMaxima}),\n")
+        print(f"{nome} done.")
+        i += 1
+    except: print("Error")
+driver1.quit()
+driver.quit()

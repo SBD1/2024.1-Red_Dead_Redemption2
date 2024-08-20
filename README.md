@@ -1,6 +1,6 @@
 # [2024.1] Red Dead Redemption II
 <div align="center">
-    <img src="assets/img/game_logo.jpg"/>
+    <img src="docs/assets/game_logo.jpg"/>
     <p> Figura 1: Logo de Red Dead Redemption II.</p> 
 </div>
 
@@ -13,6 +13,26 @@ Este repositório pertence à turma de Sistemas de Banco de Dados 1 (SBD1) do pr
 Red Dead Redemption 2 é um jogo de ação e aventura em mundo aberto desenvolvido pela Rockstar Games. O jogo se passa em 1899, no final da era do Velho Oeste, e segue a história do fora-da-lei Arthur Morgan, membro da gangue Van der Linde. O jogo apresenta um mundo vasto e detalhado, com diversas cidades, vilarejos, florestas e montanhas para explorar. Os jogadores podem montar a cavalo, roubar trens, assaltar bancos e interagir com personagens não jogáveis para ganhar dinheiro e melhorar seu equipamento. O jogo também possui um sistema de honra, no qual as ações do jogador afetam sua reputação e como outros personagens reagem a ele.
 
 </div>
+
+## Como rodar o jogo
+
+Faça um clone do repositório
+```bash
+git clone git@github.com:SBD1/2024.1-Red_Dead_Redemption2.git
+```
+
+Após isso, acesse a parte src via terminal
+```bash
+cd src
+```
+
+Para rodar o jogo, primeiramente verifique se a porta localhost (5432) está disponível.
+
+Após isso, para subir o banco tendo em vista que já possua o docker instalado, basta executar o comando:
+
+```bash
+docker-compose up
+```
 
 ## Autores
 
@@ -40,12 +60,26 @@ Red Dead Redemption 2 é um jogo de ação e aventura em mundo aberto desenvolvi
     </table>
 </div>
 
-## Entrega 1
+## Entrega 1 (22/07/2024)
     
-[Diagrama Entidade-Relacionamento](entregas/entrega1/MER.md)
+[Diagrama Entidade-Relacionamento](docs/MER.md)
     
-[Modelo Relacional](entregas/entrega1/MREL.md)
+[Modelo Relacional](docs/MREL.md)
 
-[Dicionário de Dados](entregas/entrega1/dicionario_dados.md)
+[Dicionário de Dados](docs/dicionario_dados.md)
 
 [Apresentação](https://youtu.be/TF5FpWGe7o4)
+
+## Entrega 2 (19/08/2024)
+
+[DDL](src/sql/DDL.sql)
+
+[DML](src/sql/DML.sql)
+
+[DQL](src/sql/DQL.sql)
+
+[Script inicial - Andar entre cidades](docs/instrucoes.md)
+
+[Apresentação]()
+
+**Obs.:** A versão atualizada da documentação do projeto (DER, MREL, e Dicionário de Dados) pode ser acessada nos mesmos links da entrega anterior. Lá, também publicadas as versões anteriores desses documentos, a fim de comparação, caso seja necessário.
