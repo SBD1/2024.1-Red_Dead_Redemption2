@@ -1,5 +1,4 @@
 from database import DataBase
-import time
 
 class Game:
     def __init__(self):
@@ -8,12 +7,6 @@ class Game:
         self.current_sala = None
         self.current_regiao = None
         self.current_estado = None
-
-    def write_slowly(self, texto, velocidade=0.05):  # Certifique-se de que o 'self' é o primeiro argumento
-        for caractere in texto:
-            print(caractere, end='', flush=True)
-            time.sleep(velocidade)
-        print() 
 
     def start(self):
         print("""
@@ -26,20 +19,24 @@ class Game:
                                                                            |_|                              
                  
         """)
-        self.write_slowly("Bem-vindo ao jogo Red Dead Redemption MUD!")
-
+        print("Bem-vindo ao jogo Red Dead Redemption MUD!")
         while True:
-            command = input("Escolha uma ação (1) Jogar Campanha (2) Sair do Jogo): ").strip().lower()
-            if command == '1':
-                self.capitulo1()
-            elif command == '2':
+            self.show_current_location()
+            command = input("Escolha uma ação (ir_para, buscar_estado, sair, sair_jogo): ").strip().lower()
+            if command == "ir_para":
+                self.move()
+            elif command == "buscar_estado":
+                self.search_state()
+            elif command == "sair":
+                self.quit_game()
+            elif command == "sair_jogo":
                 print("Saindo do jogo. Até mais!")
                 break
             else:
                 print("Comando desconhecido. Tente novamente.")
 
-    def search_state(self): # Chamar a função para obter todos os estados
-        results = self.db.get_all_states(self.connection) 
+    def search_state(self):
+        results = self.db.get_all_states(self.connection)  # Chamar a função para obter todos os estados
         if results:
             for result in results:
                 print(f"ID: {result[0]}, Nome: {result[1]}, Sigla: {result[2]}, Descrição: {result[3]}")
@@ -59,11 +56,26 @@ class Game:
         else:
             print("Você está em um lugar desconhecido.")
 
-    def capitulo1(self):
-            self.write_slowly("\nVocê é Arthur Morgan, um dos membros da gangue de Dutch Van der Linde, lutando para sobreviver em uma tempestade de neve feroz nas Montanhas Grizzlies. O vento corta como lâminas e a visibilidade é praticamente inexistente. Seu objetivo é encontrar abrigo e garantir a segurança do seu bando.")
-            
-        
- 
+    def move(self):
+        if self.current_sala:
+            print("Você pode ir para essas salas:")
+            new_sala_id = input("Digite o ID da sala para a qual deseja ir: ")
+            new_sala = self.db.get_sala(int(new_sala_id))
+            if new_sala:
+                self.current_sala = new_sala
+            else:
+                print("Sala não encontrada.")
+        elif self.current_regiao:
+            print("Você pode ir para essas salas:")
+            new_sala_id = input("Digite o ID da sala para a qual deseja ir: ")
+            new_sala = self.db.get_sala(int(new_sala_id))
+            if new_sala:
+                self.current_sala = new_sala
+                self.current_regiao = None
+            else:
+                print("Sala não encontrada.")
+        else:
+            print("Você não pode se mover porque está em um lugar desconhecido.")
 
     def quit_game(self):
         self.connection.close()
