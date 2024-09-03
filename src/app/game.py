@@ -1,12 +1,10 @@
 from bullet import Bullet, Input, Password, YesNo
-# from database import DataBase
-# from util import clear_screen
+from .database import DataBase
 from .util import *
 
 class Game:
     def __init__(self):
-        # self.db = DataBase()
-        # self.connection = self.db.create_connection()
+        self.connection = DataBase()
         self.loggedIn = False
 
     def run(self):
@@ -55,7 +53,8 @@ class Game:
             while True:
                 token_input = Input(prompt="Token: ").launch()
                 if token_input == original_token:
-                    print("\nToken confirmado! Agora basta fazer o login.")
+                    self.connection.insert_player(name, username, email, password)
+                    print("\nToken confirmado.\nConta criada! Agora basta fazer login.")
                     break
                 else:
                     try_again = YesNo("O token que você digitou não confere. Deseja tentar novamente?")

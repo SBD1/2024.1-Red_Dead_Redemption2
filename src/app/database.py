@@ -1,9 +1,27 @@
 from multiprocessing import connection
 import psycopg2
-from classes import *
+from .classes import *
 
 
 class DataBase():
+    def __init__(self):
+        self.conn = psycopg2.connect(
+            host="localhost",
+            database="postgres",
+            user="postgres",
+            password="postgres"
+        )
+
+    def insert_player(self, values):
+        query = """
+            INSERT INTO jogador
+            (nome, username, email, senha)
+            VALUES (%s, %s, %s, %s)
+        """
+        cursor = self.conn.cursor()
+        cursor.execute(query, values)
+        self.conn.commit()
+        cursor.close()
 
     def create_connection(self):
         connect = psycopg2.connect(
