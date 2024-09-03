@@ -12,16 +12,19 @@ class DataBase():
             password="postgres"
         )
 
-    def insert_player(self, values):
-        query = """
-            INSERT INTO jogador
-            (nome, username, email, senha)
-            VALUES (%s, %s, %s, %s)
-        """
+    def insert_player(self, name, username, email, password):
         cursor = self.conn.cursor()
-        cursor.execute(query, values)
+        cursor.callproc("insere_jogador", (name, username, email, password))
         self.conn.commit()
         cursor.close()
+
+    def login(self, username, password):
+        cursor = self.conn.cursor()
+        cursor.execute("select check_jogador_existe(%s, %s);", (username, password))
+        result = cursor.fetchone()
+        print(result)
+        cursor.close()
+        return result
 
     def create_connection(self):
         connect = psycopg2.connect(

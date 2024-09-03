@@ -71,6 +71,7 @@ class Game:
         
         username = Input(prompt="Username: ").launch()
         password = Password(prompt="Senha: ").launch()
+        self.connection.login(username, password)
         
         print(f"\nBem-vindo, {username}!")
         go_back()

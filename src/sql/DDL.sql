@@ -245,7 +245,7 @@ create table if not exists jogador (
 	nome varchar(30) not null,
 	email varchar(50) not null,
 	username varchar(15) not null,
-	senha_hash varchar(255) not null,
+	senha varchar(50) not null,
 	isOnline boolean default false
 );
 

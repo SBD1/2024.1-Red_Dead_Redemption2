@@ -1,6 +1,5 @@
 begin;
 
--- Trigger for Updating Item Count in Inventory
 create or replace function atualiza_qtd_itens_inventario() 
 returns trigger as $$
 begin
@@ -26,8 +25,6 @@ create trigger atualiza_inventario
 after insert or update or delete on instancia_item
 for each row execute procedure atualiza_qtd_itens_inventario();
 
-
--- Trigger for Updating Population Count
 create or replace function atualiza_qtd_habitantes() 
 returns trigger as $$
 begin
@@ -62,7 +59,6 @@ after insert or update or delete on jogador
 for each row execute procedure atualiza_qtd_habitantes();
 
 
--- Trigger for Calculating Total XP
 create or replace function calcula_retorno_xp_total() 
 returns trigger as $$
 begin
@@ -83,8 +79,6 @@ create trigger calcula_total_xp
 after insert or update or delete on objetivo
 for each row execute procedure calcula_retorno_xp_total();
 
-
--- Trigger for Calculating Total Money
 create or replace function calcula_retorno_dinheiro_total() 
 returns trigger as $$
 begin
@@ -105,8 +99,6 @@ create trigger calcula_total_dinheiro
 after insert or update or delete on objetivo
 for each row execute procedure calcula_retorno_dinheiro_total();
 
-
--- Trigger for Calculating Mission Completion Percentage
 create or replace function calcula_status() 
 returns trigger as $$
 declare
