@@ -31,3 +31,6 @@ env/
 *.swp
 *.tmp
 *~
+
+# Sensitive files
+.env

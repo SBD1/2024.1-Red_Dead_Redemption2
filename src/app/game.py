@@ -37,18 +37,14 @@ class Game:
         
         name_input = Input(prompt="Nome: ")
         name = name_input.launch()
-        
         username_input = Input(prompt="Username: ")
         username = username_input.launch()
-        
         email_input = Input(prompt="Email: ")
         email = email_input.launch()
-        
         password_input = Password(prompt="Senha: ")
         password = password_input.launch()
 
-        
-        
+
         clear_screen()
         print("=== Confirmação de Cadastro ===\n")
         print(f"Nome: {name}")
@@ -56,9 +52,9 @@ class Game:
         print(f"Email: {email}\n")
         
         confirm = YesNo(prompt="Confirma? ")
-        
         if confirm.launch():
-            print(f"\nUm código de confirmação foi enviado para o email {email}.")
+            send_email(email, generate_token(8), name)
+            print(f"\nCódigo de confirmação enviado para {email}. Confira sua caixa de entrada!")
         else:
             print("\nCadastro cancelado.")
         go_back()
