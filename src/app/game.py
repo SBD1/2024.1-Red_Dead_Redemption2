@@ -46,6 +46,8 @@ class Game:
         
         password_input = Password(prompt="Senha: ")
         password = password_input.launch()
+
+        
         
         clear_screen()
         print("=== Confirmação de Cadastro ===\n")
