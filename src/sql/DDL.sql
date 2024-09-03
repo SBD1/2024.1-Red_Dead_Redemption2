@@ -1,3 +1,5 @@
+begin;
+
 create type tipo_personagem as enum('JOG', 'NPC'); 
 create type tipo_animal as enum('AMG', 'HST');
 create type tipo_item as enum('CON', 'EQP', 'AFG', 'AML');
@@ -231,8 +233,8 @@ create table if not exists jogador (
 	idPersonagem int primary key,
 	idInventario int not null,
 	idCidade int not null,
-	idClasse int not null,
-	idGangue int not null,
+	idClasse int,
+	idGangue int,
 	xp int not null default 0,
 	dinheiro int not null default 0,
 	velocidade int not null default 7 check(velocidade between 1 and 10),
@@ -242,9 +244,9 @@ create table if not exists jogador (
 	staminaAtual int not null default 1000 check(staminaAtual between 1 and 1000),
 	nome varchar(30) not null,
 	email varchar(50) not null,
-	username varchar(30) not null,
+	username varchar(15) not null,
 	senha_hash varchar(255) not null,
-	codigo_confirmacao int
+	isOnline boolean default false
 );
 
 create table if not exists jogador_domou_animal_amigavel (
@@ -369,3 +371,5 @@ revoke insert, update, delete on inventario from public;
 revoke insert, update, delete on jogador from public;
 revoke insert, update, delete on npc from public;
 revoke insert, update, delete on personagem_tipo from public;
+
+commit;
