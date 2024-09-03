@@ -20,6 +20,7 @@ class Game:
                 elif choice == "Sair": self.sair()
             else:
                 print("Game is running")
+                # Implementar o restante da lógica do jogo aqui
                 break
 
     def main_menu(self, clear_before = True):
@@ -35,26 +36,32 @@ class Game:
         clear_screen()
         print("=== Cadastro de Jogador ===\n")
         
-        name_input = Input(prompt="Nome: ")
-        name = name_input.launch()
-        username_input = Input(prompt="Username: ")
-        username = username_input.launch()
-        email_input = Input(prompt="Email: ")
-        email = email_input.launch()
-        password_input = Password(prompt="Senha: ")
-        password = password_input.launch()
-
+        name = Input(prompt="Nome: ").launch()
+        username = Input(prompt="Username: ").launch()
+        email = Input(prompt="Email: ").launch()
+        password = Password(prompt="Senha: ").launch()
 
         clear_screen()
         print("=== Confirmação de Cadastro ===\n")
-        print(f"Nome: {name}")
-        print(f"Username: {username}")
-        print(f"Email: {email}\n")
+        print(f"Nome: {name}\nUsername: {username}\nEmail: {email}\n")
         
         confirm = YesNo(prompt="Confirma? ")
         if confirm.launch():
-            send_email(email, generate_token(8), name)
+            clear_screen()
+            original_token = generate_token(8)
+            send_email(email, original_token, name)
             print(f"\nCódigo de confirmação enviado para {email}. Confira sua caixa de entrada!")
+            
+            while True:
+                token_input = Input(prompt="Token: ").launch()
+                if token_input == original_token:
+                    print("\nToken confirmado! Agora basta fazer o login.")
+                    break
+                else:
+                    try_again = YesNo("O token que você digitou não confere. Deseja tentar novamente?")
+                    if not try_again.launch():
+                        print("Operação cancelada! Conta não cadastrada")
+                        break
         else:
             print("\nCadastro cancelado.")
         go_back()
@@ -63,10 +70,8 @@ class Game:
         clear_screen()
         print("=== Login ===\n")
         
-        username_input = Input(prompt="Username: ")
-        username = username_input.launch()
-        password_input = Password(prompt="Senha: ")
-        password = password_input.launch()
+        username = Input(prompt="Username: ").launch()
+        password = Password(prompt="Senha: ").launch()
         
         print(f"\nBem-vindo, {username}!")
         go_back()
