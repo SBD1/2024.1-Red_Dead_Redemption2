@@ -1,86 +1,84 @@
-from database import DataBase
+from bullet import Bullet, Input, Password, YesNo
+# from database import DataBase
+# from util import clear_screen
+from .util import *
 
 class Game:
     def __init__(self):
-        self.db = DataBase()
-        self.connection = self.db.create_connection()
-        self.current_sala = None
-        self.current_regiao = None
-        self.current_estado = None
+        # self.db = DataBase()
+        # self.connection = self.db.create_connection()
+        self.loggedIn = False
 
-    def start(self):
-        print("""
-            
-  ____          _   ____                 _   ____          _                      _   _               ____  
- |  _ \ ___  __| | |  _ \  ___  __ _  __| | |  _ \ ___  __| | ___ _ __ ___  _ __ | |_(_) ___  _ __   |___ \ 
- | |_) / _ \/ _` | | | | |/ _ \/ _` |/ _` | | |_) / _ \/ _` |/ _ \ '_ ` _ \| '_ \| __| |/ _ \| '_ \    __) |
- |  _ <  __/ (_| | | |_| |  __/ (_| | (_| | |  _ <  __/ (_| |  __/ | | | | | |_) | |_| | (_) | | | |  / __/ 
- |_| \_\___|\__,_| |____/ \___|\__,_|\__,_| |_| \_\___|\__,_|\___|_| |_| |_| .__/ \__|_|\___/|_| |_| |_____|
-                                                                           |_|                              
-                 
-        """)
-        print("Bem-vindo ao jogo Red Dead Redemption MUD!")
+    def run(self):
+        print_prompt("welcome")
         while True:
-            self.show_current_location()
-            command = input("Escolha uma ação (ir_para, buscar_estado, sair, sair_jogo): ").strip().lower()
-            if command == "ir_para":
-                self.move()
-            elif command == "buscar_estado":
-                self.search_state()
-            elif command == "sair":
-                self.quit_game()
-            elif command == "sair_jogo":
-                print("Saindo do jogo. Até mais!")
+            if not self.loggedIn:
+                choice = self.main_menu(clear_before = False)
+                if choice == "Cadastrar": self.cadastrar()
+                elif choice == "Login": self.login()
+                elif choice == "Sobre": self.sobre()
+                elif choice == "Sair": self.sair()
+            else:
+                print("Game is running")
                 break
-            else:
-                print("Comando desconhecido. Tente novamente.")
 
-    def search_state(self):
-        results = self.db.get_all_states(self.connection)  # Chamar a função para obter todos os estados
-        if results:
-            for result in results:
-                print(f"ID: {result[0]}, Nome: {result[1]}, Sigla: {result[2]}, Descrição: {result[3]}")
+    def main_menu(self, clear_before = True):
+        if clear_before: clear_screen()
+        menu = Bullet(
+            prompt="Escolha uma opção:",
+            choices=["Login", "Cadastrar", "Sobre", "Sair"],
+            bullet="→ "
+        )
+        return menu.launch()
+
+    def cadastrar(self):
+        clear_screen()
+        print("=== Cadastro de Jogador ===\n")
+        
+        name_input = Input(prompt="Nome: ")
+        name = name_input.launch()
+        
+        username_input = Input(prompt="Username: ")
+        username = username_input.launch()
+        
+        email_input = Input(prompt="Email: ")
+        email = email_input.launch()
+        
+        password_input = Password(prompt="Senha: ")
+        password = password_input.launch()
+        
+        clear_screen()
+        print("=== Confirmação de Cadastro ===\n")
+        print(f"Nome: {name}")
+        print(f"Username: {username}")
+        print(f"Email: {email}\n")
+        
+        confirm = YesNo(prompt="Confirma? ")
+        
+        if confirm.launch():
+            print(f"\nUm código de confirmação foi enviado para o email {email}.")
         else:
-            print("Nenhum estado encontrado.")
+            print("\nCadastro cancelado.")
+        go_back()
 
-    def show_current_location(self):
-        if self.current_sala:
-            print(f"Você está na sala: {self.current_sala.nome}")
-            print(f"Descrição: {self.current_sala.descricao}")
-        elif self.current_regiao:
-            print(f"Você está na região: {self.current_regiao.nome}")
-            print(f"Descrição: {self.current_regiao.descricao}")
-        elif self.current_estado:
-            print(f"Você está no estado: {self.current_estado.nome}")
-            print(f"Descrição: {self.current_estado.descricao}")
-        else:
-            print("Você está em um lugar desconhecido.")
+    def login(self):
+        clear_screen()
+        print("=== Login ===\n")
+        
+        username_input = Input(prompt="Username: ")
+        username = username_input.launch()
+        password_input = Password(prompt="Senha: ")
+        password = password_input.launch()
+        
+        print(f"\nBem-vindo, {username}!")
+        go_back()
 
-    def move(self):
-        if self.current_sala:
-            print("Você pode ir para essas salas:")
-            new_sala_id = input("Digite o ID da sala para a qual deseja ir: ")
-            new_sala = self.db.get_sala(int(new_sala_id))
-            if new_sala:
-                self.current_sala = new_sala
-            else:
-                print("Sala não encontrada.")
-        elif self.current_regiao:
-            print("Você pode ir para essas salas:")
-            new_sala_id = input("Digite o ID da sala para a qual deseja ir: ")
-            new_sala = self.db.get_sala(int(new_sala_id))
-            if new_sala:
-                self.current_sala = new_sala
-                self.current_regiao = None
-            else:
-                print("Sala não encontrada.")
-        else:
-            print("Você não pode se mover porque está em um lugar desconhecido.")
-
-    def quit_game(self):
-        self.connection.close()
-        print("Saindo do jogo.")
-
-if __name__ == '__main__':
-    game = Game()
-    game.start()
+    def sobre(self):
+        clear_screen()
+        print_prompt("about")
+        go_back()
+    
+    def sair(self):
+        clear_screen()
+        print("Até a próxima!")
+        exit()
