@@ -31,7 +31,13 @@ Para rodar o jogo, primeiramente verifique se a porta localhost (5432) está dis
 Após isso, para subir o banco tendo em vista que já possua o docker instalado, basta executar o comando:
 
 ```bash
-docker-compose up
+docker-compose up --build
+```
+
+E em seguida,
+
+```bash
+python3 main.py
 ```
 
 ## Autores
