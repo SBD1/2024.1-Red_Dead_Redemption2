@@ -242,10 +242,10 @@ create table if not exists jogador (
 	vidaAtual int not null default 100 check(vidaAtual between 1 and 100),
 	staminaMax int not null default 1000 check(staminaMax between 1 and 1000),
 	staminaAtual int not null default 1000 check(staminaAtual between 1 and 1000),
-	nome varchar(30) not null,
-	email varchar(50) not null,
-	username varchar(15) not null,
-	senha varchar(50) not null,
+	nome varchar(100) not null,
+	email varchar(100) not null unique,
+	username varchar(100) not null unique,
+	senha varchar(100) not null,
 	isOnline boolean default false
 );
 

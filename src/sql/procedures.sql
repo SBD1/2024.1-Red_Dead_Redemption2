@@ -5,23 +5,22 @@ create or replace procedure insere_jogador (
     senha varchar(50)
 ) as $$
 declare
-    idPersonagemTipo int;
-    idInventario int;
+    idpersonagem int;
+    idinventario int;
 begin
     insert into personagem_tipo (tipo) values ('JOG');
-    select currval(pg_get_serial_sequence('personagem_tipo', 'idPersonagemTipo')) into idPersonagemTipo;
+    select currval(pg_get_serial_sequence('personagem_tipo', 'idpersonagem')) into idpersonagem;
     
     insert into inventario (totalItens, capacidade) values (0, 20);
-    select currval(pg_get_serial_sequence('inventario', 'idInventario')) into idInventario;
+    select currval(pg_get_serial_sequence('inventario', 'idinventario')) into idinventario;
 
     insert into jogador
-    (idPersonagem, idInventario, idCidade, nome, email, username, senha)
-    values (idPersonagemTipo, idInventario, 1, nome, email, username, senha);
+    (idpersonagem, idinventario, idcidade, nome, email, username, senha)
+    values (idpersonagem, idinventario, 1, nome, email, username, senha);
 
 exception
     when others then
         raise notice 'Houve um erro durante a inserção do novo jogador: %', SQLERRM;
-        rollback;
 end;
 $$ language plpgsql;
 

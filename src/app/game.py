@@ -53,7 +53,7 @@ class Game:
             while True:
                 token_input = Input(prompt="Token: ").launch()
                 if token_input == original_token:
-                    self.connection.insert_player(name, username, email, password)
+                    self.connection.insert_player(name, email, username, password)
                     print("\nToken confirmado.\nConta criada! Agora basta fazer login.")
                     break
                 else:
@@ -71,9 +71,12 @@ class Game:
         
         username = Input(prompt="Username: ").launch()
         password = Password(prompt="Senha: ").launch()
-        self.connection.login(username, password)
+        if self.connection.login(username, password):
+            self.loggedIn = True
+            print(f"\nBem-vindo, {username}!")
+        else:
+            print("\nUsuário ou senha incorretos. Tente novamente.")
         
-        print(f"\nBem-vindo, {username}!")
         go_back()
 
     def sobre(self):
