@@ -1,6 +1,6 @@
 FROM postgres:latest
 
-ADD ./sql/DDL.sql /docker-entrypoint-initdb.d
-ADD ./sql/DML.sql /docker-entrypoint-initdb.d
-ADD ./sql/triggers.sql /docker-entrypoint-initdb.d
-ADD ./sql/procedures.sql /docker-entrypoint-initdb.d
+ADD ./sql/CreateTable.sql /docker-entrypoint-initdb.d
+ADD ./sql/Popula.sql /docker-entrypoint-initdb.d
+ADD ./sql/TF_Query_3_GameActions.sql /docker-entrypoint-initdb.d
+# ADD ./sql/TriggersStoredProcedures.sql /docker-entrypoint-initdb.d

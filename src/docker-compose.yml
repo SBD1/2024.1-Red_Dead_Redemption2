@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  rdd-game:
-    image: red-dead-redemption-game
-    container_name: red-dead-redemption-game
+  red-game:
+    image: red-dead-game
+    container_name: red-dead-game
     build:
       context: .
       dockerfile: gameDockerFile
@@ -17,35 +17,23 @@ services:
       - postgres-connection
 
   db:
-      container_name: postgres_container
-      build: 
-        context: .
-        dockerfile: postgresDockerFile
-      environment:
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
-        PGDATA: /data/postgres
-      ports:
-        - "5432:5432"
-      expose:
-        - "5432"
-      restart: always
-      networks:
-        - postgres-connection
-
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin_container
+    container_name: postgres_container_red
+    build: 
+      context: .
+      dockerfile: postgresDockerFile
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
-      PGADMIN_DEFAULT_PASSWORD: admin           
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
     ports:
-      - "8080:80"  
+      - "5432:5432"
+    expose:
+      - "5432"
     restart: always
-    depends_on:
-      - db
     networks:
       - postgres-connection
+
+  
 
 networks:
   postgres-connection:

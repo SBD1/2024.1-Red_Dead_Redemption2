@@ -1,36 +1,55 @@
-class Jogador:
-    def __init__(self, idPersonagem, XP, Dinheiro, VidaAtual, StaminaMax, Habilidades):
-        self.idPersonagem = idPersonagem
-        self.XP = XP
-        self. Dinheiro = Dinheiro
-        self.VidaAtual = VidaAtual
-        self.idCasa = StaminaMax
-        self.estado = Habilidades
 
-
-class Mapa:
-    def __init__(self, idMapa, nome):
-        self.idMapa = idMapa
+class Player:
+    def __init__(self, idJogador, nome, idArea, pontosvida, idGangue, estado):
+        self.idJogador = idJogador
         self.nome = nome
+        self. idArea = idArea
+        self.pontosVida = pontosvida
+        self.idGangue = idGangue
+        self.estado = estado
 
-class Regiao:
-    def __init__(self, idRegiao, idMapa, nome, descricao):
-        self.idRegiao = idRegiao
-        self.idMapa = idMapa
-        self.nome = nome
-        self.descricao = descricao
-
-class Sala:
-    def __init__(self, idSala, idRegiao, nome, descricao):
-        self.idSala = idSala
+        
+class Area:
+    def __init__(self, idArea, idRegiao, nome, areaLeste, areaOeste, areaSul, areaNorte):
+        self.idArea = idArea
         self.idRegiao = idRegiao
         self.nome = nome
-        self.descricao = descricao
+        self.areaLeste = areaLeste
+        self.areaOeste = areaOeste
+        self.areaSul = areaSul
+        self.areaNorte = areaNorte
 
-class Estado:
-    def __init__(self, id_estado, id_mapa, nome, sigla, descricao):
-        self.id_estado = id_estado
-        self.id_mapa = id_mapa
+
+class Inimigo:
+    def __init__(self, idInstInim, idNPC, nome, idArea, idItem, nomeItem, moedas,pontosVidamax, pontosVida, multiplicador):
+        self.idInstInim = idInstInim
+        self.idNPC = idNPC
         self.nome = nome
-        self.sigla = sigla
+        self.idArea = idArea
+        self.idItem = idItem
+        self.nomeItem = nomeItem
+        self.moedas = moedas
+        self.pontosVida = pontosVida
+        self.pontosVidamax = pontosVidamax
+        self.multiplicador = multiplicador
+
+class Loja:
+    def __init__(self, idloja, idarea, descricao):
+        self.idloja = idloja
+        self.idarea = idarea
         self.descricao = descricao
+        
+class Arma:
+    def __init__(self, idarma, nome, efeito, ponto):
+        self.idarma = idarma
+        self.nome = nome
+        self.efeito = efeito
+        self.ponto = ponto
+        
+class Habilidade:
+    def __init__(self, idHabilidade, nomeHabilidade, dano, descricao):
+        self.idHabilidade = idHabilidade
+        self.nomeHabilidade = nomeHabilidade
+        self.dano = dano
+        self.descricao = descricao
+        
