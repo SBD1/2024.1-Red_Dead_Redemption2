@@ -53,10 +53,10 @@ INSERT INTO AREA(idArea, idRegiao, nome, areaOeste, areaLeste, areaNorte, areaSu
 
 -- Tabela Arma
 INSERT INTO ARMA (nome, efeito, ponto) VALUES
-('Pistola', 'tiro duplo', 6),
-('faca', 'perfuração', 5),
-('rifle', 'tiro preciso', 12),
-('machete', 'arranca membro', 400);
+('Pistola Cattleman', 'tiro rápido e eficaz', 6),
+('Faca de Caça', 'corte afiado', 5),
+('Rifle de Longa Distância', 'tiro preciso a longa distância', 12),
+('Pistola de Duas Mãos', 'tiro potente e preciso', 10);
 
 -- Tabela Jogador
 INSERT INTO JOGADOR (nome, idArea, pontosVida, idGangue) VALUES

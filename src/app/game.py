@@ -269,19 +269,19 @@ class Game:
 
             if current_area.idArea == 17 and self.player.estado == 2:
                 DataBase.addArma(self.connection, self.player.idJogador, 3, 1)
-                print("\n Você aprendeu usar a arma Expelliarmus, cheque o seu arsenal!\n")
+                print("\n Você aprendeu a usar a arma Pistola Cattleman, cheque o seu arsenal!\n")
 
             elif current_area.idArea == 18 and self.player.estado == 3:
                 DataBase.addArma(self.connection, self.player.idJogador, 3, 2)
-                print("\n Você aprendeu usar a arma Petrificus Totalus, cheque o seu arsenal!\n")
+                print("\n Você aprendeu a usar a arma Faca de Caça, cheque o seu arsenal!\n")
 
             elif current_area.idArea == 19 and self.player.estado == 3:
                 DataBase.addArma(self.connection, self.player.idJogador, 4, 3)
-                print("\n Você aprendeu usar a arma Expecto Patronum, cheque o seu arsenal!\n")
+                print("\n Você aprendeu a usar a arma Rifle de Longa Distância, cheque o seu arsenal!\n")
 
             elif current_area.idArea == 15 and self.player.estado == 4:
                 DataBase.addArma(self.connection, self.player.idJogador, 5, 4)
-                print("\n Você aprendeu o arma Avada Kedavra, cheque o seu arsenal!\n")
+                print("\n Você aprendeu a usar a arma Pistola de Duas Mãos, cheque o seu arsenal!\n")
             
 
             inp = 0
