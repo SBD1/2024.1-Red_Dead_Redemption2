@@ -3,11 +3,12 @@
 class Commands:
     def cmd(inp):
         
-        if inp == 'help' or inp == 'Help':
+        if inp == 'ajuda' or inp == 'Ajuda':
             print("""
             Comandos Disponíveis:
 
-            - help: Lista todos os comandos disponíveis.
+            - ajuda: Lista todos os comandos disponíveis.
+            - mapa: Mostra todo o mapa do jogo.
             - mover [N/S/L/O]: Desloca o personagem para o Norte, Sul, Leste ou Oeste, conforme possível no mapa.
             - loja [nome]: Abre a loja da área selecionada (digite o nome da loja sem os colchetes).
             - inventario: Mostra todos os itens que você carrega consigo.
@@ -21,7 +22,7 @@ class Commands:
             - Não utilize acentuação nos comandos!
             """)
 
-            return 'help'
+            return 'ajuda'
 
         elif inp == 'Sair' or inp == 'sair':
             print("\nVocê tem certeza?\n")

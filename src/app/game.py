@@ -265,7 +265,7 @@ class Game:
             print(f'                            S. {area_sul}\n')
             print('\n')
 
-            print('(Digite "help" para ver todos os comandos disponíveis)')
+            print('(Digite "ajuda" para ver todos os comandos disponíveis)')
 
             if current_area.idArea == 17 and self.player.estado == 2:
                 DataBase.addArma(self.connection, self.player.idJogador, 3, 1)
@@ -286,7 +286,7 @@ class Game:
 
             inp = 0
             self.valid_cmd = 0
-            while(self.valid_cmd == False or self.valid_cmd == 'help' or valid_inim == True or  valid_loja == True):
+            while(self.valid_cmd == False or self.valid_cmd == 'ajuda' or valid_inim == True or  valid_loja == True):
                 inp = input('> ')
                 inp = inp.lower()
                 Commands.cmd(inp)
@@ -351,6 +351,9 @@ class Game:
                     self.store('Riggs Station')
                     break
                 
+                elif inp == 'mapa':
+                    self.mapa()
+
                 elif inp == 'inventario':
                     self.inventario()
                     break
@@ -364,6 +367,26 @@ class Game:
 
                 else: 
                     print('\nOpção Inválida!')
+    def mapa(self):
+        print("""
+                                Valentine
+                                    |
+                                New Hanover --- Annesburg
+                                    |
+Strawberry     Scarlet Meadows -- Tall Trees --- Lemoyne           Saint Denis
+    |                               |                                  |
+Big Valley ---------------- Cumberland Forrest  ------------  BlueWater Marsh 
+    |                               |                                  |  
+Black Water                         |                                  | 
+                                    |                                  |
+               Mount Hagen --- Grizzlies West --- Dakota River       Rhodes
+                                    |
+              Roanoke Ridge --- Flat Iron Lake --- Bayou Nwa
+                                    |
+                                Ambarino
+                                    |
+                              The Heartland
+        """)  
 
     def arsenal(self):
         clear()
@@ -404,8 +427,7 @@ class Game:
                     self.curar(inp)
 
                 else:
-                    print('\nOpção Inválida!')
-
+                    print('\nOpção Inválida!') 
 
     def curar(self, inp):
         idInstancia = DataBase.check_item_inventario(self.connection, self.player.idJogador, inp)
@@ -471,7 +493,7 @@ class Game:
             
             inp = 0
             self.valid_cmd = True
-            while(self.valid_cmd == True or self.valid_cmd == 'help'):            
+            while(self.valid_cmd == True or self.valid_cmd == 'ajuda'):            
                 self.show_player_info()
                 print(f"\nInimigo: {Inimigo.nome}")
                 print(f"Vida Inimigo: {Inimigo.pontosVida}\n")
@@ -483,9 +505,9 @@ class Game:
                 else: 
                     
                     arma = DataBase.get_one_spell(self.connection, self.player.idJogador, int(inp))
-                    if arma == False and arma != 'help':
+                    if arma == False and arma != 'ajuda':
                         print('\nVocê não possui esta arma!\n')
-                    elif(arma != 'help'):
+                    elif(arma != 'ajuda'):
                         dano_player = random.randint(0, arma.ponto)
                         Inimigo.pontosVida = Inimigo.pontosVida - dano_player
                         print(f"\n{self.player.nome} usou {arma.nome} causando {dano_player} de dano!\n")

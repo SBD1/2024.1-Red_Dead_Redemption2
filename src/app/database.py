@@ -290,9 +290,9 @@ class DataBase():
         if table.empty:
             return False
         else:
-            print("\n#----- Arsenal ---------------------------------------------------------------#")
+            print("\nArsenal:")
             print(table)
-            print("#------------------------------------------------------------------------------#\n\n")
+            print("\n\n")
             return True
 
     def get_one_spell(connection, id_Arsenal, inp):
