@@ -16,6 +16,13 @@ def print_digitando(texto, delay=0.0001):
         time.sleep(delay)
     print()
 
+def print_digitando_devagar(texto, delay=0.01):
+    for caractere in texto:
+        sys.stdout.write(caractere)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
+
 class Game:
 
     def __init__(self):
@@ -158,11 +165,11 @@ class Game:
             new_name = input('Nome já está registrado, escolha outro nome:')
             self.player = DataBase.get_character(self.connection, new_name)
 
-        print('Qual a Gangue que o seu personagem pertence?\n')
-        print('1- Gangue Van der Linde')
-        print('2- ODriscoll Boys')
-        print('3- The Del Lobo Gang')
-        print('4- Lemoyne Raiders')
+        print_digitando_devagar('Qual a Gangue que o seu personagem pertence?\n')
+        print_digitando_devagar('1- Gangue Van der Linde')
+        print_digitando_devagar('2- ODriscoll Boys')
+        print_digitando_devagar('3- The Del Lobo Gang')
+        print_digitando_devagar('4- Lemoyne Raiders')
 
         inp = 0
 
@@ -193,8 +200,8 @@ class Game:
         DataBase.create_new_inventory(self.connection, self.player.idJogador)
         DataBase.gen_new_item_instance(self.connection, 1, self.player.idJogador)
 
-        print(
-            f'\nBem-vindo ao jogo cowboy! Você está chegando na entrada da cidade.\nEspero que aproveite sua estadia!\n')
+        print_digitando_devagar(
+            f'\nBem-vindo ao jogo cowboy! Você está chegando nas montanhas Grizzlies West durante um forte inverno.\nBoa sorte na sua jornada!\n')
         input('Aperte enter para continuar!')
        
         self.gameplay()
@@ -436,10 +443,10 @@ Black Water                         |                                  |
             return
         else:
             if not DataBase.healing(self.connection, self.player.idJogador, idInstancia):
-                print("\n VIDA NO MÁXIMO \n")
+                print_digitando_devagar("\n Sua vida está cheia!\n")
             else:
                 DataBase.deleteItem(self.connection, idInstancia)
-                print("\nSua saúde melhorou!")
+                print_digitando_devagar("\nSua saúde melhorou!")
                 input('Aperte enter para tentar de novo')
                 return
         
@@ -453,9 +460,9 @@ Black Water                         |                                  |
             n_items = DataBase.get_view_store(self.connection, Loja)
 
             dinheiro = DataBase.get_money(self.connection, self.player.idJogador)
-            print(f'\nDinheiro do Jogador: {dinheiro}')
+            print_digitando_devagar(f'\nDinheiro do Jogador: {dinheiro}')
 
-            print(f'\n(Digite o id do item para comprar-lo, ou digite "sair" para voltar)')
+            print_digitando_devagar(f'\n(Digite o id do item para comprar-lo, ou digite "sair" para voltar)')
 
             while(inp != 'sair'):
                 inp = input('> ')
@@ -464,10 +471,10 @@ Black Water                         |                                  |
                     break
 
                 elif inp.isnumeric() == False:
-                    print('\nOpção não disponível!')
+                    print_digitando_devagar('\nOpção não disponível!')
 
                 elif DataBase.ver_item_store(self.connection, inp, Loja) == False: 
-                    print('\nNão há este item nesta loja!')
+                    print_digitando_devagar('\nNão há este item nesta loja!')
 
                 else:
                     val_item = DataBase.get_item_value(self.connection, inp)
@@ -484,7 +491,7 @@ Black Water                         |                                  |
         clear()
         arsenal = DataBase.get_spells(self.connection, self.player.idJogador)
         if not arsenal:
-            print("Você não tem armas para utilizar!")
+            print_digitando_devagar("Você não tem armas para utilizar!")
             input('Aperte enter para voltar')
             self.gameplay()
 
@@ -501,12 +508,12 @@ Black Water                         |                                  |
                 self.valid_cmd = Commands.cmd(inp)
 
                 if self.valid_cmd == False:
-                    print('\nOpção Inválida!')
+                    print_digitando_devagar('\nOpção Inválida!')
                 else: 
                     
                     arma = DataBase.get_one_spell(self.connection, self.player.idJogador, int(inp))
                     if arma == False and arma != 'ajuda':
-                        print('\nVocê não possui esta arma!\n')
+                        print_digitando_devagar('\nVocê não possui esta arma!\n')
                     elif(arma != 'ajuda'):
                         dano_player = random.randint(0, arma.ponto)
                         Inimigo.pontosVida = Inimigo.pontosVida - dano_player
@@ -538,7 +545,7 @@ Black Water                         |                                  |
             input('\nAperte enter para continuar')
 
         if self.player.pontosVida <= 0:
-            print("Você morreu!")
+            print_digitando_devagar("Você morreu!")
 
             input('Aperte enter para renascer em Valentine')
 
