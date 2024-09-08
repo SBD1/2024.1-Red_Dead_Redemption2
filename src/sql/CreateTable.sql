@@ -1,12 +1,12 @@
 -- Tabela MAPA
 begin;
-	CREATE SEQUENCE mapa_id_seq START 1;
-	CREATE TABLE IF NOT EXISTS MAPA(
-	   idMapa            int NOT NULL DEFAULT nextval('mapa_id_seq') PRIMARY KEY,
-	   descricao         CHAR(100) NOT NULL
-	);
-	ALTER SEQUENCE mapa_id_seq OWNED BY MAPA.idMapa;
-	savepoint create_tb_MAPA;
+   CREATE SEQUENCE mapa_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS MAPA(
+      idMapa            int NOT NULL DEFAULT nextval('mapa_id_seq') PRIMARY KEY,
+      descricao         CHAR(100) NOT NULL
+   );
+   ALTER SEQUENCE mapa_id_seq OWNED BY MAPA.idMapa;
+   savepoint create_tb_MAPA;
 commit;
 
 
@@ -115,33 +115,33 @@ begin;
 commit;
 
 
--- Tabela TREINAMENTO
+-- Tabela MISSAO
 begin;
-   CREATE SEQUENCE treinamento_id_seq START 1;
-   CREATE TABLE IF NOT EXISTS TREINAMENTO(
-      idTreinamento         int NOT NULL DEFAULT nextval('treinamento_id_seq') PRIMARY KEY,
+   CREATE SEQUENCE missao_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS MISSAO(
+      idMissao         int NOT NULL DEFAULT nextval('missao_id_seq') PRIMARY KEY,
       NPC                  INT  NOT NULL,
-      nomeTreinamento       VARCHAR(50) NOT NULL,
+      nomeMissao       VARCHAR(50) NOT NULL,
       arma              INT  NOT NULL,
       FOREIGN KEY (NPC) REFERENCES NPC (idNPC),
       FOREIGN KEY (arma) REFERENCES ARMA (idArma)
    );
-   ALTER SEQUENCE treinamento_id_seq OWNED BY TREINAMENTO.idTreinamento;
-   savepoint create_tb_TREINAMENTO;
+   ALTER SEQUENCE missao_id_seq OWNED BY MISSAO.idMissao;
+   savepoint create_tb_MISSAO;
 commit;
 
 
--- Tabela TREINADOR
+-- Tabela NPC_MISSAO
 begin;
-   CREATE TABLE IF NOT EXISTS TREINADOR(
+   CREATE TABLE IF NOT EXISTS NPC_MISSAO(
       idNPC            INT  NOT NULL,
       gangue             INT  NOT NULL,
-      treinamento       INT  NOT NULL,
+      missao       INT  NOT NULL,
       FOREIGN KEY (idNPC) REFERENCES NPC (idNPC),
       FOREIGN KEY (gangue) REFERENCES GANGUE (idGangue),
-      FOREIGN KEY (treinamento) REFERENCES TREINAMENTO (idTreinamento)
+      FOREIGN KEY (missao) REFERENCES MISSAO (idMissao)
    );
-   savepoint create_tb_TREINADOR;
+   savepoint create_tb_NPC_MISSAO;
 commit;
 
 
@@ -203,15 +203,15 @@ begin;
 commit;  
 
 
--- Tabela INSTANCIA_JOGADOR_TREINAMENTO
+-- Tabela INSTANCIA_JOGADOR_MISSAO
 begin;
-   CREATE TABLE IF NOT EXISTS INSTANCIA_JOGADOR_TREINAMENTO(
+   CREATE TABLE IF NOT EXISTS INSTANCIA_JOGADOR_MISSAO(
       idJogador            INT NOT NULL,
-      idTreinamento         INT NULL,
+      idMissao         INT NULL,
       FOREIGN KEY (idJogador) REFERENCES JOGADOR (idJogador),
-      FOREIGN KEY (idTreinamento) REFERENCES TREINAMENTO (idTreinamento)
+      FOREIGN KEY (idMissao) REFERENCES MISSAO (idMissao)
    );
-   savepoint create_tb_INSTANCIA_JOGADOR_TREINAMENTO;
+   savepoint create_tb_INSTANCIA_JOGADOR_MISSAO;
 commit;
 
 
@@ -261,36 +261,16 @@ begin;
    savepoint create_tb_INSTANCIA_INIMIGO;
 commit;
 
--- Tabela FERRAMENTA
-begin;
-   CREATE TABLE IF NOT EXISTS FERRAMENTA(
-      idItem          INT NOT NULL,
-      forca           INT NULL,
-      FOREIGN KEY (idItem) REFERENCES ITEM (idItem)
-   );
-   savepoint create_tb_FERRAMENTA;
-commit;
 
-
--- Tabela TONICO
+-- Tabela Coldre
 begin;
-CREATE TABLE IF NOT EXISTS TONICO(
-   idItem            INT NOT NULL,
-   ingrediente       CHAR(30) NOT NULL,
-   FOREIGN KEY (idItem) REFERENCES ITEM (idItem)
-);
-   savepoint create_tb_TONICO;
-commit;
-
--- Tabela Catalogo
-begin;
-   CREATE TABLE IF NOT EXISTS CATALOGO(
+   CREATE TABLE IF NOT EXISTS COLDRE(
       idItem           INT NOT NULL,
       arma          INT NOT NULL,
       FOREIGN KEY (idItem) REFERENCES ITEM (idItem),
       FOREIGN KEY (arma) REFERENCES ARMA (idArma)
    );
-   savepoint create_tb_CATALOGO;
+   savepoint create_tb_COLDRE;
 commit;
 
 -- Tabela Falas

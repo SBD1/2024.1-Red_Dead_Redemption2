@@ -70,6 +70,18 @@ class DataBase():
         cursor.close()
 
         return nome_gangue
+    
+    def get_simbolo_gangue(connection, id_gangue):
+        cursor = connection.cursor()
+
+        querry = """SELECT simboloGangue FROM GANGUE
+                    WHERE( GANGUE.idgangue = '%s') 
+                    """ % (id_gangue)
+        cursor.execute(querry)
+        simbolo_gangue = cursor.fetchone()[0]
+        cursor.close()
+
+        return simbolo_gangue
 
 
     def get_money(connection, id_jogador):

@@ -5,7 +5,7 @@ AS J INNER JOIN GANGUE AS C
 ON (J.idjogador = C.idgangue);
 
 
-SELECT D.nomeTreinamento, N.nome FROM treinamento d 
+SELECT D.nomeMissao, N.nome FROM missao d 
 INNER JOIN NPC N 
 ON (D.NPC = N.idNPC);
 
@@ -25,13 +25,13 @@ create or REPLACE VIEW dados_inimigos AS
   
 select * from dados_inimigos;
 
-create view armas_catalogo as
-  select I.nome as "Nome Catalogo", F.nome as "Armas" 
+create view armas_coldre as
+  select I.nome as "Nome Coldre", F.nome as "Armas" 
   from item I
-  inner join Catalogo L on(I.iditem = L.iditem)
+  inner join Coldre L on(I.iditem = L.iditem)
   inner join Arma F on (L.arma = F.idarma);
 
-select * from armas_catalogo;
+select * from armas_coldre;
 
 
 create OR REPLACE view inventario_jogador as

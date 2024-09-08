@@ -1,5 +1,5 @@
 -- Tabela gangues
-INSERT INTO GANGUE (nomegangue, simbologangue ) VALUES
+INSERT INTO GANGUE (nomegangue, simbologangue) VALUES
 ('Van der Linde', 'VL'),
 ('ODriscoll Boys', 'Caveira'),
 ('The Del Lobo Gang', 'Chapéu Mexicano'),
@@ -28,7 +28,7 @@ INSERT INTO REGIAO (idMapa, descricao, nome) VALUES
 INSERT INTO AREA(idArea, idRegiao, nome, areaOeste, areaLeste, areaNorte, areaSul) VALUES
 (1, 1, 'Nada', 1, 1, 1, 1),
 (2, 1, 'Grizzlies West', 3, 4, 5, 6),
-(3, 1, 'Mount Hagen', 1, 2, 1, 1),
+(3, 1, 'Saint Denis', 1, 2, 1, 1),
 (4, 1, 'Dakota River', 2, 1, 1, 1),
 (5, 1, 'Cumberland Forest', 12, 11, 13, 2),
 (6, 1, 'Flat Iron Lake', 9, 10, 2, 7),
@@ -47,7 +47,7 @@ INSERT INTO AREA(idArea, idRegiao, nome, areaOeste, areaLeste, areaNorte, areaSu
 (19, 1, 'Valentine', 1, 1, 1, 16),
 (20, 1, 'Strawberry', 1, 1, 1, 12),
 (21, 1, 'Blackwater', 1, 1, 12, 1),
-(22, 1, 'Saint Denis', 1, 1, 1, 11), 
+(22, 1, 'Mount Hagen', 1, 1, 1, 11), 
 (23, 1, 'Rhodes', 1, 1, 11, 1);
 
 
@@ -76,29 +76,29 @@ INSERT INTO ARSENAL (idArsenal, arma) VALUES
 
 -- Tabela LOJA
 INSERT INTO LOJA(idArea, descricao) VALUES
-(3, 'Smithfields Saloon'),
-(3, 'Saint Denis General Store'),
-(3, 'Gunsmith'),
-(3, 'Trapper'),
-(3, 'Taylor & Company General Store'),
-(3, 'Saint Denis Tailor'),
-(3, 'Wallace Station'),
-(3, 'Riggs Station');
+(3, 'bar'),
+(3, 'cafeteria'),
+(3, 'tabacaria'),
+(3, 'farmacia'),
+(3, 'mercado'),
+(3, 'estabulo'),
+(3, 'antiquario'),
+(3, 'bazar');
 
 -- Tabela Item
 INSERT INTO ITEM(IdLoja, nome, acao, valor, tipo, descricaoItem) VALUES
-(2, 'Relógio de Bolso', 'Decora e permite verificar a hora', 25, 'DIVERSOS', 'Um elegante relógio de bolso com acabamento em prata.'),
-(2, 'Cesta de Frutas', 'Alimenta e fornece energia', 15, 'DIVERSOS', 'Uma cesta cheia de frutas frescas do Velho Oeste, ideal para um lanche nutritivo.'),
-(2, 'Mapa do Oeste', 'Auxilia na navegação', 30, 'DIVERSOS', 'Um detalhado mapa da região, essencial para explorar o Velho Oeste.'),
-(3, 'Colar de Pérolas', 'Decorativo', 3, 'DIVERSOS', 'Um colar elegante e valioso, utilizado por damas de alta classe.'),
+(2, 'Relógio de Bolso', 'Decora e permite verificar a hora', 50, 'DIVERSOS', 'Um elegante relógio de bolso com acabamento em prata.'),
+(2, 'Cesta de Frutas', 'Alimenta e fornece energia', 12, 'DIVERSOS', 'Uma cesta cheia de frutas frescas do Velho Oeste, ideal para um lanche nutritivo.'),
+(2, 'Mapa do Oeste', 'Auxilia na navegação', 5, 'DIVERSOS', 'Um detalhado mapa da região, essencial para explorar o Velho Oeste.'),
+(3, 'Colar de Pérolas', 'Decorativo', 100, 'DIVERSOS', 'Um colar elegante e valioso, utilizado por damas de alta classe.'),
 (3, 'Tabaco de Mascar', 'Deixa o jogador mais calmo', 10, 'DIVERSOS', 'Tabaco para mascar, usado para relaxar durante longas viagens.'),
-(3, 'Garrafa de Whiskey', 'Bebida', 20, 'DIVERSOS', 'Whiskey forte, conhecido por seus efeitos intoxicantes.'),
-(4, 'Whiskey', 'Bebida', 20, 'CURA', 'Whiskey destilado, ideal para curar ferimentos leves e aumentar a moral.'),
+(3, 'Garrafa de Whiskey', 'Bebida', 30, 'DIVERSOS', 'Whiskey forte, conhecido por seus efeitos intoxicantes.'),
+(4, 'Whiskey', 'Bebida', 10, 'CURA', 'Whiskey destilado, ideal para curar ferimentos leves e aumentar a moral.'),
 (5, 'Jornal do dia', 'Jornal para leitura', 2, 'DIVERSOS', 'Notícias frescas sobre o mundo do Velho Oeste.'),
-(7, 'Guia de Armas', 'Explica ao leitor como usar armas', 50, 'ATAQUE', 'Um manual detalhado sobre o uso de armas de fogo.'),
-(7, 'Guia de Sobrevivência', 'Explica ao leitor como sobreviver na selva', 70, 'DEFESA', 'Um manual sobre habilidades de sobrevivência no Oeste selvagem.'),
-(7, 'Guia de Caça', 'Explica sobre a fauna selvagem', 50, 'ATAQUE', 'Um manual sobre as criaturas que habitam o Velho Oeste.'),
-(6, 'Cavalo', 'Usado para se locomover', 50, 'DEFESA', 'O meio de transporte mais confiável no Velho Oeste.'),
+(7, 'Guia de Armas', 'Explica ao leitor como usar armas', 15, 'ATAQUE', 'Um manual detalhado sobre o uso de armas de fogo.'),
+(7, 'Guia de Sobrevivência', 'Explica ao leitor como sobreviver na selva', 13, 'DEFESA', 'Um manual sobre habilidades de sobrevivência no Oeste selvagem.'),
+(7, 'Guia de Caça', 'Explica sobre a fauna selvagem', 14, 'ATAQUE', 'Um manual sobre as criaturas que habitam o Velho Oeste.'),
+(6, 'Cavalo', 'Usado para se locomover', 100, 'DEFESA', 'O meio de transporte mais confiável no Velho Oeste.'),
 (8, 'Pele de Lobo', 'Pode ser vendida ou usada como material', 3, 'DIVERSOS', 'Uma pele de lobo de alta qualidade.'),
 (8, 'Planta Medicinal', 'Pode ser vendida ou usada como remédio', 3, 'DIVERSOS', 'Uma planta com propriedades medicinais valiosas.'),
 (8, 'Raiz de Ginseng', 'Pode ser vendida ou usada como remédio', 3, 'DIVERSOS', 'Uma raiz poderosa usada para curar doenças.'),
@@ -106,8 +106,8 @@ INSERT INTO ITEM(IdLoja, nome, acao, valor, tipo, descricaoItem) VALUES
 (8, 'Ovo de Águia', 'Pode ser vendido ou usado como alimento', 3, 'DIVERSOS', 'Ovos de águia, um ingrediente raro e valioso.'),
 (8, 'Chifre de Búfalo', 'Pode ser vendido ou usado como material', 3, 'DIVERSOS', 'Chifre de búfalo, usado em artesanato e medicina tradicional.'),
 (1, 'Torta de Maçã', 'Traz felicidade', 5, 'CURA', 'Uma deliciosa torta de maçã caseira.'),
-(1, 'Carne de Caça', 'Traz energia', 30, 'CURA', 'Carne de alta qualidade, perfeita para restaurar energia.'),
-(1, 'Feijão Cozido', 'Traz energia', 10, 'CURA', 'Um prato de feijão cozido, ótimo para manter a resistência.');
+(1, 'Carne de Caça', 'Traz energia', 20, 'CURA', 'Carne de alta qualidade, perfeita para restaurar energia.'),
+(1, 'Feijão Cozido', 'Traz energia', 8, 'CURA', 'Um prato de feijão cozido, ótimo para manter a resistência.');
 
 
 -- Tabela ITEM que nao estao em lojas
@@ -140,25 +140,15 @@ INSERT INTO NPC(item, nome) VALUES
 
 -- Tabela Instancia_NPC_Tipo
 INSERT INTO INSTANCIA_NPC_TIPO(idNPC, tipo) VALUES
-(1, 'Treinador'),
-(2, 'Treinador'),
-(3, 'Amigo'),
-(4, 'Treinador'),
-(5, 'Treinador'),
-(6, 'Treinador'),
-(7, 'Treinador'),
-(8, 'Amigo'),
-(9, 'Amigo'),
-(10, 'Amigo'),
-(11, 'Amigo'),
-(12, 'Inimigo'),
-(13, 'Inimigo'),
-(14, 'Inimigo');
+(1, 'Amigo'),
+(2, 'Amigo'),
+(3, 'Inimigo');
+
 
 -- Tabela Falas
 INSERT INTO FALAS(idNPC, idArea, momento, texto) VALUES
-(1,5,1,'Bem-vindo a Valentine!'),
-(9,6,2,'Caçador? Posso te mostrar alguns truques de sobrevivência...'),
+(1,5,1,'Bem-vindo a Cumberland Forest!'),
+(9,6,2,'Cuidado cowboy! Seus olhos brilham com uma luz selvagem e a pelagem espessa se destaca contra o cenário nevado. Um lobo rosnando baixa suas orelhas e se prepara para atacar.'),
 (3,8,2,'Nesta região, sempre há perigos à espreita, cuidado com os predadores!'),
 (7,10,2,'Para aprender novas habilidades, você precisa explorar e caçar!'),
 (11,9,2,'Saia do meu caminho!'),
@@ -184,8 +174,8 @@ INSERT INTO FALAS(idNPC, idArea, momento, texto) VALUES
 (5,12,2,'Se quiser aprender novas técnicas de caça, peça um conselho ao seu mentor!'),
 (6,10,2,'Saia da minha frente!');
 
--- Tabela TREINAMENTO
-INSERT INTO TREINAMENTO (NPC, nomeTreinamento, arma) VALUES
+-- Tabela MISSAO
+INSERT INTO MISSAO (NPC, nomeMissao, arma) VALUES
 (1, 'TÁTICAS DE SOBREVIVÊNCIA', 1),
 (2, 'TÉCNICAS DE CAÇA', 1),
 (7, 'MANUSEIO DE ARMAS DE FOGO', 2),
@@ -193,8 +183,8 @@ INSERT INTO TREINAMENTO (NPC, nomeTreinamento, arma) VALUES
 (6, 'FABRICAÇÃO DE POÇÕES E REMÉDIOS', 3),
 (9, 'TÁTICAS DE ESTRATÉGIA', 4);
 
--- Tabela TREINADOR
-INSERT INTO TREINADOR(idNPC, gangue, treinamento) VALUES
+-- Tabela NPC_MISSAO
+INSERT INTO NPC_MISSAO(idNPC, gangue, missao) VALUES
 (1, 1, 1),
 (2, 1, 1),
 (5, 1, 2),
@@ -220,8 +210,8 @@ INSERT INTO INVENTARIO(idJogador, dinheiro) VALUES
 (4, 2000),
 (5, 200);
 
--- Tabela INSTANCIA_JOGADOR_TREINAMENTO
-INSERT INTO INSTANCIA_JOGADOR_TREINAMENTO(idJogador, idTreinamento) VALUES
+-- Tabela INSTANCIA_JOGADOR_MISSAO
+INSERT INTO INSTANCIA_JOGADOR_MISSAO(idJogador, idMissao) VALUES
 (1, 2),
 (2, 3),
 (3, 4),
@@ -256,26 +246,9 @@ INSERT INTO INSTANCIA_INIMIGO(idNPC, idArea, idItem, pontosVida, pontosVidaMax, 
 (14, 8, 6, 400, 400, 3),
 (12, 6, 13, 10, 10, 3);
 
--- Tabela FERRAMENTA
-INSERT INTO FERRAMENTA(idItem, forca) VALUES
-(1, 1000),
-(2, 0),
-(3, 500),
-(4, 0),
-(8, 500),
-(9, 500);
 
--- Tabela TONICO
-INSERT INTO TONICO(idItem, ingrediente) VALUES
-(6, 'Raiz de Ginseng'),
-(6, 'Cabelo de Cougars'),
-(6, 'Erva de Alcatrão'),
-(6, 'Flor de Echinacea'),
-(6, 'Óleo de Urso'),
-(6, 'Folhas de Cardo');
-
--- Tabela CATALOGO
-INSERT INTO CATALOGO(idItem, arma) VALUES
+-- Tabela COLDRE
+INSERT INTO COLDRE(idItem, arma) VALUES
 (9, 1),
 (9, 2),
 (9, 3),

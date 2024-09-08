@@ -1,6 +1,5 @@
 
-
-class Commands:
+class Menu:
     def cmd(inp):
         
         if inp == 'ajuda' or inp == 'Ajuda':
@@ -9,14 +8,14 @@ class Commands:
 
             - ajuda: Lista todos os comandos disponíveis.
             - mapa: Mostra todo o mapa do jogo.
-            - mover [N/S/L/O]: Desloca o personagem para o Norte, Sul, Leste ou Oeste, conforme possível no mapa.
+            - andar [N/S/L/O]: Desloca o personagem para o Norte, Sul, Leste ou Oeste, conforme possível no mapa.
             - loja [nome]: Abre a loja da área selecionada (digite o nome da loja sem os colchetes).
             - inventario: Mostra todos os itens que você carrega consigo.
-            - tomar: Permite consumir um item do inventário, como um whiskey ou cigarro, para restaurar vida.
-            - [nome comida]: Após usar o comando "tomar", digite o nome do alimento que deseja consumir.
+            - usar: Permite consumir um item do inventário, como um whiskey ou cigarro, para restaurar vida.
+            - [nome item]: Após usar o comando "usar", digite o nome do alimento que deseja consumir.
             - arsenal: Exibe as armas disponíveis no seu inventário.
-            - combate: Inicia um confronto com o inimigo presente na área.
-            - [nome arma]: Durante o combate, use o nome da arma que deseja utilizar para atacar o inimigo. Consulte o arsenal para ver suas opções.
+            - ataque: Inicia um confronto com o inimigo presente na área.
+            - [nome arma]: Durante o ataque, use o nome da arma que deseja utilizar para atacar o inimigo. Consulte o arsenal para ver suas opções.
             - sair: Encerra o jogo e retorna ao mundo real.
 
             - Não utilize acentuação nos comandos!
@@ -44,7 +43,7 @@ class Commands:
         elif inp == '1' or inp == '2' or inp == '3' or inp == '4' or inp == 'arsenal':
             return True
 
-        elif inp == 'tomar':
+        elif inp == 'usar':
             return True
         
         else:

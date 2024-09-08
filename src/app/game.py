@@ -1,6 +1,6 @@
 from database import DataBase
 from classes import *
-from commands import Commands
+from menu import Menu
 import sys
 import os
 import random
@@ -201,7 +201,7 @@ class Game:
         DataBase.gen_new_item_instance(self.connection, 1, self.player.idJogador)
 
         print_digitando_devagar(
-            f'\nBem-vindo ao jogo cowboy! Você está chegando nas montanhas Grizzlies West durante um forte inverno.\nBoa sorte na sua jornada!\n')
+            f'\nBem-vindo ao mundo selvagem do Velho Oeste, cowboy!\nVocê está prestes a embarcar em uma jornada épica pelas vastas e implacáveis terras do oeste.\nSua aventura começa nas gélidas montanhas dos Grizzlies West, onde o inverno mostra toda a sua fúria.\nO vento cortante uiva entre as árvores cobertas de neve, e cada passo seu faz ecoar o ranger do gelo sob suas botas.\nVocê está isolado, cercado por picos montanhosos que parecem tocar o céu, e o perigo espreita em cada sombra.\nSobreviver aqui não será fácil. As feras selvagens caçam pela floresta, e o frio implacável não perdoa os despreparados.\nMas, se conseguir superar esses desafios, encontrará oportunidades além da imaginação.\nPrepare-se para enfrentar os elementos, dominar a arte da caça, e escolher seus aliados com cuidado.\nSeu destino está em suas mãos. O Velho Oeste não é para os fracos!')
         input('Aperte enter para continuar!')
        
         self.gameplay()
@@ -267,9 +267,9 @@ class Game:
 
             print(f"\nArea atual: {current_area.nome}\n")
 
-            print(f'                            N. {area_norte}\n')
-            print(f'          O. {area_oeste}' + f'*         L. {area_leste}\n')
-            print(f'                            S. {area_sul}\n')
+            print(f'                           ▲ N. {area_norte}\n')
+            print(f'         ◄ O. {area_oeste}' + f'*         L. {area_leste} ►\n')
+            print(f'                           ▼ S. {area_sul}\n')
             print('\n')
 
             print('(Digite "ajuda" para ver todos os comandos disponíveis)')
@@ -296,66 +296,66 @@ class Game:
             while(self.valid_cmd == False or self.valid_cmd == 'ajuda' or valid_inim == True or  valid_loja == True):
                 inp = input('> ')
                 inp = inp.lower()
-                Commands.cmd(inp)
+                Menu.cmd(inp)
                 
-                if inp == 'mover n':
+                if inp == 'andar n':
                     if current_area.areaNorte != 1:
                         self.player = DataBase.update_player_area(
                             self.connection, self.player.idJogador, current_area.areaNorte)
                     break
 
-                elif inp == 'mover o':
+                elif inp == 'andar o':
                     if current_area.areaOeste != 1:
                         self.player = DataBase.update_player_area(
                             self.connection, self.player.idJogador, current_area.areaOeste)
                     break
 
-                elif inp == 'mover l':
+                elif inp == 'andar l':
                     if current_area.areaLeste != 1:
                         self.player = DataBase.update_player_area(
                             self.connection, self.player.idJogador, current_area.areaLeste)
                     break
 
-                elif inp == 'mover s':
+                elif inp == 'andar s':
                     if current_area.areaSul != 1:
                         self.player = DataBase.update_player_area(
                             self.connection, self.player.idJogador, current_area.areaSul)
                     break
 
-                elif inp == 'combate' and valid_inim == True:
+                elif inp == 'ataque' and valid_inim == True:
                     self.combat(Inimigo)
                     break
 
-                elif inp == 'loja Smithfields Saloon' and valid_loja == True:
-                    self.store('Smithfields Saloon')
+                elif inp == 'bar' and valid_loja == True:
+                    self.store('bar')
                     break
 
-                elif inp == 'loja Saint Denis General Store' and valid_loja == True:
-                    self.store('Saint Denis General Store')
+                elif inp == 'cafeteria' and valid_loja == True:
+                    self.store('cafeteria')
                     break
 
-                elif inp == 'loja Gunsmith' and valid_loja == True:
-                    self.store('Gunsmith')
+                elif inp == 'tabacaria' and valid_loja == True:
+                    self.store('tabacaria')
                     break
 
-                elif inp == 'loja Trapper' and valid_loja == True:
-                    self.store('Trapper')
+                elif inp == 'farmacia' and valid_loja == True:
+                    self.store('farmacia')
                     break
 
-                elif inp == 'loja Taylor & Company General Store' and valid_loja == True:
-                    self.store('Taylor & Company General Store')
+                elif inp == 'mercado' and valid_loja == True:
+                    self.store('mercado')
                     break
 
-                elif inp == 'loja Saint Denis Tailor' and valid_loja == True:
-                    self.store('Saint Denis Tailor')
+                elif inp == 'estabulo' and valid_loja == True:
+                    self.store('estabulo')
                     break
 
-                elif inp == 'loja Wallace Station' and valid_loja == True:
-                    self.store('Wallace Station')
+                elif inp == 'antiquario' and valid_loja == True:
+                    self.store('antiquario')
                     break
                 
-                elif inp == 'loja Riggs Station' and valid_loja == True:
-                    self.store('Riggs Station')
+                elif inp == 'bazar' and valid_loja == True:
+                    self.store('bazar')
                     break
                 
                 elif inp == 'mapa':
@@ -369,7 +369,7 @@ class Game:
                     self.arsenal()
                     break
 
-                elif inp == False or (inp == 'combate' and valid_inim == False)or (inp == 'loja' and valid_loja == False):
+                elif inp == False or (inp == 'ataque' and valid_inim == False)or (inp == 'loja' and valid_loja == False):
                     print('\nOpção Inválida!')
 
                 else: 
@@ -380,13 +380,13 @@ class Game:
                                     |
                                 New Hanover --- Annesburg
                                     |
-Strawberry     Scarlet Meadows -- Tall Trees --- Lemoyne           Saint Denis
+Strawberry     Scarlet Meadows -- Tall Trees --- Lemoyne           Mount Hagen
     |                               |                                  |
 Big Valley ---------------- Cumberland Forrest  ------------  BlueWater Marsh 
     |                               |                                  |  
 Black Water                         |                                  | 
                                     |                                  |
-               Mount Hagen --- Grizzlies West --- Dakota River       Rhodes
+               Saint Denis --- Grizzlies West --- Dakota River       Rhodes
                                     |
               Roanoke Ridge --- Flat Iron Lake --- Bayou Nwa
                                     |
@@ -401,7 +401,7 @@ Black Water                         |                                  |
         while(inp != 'sair'):
             arsenal = DataBase.get_spells(self.connection, self.player.idJogador)
             if not arsenal:
-                print("\n Arsenal vazio ;P \n")
+                print("\n Arsenal vazio! \n")
 
             print(f'\n(Digite "sair" para voltar)')
 
@@ -429,8 +429,8 @@ Black Water                         |                                  |
                 if inp == 'sair' and inp == 'Sair':
                     self.gameplay()
 
-                elif inp == 'tomar':
-                    inp = input("\n> Digite oq deseja tomar: ")
+                elif inp == 'usar':
+                    inp = input("\n> Digite o nome do item: ")
                     self.curar(inp)
 
                 else:
@@ -505,7 +505,7 @@ Black Water                         |                                  |
                 print(f"\nInimigo: {Inimigo.nome}")
                 print(f"Vida Inimigo: {Inimigo.pontosVida}\n")
                 inp = input('Digite o id da arma\n>')
-                self.valid_cmd = Commands.cmd(inp)
+                self.valid_cmd = Menu.cmd(inp)
 
                 if self.valid_cmd == False:
                     print_digitando_devagar('\nOpção Inválida!')
@@ -557,6 +557,7 @@ Black Water                         |                                  |
     def show_player_info(self):
         print(f'Nome: {self.player.nome}\n' +
               f'Gangue: {DataBase.get_gangue(self.connection, self.player.idGangue)}\n' +
+              f'Simbolo da Gangue: {DataBase.get_simbolo_gangue(self.connection, self.player.idGangue)}\n' +
               f'Vida: {self.player.pontosVida}'
               )
 
