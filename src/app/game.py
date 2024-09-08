@@ -265,9 +265,11 @@ class Game:
                 print(f"{Inimigo.nome}\n")
 
 
-            print(f'                           ▲ N. {area_norte}\n')
-            print(f'         ◄ O. {area_oeste}' + f'*         L. {area_leste} ►\n')
-            print(f'                           ▼ S. {area_sul}\n')
+            print(f'                           ▲ N.\n')
+            print(f'                       {area_norte}\n')
+            print(f'         ◄ O. {area_oeste}' + f'*  L. {area_leste} ►\n')
+            print(f'                       {area_sul}\n')
+            print(f'                           ▼ S.\n')
             print('\n')
             print(f"\nArea atual: {current_area.nome}\n")
             print('Digite ajuda para ver todos os comandos disponíveis!')
@@ -405,7 +407,7 @@ Black Water                         |                                  |
             if not arsenal:
                 print("\n Arsenal vazio! \n")
 
-            print(f'\n(Digite "sair" para voltar)')
+            print(f'\nDigite sair para voltar!')
 
             while(inp != 'sair' and inp != 'Sair'):
                 inp = input('> ')
@@ -423,7 +425,7 @@ Black Water                         |                                  |
             dinheiro = DataBase.get_money(self.connection, self.player.idJogador)
             print(f'\nDinheiro do Jogador: {dinheiro}')
 
-            print(f'\n(Digite "sair" para voltar)')
+            print(f'\nDigite sair para voltar!')
 
             while(inp != 'sair' and inp != 'Sair'):
                 inp = input('> ')
@@ -503,9 +505,9 @@ Black Water                         |                                  |
             inp = 0
             self.valid_cmd = True
             while(self.valid_cmd == True or self.valid_cmd == 'ajuda'):            
-                print(f"\nInimigo: {Inimigo.nome}")
-                print(f"Vida Inimigo: {Inimigo.pontosVida}\n")
-                inp = input('Digite o id da arma\n>')
+                print(f"Nome do inimigo: {Inimigo.nome}\n")
+                print(f"Vida do Inimigo: {Inimigo.pontosVida}\n")
+                inp = input('Qual o id da arma que deseja usar?\n>')
                 self.valid_cmd = Menu.cmd(inp)
 
                 if self.valid_cmd == False:
@@ -518,7 +520,7 @@ Black Water                         |                                  |
                     elif(arma != 'ajuda'):
                         dano_player = random.randint(0, arma.ponto)
                         Inimigo.pontosVida = Inimigo.pontosVida - dano_player
-                        print(f"\n{self.player.nome} usou {arma.nome} causando {dano_player} de dano!\n")
+                        print(f"\n{self.player.nome} usou a arma {arma.nome}! Dano causado dano de:{dano_player}\n")
 
                     
                     if Inimigo.pontosVida <= 0 or self.player.pontosVida <= 0:
@@ -526,14 +528,14 @@ Black Water                         |                                  |
 
                     dano_inimigo = random.randint(0, Habilidade.dano)
                     self.player.pontosVida = self.player.pontosVida - dano_inimigo
-                    print(f"{Inimigo.nome} usou {Habilidade.nomeHabilidade} causando {dano_inimigo} de dano!\n")
+                    print(f"{Inimigo.nome} usou a arma {Habilidade.nomeHabilidade}! Dano causado dano de: {dano_inimigo}\n")
 
 
 
         if Inimigo.pontosVida <= 0:
-            print(f'{Inimigo.nome} derrotado!')
-            print(f'Moedas ganhas: {Inimigo.moedas}')
-            print(f'Itens ganhos: {Inimigo.nomeItem}')
+            print(f'{Inimigo.nome} foi derrotado')
+            print(f'Moedas ganhas de {Inimigo.nome}: {Inimigo.moedas}')
+            print(f'Itens ganhos de {Inimigo.nome}: {Inimigo.nomeItem}')
 
 
             self.player = DataBase.set_player_pv(self.connection, self.player.idJogador, self.player.pontosVida)
@@ -543,7 +545,7 @@ Black Water                         |                                  |
             DataBase.update_player_money(self.connection, self.player.idJogador, dinheiro)
             DataBase.reset_enemy_pv(self.connection, Inimigo.idInstInim, Inimigo.pontosVidamax, Inimigo.idArea)            
             
-            input('\nAperte enter para continuar')
+            input('\nAperte enter para continuar!')
 
         if self.player.pontosVida <= 0:
             print_digitando_devagar("Você morreu!")
