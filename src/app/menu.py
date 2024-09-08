@@ -12,7 +12,7 @@ class Menu:
             - loja [nome]: Abre a loja da área selecionada (digite o nome da loja sem os colchetes).
             - inventario: Mostra todos os itens que você carrega consigo.
             - usar: Permite consumir um item do inventário, como um whiskey ou cigarro, para restaurar vida.
-            - [nome item]: Após usar o comando "usar", digite o nome do alimento que deseja consumir.
+            - [nome item]: Após usar o comando "usar", digite o nome do item que deseja usar.
             - arsenal: Exibe as armas disponíveis no seu inventário.
             - ataque: Inicia um confronto com o inimigo presente na área.
             - [nome arma]: Durante o ataque, use o nome da arma que deseja utilizar para atacar o inimigo. Consulte o arsenal para ver suas opções.
@@ -23,22 +23,22 @@ class Menu:
 
             return 'ajuda'
 
-        elif inp == 'Sair' or inp == 'sair':
+        elif inp.lower() == 'sair':
             print("\nVocê tem certeza?\n")
-            print('1 [Sim]')
-            print('2 [Não]')
 
-            inp = 0
-            while(inp not in [1, 2]):
-                inp = input('> ')
+            inp = ""
+            while(inp.lower() not in ['sim', 'não', 'nao']):
+                inp = input('> ').strip()  
 
-                if inp == '1':
+                if inp.lower() == 'sim':
                     print("Até a próxima jornada, parceiro. Lembre-se, o Oeste sempre estará à sua espera!\n")
                     exit()
-                elif inp == '2':
+                elif inp.lower() in ['não', 'nao']:
+                    print('\nContinuando ...')
                     return 'sair'
                 else:
-                    print('\nOpção Inválida!')
+                    print('\nOpção Inválida! Digite "sim" ou "nao".')
+
 
         elif inp == '1' or inp == '2' or inp == '3' or inp == '4' or inp == 'arsenal':
             return True
