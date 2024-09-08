@@ -280,12 +280,3 @@ begin;
    );
 commit;
 
-
-begin;
-   CREATE TABLE IF NOT EXISTS INSTANCIA_NPC_TIPO(
-      idNPC           INT NOT NULL,
-      tipo            CHAR(50) NOT NULL,
-      FOREIGN KEY (idNPC) REFERENCES NPC (idNPC)
-   );
-   savepoint create_tb_INSTANCIA_NPC_TIPO;
-commit;

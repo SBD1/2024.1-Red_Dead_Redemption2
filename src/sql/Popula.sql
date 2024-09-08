@@ -138,12 +138,6 @@ INSERT INTO NPC(item, nome) VALUES
 
 
 
-INSERT INTO INSTANCIA_NPC_TIPO(idNPC, tipo) VALUES
-(1, 'Amigo'),
-(2, 'Amigo'),
-(3, 'Inimigo');
-
-
 
 INSERT INTO FALAS(idNPC, idArea, momento, texto) VALUES
 (1,5,1,'Bem-vindo a Cumberland Forest!'),

@@ -31,7 +31,7 @@ class Inimigo:
         self.moedas = moedas
         self.pontosVida = pontosVida
         self.pontosVidamax = pontosVidamax
-        self.multiplicador = multiplicador
+        self.multiplicador = multiplicador 
 
 class Loja:
     def __init__(self, idloja, idarea, descricao):
