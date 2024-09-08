@@ -154,9 +154,9 @@ class DataBase():
 
         querry = """SELECT * FROM AREA WHERE (AREA.idArea = %s) """ % (id_area)
         cursor.execute(querry)
-        idArea, idRegiao, nome, areaLeste, areaOeste, areaSul, areaNorte = cursor.fetchone()
+        idArea, idRegiao, nome, Leste, Oeste, Sul, Norte = cursor.fetchone()
         cursor.close()
-        return Area(idArea, idRegiao, nome, areaLeste, areaOeste, areaSul, areaNorte)
+        return Area(idArea, idRegiao, nome, Leste, Oeste, Sul, Norte)
 
     def search_enemy(connection, id_area):
         cursor = connection.cursor()

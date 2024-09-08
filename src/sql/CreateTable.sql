@@ -1,4 +1,3 @@
--- Tabela MAPA
 begin;
    CREATE SEQUENCE mapa_id_seq START 1;
    CREATE TABLE IF NOT EXISTS MAPA(
@@ -10,7 +9,6 @@ begin;
 commit;
 
 
--- Tabela REGIAO
 begin;
    CREATE SEQUENCE regiao_id_seq START 1;
    CREATE TABLE IF NOT EXISTS REGIAO(
@@ -25,17 +23,16 @@ begin;
 commit;
 
 
--- Tabela AREA
 begin;
    CREATE SEQUENCE area_id_seq START 1;
    CREATE TABLE IF NOT EXISTS AREA(
       idArea        int NOT NULL DEFAULT nextval('area_id_seq') PRIMARY KEY,
       idRegiao      INT NOT NULL,
       nome          VARCHAR(50) NOT NULL,
-      areaLeste     INT  REFERENCES AREA(idArea),
-      areaOeste     INT  REFERENCES AREA(idArea),
-      areaSul       INT  REFERENCES AREA(idArea),
-      areaNorte     INT  REFERENCES AREA(idArea),
+      Leste     INT  REFERENCES AREA(idArea),
+      Oeste     INT  REFERENCES AREA(idArea),
+      Sul       INT  REFERENCES AREA(idArea),
+      Norte     INT  REFERENCES AREA(idArea),
       FOREIGN KEY (idRegiao) REFERENCES REGIAO (idRegiao)
    );
    ALTER SEQUENCE area_id_seq OWNED BY AREA.idArea;
@@ -43,7 +40,6 @@ begin;
 commit;
 
 
--- Tabela ARMA
 begin;
    CREATE SEQUENCE arma_id_seq START 1;
    CREATE TABLE IF NOT EXISTS ARMA(
@@ -57,7 +53,6 @@ begin;
 commit;
 
 
--- Tabela LOJA
 begin;
    CREATE SEQUENCE loja_id_seq START 1;
    CREATE TABLE IF NOT EXISTS LOJA(
@@ -70,7 +65,7 @@ begin;
    savepoint create_tb_LOJA;
 commit;
 
--- Tabela ITEM
+
 begin;
    CREATE SEQUENCE item_id_seq START 1;
    CREATE TABLE IF NOT EXISTS ITEM(
@@ -88,7 +83,7 @@ begin;
 commit;
 
 
--- Tabela NPC
+
 begin;
    CREATE SEQUENCE npc_id_seq START 1;
    CREATE TABLE IF NOT EXISTS NPC(
@@ -102,7 +97,7 @@ begin;
 commit;
 
 
--- Tabela GANGUE
+
 begin;
    CREATE SEQUENCE gangue_id_seq START 1;
    CREATE TABLE IF NOT EXISTS GANGUE(
@@ -115,7 +110,7 @@ begin;
 commit;
 
 
--- Tabela MISSAO
+
 begin;
    CREATE SEQUENCE missao_id_seq START 1;
    CREATE TABLE IF NOT EXISTS MISSAO(
@@ -131,7 +126,7 @@ begin;
 commit;
 
 
--- Tabela NPC_MISSAO
+
 begin;
    CREATE TABLE IF NOT EXISTS NPC_MISSAO(
       idNPC            INT  NOT NULL,
@@ -145,7 +140,7 @@ begin;
 commit;
 
 
--- Tabela JOGADOR
+
 begin;
    CREATE SEQUENCE jogador_id_seq START 1;
    CREATE TABLE IF NOT EXISTS JOGADOR(
@@ -163,7 +158,7 @@ begin;
    savepoint create_tb_JOGADOR;
 commit;
 
--- Tabela ARSENAL
+
 begin;
    CREATE SEQUENCE arsenal_id_seq START 1;
    CREATE TABLE IF NOT EXISTS ARSENAL(
@@ -177,7 +172,7 @@ begin;
    savepoint create_tb_ARSENAL;
 commit;
 
--- Tabela INSTANCIA_ITEM
+
 begin;
    CREATE SEQUENCE instancia_item_id_seq START 1;
    CREATE TABLE IF NOT EXISTS INSTANCIA_ITEM(
@@ -192,7 +187,7 @@ begin;
 commit;
 
 
--- Tabela INVENTARIO
+
 begin;
    CREATE TABLE IF NOT EXISTS INVENTARIO(
       idJogador               INT NOT NULL,
@@ -203,7 +198,7 @@ begin;
 commit;  
 
 
--- Tabela INSTANCIA_JOGADOR_MISSAO
+
 begin;
    CREATE TABLE IF NOT EXISTS INSTANCIA_JOGADOR_MISSAO(
       idJogador            INT NOT NULL,
@@ -215,7 +210,7 @@ begin;
 commit;
 
 
--- Tabela HABILIDADE
+
 begin;
    CREATE SEQUENCE habilidade_id_seq START 1;
    CREATE TABLE IF NOT EXISTS HABILIDADE(
@@ -229,7 +224,7 @@ begin;
 commit;
 
 
--- Tabela INIMIGO
+
 begin;
    CREATE TABLE IF NOT EXISTS INIMIGO(
       idNPC            INT NOT NULL,
@@ -242,7 +237,7 @@ begin;
 commit;
 
 
--- Tabela INSTANCIA_INIMIGO
+
 begin;
    CREATE SEQUENCE instancia_inimigo_id_seq START 1;
    CREATE TABLE IF NOT EXISTS INSTANCIA_INIMIGO(
@@ -262,7 +257,7 @@ begin;
 commit;
 
 
--- Tabela Coldre
+
 begin;
    CREATE TABLE IF NOT EXISTS COLDRE(
       idItem           INT NOT NULL,
@@ -273,7 +268,7 @@ begin;
    savepoint create_tb_COLDRE;
 commit;
 
--- Tabela Falas
+
 begin;
    CREATE TABLE IF NOT EXISTS FALAS(
       idNPC           INT NOT NULL,
@@ -285,7 +280,7 @@ begin;
    );
 commit;
 
--- Tabela Instancia_NPC_Tipo
+
 begin;
    CREATE TABLE IF NOT EXISTS INSTANCIA_NPC_TIPO(
       idNPC           INT NOT NULL,

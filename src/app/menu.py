@@ -6,7 +6,7 @@ class Menu:
             print("""
             Comandos Disponíveis:
 
-            - ajuda: Lista todos os comandos disponíveis.
+            - informacao: Mostra as informações básicas do jogador, como vida e a sua gangue.
             - mapa: Mostra todo o mapa do jogo.
             - andar [N/S/L/O]: Desloca o personagem para o Norte, Sul, Leste ou Oeste, conforme possível no mapa.
             - loja [nome]: Abre a loja da área selecionada (digite o nome da loja sem os colchetes).

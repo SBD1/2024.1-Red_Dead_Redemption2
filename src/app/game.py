@@ -221,22 +221,21 @@ class Game:
     def gameplay(self):
         while(True):
             clear()
-            self.show_player_info()
 
             current_area = DataBase.get_area(
                 self.connection, self.player.idArea)
             area_norte = DataBase.get_area(
-                self.connection, current_area.areaNorte).nome
+                self.connection, current_area.Norte).nome
             
             area_oeste = DataBase.get_area(
-                self.connection, current_area.areaOeste).nome
+                self.connection, current_area.Oeste).nome
             while len((area_oeste)) < 25:
                 area_oeste = area_oeste + ' '
 
             area_leste = DataBase.get_area(
-                self.connection, current_area.areaLeste).nome
+                self.connection, current_area.Leste).nome
             area_sul = DataBase.get_area(
-                self.connection, current_area.areaSul).nome
+                self.connection, current_area.Sul).nome
 
            
             Loja, valid_loja = DataBase.search_store(self.connection, current_area.idArea)
@@ -299,27 +298,27 @@ class Game:
                 Menu.cmd(inp)
                 
                 if inp == 'andar n':
-                    if current_area.areaNorte != 1:
+                    if current_area.Norte != 1:
                         self.player = DataBase.update_player_area(
-                            self.connection, self.player.idJogador, current_area.areaNorte)
+                            self.connection, self.player.idJogador, current_area.Norte)
                     break
 
                 elif inp == 'andar o':
-                    if current_area.areaOeste != 1:
+                    if current_area.Oeste != 1:
                         self.player = DataBase.update_player_area(
-                            self.connection, self.player.idJogador, current_area.areaOeste)
+                            self.connection, self.player.idJogador, current_area.Oeste)
                     break
 
                 elif inp == 'andar l':
-                    if current_area.areaLeste != 1:
+                    if current_area.Leste != 1:
                         self.player = DataBase.update_player_area(
-                            self.connection, self.player.idJogador, current_area.areaLeste)
+                            self.connection, self.player.idJogador, current_area.Leste)
                     break
 
                 elif inp == 'andar s':
-                    if current_area.areaSul != 1:
+                    if current_area.Sul != 1:
                         self.player = DataBase.update_player_area(
-                            self.connection, self.player.idJogador, current_area.areaSul)
+                            self.connection, self.player.idJogador, current_area.Sul)
                     break
 
                 elif inp == 'ataque' and valid_inim == True:
@@ -360,6 +359,9 @@ class Game:
                 
                 elif inp == 'mapa':
                     self.mapa()
+                
+                elif inp == 'informacao':
+                    self.show_player_info()
 
                 elif inp == 'inventario':
                     self.inventario()
@@ -394,6 +396,7 @@ Black Water                         |                                  |
                                     |
                               The Heartland
         """)  
+    
 
     def arsenal(self):
         clear()
@@ -501,7 +504,6 @@ Black Water                         |                                  |
             inp = 0
             self.valid_cmd = True
             while(self.valid_cmd == True or self.valid_cmd == 'ajuda'):            
-                self.show_player_info()
                 print(f"\nInimigo: {Inimigo.nome}")
                 print(f"Vida Inimigo: {Inimigo.pontosVida}\n")
                 inp = input('Digite o id da arma\n>')

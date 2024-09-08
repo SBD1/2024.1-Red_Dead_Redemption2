@@ -1,11 +1,10 @@
--- Tabela gangues
 INSERT INTO GANGUE (nomegangue, simbologangue) VALUES
 ('Van der Linde', 'VL'),
 ('ODriscoll Boys', 'Caveira'),
 ('The Del Lobo Gang', 'Chapéu Mexicano'),
 ('Lemoyne Raiders', 'Bandeira Confederada');
 
--- Tabela mapa
+
 INSERT INTO MAPA (descricao) VALUES
 ('Valentine'),
 ('Estação de Trens de Valentine'),
@@ -14,7 +13,7 @@ INSERT INTO MAPA (descricao) VALUES
 ('Annesburg'),
 ('Rhodes');
 
--- Tabela Regiao
+
 INSERT INTO REGIAO (idMapa, descricao, nome) VALUES
 (1, 'Portão da cidade principal e movimentada', 'Entrada de Valentine'),
 (2, 'Estação de trem movimentada que conecta várias cidades do Velho Oeste', 'Estação de Trens de Valentine'),
@@ -24,8 +23,8 @@ INSERT INTO REGIAO (idMapa, descricao, nome) VALUES
 (6, 'Uma loja popular em Rhodes, conhecida por seus produtos exóticos e diversos', 'General Store de Rhodes');
 
 
--- Tabela Area
-INSERT INTO AREA(idArea, idRegiao, nome, areaOeste, areaLeste, areaNorte, areaSul) VALUES
+
+INSERT INTO AREA(idArea, idRegiao, nome, Oeste, Leste, Norte, Sul) VALUES
 (1, 1, 'Nada', 1, 1, 1, 1),
 (2, 1, 'Grizzlies West', 3, 4, 5, 6),
 (3, 1, 'Saint Denis', 1, 2, 1, 1),
@@ -51,14 +50,14 @@ INSERT INTO AREA(idArea, idRegiao, nome, areaOeste, areaLeste, areaNorte, areaSu
 (23, 1, 'Rhodes', 1, 1, 11, 1);
 
 
--- Tabela Arma
+
 INSERT INTO ARMA (nome, efeito, ponto) VALUES
 ('Pistola Cattleman', 'tiro rápido e eficaz', 6),
 ('Faca de Caça', 'corte afiado', 5),
 ('Rifle de Longa Distância', 'tiro preciso a longa distância', 12),
 ('Pistola de Duas Mãos', 'tiro potente e preciso', 10);
 
--- Tabela Jogador
+
 INSERT INTO JOGADOR (nome, idArea, pontosVida, idGangue) VALUES
 ('Arthur Morgan', 5, 100, 1),
 ('John Marston', 1, 100, 1),
@@ -66,7 +65,7 @@ INSERT INTO JOGADOR (nome, idArea, pontosVida, idGangue) VALUES
 ('Sadie Adler', 6, 100, 3),
 ('Javier Escuella', 7, 100, 4);
 
--- Tabela Arsenal
+
 INSERT INTO ARSENAL (idArsenal, arma) VALUES
 (1, 3),
 (2, 4),
@@ -74,7 +73,7 @@ INSERT INTO ARSENAL (idArsenal, arma) VALUES
 (4, 2),
 (5, 1);
 
--- Tabela LOJA
+
 INSERT INTO LOJA(idArea, descricao) VALUES
 (3, 'bar'),
 (3, 'cafeteria'),
@@ -85,7 +84,7 @@ INSERT INTO LOJA(idArea, descricao) VALUES
 (3, 'antiquario'),
 (3, 'bazar');
 
--- Tabela Item
+
 INSERT INTO ITEM(IdLoja, nome, acao, valor, tipo, descricaoItem) VALUES
 (2, 'Relógio de Bolso', 'Decora e permite verificar a hora', 50, 'DIVERSOS', 'Um elegante relógio de bolso com acabamento em prata.'),
 (2, 'Cesta de Frutas', 'Alimenta e fornece energia', 12, 'DIVERSOS', 'Uma cesta cheia de frutas frescas do Velho Oeste, ideal para um lanche nutritivo.'),
@@ -110,7 +109,7 @@ INSERT INTO ITEM(IdLoja, nome, acao, valor, tipo, descricaoItem) VALUES
 (1, 'Feijão Cozido', 'Traz energia', 8, 'CURA', 'Um prato de feijão cozido, ótimo para manter a resistência.');
 
 
--- Tabela ITEM que nao estao em lojas
+
 INSERT INTO ITEM(nome, acao, valor, tipo, descricaoItem) VALUES
 ('Garrafa Quebrada', 'Pode causar cortes ou ferimentos', 0, 'LIXO', 'Uma garrafa quebrada, inútil e perigosa.'),
 ('Relógio de Bolso', 'Mostra a hora', 50, 'DEFESA', 'Um relógio de bolso antigo que mantém o tempo com precisão.'),
@@ -119,7 +118,7 @@ INSERT INTO ITEM(nome, acao, valor, tipo, descricaoItem) VALUES
 ('Lanterna de Óleo', 'Remove a escuridão e ilumina o caminho', 10, 'DEFESA', 'Uma lanterna alimentada a óleo para iluminar ambientes escuros.');
 
 
--- Tabela NPC
+
 INSERT INTO NPC(item, nome) VALUES
 (5, 'Dutch van der Linde'), 
 (6, 'Micah Bell'),
@@ -138,14 +137,14 @@ INSERT INTO NPC(item, nome) VALUES
 (1, 'Jack Marston');
 
 
--- Tabela Instancia_NPC_Tipo
+
 INSERT INTO INSTANCIA_NPC_TIPO(idNPC, tipo) VALUES
 (1, 'Amigo'),
 (2, 'Amigo'),
 (3, 'Inimigo');
 
 
--- Tabela Falas
+
 INSERT INTO FALAS(idNPC, idArea, momento, texto) VALUES
 (1,5,1,'Bem-vindo a Cumberland Forest!'),
 (9,6,2,'Cuidado cowboy! Seus olhos brilham com uma luz selvagem e a pelagem espessa se destaca contra o cenário nevado. Um lobo rosnando baixa suas orelhas e se prepara para atacar.'),
@@ -166,7 +165,7 @@ INSERT INTO FALAS(idNPC, idArea, momento, texto) VALUES
 (10,8,4,'Coma algo ou beba um whisky e recupere sua saúde, quanto mais você pagar, melhor será.'),
 (13,16,2,'Eu ouvi que o caçador Pearson não ensina técnicas avançadas se você já souber rastrear, que confusão, né?! Se eu fosse você, começaria pelas aulas básicas...');
 
--- Tabela Falas
+
 INSERT INTO FALAS(idNPC, idArea, momento, texto) VALUES
 (1,5,1,'Bem-vindo a Valentine!'),
 (7,8,2,'Caçador? Posso te mostrar alguns truques para sobreviver no deserto...'),
@@ -174,7 +173,7 @@ INSERT INTO FALAS(idNPC, idArea, momento, texto) VALUES
 (5,12,2,'Se quiser aprender novas técnicas de caça, peça um conselho ao seu mentor!'),
 (6,10,2,'Saia da minha frente!');
 
--- Tabela MISSAO
+
 INSERT INTO MISSAO (NPC, nomeMissao, arma) VALUES
 (1, 'TÁTICAS DE SOBREVIVÊNCIA', 1),
 (2, 'TÉCNICAS DE CAÇA', 1),
@@ -183,7 +182,7 @@ INSERT INTO MISSAO (NPC, nomeMissao, arma) VALUES
 (6, 'FABRICAÇÃO DE POÇÕES E REMÉDIOS', 3),
 (9, 'TÁTICAS DE ESTRATÉGIA', 4);
 
--- Tabela NPC_MISSAO
+
 INSERT INTO NPC_MISSAO(idNPC, gangue, missao) VALUES
 (1, 1, 1),
 (2, 1, 1),
@@ -193,7 +192,7 @@ INSERT INTO NPC_MISSAO(idNPC, gangue, missao) VALUES
 (8, 1, 4),
 (9, 4, 6);
 
--- Tabela INSTANCIA_ITEM
+
 INSERT INTO INSTANCIA_ITEM(idItem, idJogador) VALUES
 (1, NULL),
 (2, NULL),
@@ -202,7 +201,7 @@ INSERT INTO INSTANCIA_ITEM(idItem, idJogador) VALUES
 (5, NULL),
 (3, 1);
 
--- Tabela INVENTARIO
+
 INSERT INTO INVENTARIO(idJogador, dinheiro) VALUES
 (1, 2000),
 (2, 2000),
@@ -210,7 +209,7 @@ INSERT INTO INVENTARIO(idJogador, dinheiro) VALUES
 (4, 2000),
 (5, 200);
 
--- Tabela INSTANCIA_JOGADOR_MISSAO
+
 INSERT INTO INSTANCIA_JOGADOR_MISSAO(idJogador, idMissao) VALUES
 (1, 2),
 (2, 3),
@@ -218,7 +217,7 @@ INSERT INTO INSTANCIA_JOGADOR_MISSAO(idJogador, idMissao) VALUES
 (4, 5),
 (5, 6);
 
--- Tabela HABILIDADE
+
 INSERT INTO HABILIDADE(nomeHabilidade, dano, descricao) VALUES
 ('Instinto de Caça', 3, 'Capacidade de rastrear e prever os movimentos de presas ou inimigos.'),
 ('Habilidade com Armas', 5, 'Capacidade aprimorada de manuseio e precisão com armas de fogo.'),
@@ -230,13 +229,13 @@ INSERT INTO HABILIDADE(nomeHabilidade, dano, descricao) VALUES
 ('Ataque de Lobo', 4, 'Um lobo ataca o jogador.'),
 ('Ambiente Hostil', 5, 'Cria um ambiente adverso e perigoso, dificultando a sobrevivência.');
 
--- Tabela INIMIGO
+
 INSERT INTO INIMIGO(idNPC, idHabilidade, moedas) VALUES
 (12, 8, 10),
 (13, 9, 80),
 (14, 4, 120);
 
--- Tabela INSTANCIA_INIMIGO
+
 INSERT INTO INSTANCIA_INIMIGO(idNPC, idArea, idItem, pontosVida, pontosVidaMax, multiplicador) VALUES
 (12, 6, 13, 10, 10, 1),
 (13, 7, 2, 40, 40, 1),
@@ -247,7 +246,6 @@ INSERT INTO INSTANCIA_INIMIGO(idNPC, idArea, idItem, pontosVida, pontosVidaMax, 
 (12, 6, 13, 10, 10, 3);
 
 
--- Tabela COLDRE
 INSERT INTO COLDRE(idItem, arma) VALUES
 (9, 1),
 (9, 2),
