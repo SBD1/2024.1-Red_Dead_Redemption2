@@ -236,7 +236,14 @@ begin;
       savepoint create_tb_INIMIGO;
 commit;
 
-
+begin;
+   CREATE TABLE IF NOT EXISTS AMIGO(
+      idNPC            INT NOT NULL,
+      humor            INT NOT NULL,
+      FOREIGN KEY (idNPC) REFERENCES NPC (idNPC)
+   );
+      savepoint create_tb_AMIGO;
+commit;
 
 begin;
    CREATE SEQUENCE instancia_inimigo_id_seq START 1;

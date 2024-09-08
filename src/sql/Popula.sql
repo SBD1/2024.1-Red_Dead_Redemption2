@@ -134,8 +134,8 @@ INSERT INTO NPC(item, nome) VALUES
 (8, 'Lobo Selvagem'),
 (2, 'Caçador de Recompensas'),
 (25, 'Angelo Bronte'),
-(1, 'Jack Marston');
-
+(1, 'Jack Marston'),
+(1, 'Abigail Roberts');
 
 
 
@@ -228,6 +228,9 @@ INSERT INTO INIMIGO(idNPC, idHabilidade, moedas) VALUES
 (12, 8, 10),
 (13, 9, 80),
 (14, 4, 120);
+
+INSERT INTO AMIGO(idNPC, humor) VALUES
+(16,10);
 
 
 INSERT INTO INSTANCIA_INIMIGO(idNPC, idArea, idItem, pontosVida, pontosVidaMax, multiplicador) VALUES
