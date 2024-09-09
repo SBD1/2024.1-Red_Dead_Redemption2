@@ -124,92 +124,87 @@
 
  associada            | int          |                    | fk    | not null, references GANGUE(idGangue)                      |
 
+### Tabela: ARSENAL
 
-## Tabela: ARSENAL
-| Campo     | Tipo  | Descrição                                       |
-|-----------|-------|-------------------------------------------------|
-| idArsenal | INT   | Identificador do arsenal, chave primária.       |
-| arma      | INT   | Identificador da arma, chave estrangeira para a tabela ARMA. |
+- Descrição da Tabela: Contém informações sobre o arsenal do jogador, que relaciona o jogador às armas que possui.
 
-**Chaves Estrangeiras:**
-- `idArsenal` referencia `JOGADOR(idJogador)`
-- `arma` referencia `ARMA(idArma)`
+| Nome      | Descrição                                     | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio                                      |
+|-----------|-----------------------------------------------|--------------|--------------------|-------|------------------------------------------------------------|
+| idArsenal | Identificador do arsenal, referência ao jogador | int          |                    | pk, fk| not null, references JOGADOR(idJogador)                    |
+| arma      | Identificador da arma                         | int          |                    | pk, fk| not null, references ARMA(idArma)                          |
 
-## Tabela: INSTANCIA_ITEM
-| Campo           | Tipo  | Descrição                                                       |
-|-----------------|-------|-----------------------------------------------------------------|
-| idInstanciaItem | INT   | Identificador único da instância do item, chave primária.       |
-| idItem          | INT   | Identificador do item, chave estrangeira para a tabela ITEM.    |
-| idJogador       | INT   | Identificador do jogador, chave estrangeira para a tabela JOGADOR. |
+### Tabela: INSTANCIA_ITEM
 
-**Chaves Estrangeiras:**
-- `idItem` referencia `ITEM(idItem)`
-- `idJogador` referencia `JOGADOR(idJogador)`
+- Descrição da Tabela: Contém instâncias específicas dos itens que os jogadores possuem.
 
-## Tabela: INVENTARIO
-| Campo       | Tipo  | Descrição                                         |
-|-------------|-------|---------------------------------------------------|
-| idJogador   | INT   | Identificador do jogador, chave primária.         |
-| dinheiro    | INT   | Quantidade de dinheiro que o jogador possui.      |
+| Nome            | Descrição                                  | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio                                      |
+|-----------------|--------------------------------------------|--------------|--------------------|-------|------------------------------------------------------------|
+| idInstanciaItem | Identificador único da instância do item   | int          |                    | pk    | not null, default = nextval('instancia_item_id_seq')       |
+| idItem          | Identificador do item                      | int          |                    | fk    | not null, references ITEM(idItem)                          |
+| idJogador       | Identificador do jogador                   | int          |                    | fk    | references JOGADOR(idJogador)                              |
 
-**Chaves Estrangeiras:**
-- `idJogador` referencia `JOGADOR(idJogador)`
+### Tabela: INVENTARIO
 
-## Tabela: INSTANCIA_JOGADOR_MISSAO
-| Campo       | Tipo  | Descrição                                         |
-|-------------|-------|---------------------------------------------------|
-| idJogador   | INT   | Identificador do jogador, chave estrangeira para a tabela JOGADOR. |
-| idMissao    | INT   | Identificador da missão, chave estrangeira para a tabela MISSAO.  |
+- Descrição da Tabela: Contém informações sobre o inventário do jogador.
 
-**Chaves Estrangeiras:**
-- `idJogador` referencia `JOGADOR(idJogador)`
-- `idMissao` referencia `MISSAO(idMissao)`
+| Nome      | Descrição                                | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio                                      |
+|-----------|------------------------------------------|--------------|--------------------|-------|------------------------------------------------------------|
+| idJogador | Identificador do jogador                 | int          |                    | pk, fk| not null, references JOGADOR(idJogador)                    |
+| dinheiro  | Quantidade de dinheiro que o jogador possui | int          |                    |       |                                                            |
 
-## Tabela: HABILIDADE
-| Campo           | Tipo       | Descrição                             |
-|-----------------|------------|---------------------------------------|
-| idHabilidade    | INT        | Identificador único da habilidade, chave primária. |
-| nomeHabilidade  | VARCHAR(50)| Nome da habilidade.                   |
-| dano            | INT        | Dano causado pela habilidade.         |
-| descricao       | VARCHAR(100)| Descrição da habilidade.             |
+### Tabela: INSTANCIA_JOGADOR_MISSAO
 
-## Tabela: INIMIGO
-| Campo         | Tipo  | Descrição                                         |
-|---------------|-------|---------------------------------------------------|
-| idNPC         | INT   | Identificador do NPC, chave primária.             |
-| idHabilidade  | INT   | Identificador da habilidade, chave estrangeira para a tabela HABILIDADE. |
-| moedas        | INT   | Quantidade de moedas que o inimigo possui.        |
+- Descrição da Tabela: Relaciona os jogadores às missões que estão participando.
 
-**Chaves Estrangeiras:**
-- `idNPC` referencia `NPC(idNPC)`
-- `idHabilidade` referencia `HABILIDADE(idHabilidade)`
+| Nome      | Descrição                                | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio                                      |
+|-----------|------------------------------------------|--------------|--------------------|-------|------------------------------------------------------------|
+| idJogador | Identificador do jogador                 | int          |                    | fk    | not null, references JOGADOR(idJogador)                    |
+| idMissao  | Identificador da missão                  | int          |                    | fk    | references MISSAO(idMissao)                                |
 
-## Tabela: AMIGO
-| Campo     | Tipo  | Descrição                           |
-|-----------|-------|-------------------------------------|
-| idNPC     | INT   | Identificador do NPC, chave primária.|
-| humor     | INT   | Nível de humor do NPC amigo.        |
+### Tabela: HABILIDADE
 
-**Chaves Estrangeiras:**
-- `idNPC` referencia `NPC(idNPC)`
+- Descrição da Tabela: Contém as habilidades que podem ser usadas pelos personagens do jogo.
 
-## Tabela: INSTANCIA_INIMIGO
-| Campo                | Tipo  | Descrição                                         |
-|----------------------|-------|---------------------------------------------------|
-| idInstancia_Inimigo  | INT   | Identificador único da instância do inimigo, chave primária. |
-| idNPC                | INT   | Identificador do NPC, chave estrangeira para a tabela NPC. |
-| idArea               | INT   | Identificador da área, chave estrangeira para a tabela AREA. |
-| idItem               | INT   | Identificador do item, chave estrangeira para a tabela ITEM. |
-| pontosVidaMax        | INT   | Pontos de vida máximos do inimigo.                |
-| pontosVida           | INT   | Pontos de vida atuais do inimigo.                 |
-| multiplicador        | INT   | Multiplicador de força do inimigo.                |
+| Nome            | Descrição                                  | Tipo de Dado  | Valores permitidos | Chave | Restrições de domínio                                      |
+|-----------------|--------------------------------------------|---------------|--------------------|-------|------------------------------------------------------------|
+| idHabilidade    | Identificador único da habilidade          | int           |                    | pk    | not null, default = nextval('habilidade_id_seq')           |
+| nomeHabilidade  | Nome da habilidade                         | varchar(50)   |                    |       | not null                                                   |
+| dano            | Dano causado pela habilidade               | int           |                    |       |                                                            |
+| descricao       | Descrição da habilidade                    | varchar(100)  |                    |       | not null                                                   |
 
-**Chaves Estrangeiras:**
-- `idNPC` referencia `NPC(idNPC)`
-- `idArea` referencia `AREA(idArea)`
-- `idItem` referencia `ITEM(idItem)`
+### Tabela: INIMIGO
 
-Aqui está o dicionário de dados em markdown para as tabelas que você mencionou:
+- Descrição da Tabela: Contém informações sobre os inimigos do jogo.
+
+| Nome         | Descrição                                | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio                                      |
+|--------------|------------------------------------------|--------------|--------------------|-------|------------------------------------------------------------|
+| idNPC        | Identificador do NPC inimigo             | int          |                    | pk, fk| not null, references NPC(idNPC)                            |
+| idHabilidade | Identificador da habilidade do inimigo   | int          |                    | fk    | references HABILIDADE(idHabilidade)                        |
+| moedas       | Quantidade de moedas que o inimigo possui | int          |                    |       | not null                                                   |
+
+### Tabela: AMIGO
+
+- Descrição da Tabela: Contém informações sobre os NPCs amigos do jogador.
+
+| Nome      | Descrição                                | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio                                      |
+|-----------|------------------------------------------|--------------|--------------------|-------|------------------------------------------------------------|
+| idNPC     | Identificador do NPC amigo               | int          |                    | pk, fk| not null, references NPC(idNPC)                            |
+| humor     | Nível de humor do NPC amigo              | int          |                    |       | not null                                                   |
+
+### Tabela: INSTANCIA_INIMIGO
+
+- Descrição da Tabela: Contém informações sobre instâncias específicas dos inimigos em áreas do jogo.
+
+| Nome                | Descrição                                | Tipo de Dado | Valores permitidos | Chave | Restrições de domínio                                      |
+|---------------------|------------------------------------------|--------------|--------------------|-------|------------------------------------------------------------|
+| idInstancia_Inimigo | Identificador único da instância do inimigo | int          |                    | pk    | not null, default = nextval('instancia_inimigo_id_seq')    |
+| idNPC               | Identificador do NPC inimigo             | int          |                    | fk    | not null, references NPC(idNPC)                            |
+| idArea              | Identificador da área                    | int          |                    | fk    | not null, references AREA(idArea)                          |
+| idItem              | Identificador do item                    | int          |                    | fk    | references ITEM(idItem)                                    |
+| pontosVidaMax       | Pontos de vida máximos do inimigo        | int          |                    |       | not null                                                   |
+| pontosVida          | Pontos de vida atuais do inimigo         | int          |                    |       | not null                                                   |
+| multiplicador       | Multiplicador de força do inimigo        | int          |                    |       | not null                                                   |
+
 
 ### Tabela: COLDRE
 
