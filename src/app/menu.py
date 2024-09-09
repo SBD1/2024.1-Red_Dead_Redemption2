@@ -5,7 +5,9 @@ class Menu:
         if inp == 'ajuda' or inp == 'Ajuda':
             print("""
             Comandos Disponíveis:
-
+            
+            - atual: Mostra a sua area atual.
+            - bussola: Mostra cada área adjacente a sua atual em cada uma das 4 direções.
             - informacao: Mostra as informações básicas do jogador, como vida e a sua gangue.
             - mapa: Mostra todo o mapa do jogo.
             - andar [N/S/L/O]: Desloca o personagem para o Norte, Sul, Leste ou Oeste, conforme possível no mapa.
@@ -15,7 +17,6 @@ class Menu:
             - [nome item]: Após usar o comando "usar", digite o nome do item que deseja usar.
             - arsenal: Exibe as armas disponíveis no seu inventário.
             - ataque: Inicia um confronto com o inimigo presente na área.
-            - [nome arma]: Durante o ataque, use o nome da arma que deseja utilizar para atacar o inimigo. Consulte o arsenal para ver suas opções.
             - sair: Encerra o jogo e retorna ao mundo real.
 
             - Não utilize acentuação nos comandos!

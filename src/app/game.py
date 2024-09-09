@@ -224,20 +224,7 @@ class Game:
 
             current_area = DataBase.get_area(
                 self.connection, self.player.idArea)
-            area_norte = DataBase.get_area(
-                self.connection, current_area.Norte).nome
             
-            area_oeste = DataBase.get_area(
-                self.connection, current_area.Oeste).nome
-            while len((area_oeste)) < 25:
-                area_oeste = area_oeste + ' '
-
-            area_leste = DataBase.get_area(
-                self.connection, current_area.Leste).nome
-            area_sul = DataBase.get_area(
-                self.connection, current_area.Sul).nome
-
-           
             Loja, valid_loja = DataBase.search_store(self.connection, current_area.idArea)
             
             if valid_loja == True and current_area.idArea == 3:
@@ -276,12 +263,6 @@ class Game:
   ,-      \_\/_/'-_
                   
             """)
-            print(f'                           ▲ N.\n')
-            print(f'                       {area_norte}\n')
-            print(f'         ◄ O. {area_oeste}' + f'*  L. {area_leste} ►\n')
-            print(f'                       {area_sul}\n')
-            print(f'                           ▼ S.\n')
-            print('\n')
             print(f"\nArea atual: {current_area.nome}\n")
             
 
@@ -372,6 +353,12 @@ class Game:
                 elif inp == 'mapa':
                     self.mapa()
                 
+                elif inp == 'bussola':
+                    self.bussola()
+
+                elif inp == 'atual':
+                    self.atual()
+
                 elif inp == 'informacao':
                     self.show_player_info()
 
@@ -408,7 +395,34 @@ Black Water                         |                                  |
                                     |
                               The Heartland
         """)  
-    
+
+    def atual(self):
+        current_area = DataBase.get_area(
+        self.connection, self.player.idArea)
+        print(f"\nArea atual: {current_area.nome}\n")
+
+    def bussola(self):
+        current_area = DataBase.get_area(
+                self.connection, self.player.idArea)
+        area_norte = DataBase.get_area(
+        self.connection, current_area.Norte).nome
+            
+        area_oeste = DataBase.get_area(
+        self.connection, current_area.Oeste).nome
+        while len((area_oeste)) < 25:
+            area_oeste = area_oeste + ' '
+
+        area_leste = DataBase.get_area(
+        self.connection, current_area.Leste).nome
+        area_sul = DataBase.get_area(
+        self.connection, current_area.Sul).nome
+
+        print(f'                           ▲ N.\n')
+        print(f'                       {area_norte}\n')
+        print(f'         ◄ O. {area_oeste}' + f'*  L. {area_leste} ►\n')
+        print(f'                       {area_sul}\n')
+        print(f'                           ▼ S.\n')
+        print('\n')
 
     def arsenal(self):
         clear()
