@@ -1,6 +1,6 @@
 import psycopg2
 import pandas as pd
-from classes import *
+from .classes import *
 import random
 
 class DataBase():
