@@ -1,5 +1,5 @@
 from .database import DataBase
-from .classes import *
+from .classes.Player import Player
 from .menu import Menu
 from .util import *
 import sys
@@ -131,18 +131,7 @@ class Game:
                 print("\nInimigos na área: ")
                 print(f"{Inimigo.nome}\n")
 
-            print("""           
-           ,'-',                                                                
-          :-----:               
-      (''' , - , ''')        |
-      \   ' .  , `  /      |||  "Digite ajuda para ver todos os comandos disponíveis!"
-       \  '   ^  ? /         |
-        \ `   -  ,'
-         `j_ _,'
-    ,- -`\ \  /f
-  ,-      \_\/_/'-_
-                  
-            """)
+            prompt("ask_for_help", delay=0)
             print(f"\nArea atual: {current_area.nome}\n")
             
 
@@ -256,25 +245,7 @@ class Game:
                 else: 
                     print('\nOpção Inválida!')
     def mapa(self):
-        print("""
-                                Valentine
-                                    |
-                                New Hanover --- Annesburg
-                                    |
-Strawberry     Scarlet Meadows -- Tall Trees --- Lemoyne           Mount Hagen
-    |                               |                                  |
-Big Valley ---------------- Cumberland Forrest  ------------  BlueWater Marsh 
-    |                               |                                  |  
-Black Water                         |                                  | 
-                                    |                                  |
-               Saint Denis --- Grizzlies West --- Dakota River       Rhodes
-                                    |
-              Roanoke Ridge --- Flat Iron Lake --- Bayou Nwa
-                                    |
-                                Ambarino
-                                    |
-                              The Heartland
-        """)  
+        prompt("map")  
 
     def atual(self):
         current_area = DataBase.get_area(
@@ -322,7 +293,6 @@ Black Water                         |                                  |
 
     def inventario(self):
         clear_screen()
-        comidas = ['Whiskey', 'Torta de Maçã', 'Carne de Caça', 'Feijão Cozido']
         inp = 0
         while(inp != 'sair'):
             DataBase.get_view_inventory(self.connection, self.player.idJogador)

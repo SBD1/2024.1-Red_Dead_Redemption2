@@ -3,9 +3,9 @@ import sys
 import time
 import platform
 import smtplib
+import random
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import random
 from dotenv import load_dotenv
 
 load_dotenv()
