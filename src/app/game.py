@@ -264,7 +264,18 @@ class Game:
                 print("\nInimigos na área: ")
                 print(f"{Inimigo.nome}\n")
 
-
+            print("""           
+           ,'-',                                                                
+          :-----:               
+      (''' , - , ''')        |
+      \   ' .  , `  /      |||  "Digite ajuda para ver todos os comandos disponíveis!"
+       \  '   ^  ? /         |
+        \ `   -  ,'
+         `j_ _,'
+    ,- -`\ \  /f
+  ,-      \_\/_/'-_
+                  
+            """)
             print(f'                           ▲ N.\n')
             print(f'                       {area_norte}\n')
             print(f'         ◄ O. {area_oeste}' + f'*  L. {area_leste} ►\n')
@@ -272,7 +283,7 @@ class Game:
             print(f'                           ▼ S.\n')
             print('\n')
             print(f"\nArea atual: {current_area.nome}\n")
-            print('Digite ajuda para ver todos os comandos disponíveis!')
+            
 
             if current_area.idArea == 17 and self.player.estado == 2:
                 DataBase.addArma(self.connection, self.player.idJogador, 3, 1)
