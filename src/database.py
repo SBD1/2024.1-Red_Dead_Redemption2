@@ -11,7 +11,7 @@ import random
 class DataBase():
     def create_connection():
         connect = psycopg2.connect(
-            host="localhost",
+            host="db",
             database="postgres",
             user="postgres",
             password="postgres")
