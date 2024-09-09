@@ -1,13 +1,17 @@
 import psycopg2
 import pandas as pd
-from classes import *
+from .classes.Player import Player
+from .classes.Area import Area
+from .classes.Inimigo import Inimigo
+from .classes.Loja import Loja
+from .classes.Arma import Arma
+from .classes.Habilidade import Habilidade
 import random
 
 class DataBase():
-
     def create_connection():
         connect = psycopg2.connect(
-            host="localhost",
+            host="db",
             database="postgres",
             user="postgres",
             password="postgres")

@@ -1,0 +1,5 @@
+FROM postgres:latest
+
+ADD ./src/sql/DDL.sql /docker-entrypoint-initdb.d
+ADD ./src/sql/DML.sql /docker-entrypoint-initdb.d
+ADD ./src/sql/DQL.sql /docker-entrypoint-initdb.d
