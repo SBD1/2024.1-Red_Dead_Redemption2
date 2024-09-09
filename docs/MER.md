@@ -149,6 +149,7 @@ Versões anteriores:
 22. **Coldre - InstanciaItem**: Um coldre **guarda** uma InstanciaItem.
 23. **NPC - InstanciaItem**: Um NPC **possui** uma ou mais InstanciaItem.
 24. **Arsenal - Jogador**: Um Jogador **possui** um Arsenal.
+25. **NPC - InstanciaNPC**: Um NPC **instancia** um ou mais InstanciaNPC.
 
 ## Bibliografia
 
