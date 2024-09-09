@@ -1,5 +1,5 @@
 FROM postgres:latest
 
-ADD ./sql/CreateTable.sql /docker-entrypoint-initdb.d
-ADD ./sql/Popula.sql /docker-entrypoint-initdb.d
-ADD ./scrappers/GameActions.sql /docker-entrypoint-initdb.d
+ADD ./sql/DDL.sql /docker-entrypoint-initdb.d
+ADD ./sql/DML.sql /docker-entrypoint-initdb.d
+ADD ./sql/DQL.sql /docker-entrypoint-initdb.d
