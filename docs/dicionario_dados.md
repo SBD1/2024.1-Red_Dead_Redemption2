@@ -163,7 +163,7 @@
 
 ### Tabela: HABILIDADE
 
-- Descrição da Tabela: Contém as habilidades que podem ser usadas pelos personagens do jogo.
+- Descrição da Tabela: Contém as habilidades que podem ser usadas pelos inimigos do jogo.
 
 | Nome            | Descrição                                  | Tipo de Dado  | Valores permitidos | Chave | Restrições de domínio                                      |
 |-----------------|--------------------------------------------|---------------|--------------------|-------|------------------------------------------------------------|
