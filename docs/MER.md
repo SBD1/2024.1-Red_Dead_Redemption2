@@ -110,6 +110,7 @@ Versões anteriores:
 
 18. **NPCMissao**
     - idNPCMissao
+    - cargo
 
 19. **InstanciaInimigo**
     - multiplicador
