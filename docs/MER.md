@@ -91,6 +91,7 @@ Versões anteriores:
 
 13. **Arsenal**
     - idArsenal
+    - lotacao
 
 14. **Arma**
     - idArma
