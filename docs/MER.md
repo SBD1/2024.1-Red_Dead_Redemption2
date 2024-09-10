@@ -11,7 +11,7 @@ Exibimos agora o DER concebido para o projeto Red Dead Redemption. É possível 
 ### Versão 3.5
 
 <div align="center">
-    <img src="/docs/DER/DER_v5.png">
+    <img src="/docs/DER/DER_v_5.png">
     Imagem 1: DER v5
 </div>
 
@@ -25,6 +25,8 @@ Versões anteriores:
 - [v3.3](/docs/DER/anteriores/DER_v3.3.png)
 - [v3.4](/docs/DER/anteriores/DER_v3.4.png)
 - [v3.5 (pós-realease)](/docs/DER/DER.png)
+- [v4](/docs/DER/anteriores/DER_v4.png)
+- [v5](/docs/DER/anteriores/DER_v_5.png)
 
 
 ## Entidades e atributos
@@ -91,6 +93,7 @@ Versões anteriores:
 
 13. **Arsenal**
     - idArsenal
+    - lotacao
 
 14. **Arma**
     - idArma
@@ -110,6 +113,7 @@ Versões anteriores:
 
 18. **NPCMissao**
     - idNPCMissao
+    - cargo
 
 19. **InstanciaInimigo**
     - multiplicador
@@ -149,6 +153,7 @@ Versões anteriores:
 22. **Coldre - InstanciaItem**: Um coldre **guarda** uma InstanciaItem.
 23. **NPC - InstanciaItem**: Um NPC **possui** uma ou mais InstanciaItem.
 24. **Arsenal - Jogador**: Um Jogador **possui** um Arsenal.
+25. **NPC - InstanciaNPC**: Um NPC **instancia** um ou mais InstanciaNPC.
 
 ## Bibliografia
 
