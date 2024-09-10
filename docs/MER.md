@@ -11,7 +11,7 @@ Exibimos agora o DER concebido para o projeto Red Dead Redemption. É possível 
 ### Versão 3.5
 
 <div align="center">
-    <img src="/docs/DER/DER_v_5.png">
+    <img src="/docs/DER/DER_v_5_1.jpg">
     Imagem 1: DER v5
 </div>
 
@@ -26,7 +26,8 @@ Versões anteriores:
 - [v3.4](/docs/DER/anteriores/DER_v3.4.png)
 - [v3.5 (pós-realease)](/docs/DER/DER.png)
 - [v4](/docs/DER/anteriores/DER_v4.png)
-- [v5](/docs/DER/anteriores/DER_v_5.png)
+- [v5](/docs/DER/DER_v_5.png)
+- [v5](/docs/DER/DER_v_5_1.jpg.png)
 
 
 ## Entidades e atributos
