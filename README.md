@@ -1,6 +1,6 @@
 # [2024.1] Red Dead Redemption II
 <div align="center">
-    <img src="docs/assets/game_logo.jpg"/>
+    <img src="docs/assets/logo.gif"/>
     <p> Figura 1: Logo de Red Dead Redemption II.</p> 
 </div>
 
@@ -14,24 +14,42 @@ Red Dead Redemption 2 é um jogo de ação e aventura em mundo aberto desenvolvi
 
 </div>
 
-## Como rodar o jogo
+## Tecnologias Utilizadas
 
-Faça um clone do repositório
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+
+## Como rodar
+
+Primeiramente, certifique-se que você possui Git, Python, Docker e Docker-Compose devidamente instalados na sua máquina.
+
+Clone o repositório com o comando
 ```bash
 git clone git@github.com:SBD1/2024.1-Red_Dead_Redemption2.git
 ```
 
-Após isso, acesse a parte src via terminal
+Suba os containers docker através do docker-compose:
 ```bash
-cd src
+docker-compose up -d --build
+```
+Em seguida, acesse o container do python
+```bash
+docker exec -it red-dead-game bash
 ```
 
-Para rodar o jogo, primeiramente verifique se a porta localhost (5432) está disponível.
-
-Após isso, para subir o banco tendo em vista que já possua o docker instalado, basta executar o comando:
-
+Uma vez dentro do container, basta executar a main:
 ```bash
-docker-compose up
+python3 main.py
+```
+Após ter terminado, saia do container através do comando
+```bash
+exit
+```
+E pare os containers com
+```bash
+docker-compose down
 ```
 
 ## Autores

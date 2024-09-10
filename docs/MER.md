@@ -11,8 +11,8 @@ Exibimos agora o DER concebido para o projeto Red Dead Redemption. É possível 
 ### Versão 3.5
 
 <div align="center">
-    <img src="/docs/DER/DER.png">
-    Imagem 1: DER v3.5
+    <img src="/docs/DER/DER_v_5_1.jpg">
+    Imagem 1: DER v5
 </div>
 
 Versões anteriores:
@@ -25,185 +25,136 @@ Versões anteriores:
 - [v3.3](/docs/DER/anteriores/DER_v3.3.png)
 - [v3.4](/docs/DER/anteriores/DER_v3.4.png)
 - [v3.5 (pós-realease)](/docs/DER/DER.png)
+- [v4](/docs/DER/anteriores/DER_v4.png)
+- [v5](/docs/DER/DER_v_5.png)
+- [v5](/docs/DER/DER_v_5_1.jpg.png)
 
-## Entidades
 
-- Animal
-- Hostil
-- Amigável
-- Instância de Animal
-- Sala
-- Jogador (PC)
-- Ataque
-- Consumível
-- Equipável
-- Item
-- Instância de item
-- Inventário
-- Personagem
-- Gangue
-- Habilidade
-- Classe
-- Instância de arma
-- Instância de arma de fogo
-- Instância de arma melee
-- Projétil
-- Arma
-- Arma de fogo
-- Arma melee
-- NPC
-- Instância de NPC
-- Missão
-- História
-- Objetivo
-- Diálogo
-- Linha de fala
-- Instância de estabelecimento
-- Estabelecimento
-- Região
-- Mapa
+## Entidades e atributos
 
-## Atributos
+1. **Região**
+   - idRegiao
+   - nome
+   - descricao
 
-- **Animal**: Textura, Stamina Máx, Vida Máx, Velocidade, Habitat, Espécie, <ins>ID-Animal</ins> <!-- - **Hostil** - **Amigável** -->
-- **Instância de Animal**: Stamina Atual, Vida Atual, <ins>ID-Inst-Animal</ins>
-- **Sala**: Descrição, nome, <ins>ID-Região</ins>, <ins>ID-Sala</ins>
-- **Jogador (PC)**: <ins>ID-Missão</ins>, <ins>ID-Personagem</ins>, XP, Dinheiro, Vida Atual, Stamina Max, Stamina Atual, Habilidades
-- **Ataque**: dano, descrição, <ins>ID-Ataque</ins>
-- **Consumível**: Qtd Reparação Istamina, Qtd Reparação Vida
-- **Equipável**: Parte do Corpo
-- **Item**: <ins>ID-Item</ins>, Nome
-- **Instância de item**: <ins>ID-Inst-Item</ins>, <ins>ID-Item</ins>, <ins>ID-Inventário</ins>
-- **Inventário**: <ins>ID-Inventário</ins>, <ins>ID-Personagem</ins>, Total de itens, Capacidade
-- **Personagem**: <ins>ID-Personagem</ins>, Nome, Velocidade, Inventário, Vida Max, Classe, Gangue
-- **Gangue**: Líder, Descrição, Nome, <ins>ID-Gangue</ins>
-- **Habilidade**: <ins>ID-Habilidade</ins>, Nome, Porcentagem
-- **Classe**: <ins>ID-Classe</ins>, Nome, Habilidades
-- **Instância de arma**: <ins>ID-Inventário</ins>, <ins>ID-Arma</ins>, <ins>ID-Inst-Arma</ins> <!-- - **Instância de arma de fogo** - **Instância de arma meles** -->
-- **Projétil**: <ins>ID-Projétil</ins>, <ins>ID-Inst-Arma</ins>, Pos X, Pos Y, Pos Z, Colidiu, Velocidade
-- **Arma**: <ins>ID-Arma</ins>, Nome, Descrição, Categoria, Preço, Peso, Durabilidade, Dano
-- **Arma de fogo**: <ins>ID-Arma-Fogo</ins>, Velocidade Disparo, Velocidade Reload
-- **Arma melee**: <ins>ID-Arma-Melee</ins>, Nível de afiação
-- **NPC**: <ins>ID-NPC</ins>
-- **Instância de NPC**: <ins>ID-Inst-NPC</ins>, <ins>ID-NPC</ins>, Vida Atual, <ins>ID-Missão</ins>
-- **Missão**: <ins>ID-Missão</ins>, Título, Nível de Dificuldade, Personagens, <ins>ID-História</ins>, <ins>ID-Região</ins>, Status
-- **História**: <ins>ID-História</ins>, Título, Enredo
-- **Objetivo**: <ins>ID-Objetivo</ins>, Título, Retorno em XP, Retorno em Dinheiro
-- **Diálogo**: Descrição, <ins>ID-Inst-NPC</ins>, <ins>ID-Diálogo</ins>
-- **Linha de fala**: Texto de fala, <ins>ID-Linha-De-Fala</ins>, <ins>ID-Diálogo</ins>
-- **Instância de estabelecimento**: <ins>ID-Inst-NPC-Dono</ins>, <ins>ID-Sala</ins>, <ins>ID-Região</ins>, <ins>ID-Estab</ins>
-- **Estabelecimento**: Descrição, Nome, <ins>ID-Estab</ins>
-- **Região**: Descrição, Nome, <ins>ID-Mapa</ins>, <ins>ID-Região</ins>
-- **Mapa**: Nome, <ins>ID-Mapa</ins>
+2. **Mapa**
+   - idMapa
+   - descricao
+
+3. **Área**
+   - idArea
+   - nome
+   - Norte
+   - Sul
+   - Leste
+   - Oeste 
+
+4. **Loja**
+   - idLoja
+   - descricao
+  
+5. **Item**
+   - idItem
+   - nome
+   - descricaoItem
+   - valor
+   - acao
+   - tipo
+
+6. **Inventário**
+   - idInventario
+   - dinheiro
+
+7. **Jogador**
+   - idJogador
+   - nome
+   - pontosVida
+   - estado
+
+8. **Gangue**
+   - idGangue
+   - nome
+   - simboloGangue
+
+9. **Missão**
+   - idMissao
+   - nomeMissao
+
+10. **Fala**
+    - idFala
+    - texto
+    - momento
+
+11. **NPC**
+    - idNPC
+    - nome
+
+12. **Inimigo**
+    - idInimigo
+
+13. **Arsenal**
+    - idArsenal
+    - lotacao
+
+14. **Arma**
+    - idArma
+    - tipo
+
+15. **Habilidade**
+    - idHabilidade
+    - descricao
+    - dano
+    - nomeHabilidade
+
+16. **InstanciaItem**
+    - idInstanciaItem
+
+17. **Amigo**
+    - humor
+
+18. **NPCMissao**
+    - idNPCMissao
+    - cargo
+
+19. **InstanciaInimigo**
+    - multiplicador
+    - pontosVida
+    - pontosVidaMax
+    - idInstanciaInimigo
+
+20. **Coldre**
+    - idColdre
+
+21. **InstanciaNPC**
+    - idInstanciaNPC
 
 ## Relacionamentos
 
-- Personagem pertence a Classe
-    - Um Personagem pertence a uma Classe
-    - Uma Classe possui vários Personagens
-- Classe possui habilidade
-    - Uma Classe possui até N habilidades
-    - Uma habilidade é possuida por até N Classes
-- Jogador (PC) participa Gangue
-    - Cada Jogador (PC) participa de uma Gangue
-    - Cada Gangue tem de 2 a N Jogadores (PC)
-- Gangue confronta Gangue
-    - Uma Gangue confronta até N Gangues Perdedoras
-    - Uma Gangue confronta até N Gangues Vencedoras
-- Jogador (PC) coleta Instância de Item
-    - Uma Instância de item é coletada por um Jogador (PC)
-    - Um Jogador (PC) coleta de 0 a N Instâncias de Item
-- Jogador (PC) usa Instância de Item
-    - Um Jogador (PC) usa uma Instância de item
-    - Uma Instância de item é usada por um Jogador (PC)
-- Jogador (PC) doma Instância de Animal
-    - Uma Instância de animal é domada por um Jogador (PC)
-    - Um Jogador (PC) doma de 0 a N Instâncias de animal
-- Jogador (PC) ataca Hostil
-    - Um Jogador (PC) ataca até N Hostis
-    - Um Hostil é atacado por de 0 a N Jogadores (PC)
-- Jogador (PC) acessa Sala
-    - Um Jogador (PC) acessa uma Sala
-    - Uma Sala é acessada por um Jogador (PC)
-- Jogador (PC) abriga Sala
-    - Um Jogador (PC) é abrigado por uma Sala
-    - Uma Sala abriga até N Jogadores (PC)
-- Jogador (PC) cumpre Missão
-    - Um Jogador (PC) cumpre de 0 a N Missões
-    - Uma Missão é cumprida por até 1 Jogadores (PC)
-- Jogador (PC) possui Inventário
-    - Um Jogador (PC) possui um Inventário
-    - Um Inventário é possuido por um Jogador (PC)
-- Instância de NPC possui NPC
-    - Um NPC possui de 0 a N Instâncias de NPC
-    - Uma Instância de NPC é possuida por um NPC
-- Instância de NPC possui Inventário
-    - Uma Instância de NPC possui um Inventário
-    - Um Inventário é possuido por uma Instância de NPC
-- Instância de NPC coleta Instância de Item
-    - Uma Instância de NPC coleta de 0 a N Instâncias de Item
-    - Uma Instância de Item é coletada por uma Instância de NPC
-- Instância de NPC usa Instância de Item
-    - Uma Instância de NPC usa uma Instância de Item
-    - Uma Instância de Item é usada por uma Instância de NPC
-- Inventário contém Instância de Item
-    - Um Inventário contém de 0 a N Instâncias de Item
-    - Uma Instância de item está contida em um Inventário
-- Item contém Instância de Item
-    - Um Item contém de 0 a N Instâncias de Item
-    - Uma Instância de Item é contida por um Item
-- Instância de Item dispara Projétil
-    - Uma Instância de Item dispara de 0 a N Projéteis
-    - Cada Projétil é disparado por uma Instância de Item
-- Hostil possui Ataque
-    - Um Hostil possui até N Ataques
-    - Um Ataque é possuido por até N Hostis
-- Animal possui Instância de Animal
-    - Um Animal possui de 0 a N Instâncias de Animal
-    - Uma Instância de Animal faz parte de um Animal
-- Sala abriga Instância de NPC
-    - Uma Sala abriga de 0 a N Instâncias de NPC
-    - Uma Instância de NPC está abrigada em uma Sala
-- Sala abriga Instância de Animal
-    - Uma Sala abriga de 0 a N Instância de Animal
-    - Uma Instância de Animal está abrigada em uma Sala
-- Região contém Sala
-    - Uma Região contém até N Salas
-    - Cada Sala está contida em uma Região
-- Sala conecta Sala
-    - Uma Sala de Origem conecta uma Sala de Destino
-    - Uma Sala de Destino conecta uma Sala de Origem
-- Região faz fronteira Região
-    - Uma Região faz fronteira com de 0 a N Regiões de Origem
-    - Uma Região faz fronteira com de 0 a N Regiões de Destino
-- Mapa contém Região
-    - Um Mapa contém até N Regiões
-    - Uma Região está contida em um Mapa
-- Sala abriga Instância de Estabelecimento
-    - Uma Sala abriga de 0 a N Instâncias de Estabelecimento
-    - Uma Instância de Estabelecimento está abrigada em uma Sala
-- Instância de Estabelecimento possui Estabelecimento
-    - Um Estabelecimento tem de 0 a N Instância de Estabelecimento
-    - Uma Instância de Estabelecimento faz parte de um Estabelecimento
-- Instância de NPC fala Diálogo
-    - Uma Instância de NPC fala N Diálogos
-    - Uma Linha de Fala é falada por um NPC
-- Diálogo é composto por Linha de Fala
-    - Um Diálogo é composto por N Linhas de Falas
-    - Uma Linha de Fala compõem um Diálogo
-- Instância de NPC participa de Missão
-    - Uma instância de NPC faz parte de uma Missão
-    - Uma Missão contém de 0 até N NPC
-- Missão possui Objetivo
-    - Uma Missão possui N objetivos
-    - Um objetivo é possuido por uma Missão
-- Missão conta História
-    - Uma Missão conta uma História
-    - Uma História é contada por uma Missão
-- Missão pré requisito para Missão
-  - Uma Missão anterior é pré-requisito para até 3 Missões atuais
-  - Uma Missão atual possui até 3 Missões anteriores de pré-requisito
-
+1. **Região - Área**: Uma Região **contém** várias Áreas.
+2. **Área - Loja**: Uma Área **possui** uma Loja.
+3. **Área - Jogador**: Um Jogador **se localiza em** uma Área.
+4. **Inventário - Jogador**: Um Inventário **pertence a** um Jogador.
+5. **Gangue - Jogador**: Um Jogador **pertence a** uma Gangue.
+6. **Missão - Jogador**: Um Jogador **participa de** uma Missão.
+7. **Item - Inventário**: Um Inventário **possui** um ou mais Itens.
+8. **Item - Missão**: Um Item **guarda** uma Missão.
+9. **Fala - InstanciaNPC**: Uma InstanciaNPC **diz** uma Fala.
+10. **InstânciaNPC - NPC**: NPCs podem ser **instanciados** em vários cenários como Amigo ou Inimigo.
+11. **InstanciaInimigo - InstanciaItem**: Uma Instancia de Inimigo pode **possui** um ou mais Instancias de Itens.
+12. **InstânciaInimigo - Missão**: Um Inimigo pode ser **instanciado** em uma Missão.
+13. **Arma - Arsenal**: Uma Arma **armazena-se em** um Arsenal.
+14. **Habilidade - Inimigo**: Um Inimigo **possui** uma ou mais Habilidades.
+15. **Coldre - Arma**: Um Coldre **contém** uma Arma.
+16. **Mapa - Região**: Uma mapa **contém** um ou mais Regiões.
+17. **Área - Área**: Uma área **liga** uma ou mais Áreas.
+18. **Loja - InstanciaItem**: Uma loja **vende** uma ou mais Instancia de Itens.
+19. **InstanciaItem - Item**: Um item **instancia** uma ou mais Instancia de Itens.
+20. **Missao - NPCMissao**: Um NPCMissao **participa** de uma Missao.
+21. **Inimigo - InstanciaInimigo**: Um Inimigo **instancia** um ou mais InstanciaInimigo.
+22. **Coldre - InstanciaItem**: Um coldre **guarda** uma InstanciaItem.
+23. **NPC - InstanciaItem**: Um NPC **possui** uma ou mais InstanciaItem.
+24. **Arsenal - Jogador**: Um Jogador **possui** um Arsenal.
+25. **NPC - InstanciaNPC**: Um NPC **instancia** um ou mais InstanciaNPC.
 
 ## Bibliografia
 

@@ -1,349 +1,289 @@
-create type tipo_personagem as enum('JOG', 'NPC'); 
-create type tipo_animal as enum('AMG', 'HST');
--- Consumível, Equipável, Arma Fogo, Arma Melee
-create type tipo_item as enum('CON', 'EQP', 'AFG', 'AML');
+begin;
+   CREATE SEQUENCE mapa_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS MAPA(
+      idMapa            int NOT NULL DEFAULT nextval('mapa_id_seq') PRIMARY KEY,
+      descricao         CHAR(100) NOT NULL
+   );
+   ALTER SEQUENCE mapa_id_seq OWNED BY MAPA.idMapa;
+   savepoint create_tb_MAPA;
+commit;
 
-create table if not exists mapa (
-	idMapa serial primary key,
-	nome varchar(30) not null
-);
 
-create table if not exists estado (
-	idEstado serial primary key,
-	idMapa int not null,
-	nome varchar(30) not null,
-	sigla char(2) not null unique,
-	descricao varchar(1000),
-	constraint fk_mapa foreign key(idMapa) references mapa(idMapa) on delete restrict on update cascade
-);
+begin;
+   CREATE SEQUENCE regiao_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS REGIAO(
+      idRegiao          int NOT NULL DEFAULT nextval('regiao_id_seq') PRIMARY KEY,
+      idMapa            INT NOT NULL,
+      descricao         VARCHAR NOT NULL,
+      nome              VARCHAR(50) NOT NULL,
+      FOREIGN KEY (idMapa) REFERENCES MAPA (idMapa)
+   );
+   ALTER SEQUENCE regiao_id_seq OWNED BY REGIAO.idRegiao;
+   savepoint create_tb_REGIAO;
+commit;
 
-create table if not exists estado_faz_fronteira_com_estado (
-	siglaEstadoOrigem char(2) not null,
-	siglaEstadoDestino char(2) not null,
-	primary key(siglaEstadoOrigem, siglaEstadoDestino),
-	constraint fk_origem foreign key (siglaEstadoOrigem) references estado(sigla) on delete restrict on update cascade,
-	constraint fk_destino foreign key (siglaEstadoDestino) references estado(sigla) on delete restrict on update cascade
-);
 
-create table if not exists cidade (
-	idCidade serial primary key,
-	nome varchar(30) not null unique,
-	siglaEstado char(2) not null,
-	descricao varchar(1000),
-	qtdHabitantes int not null default 0,
-	constraint fk_estado foreign key(siglaEstado) references estado(sigla) on delete restrict on update cascade
-);
+begin;
+   CREATE SEQUENCE area_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS AREA(
+      idArea        int NOT NULL DEFAULT nextval('area_id_seq') PRIMARY KEY,
+      idRegiao      INT NOT NULL,
+      nome          VARCHAR(50) NOT NULL,
+      Leste     INT  REFERENCES AREA(idArea),
+      Oeste     INT  REFERENCES AREA(idArea),
+      Sul       INT  REFERENCES AREA(idArea),
+      Norte     INT  REFERENCES AREA(idArea),
+      FOREIGN KEY (idRegiao) REFERENCES REGIAO (idRegiao)
+   );
+   ALTER SEQUENCE area_id_seq OWNED BY AREA.idArea;
+   savepoint create_tb_AREA;
+commit;
 
-create table if not exists cidade_conecta_com_cidade (
-	idCidadeOrigem int,
-	idCidadeDestino int,
-	primary key(idCidadeOrigem, idCidadeDestino),
-	constraint fk_origem foreign key(idCidadeOrigem) references cidade(idCidade) on delete restrict on update cascade,
-	constraint fk_destino foreign key(idCidadeDestino) references cidade(idCidade) on delete restrict on update cascade
-);
 
-create table if not exists estabelecimento (
-	idEstab serial primary key,
-	nome varchar(30) not null,
-	descricao varchar(1000)
-);
+begin;
+   CREATE SEQUENCE arma_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS ARMA(
+      idArma       int NOT NULL DEFAULT nextval('arma_id_seq') PRIMARY KEY,
+      nome            VARCHAR(50) NOT NULL,
+      efeito          VARCHAR NOT NULL,
+      ponto           INT NOT NULL
+   );
+   ALTER SEQUENCE arma_id_seq OWNED BY ARMA.idArma;
+   savepoint create_tb_ARMA;
+commit;
 
-create table if not exists personagem_tipo (
-	idPersonagem int primary key,
-	tipo tipo_personagem not null
-);
 
-create table if not exists inventario (
-	idInventario serial primary key,
-	totalItens int not null default 0,
-	capacidade int not null
-);
+begin;
+   CREATE SEQUENCE loja_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS LOJA(
+      idLoja              INT NOT NULL DEFAULT nextval('loja_id_seq') PRIMARY KEY,
+      idArea              INT NOT NULL,
+      descricao           VARCHAR(100) NOT NULL,
+      FOREIGN KEY (idArea) REFERENCES AREA (idArea)
+   );
+   ALTER SEQUENCE loja_id_seq OWNED BY LOJA.idLoja;
+   savepoint create_tb_LOJA;
+commit;
 
-create table if not exists classe (
-    idClasse serial primary key,
-    nome varchar(20) not null    
-);
 
-create table if not exists historia (
-	idHistoria serial primary key,
-	titulo varchar(200) not null,
-	enredo varchar(3000) not null
-);
+begin;
+   CREATE SEQUENCE item_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS ITEM(
+      idItem           int NOT NULL DEFAULT nextval('item_id_seq') PRIMARY KEY,
+      idLoja           INT NULL, 
+      nome             VARCHAR(50) NOT NULL,
+      acao             VARCHAR(200) NOT NULL,
+      valor            NUMERIC(10,2) NOT NULL,
+      tipo             CHAR(50) NOT NULL,
+      descricaoItem    VARCHAR(100) NOT NULL, 
+      FOREIGN KEY (idLoja) REFERENCES LOJA (idLoja)
+   );
+   ALTER SEQUENCE item_id_seq OWNED BY ITEM.idItem;
+   savepoint create_tb_ITEM;
+commit;
 
--- Depois que o scrapper estiver completo, mudar idEstado para idCidade not null
-create table if not exists missao (
-	idMissao serial primary key,
-	titulo varchar(60) not null,
-	nivelDificuldade int not null check(nivelDificuldade between 1 and 10),
-	idHistoria int not null,
-	idEstado int,
-	constraint fk_historia foreign key(idHistoria) references historia(idHistoria) on delete restrict on update cascade,
-	constraint fk_estado foreign key(idEstado) references estado(idEstado) on delete restrict on update cascade
-);
 
-create table if not exists missao_depende_de_missao (
-    idMissaoAtual int,
-    idMissaoAnterior int,
-	primary key(idMissaoAtual, idMissaoAnterior),
-    constraint fk_atual foreign key(idMissaoAtual) references missao(idMissao) on delete restrict on update cascade,
-	constraint fk_anterior foreign key(idMissaoAnterior) references missao(idMissao) on delete restrict on update cascade   
-);
 
-create table if not exists jogador (
-	idPersonagem int primary key,
-	idInventario int not null,
-	idCidade int not null,
-	idClasse int not null,
-	idGangue int not null,
-	nome varchar(30) not null,
-	xp int not null default 0,
-	dinheiro int not null default 0,
-	velocidade int not null default 7 check(velocidade between 1 and 10),
-	vidaMax int not null default 100 check(vidaMax between 1 and 100),
-	vidaAtual int not null default 100 check(vidaAtual between 1 and 100),
-	staminaMax int not null default 1000 check(staminaMax between 1 and 1000),
-	staminaAtual int not null default 1000 check(staminaAtual between 1 and 1000),
-	username varchar(30) not null,
-	senha_hash varchar(255) not null,
-	constraint fk_jogador foreign key(idPersonagem) references personagem_tipo(idPersonagem) on delete restrict on update cascade,
-	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete restrict on update cascade,
-	constraint fk_cidade foreign key(idCidade) references cidade(idCidade) on delete restrict on update cascade,
-	constraint fk_classe foreign key(idClasse) references classe(idClasse) on delete restrict on update cascade
-);
+begin;
+   CREATE SEQUENCE npc_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS NPC(
+      idNPC      INT NOT NULL DEFAULT nextval('npc_id_seq') PRIMARY KEY,
+      item       INT NOT NULL,
+      nome       VARCHAR(50) NOT NULL,
+      FOREIGN KEY (item) REFERENCES ITEM (idItem)
+   );
+   ALTER SEQUENCE npc_id_seq OWNED BY NPC.idNPC;
+   savepoint create_tb_NPC;
+commit;
 
-create table if not exists npc (
-	idPersonagem int primary key,
-	nome varchar(30) not null,
-	velocidade int not null default 7 check(velocidade between 1 and 10),
-	vidaMax int not null default 100 check(vidaMax between 1 and 100),
-	staminaMax int not null default 1000 check(staminaMax between 1 and 1000),
-	constraint fk_npc foreign key(idPersonagem) references personagem_tipo(idPersonagem) on delete restrict on update cascade
-);
 
-create table if not exists instancia_npc (
-	idInstanciaNPC serial primary key,
-	idPersonagem int not null,
-	idGangue int,
-	idInventario int not null,
-	idMissao int,
-	idCidade int not null,
-	constraint fk_personagem foreign key(idPersonagem) references npc(idPersonagem) on delete restrict on update cascade,
-	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete restrict on update cascade,
-	constraint fk_missao foreign key(idMissao) references missao(idMissao) on delete restrict on update cascade,
-	constraint fk_cidade foreign key(idCidade) references cidade(idCidade) on delete restrict on update cascade
-);
 
-create table if not exists instancia_estabelecimento (
-	idInstEstab serial,
-	idEstab int not null,
-	idCidade int not null,
-	idInstNPCDona int not null,
-	primary key(idInstEstab, idEstab),
-	constraint fk_cidade foreign key(idCidade) references cidade(idCidade) on delete restrict on update cascade,
-	constraint fk_dono foreign key(idInstNPCDona) references instancia_npc(idInstanciaNPC) on delete restrict on update cascade 
-);
+begin;
+   CREATE SEQUENCE gangue_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS GANGUE(
+      idGangue         int NOT NULL DEFAULT nextval('gangue_id_seq') PRIMARY KEY,
+      nomeGangue       VARCHAR(50) NOT NULL,
+      simboloGangue        CHAR(50) NOT NULL
+   );
+   ALTER SEQUENCE gangue_id_seq OWNED BY GANGUE.idGangue;
+   savepoint create_tb_GANGUE;
+commit;
 
-create table if not exists ataque (
-	idAtaque serial primary key,
-	descricao varchar(1000),
-	dano int default 50 check (dano between 1 and 100)
-);
 
-create table if not exists animal_tipo (
-	idAnimal int primary key,
-	tipo tipo_animal not null
-);
 
-create table if not exists animal_hostil (
-	idAnimal int primary key,
-	habitatNatural varchar(100),
-	especie varchar(30),
-	velocidade int default 50 check(velocidade between 1 and 10),
-	vidaMax int default 50 check(vidaMax between 1 and 100),
-	staminaMax int default 50 check(staminaMax between 1 and 100),
-	textura varchar(30),
-	constraint fk_animal_amigavel foreign key(idAnimal) references animal_tipo(idAnimal) on delete restrict on update cascade
-);
+begin;
+   CREATE SEQUENCE missao_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS MISSAO(
+      idMissao         int NOT NULL DEFAULT nextval('missao_id_seq') PRIMARY KEY,
+      NPC                  INT  NOT NULL,
+      nomeMissao       VARCHAR(50) NOT NULL,
+      arma              INT  NOT NULL,
+      FOREIGN KEY (NPC) REFERENCES NPC (idNPC),
+      FOREIGN KEY (arma) REFERENCES ARMA (idArma)
+   );
+   ALTER SEQUENCE missao_id_seq OWNED BY MISSAO.idMissao;
+   savepoint create_tb_MISSAO;
+commit;
 
-create table if not exists animal_amigavel (
-	idAnimal int primary key,
-	habitatNatural varchar(100),
-	especie varchar(30),
-	velocidade int default 50 check(velocidade between 1 and 10),
-	vidaMax int default 50 check(vidaMax between 1 and 100),
-	staminaMax int default 50 check(staminaMax between 1 and 100),
-	textura varchar(30),
-	constraint fk_animal_amigavel foreign key(idAnimal) references animal_tipo(idAnimal) on delete restrict on update cascade
-);
 
-create table if not exists animal_hostil_possui_ataque (
-    idAtaque int,
-    idAnimal int,
-	primary key(idAtaque, idAnimal),
-    constraint fk_ataque foreign key(idAtaque) references ataque(idAtaque) on delete restrict,
-    constraint fk_animal foreign key(idAnimal) references animal_hostil(idAnimal) on delete restrict on update cascade
-);
 
-create table if not exists instancia_animal (
-	idInstanciaAnimal serial primary key,
-	idAnimal int not null,
-	vidaAtual int default 100,
-	staminaAtual int default 100,
-	idCidade int not null,
-	constraint fk_animal foreign key(idAnimal) references animal_tipo(idAnimal) on delete restrict on update cascade,
-	constraint fk_cidade foreign key(idCidade) references cidade(idCidade) on delete restrict on update cascade
-);
+begin;
+   CREATE TABLE IF NOT EXISTS NPC_MISSAO(
+      idNPC            INT  NOT NULL,
+      gangue             INT  NOT NULL,
+      missao       INT  NOT NULL,
+      FOREIGN KEY (idNPC) REFERENCES NPC (idNPC),
+      FOREIGN KEY (gangue) REFERENCES GANGUE (idGangue),
+      FOREIGN KEY (missao) REFERENCES MISSAO (idMissao)
+   );
+   savepoint create_tb_NPC_MISSAO;
+commit;
 
-create table if not exists jogador_domou_animal_amigavel (
-	idInstanciaAnimal int not null,
-	idJogador int not null,
-	constraint pks primary key (idInstanciaAnimal, idJogador),
-	constraint fk_instancia foreign key(idInstanciaAnimal) references instancia_animal(idInstanciaAnimal) on delete restrict on update cascade,
-	constraint fk_jogador foreign key(idJogador) references jogador(idPersonagem) on delete restrict on update cascade
-);
 
-create table if not exists animal_hostil_ataca_jogador (
-	idInstanciaAnimal int not null,
-	idJogador int not null,
-	primary key (idInstanciaAnimal, idJogador),
-	constraint fk_instancia foreign key(idInstanciaAnimal) references instancia_animal(idInstanciaAnimal) on delete restrict on update cascade,
-	constraint fk_jogador foreign key(idJogador) references jogador(idPersonagem) on delete restrict on update cascade
-);
 
-create table if not exists objetivo (
-	idObjetivo serial primary key,
-	titulo varchar(500) not null,
-	retornoXP int not null check(retornoXP between 1 and 1000),
-	retornoDinheiro int not null check(retornoDinheiro between 1 and 1000),
-	idMissao int not null,
-	constraint fk_missao foreign key(idMissao) references missao(idMissao) on delete restrict on update cascade
-);
+begin;
+   CREATE SEQUENCE jogador_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS JOGADOR(
+      idJogador    INT NOT NULL DEFAULT nextval('jogador_id_seq') PRIMARY KEY,
+      nome         VARCHAR(50) NOT NULL,
+      idArea       INT  NOT NULL,
+      pontosVida   INT  NOT NULL,
+      idGangue       INT  NOT NULL,
+      estado       INT  NOT NULL DEFAULT 1,
+      FOREIGN KEY (idArea) REFERENCES AREA (idArea),
+      FOREIGN KEY (idGangue) REFERENCES GANGUE (idGangue),
+      UNIQUE (nome)
+   );
+   ALTER SEQUENCE jogador_id_seq OWNED BY JOGADOR.idJogador;
+   savepoint create_tb_JOGADOR;
+commit;
 
-create table if not exists habilidade (
-    idHabilidade serial primary key,
-    nome varchar(30) not null,
-    porcentagem decimal(3,2) not null check(porcentagem between 0.00 and 1.00)
-);
 
-create table if not exists classe_possui_habilidade (
-    idClasse int,
-    idHabilidade int,
-	primary key(idClasse, idHabilidade),
-    constraint fk_classe foreign key(idClasse) references classe(idClasse) on delete restrict on update cascade,
-    constraint fk_habilidade foreign key(idHabilidade) references habilidade(idHabilidade) on delete restrict on update cascade
-);
+begin;
+   CREATE SEQUENCE arsenal_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS ARSENAL(
+      idArsenal  INT NOT NULL,
+      arma     INT NOT NULL,
+      FOREIGN KEY (idArsenal) REFERENCES JOGADOR (idJogador),
+      FOREIGN KEY (arma) REFERENCES ARMA (idArma),
+      PRIMARY KEY (idArsenal,arma)
+   );
+   ALTER SEQUENCE arsenal_id_seq OWNED BY ARSENAL.idArsenal;
+   savepoint create_tb_ARSENAL;
+commit;
 
-create table if not exists gangue (
-    idGangue serial primary key,
-    nome varchar(50) not null,
-    idInstanciaNPCLider int not null,
-    descricao varchar(2000) not null,
-    constraint fk_instancia_npc foreign key(idInstanciaNPCLider) references instancia_npc(idInstanciaNPC) on delete restrict on update cascade
-);
 
-create table if not exists gangue_confronta_gangue (
-    idGangueVencedora int,
-    idGanguePerdedora int,
-    dataConfronto date not null default current_date,
-	primary key(idGangueVencedora, idGanguePerdedora, dataConfronto),
-    constraint fk_vencedora foreign key(idGangueVencedora) references gangue(idGangue) on delete restrict on update cascade
-);
+begin;
+   CREATE SEQUENCE instancia_item_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS INSTANCIA_ITEM(
+      idInstanciaItem      INT NOT NULL DEFAULT nextval('instancia_item_id_seq') PRIMARY KEY,
+      idItem               INT  NOT NULL,
+      idJogador            INT NULL DEFAULT NULL,
+      FOREIGN KEY (idItem) REFERENCES ITEM (idItem),
+      FOREIGN KEY (idJogador) REFERENCES JOGADOR (idJogador)
+   );
+   ALTER SEQUENCE instancia_item_id_seq OWNED BY INSTANCIA_ITEM.idInstanciaItem;
+   savepoint create_tb_INSTANCIA_ITEM;
+commit;
 
-create table if not exists dialogo (
-    idDialogo serial primary key,
-    idInstanciaNPCFalante int not null,
-    descricao varchar(1000) not null,
-    constraint fk_instancia_npc foreign key(idInstanciaNPCFalante) references instancia_npc(idInstanciaNPC) on delete restrict on update cascade
-);
 
-create table if not exists linha_de_fala (
-    idLinhaDeFala serial primary key,
-    idDialogo int not null,
-    texto varchar(100) not null,
-    constraint fk_dialogo foreign key(idDialogo) references dialogo(idDialogo) on delete restrict on update cascade
-);
 
-create table if not exists jogador_cumpre_missao (
-	idJogador int,
-	idMissao int,
-	dataMissao date not null,
-	retornoTotalXP int not null,
-	retornoTotalDinheiro int not null,
-	status decimal(3, 2) not null default 0.00 check(status between 0.00 and 1.00),
-	primary key(idJogador, idMissao),
-	constraint fk_jogador foreign key(idJogador) references jogador(idPersonagem) on delete restrict on update cascade
-);
+begin;
+   CREATE TABLE IF NOT EXISTS INVENTARIO(
+      idJogador               INT NOT NULL,
+      dinheiro                INT NULL,
+      FOREIGN KEY (idJogador) REFERENCES JOGADOR (idJogador)
+   );
+   savepoint create_tb_INVENTARIO;
+commit;  
 
-create table if not exists item_tipo (
-	idItem int primary key,
-	tipo tipo_item not null
-);
 
-create table if not exists item_consumivel (
-	idItem int primary key,
-	nome varchar(30) not null unique,
-	descricao varchar(1000),
-	peso int not null check(peso between 1 and 8),
-	preco decimal(5, 2) not null,
-	durabilidadeMaxima int,
-	qtdReparacaoStamina int not null check(qtdReparacaoStamina between 0 and 1000),
-	qtdReparacaovida int not null check(qtdReparacaovida between 0 and 150),
-	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
-);
 
-create table if not exists item_equipavel (
-	idItem int primary key,
-	nome varchar(30) not null unique,
-	descricao varchar(2000),
-	peso int not null check(peso between 1 and 8),
-	preco decimal(4, 2) not null,
-	durabilidadeMaxima int not null,
-	parteDoCorpo varchar(30) not null,
-	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
-);
+begin;
+   CREATE TABLE IF NOT EXISTS INSTANCIA_JOGADOR_MISSAO(
+      idJogador            INT NOT NULL,
+      idMissao         INT NULL,
+      FOREIGN KEY (idJogador) REFERENCES JOGADOR (idJogador),
+      FOREIGN KEY (idMissao) REFERENCES MISSAO (idMissao)
+   );
+   savepoint create_tb_INSTANCIA_JOGADOR_MISSAO;
+commit;
 
-create table if not exists arma_fogo (
-	idItem int primary key,
-	nome varchar(100) not null,
-	descricao varchar(2000),
-	peso int not null check(peso between 1 and 8),
-	preco decimal(5, 3) not null,
-	durabilidadeMaxima int not null,
-	danoPorAtaque decimal(4, 2) not null,
-	velocidadeDisparo decimal(4, 2) not null,
-	velocidadeReload decimal(4, 2) not null,
-	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
-);
 
-create table if not exists arma_melee (
-	idItem int primary key,
-	nome varchar(100) not null,
-	descricao varchar(2000) not null,
-	peso int not null check(peso between 1 and 8),
-	preco decimal(5, 3) not null,
-	durabilidadeMaxima int not null,
-	danoPorAtaque decimal(4, 2) not null,
-	nivelAfiacaoMaxima int not null default 1 check(nivelAfiacaoMaxima between 1 and 10),
-	constraint fk_item_tipo foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade
-);
 
-create table if not exists instancia_item (
-	idInstanciaItem serial primary key,
-	idItem int not null,
-	idInventario int not null,
-	durabilidadeAtual int not null,
-	constraint fk_item foreign key(idItem) references item_tipo(idItem) on delete restrict on update cascade,
-	constraint fk_inventario foreign key(idInventario) references inventario(idInventario) on delete restrict on update cascade
-);
+begin;
+   CREATE SEQUENCE habilidade_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS HABILIDADE(
+      idHabilidade     INT NOT NULL DEFAULT nextval('habilidade_id_seq') PRIMARY KEY,
+      nomeHabilidade   VARCHAR(50) NOT NULL,
+      dano             INT NULL,
+      descricao        VARCHAR(100) NOT NULL
+   );
+   ALTER SEQUENCE habilidade_id_seq OWNED BY HABILIDADE.idHabilidade;
+   savepoint create_tb_HABILIDADE;
+commit;
 
-create table if not exists projetil (
-	idProjetil serial primary key,
-	idInstanciaItem int not null,
-	colidiu boolean not null,
-	velocidade int not null check(velocidade between 1 and 1000), 
-	constraint fk_instancia_item foreign key(idInstanciaItem) references instancia_item(idInstanciaItem) on delete restrict on update cascade
-);
 
-alter table jogador add constraint fk_gangue foreign key(idGangue) references gangue(idGangue) on delete restrict on update cascade;
 
-alter table instancia_npc add constraint fk_gangue foreign key(idGangue) references gangue(idGangue) on delete restrict on update cascade;
+begin;
+   CREATE TABLE IF NOT EXISTS INIMIGO(
+      idNPC            INT NOT NULL,
+      idHabilidade     INT NULL,
+      moedas           INT NOT NULL,
+      FOREIGN KEY (idNPC) REFERENCES NPC (idNPC),
+      FOREIGN KEY (idHabilidade) REFERENCES HABILIDADE (idHabilidade)
+   );
+      savepoint create_tb_INIMIGO;
+commit;
+
+begin;
+   CREATE TABLE IF NOT EXISTS AMIGO(
+      idNPC            INT NOT NULL,
+      humor            INT NOT NULL,
+      FOREIGN KEY (idNPC) REFERENCES NPC (idNPC)
+   );
+      savepoint create_tb_AMIGO;
+commit;
+
+begin;
+   CREATE SEQUENCE instancia_inimigo_id_seq START 1;
+   CREATE TABLE IF NOT EXISTS INSTANCIA_INIMIGO(
+      idInstancia_Inimigo INT NOT NULL DEFAULT nextval('instancia_inimigo_id_seq') PRIMARY KEY,
+      idNPC             INT NOT NULL,
+      idArea            INT NOT NULL,
+      idItem            INT NULL,
+      pontosVidaMax     INT NOT NULL,
+      pontosVida        INT NOT NULL,
+      multiplicador     INT NOT NULL,
+      FOREIGN KEY (idNPC) REFERENCES NPC (idNPC),
+      FOREIGN KEY (idArea) REFERENCES AREA (idArea),
+      FOREIGN KEY (idItem) REFERENCES ITEM (idItem)
+   );
+   ALTER SEQUENCE instancia_inimigo_id_seq OWNED BY INSTANCIA_INIMIGO.idInstancia_Inimigo;
+   savepoint create_tb_INSTANCIA_INIMIGO;
+commit;
+
+
+
+begin;
+   CREATE TABLE IF NOT EXISTS COLDRE(
+      idItem           INT NOT NULL,
+      arma          INT NOT NULL,
+      FOREIGN KEY (idItem) REFERENCES ITEM (idItem),
+      FOREIGN KEY (arma) REFERENCES ARMA (idArma)
+   );
+   savepoint create_tb_COLDRE;
+commit;
+
+
+begin;
+   CREATE TABLE IF NOT EXISTS FALAS(
+      idNPC           INT NOT NULL,
+      idArea          INT NOT NULL,
+      texto           VARCHAR(400),
+      momento         INT NOT NULL,
+      FOREIGN KEY (idNPC) REFERENCES NPC (idNPC),
+      FOREIGN KEY (idArea) REFERENCES AREA (idArea)
+   );
+commit;
+
