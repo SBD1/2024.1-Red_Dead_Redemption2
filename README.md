@@ -102,9 +102,7 @@ docker-compose down
 
 ## Entrega 3 (09/09/2024)
 
-[Triggers](src/sql/Triggers.sql)
-
-[Stored Procedures](src/sql/SPs.sql)
+[Triggers e Stored Procedures](src/sql/Procedures.sql)
 
 [Jogo](docs/instrucoes_final.md)
 
