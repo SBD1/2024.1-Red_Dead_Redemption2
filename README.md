@@ -101,3 +101,11 @@ docker-compose down
 [Apresentação](https://youtu.be/ORvEm5pqcHw)
 
 **Obs.:** A versão atualizada da documentação do projeto (DER, MREL, e Dicionário de Dados) pode ser acessada nos mesmos links da entrega anterior. Lá, também publicadas as versões anteriores desses documentos, a fim de comparação, caso seja necessário.
+
+## Entrega 3 (09/09/2024)
+
+[Triggers e Stored Procedures](src/sql/Procedures.sql)
+
+[Apresentação](https://youtu.be/x1NtYxpENJk)
+
+*Obs.:* Todos os artefatos estão em suas versões mais atualizadas.
