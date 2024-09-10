@@ -104,8 +104,6 @@ docker-compose down
 
 [Triggers e Stored Procedures](src/sql/Procedures.sql)
 
-[Jogo](docs/instrucoes_final.md)
-
 [Apresentação]()
 
 **Obs.:** Todos os artefatos estão em suas versões mais atualizadas.
